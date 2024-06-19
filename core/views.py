@@ -1,3 +1,13 @@
-from django.shortcuts import render
+from django.views.generic import TemplateView
 
-# Create your views here.
+
+class ResumeView(TemplateView):
+    template_name = "resume.html"
+
+
+class PortfolioView(TemplateView):
+    template_name = "portfolio.html"
+
+
+class ContactView(TemplateView):
+    template_name = "contact.html"
