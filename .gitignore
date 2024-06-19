@@ -1,0 +1,34 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Django stuff:
+*.log
+*.pot
+*.pyc
+
+# virtual environment
+venv
+
+# IDE
+.idea
+
+# local staticfiles
+core/staticfiles
+
+# Local configuration
+settings-local.py
+
+htmlcov/
+.coverage
+.coverage.*
+
+# Sphinx build directories
+/docs/_build/
+/docs/_static/
+/docs/_templates/
+
+# System-specific files
+.DS_Store
+Thumbs.db
