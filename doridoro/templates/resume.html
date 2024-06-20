@@ -1,0 +1,66 @@
+{% extends 'base.html' %}
+{% load static %}
+
+  {% block content %}
+  <!-- ======= Resume Section ======= -->
+  <section id="resume" class="resume section-show">
+    <div class="container">
+
+      <div class="section-title">
+        <h2>Resume</h2>
+        <p>Check My Resume</p>
+      </div>
+
+      <div class="row">
+        <div class="col-lg-6">
+          {% if jobs_formation %}
+          <h3 class="resume-title">Education</h3>
+          {% for job_f in jobs_formation %}
+          <div class="resume-item">
+            <h4>{{ job_f.position }}{% if job_f.company_name %} at {{ job_f.company_name }}{% endif %}</h4>
+            <h5>{{ job_f.start_date|date:"M o" }} to {% if job_f.end_date %}{{ job_f.end_date|date:"M o" }}{% else %}present{% endif %}</h5>
+            <p><em>{{ job_f.address }}</em></p>
+            <p>{{ job_f.description }}</p>
+          </div>
+          {% endfor %}
+          {% endif %}
+
+          {% if jobs_mentoring %}
+          <h3 class="resume-title">Mentoring</h3>
+          {% for job_m in jobs_mentoring %}
+          <div class="resume-item">
+            <h4>{{ job_m.position }}{% if job_m.company_name %} at {{ job_m.company_name }}{% endif %}</h4>
+            <h5>{{ job_m.start_date|date:"M o" }} to {% if job_m.end_date %}{{ job_m.end_date|date:"M o" }}{% else %}present{% endif %}</h5>
+            <p><em>{{ job_m.address }}</em></p>
+            <p>{{ job_m.description }}</p>
+          </div>
+          {% endfor %}
+          {% endif %}
+        </div>
+
+        {% if jobs_experience %}
+        <div class="col-lg-6">
+          <h3 class="resume-title">Professional Experience</h3>
+          {% for job_exp in jobs_experience %}
+          <div class="resume-item">
+            <h4>{{ job_exp.position }}{% if job_exp.company_name %} at {{ job_exp.company_name }}{% endif %}</h4>
+            <h5>{{ job_exp.start_date|date:"M o" }} to {% if job_exp.end_date %}{{ job_exp.end_date|date:"M o" }}{% else %}present{% endif %}</h5>
+            <p><em>{{ job_exp.address }}</em></p>
+            <p>{{ job_exp.description }}</p>
+
+            <ul>
+              <li>Developed numerous marketing programs (logos, brochures,infographics, presentations, and advertisements).</li>
+              <li>Managed up to 5 projects or tasks at a given time while under pressure</li>
+              <li>Recommended and consulted with clients on the most appropriate graphic design</li>
+              <li>Created 4+ design presentations and proposals a month for clients and account managers</li>
+            </ul>
+            </p>
+          </div>
+          {% endfor %}
+        </div>
+        {% endif %}
+      </div>
+
+    </div>
+  </section><!-- End Resume Section -->
+  {% endblock %}

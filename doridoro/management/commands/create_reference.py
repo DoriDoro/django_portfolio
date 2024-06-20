@@ -32,12 +32,7 @@ class Command(BaseCommand):
 
             with transaction.atomic():
                 for reference in references:
-                    Reference.objects.create(
-                        name=reference["name"],
-                        profession=reference["profession"],
-                        email=reference["email"],
-                        language=reference["language"],
-                    )
+                    Reference.objects.create(**reference)
 
             self.stdout.write(
                 self.style.SUCCESS("Instances of Reference successfully created!")

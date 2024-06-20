@@ -28,7 +28,7 @@ class Command(BaseCommand):
 
             with transaction.atomic():
                 for profile in social_media:
-                    SocialMedia.objects.create(name=profile["name"], url=profile["url"])
+                    SocialMedia.objects.create(**profile)
 
             self.stdout.write(
                 self.style.SUCCESS("Instances of SocialMedia successfully created!")

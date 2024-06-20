@@ -18,6 +18,10 @@ class Command(BaseCommand):
                     "name": "English",
                     "level": Language.C1,
                 },
+                {
+                    "name": "French",
+                    "level": Language.B2,
+                },
             ]
 
             if Language.objects.exists():
@@ -28,10 +32,7 @@ class Command(BaseCommand):
 
             with transaction.atomic():
                 for language in languages:
-                    Language.objects.create(
-                        name=language["name"],
-                        level=language["level"],
-                    )
+                    Language.objects.create(**language)
 
             self.stdout.write(
                 self.style.SUCCESS("Instances of Language successfully created!")

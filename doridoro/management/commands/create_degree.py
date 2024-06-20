@@ -23,10 +23,7 @@ class Command(BaseCommand):
 
             with transaction.atomic():
                 for degree in degrees:
-                    Degree.objects.create(
-                        organization=degree["organization"],
-                        degree=degree["degree"],
-                    )
+                    Degree.objects.create(**degree)
 
             self.stdout.write(
                 self.style.SUCCESS("Instances of Degree successfully created!")

@@ -11,7 +11,10 @@ class Project(models.Model):
         default=True, verbose_name=_("project visible on website")
     )
     tags = models.ManyToManyField(
-        "Tag", related_name="project_tag", verbose_name=_("tags of the project")
+        "Tag", related_name="project_tags", verbose_name=_("tags of the project")
+    )
+    links = models.ManyToManyField(
+        "Link", related_name="project_links", verbose_name=_("links of the project")
     )
     doridoro = models.ForeignKey(
         "doridoro.DoriDoro",
@@ -56,12 +59,6 @@ class Link(models.Model):
     url = models.URLField(verbose_name=_("url of link"))
     published = models.BooleanField(
         default=True, verbose_name=_("link visible on website")
-    )
-    project = models.ForeignKey(
-        "projects.Project",
-        on_delete=models.CASCADE,
-        related_name="project_link",
-        verbose_name=_("link of project"),
     )
 
     def __str__(self):

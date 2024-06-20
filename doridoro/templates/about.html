@@ -18,26 +18,24 @@
       <div class="col-lg-8 pt-4 pt-lg-0 content" data-aos="fade-left">
         <h3 class="mb-4">{{ doridoro.profession }}</h3>
         <div class="row">
-          <div class="col-lg-6">
+          <div class="col">
             <ul>
-              <li><i class="bi bi-chevron-right"></i> <strong>PHONE:</strong> <span>{{ doridoro.phone }}</span>
+              <li><i class="bi bi-chevron-right"></i> <strong>PHONE:</strong>
+                <span>{{ doridoro.phone }}</span>
               </li>
-              <li><i class="bi bi-chevron-right"></i> <strong>CITY:</strong> <span>{{ doridoro.address }}</span>
+              <li><i class="bi bi-chevron-right"></i> <strong>CITY:</strong>
+                <span>{{ doridoro.address }}</span>
               </li>
-            </ul>
-          </div>
-          <div class="col-lg-6">
-            <ul>
               <li><i class="bi bi-chevron-right"></i> <strong>EMAIL:</strong>
-                <span>{{ doridoro.user.email }}</span></li>
-              {% for job in jobs %}
-                <li>
-                  <i class="bi bi-chevron-right"></i> <strong> {{ job.job_type }}:</strong>
-                  <span>{{ job.name }}</span>
-                </li>
+                <span>{{ doridoro.user.email }}</span>
+              </li>
+              <hr>
+              {% for job in current_positions %}
+              <li><i class="bi bi-chevron-right"></i> <strong> {{ job.job_type }}:</strong>
+                <span>{{ job.position }} {% if job.company_name %}at <strong>{{ job.company_name }}</strong>{% endif %}</span>
+              </li>
               {% endfor %}
             </ul>
-          </div>
         </div>
         <p class="fst-italic">
           {{ doridoro.introduction|linebreaks }}

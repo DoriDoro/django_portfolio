@@ -13,6 +13,11 @@ class Command(BaseCommand):
                 {"name": "dogs"},
                 {"name": "horses"},
                 {"name": "handicraft"},
+                {"name": "yoga"},
+                {"name": "learning"},
+                {"name": "hiking"},
+                {"name": "biking"},
+                {"name": "movies"},
             ]
 
             if Hobby.objects.exists():
@@ -23,7 +28,7 @@ class Command(BaseCommand):
 
             with transaction.atomic():
                 for hobby in hobbies:
-                    Hobby.objects.create(name=hobby["name"])
+                    Hobby.objects.create(**hobby)
 
             self.stdout.write(
                 self.style.SUCCESS("Instances of Hobby successfully created!")

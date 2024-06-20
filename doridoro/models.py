@@ -86,30 +86,44 @@ class Job(models.Model):
     EMPLOYED = "EMPLOYED"
     APPRENTICESHIP = "APPRENTICESHIP"
     FORMATION = "FORMATION"
+    MENTORING = "MENTORING"
+    PARENTAL_LEAVE = "PARENTAL_LEAVE"
+    SABBATICAL = "SABBATICAL"
 
     JOB_TYPES = [
         (FREELANCE, _("Freelance")),
         (EMPLOYED, _("Employed")),
         (APPRENTICESHIP, _("Apprenticeship")),
         (FORMATION, _("Formation")),
+        (MENTORING, _("MENTORING")),
+        (PARENTAL_LEAVE, _("Parental_Leave")),
+        (SABBATICAL, _("Sabbatical")),
     ]
 
-    name = models.CharField(max_length=200, verbose_name=_("name of the job"))
-    title = models.CharField(max_length=200, verbose_name=_("title of the job"))
+    company_name = models.CharField(
+        max_length=200, verbose_name=_("company name of the job")
+    )
+    position = models.CharField(max_length=200, verbose_name=_("position of the job"))
     start_date = models.DateField(verbose_name=_("start date of the job"))
     end_date = models.DateField(
         blank=True, null=True, verbose_name=_("end date of the job")
     )
     until_present = models.BooleanField(default=False, verbose_name=_("until present"))
+    address = models.CharField(
+        max_length=100, blank=True, null=True, verbose_name="address of job"
+    )
     job_type = models.CharField(
         max_length=14, choices=JOB_TYPES, verbose_name=_("type of job")
     )
     description = models.TextField(verbose_name=_("description of job"))
+    published = models.BooleanField(
+        default=True, verbose_name=_("job visible on website")
+    )
     tags = models.ManyToManyField(
         "projects.Tag", related_name="job_tags", verbose_name=_("tags of the job")
     )
-    published = models.BooleanField(
-        default=True, verbose_name=_("job visible on website")
+    links = models.ManyToManyField(
+        "projects.Link", related_name="job_links", verbose_name="links of the job"
     )
 
     def clean(self):
@@ -127,13 +141,11 @@ class Job(models.Model):
                     "End date must be provided if the job is not ongoing (until_present is False)."
                 )
             )
-        if self.end_date < self.start_date:
-            raise ValidationError(
-                _("The end date of this Job should not be after the start date!")
-            )
+        if self.end_date and self.start_date and self.end_date < self.start_date:
+            raise ValidationError(_("End date should be after start date."))
 
     def __str__(self):
-        return f"{self.job_type} ({self.name} - {self.published})"
+        return f"{self.job_type} ({self.company_name} - {self.published})"
 
 
 class Language(models.Model):

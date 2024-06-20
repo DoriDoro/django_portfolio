@@ -28,7 +28,7 @@ class Command(BaseCommand):
 
             with transaction.atomic():
                 for website in websites:
-                    Website.objects.create(name=website["name"], url=website["url"])
+                    Website.objects.create(**website)
 
             self.stdout.write(
                 self.style.SUCCESS("Instances of Website successfully created!")

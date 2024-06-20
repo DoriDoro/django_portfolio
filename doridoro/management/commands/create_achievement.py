@@ -70,9 +70,7 @@ class Command(BaseCommand):
 
             with transaction.atomic():
                 for achievement in achievements:
-                    Achievement.objects.create(
-                        title=achievement["title"], content=achievement["content"]
-                    )
+                    Achievement.objects.create(**achievement)
 
             self.stdout.write(
                 self.style.SUCCESS("Instances of Achievement successfully created!")

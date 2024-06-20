@@ -47,7 +47,7 @@ class Command(BaseCommand):
 
             with transaction.atomic():
                 for fact in facts:
-                    Fact.objects.create(title=fact["title"], content=fact["content"])
+                    Fact.objects.create(**fact)
 
             self.stdout.write(
                 self.style.SUCCESS("Instances of Fact successfully created!")

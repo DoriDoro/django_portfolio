@@ -41,7 +41,14 @@ class HobbyAdmin(admin.ModelAdmin):
 
 @admin.register(Job)
 class JobAdmin(admin.ModelAdmin):
-    list_display = ["name", "title", "start_date", "job_type", "published"]
+    list_display = [
+        "company_name",
+        "position",
+        "start_date",
+        "until_present",
+        "job_type",
+        "published",
+    ]
 
 
 @admin.register(Language)
