@@ -38,9 +38,12 @@ class Project(models.Model):
 
 class Image(models.Model):
     legend = models.CharField(max_length=100, verbose_name=_("legend of image"))
-    # photo = models.ImageField(
-    #     upload_to="images", verbose_name=_("image"), blank=True, null=True
-    # )
+    photo = models.ImageField(
+        upload_to="assets/img/portfolio/",
+        verbose_name=_("photo"),
+        blank=True,
+        null=True,
+    )
     published = models.BooleanField(
         default=True, verbose_name=_("image visible on website")
     )

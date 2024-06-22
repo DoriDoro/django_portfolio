@@ -4,10 +4,6 @@ from django.utils.translation import gettext_lazy as _
 
 
 class DoriDoro(models.Model):
-
-    class Meta:
-        verbose_name_plural = "DoriDoro"
-
     user = models.ForeignKey(
         "accounts.User",
         null=True,
@@ -24,12 +20,15 @@ class DoriDoro(models.Model):
     dream_job = models.TextField(verbose_name=_("dream job description of DoriDoro"))
     free_time = models.TextField(verbose_name=_("after work description of DoriDoro"))
 
-    @property
-    def get_full_name(self):
-        return f"{self.user.first_name} {self.user.last_name}"
+    class Meta:
+        verbose_name_plural = "DoriDoro"
 
     def __str__(self):
         return self.get_full_name
+
+    @property
+    def get_full_name(self):
+        return f"{self.user.first_name} {self.user.last_name}"
 
 
 class Achievement(models.Model):
@@ -68,13 +67,13 @@ class Fact(models.Model):
 
 
 class Hobby(models.Model):
-    class Meta:
-        verbose_name_plural = "hobbies"
-
     name = models.CharField(max_length=100, verbose_name=_("name of hobby"))
     published = models.BooleanField(
         default=True, verbose_name=_("hobby visible on website")
     )
+
+    class Meta:
+        verbose_name_plural = "hobbies"
 
     def __str__(self):
         return f"{self.name} ({self.published})"
@@ -126,6 +125,9 @@ class Job(models.Model):
         "projects.Link", related_name="job_links", verbose_name="links of the job"
     )
 
+    def __str__(self):
+        return f"{self.job_type} ({self.company_name} - {self.published})"
+
     def clean(self):
         super().clean()
 
@@ -143,9 +145,6 @@ class Job(models.Model):
             )
         if self.end_date and self.start_date and self.end_date < self.start_date:
             raise ValidationError(_("End date should be after start date."))
-
-    def __str__(self):
-        return f"{self.job_type} ({self.company_name} - {self.published})"
 
 
 class Language(models.Model):
@@ -206,15 +205,14 @@ class Reference(models.Model):
 
 
 class SocialMedia(models.Model):
-
-    class Meta:
-        verbose_name_plural = "SocialMedia"
-
     name = models.CharField(max_length=150, verbose_name=_("name of social media"))
     url = models.URLField(max_length=250, verbose_name=_("url of social media"))
     published = models.BooleanField(
         default=True, verbose_name=_("social media visible on website")
     )
+
+    class Meta:
+        verbose_name_plural = "SocialMedia"
 
     def __str__(self):
         return f"{self.name} ({self.published})"

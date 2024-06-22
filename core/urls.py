@@ -6,5 +6,5 @@ app_name = "core"
 
 urlpatterns = [
     path("portfolio/", PortfolioView.as_view(), name="portfolio"),
-    path("contact/", ContactView.as_view(), name="contact"),
+    # path("contact/", ContactView.as_view(), name="contact"),
 ]

@@ -1,7 +1,6 @@
 from django.core.management.base import BaseCommand
 from django.db import IntegrityError, transaction
 from django.utils.html import format_html, format_html_join
-from django.utils.safestring import mark_safe
 
 from doridoro.models import Job
 

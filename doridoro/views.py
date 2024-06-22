@@ -1,6 +1,6 @@
 from django.views.generic import TemplateView
 
-from doridoro.models import DoriDoro, Job, SocialMedia
+from doridoro.models import DoriDoro, Job, SocialMedia, Fact
 from projects.models import Project
 
 
@@ -11,6 +11,7 @@ class IndexView(TemplateView):
         context = super().get_context_data(**kwargs)
         context["doridoro"] = self.get_doridoro_data().first()
         context["social_media"] = self.get_social_media_data()
+        context["facts"] = self.get_fact_data()
         return context
 
     def get_doridoro_data(self):
@@ -18,6 +19,9 @@ class IndexView(TemplateView):
 
     def get_social_media_data(self):
         return SocialMedia.objects.all()
+
+    def get_fact_data(self):
+        return Fact.objects.values_list("content", flat=True)
 
 
 class AboutView(TemplateView):
