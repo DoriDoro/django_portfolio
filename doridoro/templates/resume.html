@@ -19,8 +19,8 @@
           <div class="resume-item">
             <h4>{{ job_f.position }}{% if job_f.company_name %} at {{ job_f.company_name }}{% endif %}</h4>
             <h5>{{ job_f.start_date|date:"M o" }} to {% if job_f.end_date %}{{ job_f.end_date|date:"M o" }}{% else %}present{% endif %}</h5>
-            <p><em>{{ job_f.address }}</em></p>
-            <p>{{ job_f.description }}</p>
+            <p><em>{% if job_f.address %}{{ job_f.address }}{% endif %}</em></p>
+            {{ job_f.description|safe }}
           </div>
           {% endfor %}
           {% endif %}
@@ -31,8 +31,8 @@
           <div class="resume-item">
             <h4>{{ job_m.position }}{% if job_m.company_name %} at {{ job_m.company_name }}{% endif %}</h4>
             <h5>{{ job_m.start_date|date:"M o" }} to {% if job_m.end_date %}{{ job_m.end_date|date:"M o" }}{% else %}present{% endif %}</h5>
-            <p><em>{{ job_m.address }}</em></p>
-            <p>{{ job_m.description }}</p>
+            <p><em>{% if job_m.address %}{{ job_m.address }}{% endif %}</em></p>
+            <p>{{ job_m.description|safe }}</p>
           </div>
           {% endfor %}
           {% endif %}
@@ -45,16 +45,8 @@
           <div class="resume-item">
             <h4>{{ job_exp.position }}{% if job_exp.company_name %} at {{ job_exp.company_name }}{% endif %}</h4>
             <h5>{{ job_exp.start_date|date:"M o" }} to {% if job_exp.end_date %}{{ job_exp.end_date|date:"M o" }}{% else %}present{% endif %}</h5>
-            <p><em>{{ job_exp.address }}</em></p>
-            <p>{{ job_exp.description }}</p>
-
-            <ul>
-              <li>Developed numerous marketing programs (logos, brochures,infographics, presentations, and advertisements).</li>
-              <li>Managed up to 5 projects or tasks at a given time while under pressure</li>
-              <li>Recommended and consulted with clients on the most appropriate graphic design</li>
-              <li>Created 4+ design presentations and proposals a month for clients and account managers</li>
-            </ul>
-            </p>
+            <p><em>{% if job_exp.address %}{{ job_exp.address }}{% endif %}</em></p>
+            <p>{{ job_exp.description|safe }}</p>
           </div>
           {% endfor %}
         </div>
