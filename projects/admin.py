@@ -1,6 +1,6 @@
 from django.contrib import admin
 
-from projects.models import Project, Tag, Image, Link
+from projects.models import Project, Tag, Picture, Link
 
 
 @admin.register(Project)
@@ -8,11 +8,9 @@ class ProjectAdmin(admin.ModelAdmin):
     list_display = ["title", "create_date", "published"]
 
 
-@admin.register(Image)
-class ImageAdmin(admin.ModelAdmin):
-    list_display = [
-        "legend",
-    ]
+@admin.register(Picture)
+class PictureAdmin(admin.ModelAdmin):
+    list_display = ["legend", "photo", "published"]
 
 
 @admin.register(Link)

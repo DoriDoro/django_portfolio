@@ -4,4 +4,5 @@ flake8==7.1.0
 gunicorn==22.0.0
 ipython==8.25.0
 isort==5.13.2
+pillow==10.3.0
 sentry-sdk==2.6.0
