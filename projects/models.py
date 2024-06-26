@@ -9,6 +9,7 @@ from PIL import Image
 
 class Project(models.Model):
     title = models.CharField(max_length=250, verbose_name=_("project title"))
+    # slug = models.SlugField(verbose_name=_("project slug"))
     create_date = models.DateField(verbose_name=_("project created on"))
     introduction = RichTextField(verbose_name=_("project introduction"))
     content = RichTextField(verbose_name=_("project content"))
@@ -30,7 +31,10 @@ class Project(models.Model):
     )
 
     def __str__(self):
-        return self.title
+        return f"{self.title} ({self.published})"
+
+    # def get_absolute_url(self):
+    #     return reverse('project-detail', args=[str(self.id)])
 
     def save(self, *args, **kwargs):
         if not self.pk:
