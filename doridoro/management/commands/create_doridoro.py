@@ -106,6 +106,7 @@ class Command(BaseCommand):
                         email="dorothea.reher@gmail.com",
                         first_name="Dorothea",
                         last_name="Reher",
+                        is_staff=True,
                     )
                     DoriDoro.objects.create(
                         user=user,

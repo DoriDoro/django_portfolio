@@ -1,4 +1,6 @@
+from ckeditor.widgets import CKEditorWidget
 from django.contrib import admin
+from django.db import models
 
 from projects.models import Project, Tag, Picture, Link
 
@@ -6,6 +8,9 @@ from projects.models import Project, Tag, Picture, Link
 @admin.register(Project)
 class ProjectAdmin(admin.ModelAdmin):
     list_display = ["title", "create_date", "published"]
+    formfield_overrides = {
+        models.TextField: {"widget": CKEditorWidget},
+    }
 
 
 @admin.register(Picture)

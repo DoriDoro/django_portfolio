@@ -1,5 +1,6 @@
 from io import BytesIO
 
+from ckeditor.fields import RichTextField
 from django.core.files.base import ContentFile
 from django.db import models
 from django.utils.translation import gettext_lazy as _
@@ -9,8 +10,8 @@ from PIL import Image
 class Project(models.Model):
     title = models.CharField(max_length=250, verbose_name=_("project title"))
     create_date = models.DateField(verbose_name=_("project created on"))
-    introduction = models.TextField(verbose_name=_("project introduction"))
-    content = models.TextField(verbose_name=_("project content"))
+    introduction = RichTextField(verbose_name=_("project introduction"))
+    content = RichTextField(verbose_name=_("project content"))
     published = models.BooleanField(
         default=True, verbose_name=_("project visible on website")
     )
