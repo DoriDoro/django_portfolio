@@ -1,8 +1,7 @@
-from django.core.management import call_command
 from django.core.management.base import BaseCommand
 from django.db import IntegrityError, transaction
 
-from doridoro.models import Degree, DoriDoro
+from doridoro.models import Degree
 
 
 class Command(BaseCommand):

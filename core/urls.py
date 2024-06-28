@@ -1,6 +1,6 @@
 from django.urls import path
 
-from core.views import PortfolioView, ContactView
+from core.views import ContactView, PortfolioView
 
 app_name = "core"
 

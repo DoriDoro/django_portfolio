@@ -1,9 +1,9 @@
 from django.contrib import admin
 
 from doridoro.models import (
-    DoriDoro,
     Achievement,
     Degree,
+    DoriDoro,
     Fact,
     Hobby,
     Job,

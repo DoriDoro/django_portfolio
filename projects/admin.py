@@ -1,6 +1,6 @@
 from django.contrib import admin
 
-from projects.models import Project, Tag, Image, Link
+from projects.models import Image, Link, Project, Tag
 
 
 @admin.register(Project)
