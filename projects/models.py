@@ -66,10 +66,16 @@ class Picture(models.Model):
             try:
                 img = Image.open(self.photo)
                 img.verify()
-                # reopen because img.verify() moves pointer to the end of the file
-                img = Image.open(self.photo)
+            except (IOError, SyntaxError) as e:
+                raise ValueError(f"The uploaded file is not a valid image. -- {e}")
 
-                # convert png to RGB
+            # Reopen the image to reset the file pointer
+            try:
+                img = Image.open(self.photo)
+            except (IOError, SyntaxError) as e:
+                raise ValueError(f"The uploaded file could not be reopened as an image. -- {e}")
+
+            if img.width > 800:
                 if img.mode in ("RGBA", "LA", "P"):
                     img = img.convert("RGB")
 
@@ -78,24 +84,26 @@ class Picture(models.Model):
                 original_width, original_height = img.size
                 new_height = int((new_width / original_width) * original_height)
 
-                # Resize the image
-                img = img.resize((new_width, new_height), Image.LANCZOS)
+                try:
+                    # Resize the image
+                    img = img.resize((new_width, new_height), Image.LANCZOS)
 
-                # Prepare the image for saving
-                temp_img = BytesIO()
-                # Save the image as JPEG
-                img.save(temp_img, format="JPEG", quality=70, optimize=True)
-                temp_img.seek(0)
+                    # Save the image as JPEG
+                    temp_img = BytesIO()
+                    img.save(temp_img, format="JPEG", optimize=True)
+                    temp_img.seek(0)
 
-                # Change file extension to .jpg
-                original_name, _ = self.photo.name.lower().split(".")
-                img = f"{original_name}.jpg"
+                    # Change file extension to .jpg
+                    original_name, _ = self.photo.name.lower().split(".")
+                    img_filename = f"{original_name}.jpg"
 
-                # Save the BytesIO object to the ImageField with the new filename
-                self.photo.save(img, ContentFile(temp_img.read()), save=False)
+                    # Save the BytesIO object to the ImageField with the new filename
+                    self.photo.save(img_filename, ContentFile(temp_img.read()), save=False)
+                except (IOError, SyntaxError) as e:
+                    raise ValueError(f"An error occurred while processing the image. -- {e}")
 
-            except (IOError, SyntaxError) as e:
-                raise ValueError(f"The uploaded file is not a valid image. -- {e}")
+            else:
+                raise ValueError(f'The image width is smaller than 800 pixels.')
 
         super().save(*args, **kwargs)
 
