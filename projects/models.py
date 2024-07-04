@@ -95,7 +95,7 @@ class Picture(models.Model):
 
                     # Change file extension to .jpg
                     original_name, _ = self.photo.name.lower().split(".")
-                    img_filename = f"{original_name}.jpg"
+                    img_filename = f"{self.legend}.jpg"
 
                     # Save the BytesIO object to the ImageField with the new filename
                     self.photo.save(img_filename, ContentFile(temp_img.read()), save=False)
