@@ -30,9 +30,9 @@ class PictureAdmin(admin.ModelAdmin):
 
 @admin.register(Link)
 class LinkAdmin(admin.ModelAdmin):
-    list_display = ["url", "published"]
+    list_display = ["title", "origin", "platform", "url", "published"]
 
 
 @admin.register(Tag)
 class TagAdmin(admin.ModelAdmin):
-    list_display = ["name", "category"]
+    list_display = ["name", "category", "published"]

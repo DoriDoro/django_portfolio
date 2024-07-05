@@ -33,9 +33,6 @@ class Project(models.Model):
     def __str__(self):
         return f"{self.title} ({self.published})"
 
-    # def get_absolute_url(self):
-    #     return reverse('project-detail', args=[str(self.id)])
-
     def save(self, *args, **kwargs):
         if not self.pk:
             self.create_date = self.create_date
@@ -46,21 +43,21 @@ class Project(models.Model):
 
 
 class Picture(models.Model):
-    legend = models.CharField(max_length=100, verbose_name=_("legend of image"))
+    legend = models.CharField(max_length=100, verbose_name=_("legend of picture"))
     photo = models.ImageField(
         upload_to="portfolio/",
-        verbose_name=_("photo"),
+        verbose_name=_("picture"),
         blank=True,
         null=True,
     )
     published = models.BooleanField(
-        default=True, verbose_name=_("image visible on website")
+        default=True, verbose_name=_("picture visible on website")
     )
     project = models.ForeignKey(
         "projects.Project",
         on_delete=models.CASCADE,
-        related_name="project_image",
-        verbose_name=_("image of project"),
+        related_name="project_picture",
+        verbose_name=_("picture of project"),
     )
 
     def __str__(self):
@@ -106,6 +103,34 @@ class Picture(models.Model):
 
 
 class Link(models.Model):
+    GITHUB = "GITHUB"
+    VERCEL = "VERCEL"
+    OTHER = "OTHER"
+
+    OPENCLASSROOMS = "OPENCLASSROOMS"
+    PERSONAL_PROJECT = "PERSONAL_PROJECT"
+
+    ORIGIN_CHOICES = [
+        (GITHUB, _("GitHub")),
+        (VERCEL, _("Vercel")),
+        (OTHER, _("Other")),
+    ]
+    PLATFORM_CHOICES = [
+        (OPENCLASSROOMS, _("OpenClasssrooms")),
+        (PERSONAL_PROJECT, _("Personal Project")),
+    ]
+
+    title = models.CharField(max_length=200, verbose_name=_("title of link"))
+    legend = models.CharField(
+        max_length=100, null=True, blank=True, verbose_name=_("legend of link")
+    )
+    origin = models.CharField(
+        max_length=6, choices=ORIGIN_CHOICES, verbose_name=_("origin of link")
+    )
+    platform = models.CharField(
+        max_length=17, choices=PLATFORM_CHOICES, verbose_name=_("origin of link")
+    )
+
     url = models.URLField(verbose_name=_("url of link"))
     published = models.BooleanField(
         default=True, verbose_name=_("link visible on website")
@@ -131,7 +156,9 @@ class Tag(models.Model):
         (WEAKNESSES, _("Weakness")),
     ]
     name = models.CharField(max_length=50, verbose_name=_("name of tag/skill"))
-    category = models.CharField(max_length=20, choices=TAG_CHOICES)
+    category = models.CharField(
+        max_length=20, choices=TAG_CHOICES, verbose_name=_("category of tag/skill")
+    )
     published = models.BooleanField(
         default=True, verbose_name=_("tag/skill visible on website")
     )
