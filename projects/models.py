@@ -9,7 +9,7 @@ from PIL import Image
 
 class Project(models.Model):
     title = models.CharField(max_length=250, verbose_name=_("project title"))
-    # slug = models.SlugField(verbose_name=_("project slug"))
+    slug = models.SlugField(verbose_name=_("project slug"))
     create_date = models.DateField(verbose_name=_("project created on"))
     introduction = RichTextField(verbose_name=_("project introduction"))
     content = RichTextField(verbose_name=_("project content"))
@@ -44,8 +44,9 @@ class Project(models.Model):
 
 class Picture(models.Model):
     legend = models.CharField(max_length=100, verbose_name=_("legend of picture"))
+    slug = models.SlugField(verbose_name=_("picture slug"))
     photo = models.ImageField(
-        upload_to="portfolio/",
+        upload_to="images/",
         verbose_name=_("picture"),
         blank=True,
         null=True,
@@ -91,7 +92,7 @@ class Picture(models.Model):
 
                 # Change file extension to .jpg
                 original_name, _ = self.photo.name.lower().split(".")
-                img = f"{original_name}.jpg"
+                img = f"{self.slug}.jpg"
 
                 # Save the BytesIO object to the ImageField with the new filename
                 self.photo.save(img, ContentFile(temp_img.read()), save=False)
@@ -128,7 +129,7 @@ class Link(models.Model):
         max_length=6, choices=ORIGIN_CHOICES, verbose_name=_("origin of link")
     )
     platform = models.CharField(
-        max_length=17, choices=PLATFORM_CHOICES, verbose_name=_("origin of link")
+        max_length=17, choices=PLATFORM_CHOICES, verbose_name=_("platform of link")
     )
 
     url = models.URLField(verbose_name=_("url of link"))

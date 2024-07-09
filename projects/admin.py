@@ -17,7 +17,7 @@ from projects.models import Project, Tag, Picture, Link
 @admin.register(Project)
 class ProjectAdmin(admin.ModelAdmin):
     list_display = ["title", "create_date", "published"]
-    # prepopulated_fields = {"slug": ["title"]}
+    prepopulated_fields = {"slug": ["title"]}
     formfield_overrides = {
         models.TextField: {"widget": CKEditorWidget},
     }
@@ -26,6 +26,7 @@ class ProjectAdmin(admin.ModelAdmin):
 @admin.register(Picture)
 class PictureAdmin(admin.ModelAdmin):
     list_display = ["legend", "photo", "published"]
+    prepopulated_fields = {"slug": ["legend"]}
 
 
 @admin.register(Link)

@@ -3,13 +3,13 @@
 
   {% block content %}
   <!-- ======= Portfolio Details ======= -->
-  <div id="portfolio-details" class="portfolio-details">
+  <section id="portfolio-details" class="portfolio-details section-show">
     <div class="container">
 
       <div class="row">
 
         <div class="col-lg-8">
-          <h2 class="portfolio-title">This is an example of portfolio detail</h2>
+          <h2 class="portfolio-title">{{ project.title }}</h2>
 
           <div class="portfolio-details-slider swiper">
             <div class="swiper-wrapper align-items-center">
@@ -42,12 +42,10 @@
           </ul>
 
           <p>
-            Autem ipsum nam porro corporis rerum. Quis eos dolorem eos itaque inventore commodi labore quia quia. Exercitationem repudiandae officiis neque suscipit non officia eaque itaque enim. Voluptatem officia accusantium nesciunt est omnis tempora consectetur dignissimos. Sequi nulla at esse enim cum deserunt eius.
+            {{ project.introduction|safe }}Auerunt eius.
           </p>
         </div>
-
       </div>
-
     </div>
-  </div><!-- End Portfolio Details -->
+  </section><!-- End Portfolio Details -->
   {% endblock %}

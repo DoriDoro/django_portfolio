@@ -143,7 +143,7 @@ STATICFILES_DIRS = [
 ]
 
 MEDIA_URL = "/img/"
-MEDIA_ROOT = os.path.join(BASE_DIR, "core/static/assets/img/")
+MEDIA_ROOT = os.path.join(BASE_DIR, "core/media")
 
 # settings for CKEditor (django-ckeditor)
 CKEDITOR_UPLOAD_PATH = "core/static/assets/img/ckeditor/"
