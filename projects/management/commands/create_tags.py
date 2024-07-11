@@ -63,7 +63,7 @@ class Command(BaseCommand):
                     "category": Tag.PROGRAMMING_SKILLS,
                 },
                 {
-                    "name": "PostGreSQL",
+                    "name": "PostgreSQL",
                     "category": Tag.PROGRAMMING_SKILLS,
                 },
                 {
@@ -191,7 +191,7 @@ class Command(BaseCommand):
                     "category": Tag.WEAKNESSES,
                 },
                 {
-                    "name": "Make small talk",
+                    "name": "Making small talk",
                     "category": Tag.WEAKNESSES,
                 },
                 {

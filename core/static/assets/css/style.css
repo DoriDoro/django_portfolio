@@ -15,6 +15,7 @@ body {
   color: rgba(255, 255, 255, 0.7);
   position: relative;
   background: transparent;
+  margin-top: 35px;
 }
 
 body::before {
@@ -69,22 +70,6 @@ h6 {
 
 #header * {
   transition: ease-in-out 0.3s;
-}
-
-#header h1 {
-  font-size: 48px;
-  margin: 0;
-  padding: 0;
-  line-height: 1;
-  font-weight: 700;
-  font-family: "Poppins", sans-serif;
-}
-
-#header h1 a,
-#header h1 a:hover {
-  color: #fff;
-  line-height: 1;
-  display: inline-block;
 }
 
 #header h2 {
@@ -201,7 +186,6 @@ h6 {
 */
 .navbar {
   padding: 0;
-  margin-top: 35px;
 }
 
 .navbar ul {
@@ -380,7 +364,7 @@ section .container {
   font-weight: 500;
   padding: 0;
   line-height: 1px;
-  margin: 0 0 20px 0;
+  margin: 20px 0;
   letter-spacing: 2px;
   text-transform: uppercase;
   color: #aaaaaa;
@@ -406,10 +390,25 @@ section .container {
   color: #fff;
 }
 
+.section-title span {
+  margin: 0;
+  font-size: 25px;
+  font-weight: 500;
+  text-transform: uppercase;
+  font-family: "Poppins", sans-serif;
+  color: #fff;
+}
+
 
 /*--------------------------------------------------------------
 # Index
 --------------------------------------------------------------*/
+.index h1 {
+  font-weight: 500;
+  font-size: 60px;
+  color: #18d26e;
+}
+
 .index .content ul {
   list-style: none;
   padding-left: 0;
@@ -433,14 +432,25 @@ section .container {
 # About
 --------------------------------------------------------------*/
 .about-me .content h3 {
-  font-weight: 700;
+  font-weight: 500;
   font-size: 60px;
   color: #18d26e;
 }
 
+.about-me .content-subtitle h2 {
+  font-size: 14px;
+  font-weight: 500;
+  padding: 0;
+  line-height: 1px;
+  margin: 0 0 20px 0;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: #fff;
+  font-family: "Poppins", sans-serif;
+}
+
 .about-me .content ul {
   list-style: none;
-  padding: 0;
 }
 
 .about-me .content ul li {
@@ -510,37 +520,24 @@ section .container {
 /*--------------------------------------------------------------
 # Skills
 --------------------------------------------------------------*/
-.skills .progress {
-  height: 60px;
-  display: block;
-  background: none;
-  border-radius: 0;
+.skills .content-subtitle h2 {
+  font-size: 14px;
+  font-weight: 500;
+  padding: 0;
+  line-height: 1px;
+  margin: 0 0 20px 0;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: #fff;
+  font-family: "Poppins", sans-serif;
 }
 
-.skills .progress .skill {
-  padding: 10px 0;
-  margin: 0;
-  text-transform: uppercase;
-  display: block;
-  font-weight: 600;
-  font-family: "Poppins", sans-serif;
+.skills p {
   color: #fff;
 }
 
-.skills .progress .skill .val {
-  float: right;
-  font-style: normal;
-}
-
-.skills .progress-bar-wrap {
-  background: rgba(255, 255, 255, 0.2);
-}
-
-.skills .progress-bar {
-  width: 1px;
-  height: 10px;
-  transition: 0.9s;
-  background-color: #18d26e;
+.skills .icon-box:hover {
+  background: rgba(255, 255, 255, 0.12);
 }
 
 /*--------------------------------------------------------------
@@ -552,12 +549,6 @@ section .container {
   padding: 20px;
   background: rgba(255, 255, 255, 0.08);
   transition: ease-in-out 0.3s;
-}
-
-.interests .icon-box i {
-  font-size: 32px;
-  padding-right: 10px;
-  line-height: 1;
 }
 
 .interests .icon-box h3 {
@@ -679,7 +670,7 @@ section .container {
   text-transform: uppercase;
   font-family: "Poppins", sans-serif;
   color: #18d26e;
-  margin-bottom: 10px;
+  margin-bottom: 20px;
 }
 
 .resume .resume-item h5 {
@@ -688,6 +679,7 @@ section .container {
   padding: 5px 15px;
   display: inline-block;
   font-weight: 600;
+  margin-left: 10px;
   margin-bottom: 10px;
   color: #fff;
 }
