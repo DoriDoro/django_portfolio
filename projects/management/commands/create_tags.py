@@ -19,7 +19,7 @@ class Command(BaseCommand):
                     "category": Tag.PROGRAMMING_SKILLS,
                 },
                 {
-                    "name": "Django REST Framework",
+                    "name": "DRF",
                     "category": Tag.PROGRAMMING_SKILLS,
                 },
                 {

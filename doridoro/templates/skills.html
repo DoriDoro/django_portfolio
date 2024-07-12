@@ -30,7 +30,9 @@
       <div class="row mx-4">
         {% for programming_skill in programming_skills %}
         <div class="col-lg-2 col-md-4 mt-2">
-          <p>{{ programming_skill.name }}</p>
+          <div class="icon-box">
+            <p>{{ programming_skill.name }}</p>
+          </div>
         </div>
         {% endfor %}
       </div>
@@ -45,7 +47,9 @@
       <div class="row mx-4">
         {% for soft_skill in soft_skills %}
           <div class="col-lg-2 col-md-4 mt-4">
-            <p>{{ soft_skill.name }}</p>
+            <div class="icon-box">
+              <p>{{ soft_skill.name }}</p>
+            </div>
           </div>
         {% endfor %}
       </div>
@@ -60,7 +64,9 @@
       <div class="row mx-4">
         {% for other_skill in other_skills %}
           <div class="col-lg-2 col-md-4 mt-4">
-            <p>{{ other_skill.name }}</p>
+            <div class="icon-box">
+              <p>{{ other_skill.name }}</p>
+            </div>
           </div>
         {% endfor %}
       </div>
@@ -75,7 +81,9 @@
       <div class="row mx-4">
         {% for s in strength %}
           <div class="col-lg-2 col-md-4 mt-4">
-            <p>{{ s.name }}</p>
+            <div class="icon-box">
+              <p>{{ s.name }}</p>
+            </div>
           </div>
         {% endfor %}
       </div>
@@ -90,7 +98,9 @@
       <div class="row mx-4">
       {% for weakness in weaknesses %}
         <div class="col-lg-2 col-md-4 mt-4">
-          <p>{{ weakness.name }}</p>
+          <div class="icon-box">
+            <p>{{ weakness.name }}</p>
+          </div>
         </div>
       {% endfor %}
       </div>

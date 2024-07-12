@@ -76,7 +76,9 @@ class Picture(models.Model):
             try:
                 img = Image.open(self.photo)
             except (IOError, SyntaxError) as e:
-                raise ValueError(f"The uploaded file could not be reopened as an image. -- {e}")
+                raise ValueError(
+                    f"The uploaded file could not be reopened as an image. -- {e}"
+                )
 
             if img.width > 800:
                 if img.mode in ("RGBA", "LA", "P"):
@@ -101,12 +103,16 @@ class Picture(models.Model):
                     img_filename = f"{self.slug}.jpg"
 
                     # Save the BytesIO object to the ImageField with the new filename
-                    self.photo.save(img_filename, ContentFile(temp_img.read()), save=False)
+                    self.photo.save(
+                        img_filename, ContentFile(temp_img.read()), save=False
+                    )
                 except (IOError, SyntaxError) as e:
-                    raise ValueError(f"An error occurred while processing the image. -- {e}")
+                    raise ValueError(
+                        f"An error occurred while processing the image. -- {e}"
+                    )
 
             else:
-                raise ValueError(f'The image width is smaller than 800 pixels.')
+                raise ValueError(f"The image width is smaller than 800 pixels.")
 
         super().save(*args, **kwargs)
 

@@ -1,6 +1,6 @@
 from django.views.generic import TemplateView
 
-from doridoro.models import DoriDoro, Job, SocialMedia, Fact, Hobby
+from doridoro.models import DoriDoro, Job, SocialMedia, Fact, Hobby, Achievement
 from projects.models import Project, Tag
 
 
@@ -9,19 +9,12 @@ class IndexView(TemplateView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context["doridoro"] = self.get_doridoro_data().first()
-        context["social_media"] = self.get_social_media_data()
-        context["facts"] = self.get_fact_data()
+        context["doridoro"] = DoriDoro.objects.first()
+        context["social_media"] = SocialMedia.objects.all()
+        context["facts"] = Fact.objects.filter(published=True).values_list(
+            "content", flat=True
+        )
         return context
-
-    def get_doridoro_data(self):
-        return DoriDoro.objects.all()
-
-    def get_social_media_data(self):
-        return SocialMedia.objects.all()
-
-    def get_fact_data(self):
-        return Fact.objects.values_list("content", flat=True)
 
 
 class AboutView(TemplateView):
@@ -30,7 +23,7 @@ class AboutView(TemplateView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
 
-        context["doridoro"] = self.get_doridoro_data().first()
+        context["doridoro"] = DoriDoro.objects.first()
         context["current_positions"] = self.get_current_position()
         context["projects"] = self.get_projects_data()
         context["projects_count"] = self.get_projects_data().count()
@@ -43,11 +36,7 @@ class AboutView(TemplateView):
         context["strength"] = self.get_tags_data().filter(category=Tag.STRENGTH)
         context["weaknesses"] = self.get_tags_data().filter(category=Tag.WEAKNESSES)
         context["skills_count"] = self.get_tags_data().count()
-
         return context
-
-    def get_doridoro_data(self):
-        return DoriDoro.objects.all()
 
     def get_projects_data(self):
         return Project.objects.filter(published=True)
@@ -80,13 +69,24 @@ class SkillsView(TemplateView):
         return Tag.objects.filter(published=True)
 
 
+class AchievementsView(TemplateView):
+    template_name = "achievements.html"
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context["achievements"] = Achievement.objects.filter(
+            published=True
+        ).values_list("content", flat=True)
+        return context
+
+
 class ResumeView(TemplateView):
     template_name = "resume.html"
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
 
-        context["doridoro"] = self.get_doridoro_data().first()
+        context["doridoro"] = DoriDoro.objects.first()
         context["jobs_formation"] = (
             self.get_job_data()
             .filter(job_type=Job.FORMATION)
@@ -106,11 +106,7 @@ class ResumeView(TemplateView):
                 Job.SABBATICAL,
             ]
         )
-
         return context
-
-    def get_doridoro_data(self):
-        return DoriDoro.objects.all()
 
     def get_job_data(self):
         return Job.objects.all()
