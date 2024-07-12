@@ -1,7 +1,7 @@
 from django.views.generic import TemplateView
 
-from doridoro.models import DoriDoro, Job, SocialMedia, Fact
-from projects.models import Project
+from doridoro.models import DoriDoro, Job, SocialMedia, Fact, Hobby
+from projects.models import Project, Tag
 
 
 class IndexView(TemplateView):
@@ -34,16 +34,50 @@ class AboutView(TemplateView):
         context["current_positions"] = self.get_current_position()
         context["projects"] = self.get_projects_data()
         context["projects_count"] = self.get_projects_data().count()
+        context["hobbies"] = Hobby.objects.filter(published=True)
+        context["programming_skills"] = self.get_tags_data().filter(
+            category=Tag.PROGRAMMING_SKILLS
+        )
+        context["soft_skills"] = self.get_tags_data().filter(category=Tag.SOFT_SKILLS)
+        context["other_skills"] = self.get_tags_data().filter(category=Tag.OTHER)
+        context["strength"] = self.get_tags_data().filter(category=Tag.STRENGTH)
+        context["weaknesses"] = self.get_tags_data().filter(category=Tag.WEAKNESSES)
+        context["skills_count"] = self.get_tags_data().count()
+
         return context
 
     def get_doridoro_data(self):
         return DoriDoro.objects.all()
 
     def get_projects_data(self):
-        return Project.objects.all()
+        return Project.objects.filter(published=True)
 
     def get_current_position(self):
         return Job.objects.filter(until_present=True)
+
+    def get_tags_data(self):
+        return Tag.objects.filter(published=True)
+
+
+class SkillsView(TemplateView):
+    template_name = "skills.html"
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+
+        context["doridoro"] = DoriDoro.objects.first()
+        context["programming_skills"] = self.get_tags_data().filter(
+            category=Tag.PROGRAMMING_SKILLS
+        )
+        context["soft_skills"] = self.get_tags_data().filter(category=Tag.SOFT_SKILLS)
+        context["other_skills"] = self.get_tags_data().filter(category=Tag.OTHER)
+        context["strength"] = self.get_tags_data().filter(category=Tag.STRENGTH)
+        context["weaknesses"] = self.get_tags_data().filter(category=Tag.WEAKNESSES)
+
+        return context
+
+    def get_tags_data(self):
+        return Tag.objects.filter(published=True)
 
 
 class ResumeView(TemplateView):
