@@ -56,8 +56,7 @@ INSTALLED_APPS = [
     "doridoro",
     "projects",
     # installed packages
-    "ckeditor",
-    "ckeditor_uploader",
+    "tinymce",
 ]
 
 MIDDLEWARE = [

@@ -1,9 +1,9 @@
 from io import BytesIO
 
-from ckeditor.fields import RichTextField
 from django.core.files.base import ContentFile
 from django.db import models
 from django.utils.translation import gettext_lazy as _
+from tinymce.models import HTMLField
 from PIL import Image
 
 
@@ -11,8 +11,8 @@ class Project(models.Model):
     title = models.CharField(max_length=250, verbose_name=_("project title"))
     slug = models.SlugField(verbose_name=_("project slug"))
     create_date = models.DateField(verbose_name=_("project created on"))
-    introduction = RichTextField(verbose_name=_("project introduction"))
-    content = RichTextField(verbose_name=_("project content"))
+    introduction = HTMLField(verbose_name=_("project introduction"))
+    content = HTMLField(verbose_name=_("project content"))
     published = models.BooleanField(
         default=True, verbose_name=_("project visible on website")
     )

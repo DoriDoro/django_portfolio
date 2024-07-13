@@ -1,7 +1,7 @@
-from ckeditor.fields import RichTextField
 from django.core.exceptions import ValidationError
 from django.db import models
 from django.utils.translation import gettext_lazy as _
+from tinymce.models import HTMLField
 
 
 class DoriDoro(models.Model):
@@ -17,9 +17,9 @@ class DoriDoro(models.Model):
     profession = models.CharField(
         max_length=150, verbose_name=_("profession of DoriDoro")
     )
-    introduction = RichTextField(verbose_name=_("introduction of DoriDoro"))
-    dream_job = RichTextField(verbose_name=_("dream job description of DoriDoro"))
-    free_time = RichTextField(verbose_name=_("after work description of DoriDoro"))
+    introduction = HTMLField(verbose_name=_("introduction of DoriDoro"))
+    dream_job = HTMLField(verbose_name=_("dream job description of DoriDoro"))
+    free_time = HTMLField(verbose_name=_("after work description of DoriDoro"))
 
     class Meta:
         verbose_name_plural = "DoriDoro"

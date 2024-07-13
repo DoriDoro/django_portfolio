@@ -1,6 +1,4 @@
-from ckeditor.widgets import CKEditorWidget
 from django.contrib import admin
-from django.db import models
 
 from doridoro.models import (
     DoriDoro,
@@ -19,9 +17,6 @@ from doridoro.models import (
 @admin.register(DoriDoro)
 class DoriDoroAdmin(admin.ModelAdmin):
     list_display = ["address", "profession"]
-    formfield_overrides = {
-        models.TextField: {"widget": CKEditorWidget},
-    }
 
 
 @admin.register(Achievement)
