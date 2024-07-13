@@ -5,7 +5,6 @@
 <!-- ======= Skills Page - About Me Section======= -->
 <section id="about" class="about section-show">
   <div class="about-me container">
-
     <div class="section-title mb-4">
       <h2>Moto</h2>
       <span>"Bring organisation talent, programming skills and sometimes biscuits to work."</span>
@@ -22,91 +21,60 @@
 
   <!-- ======= Skills  ======= -->
   <div class="skills container">
-
     {% if programming_skills %}
       <div class="section-title">
         <h2>Programming Skills</h2>
       </div>
       <div class="row mx-4">
         {% for programming_skill in programming_skills %}
-        <div class="col-lg-2 col-md-4 mt-2">
-          <div class="icon-box">
-            <p>{{ programming_skill.name }}</p>
-          </div>
-        </div>
+          <p class="tags">{{ programming_skill.name }}</p>
         {% endfor %}
       </div>
     {% endif %}
-
     <hr>
-
     {% if soft_skills %}
       <div class="section-title mt-5">
         <h2>Soft Skills</h2>
       </div>
       <div class="row mx-4">
         {% for soft_skill in soft_skills %}
-          <div class="col-lg-2 col-md-4 mt-4">
-            <div class="icon-box">
-              <p>{{ soft_skill.name }}</p>
-            </div>
-          </div>
+          <p class="tags">{{ soft_skill.name }}</p>
         {% endfor %}
       </div>
     {% endif %}
-
     <hr>
-
     {% if other_skills %}
       <div class="section-title mt-5">
         <h2>Other Skills</h2>
       </div>
       <div class="row mx-4">
         {% for other_skill in other_skills %}
-          <div class="col-lg-2 col-md-4 mt-4">
-            <div class="icon-box">
-              <p>{{ other_skill.name }}</p>
-            </div>
-          </div>
+          <p class="tags">{{ other_skill.name }}</p>
         {% endfor %}
       </div>
     {% endif %}
-
     <hr>
-
     {% if strength %}
       <div class="section-title mt-5">
         <h2>Strength</h2>
       </div>
       <div class="row mx-4">
         {% for s in strength %}
-          <div class="col-lg-2 col-md-4 mt-4">
-            <div class="icon-box">
-              <p>{{ s.name }}</p>
-            </div>
-          </div>
+          <p class="tags">{{ s.name }}</p>
         {% endfor %}
       </div>
     {% endif %}
-
     <hr>
-
     {% if weaknesses %}
       <div class="section-title mt-5">
         <h2>Weaknesses</h2>
       </div>
       <div class="row mx-4">
       {% for weakness in weaknesses %}
-        <div class="col-lg-2 col-md-4 mt-4">
-          <div class="icon-box">
-            <p>{{ weakness.name }}</p>
-          </div>
-        </div>
+        <p class="tags">{{ weakness.name }}</p>
       {% endfor %}
       </div>
     {% endif %}
-
   </div><!-- End Skills -->
-
 </section><!-- End About Section -->
 {% endblock %}

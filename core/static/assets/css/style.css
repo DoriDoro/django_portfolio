@@ -977,20 +977,12 @@ section .container {
   padding-bottom: 40px;
 }
 
-.portfolio-details .portfolio-title {
-  font-size: 26px;
-  font-weight: 700;
-  margin-bottom: 20px;
+.portfolio-details .container img {
+    width: inherit;
 }
 
 .portfolio-details .portfolio-info {
   padding-top: 45px;
-}
-
-.portfolio-details .portfolio-info h3 {
-  font-size: 22px;
-  font-weight: 400;
-  margin-bottom: 20px;
 }
 
 .portfolio-details .portfolio-info ul {
@@ -1005,13 +997,28 @@ section .container {
 
 .portfolio-details .portfolio-info p {
   font-size: 15px;
-  padding: 15px 0 0 0;
 }
 
 @media (max-width: 992px) {
   .portfolio-details .portfolio-info {
     padding-top: 20px;
   }
+}
+
+.portfolio-details .portfolio-info .tags-container {
+    display: flex;
+}
+
+.portfolio-details .portfolio-info .tags-container strong {
+    align-content: center;
+}
+
+.tags {
+    border: 1px #18d26e solid;
+    border-radius: 5px;
+    width: fit-content;
+    padding: 4px 6px;
+    margin: 6px 8px;
 }
 
 .portfolio-details .swiper-pagination {

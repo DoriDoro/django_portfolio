@@ -81,10 +81,15 @@ class Command(BaseCommand):
                 },
                 {
                     "title": "Django Portfolio",
-                    "legend": "ToDoro",
                     "origin": Link.GITHUB,
                     "platform": Link.PERSONAL_PROJECT,
                     "url": "https://github.com/DoriDoro/django_portfolio",
+                },
+                {
+                    "title": "Flask Portfolio",
+                    "origin": Link.GITHUB,
+                    "platform": Link.PERSONAL_PROJECT,
+                    "url": "https://github.com/DoriDoro/portfolio_dorothea-reher",
                 },
             ]
 

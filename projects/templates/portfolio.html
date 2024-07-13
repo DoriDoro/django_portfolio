@@ -1,46 +1,49 @@
 {% extends 'base.html' %}
 
-  {% block content %}
-  <!-- ======= Portfolio Section ======= -->
-  <section id="portfolio" class="portfolio section-show">
-    <div class="container">
+{% block content %}
+<!-- ======= Portfolio Section ======= -->
+<section id="portfolio" class="portfolio section-show">
+  <div class="container">
+    <div class="section-title">
+      <h2>Portfolio</h2>
+    </div>
 
-      <div class="section-title">
-        <h2>Portfolio</h2>
+    <div class="row">
+      <div class="col-lg-12 d-flex justify-content-center">
+        <ul id="portfolio-flters">
+          <li data-filter="*" class="filter-active">All</li>
+          <li data-filter=".filter-app">App</li>
+          <li data-filter=".filter-card">Card</li>
+          <li data-filter=".filter-web">Web</li>
+        </ul>
       </div>
+    </div>
 
-      <div class="row">
-        <div class="col-lg-12 d-flex justify-content-center">
-          <ul id="portfolio-flters">
-            <li data-filter="*" class="filter-active">All</li>
-            <li data-filter=".filter-app">App</li>
-            <li data-filter=".filter-card">Card</li>
-            <li data-filter=".filter-web">Web</li>
-          </ul>
-        </div>
-      </div>
-
-      {% for project in projects %}
-        {% for picture in project.project_picture.all %}
-          <div class="row portfolio-container">
+    {% if projects %}
+      <div class="row portfolio-container">
+        {% for project in projects %}
+          {% for picture in project.project_picture.all %}
             <div class="col-lg-4 col-md-6 portfolio-item filter-app">
               <div class="portfolio-wrap">
-                <img src="{{ picture.photo.url }}" class="img-fluid" alt="">
-                <div class="portfolio-info">
-                  <h4>Portfolio</h4>
-                  <p>App</p>
-                  <div class="portfolio-links">
-                    <a href="{% url 'projects:portfolio-detail' slug=picture.project.slug %}" title="{{ project.title }}">
-                      <i class="bx bx-link"></i>
-                    </a>
+                {% if picture.cover_picture %}
+                  <img src="{{ picture.photo.url }}" class="img-fluid" alt="{{ picture.photo.legend }}">
+                  <div class="portfolio-info">
+                    <h4>{{ project.title }}</h4>
+                    <p>App</p>
+                    <div class="portfolio-links">
+                      <a href="{% url 'projects:portfolio-detail' slug=picture.project.slug %}"
+                         title="{{ project.title }}">
+                        <i class="bx bx-link"></i>
+                      </a>
+                    </div>
                   </div>
-                </div>
+                {% endif %}
               </div>
             </div>
-          </div>
+          {% endfor %}
         {% endfor %}
-      {% endfor %}
-
-    </div>
-  </section><!-- End Portfolio Section -->
-  {% endblock %}
+      </div>
+    {% endif %}
+  </div>
+</section><!-- End Portfolio Section -->
+{% endblock %}

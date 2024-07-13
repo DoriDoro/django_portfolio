@@ -44,7 +44,8 @@ class Project(models.Model):
 
 class Picture(models.Model):
     legend = models.CharField(max_length=100, verbose_name=_("legend of picture"))
-    slug = models.SlugField(verbose_name=_("picture slug"))
+    slug = models.SlugField(verbose_name=_("slug of picture"))
+    cover_picture = models.BooleanField(default=False, verbose_name=_("cover picture"))
     photo = models.ImageField(
         upload_to="images/",
         verbose_name=_("picture"),

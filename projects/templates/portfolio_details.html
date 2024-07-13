@@ -5,46 +5,59 @@
   <!-- ======= Portfolio Details ======= -->
   <section id="portfolio-details" class="portfolio-details section-show">
     <div class="container">
-
+      <div class="section-title" style="display: flex; justify-content: space-between">
+        <h2>{{ project.title }}</h2>
+        <a href="{% url 'projects:portfolio' %}" style="color: #fff"><i class="ri-close-large-fill"></i></a>
+      </div>
       <div class="row">
-
-        <div class="col-lg-8">
-          <h2 class="portfolio-title">{{ project.title }}</h2>
-
+        <div class="col-lg-5">
+          {% for picture in project.project_picture.all %}
           <div class="portfolio-details-slider swiper">
             <div class="swiper-wrapper align-items-center">
-
               <div class="swiper-slide">
-                <img src="assets/img/portfolio/portfolio-details-1.jpg" alt="">
+                <img src="{{ picture.photo.url }}" alt="{{ picture.photo.legend }}">
               </div>
-
-              <div class="swiper-slide">
-                <img src="assets/img/portfolio/portfolio-details-2.jpg" alt="">
-              </div>
-
-              <div class="swiper-slide">
-                <img src="assets/img/portfolio/portfolio-details-3.jpg" alt="">
-              </div>
-
             </div>
             <div class="swiper-pagination"></div>
           </div>
-
+          {% endfor %}
         </div>
 
-        <div class="col-lg-4 portfolio-info">
+        <div class="col-lg-7 portfolio-info">
           <h3>Project information</h3>
-          <ul>
-            <li><strong>Category</strong>: Web design</li>
-            <li><strong>Client</strong>: ASU Company</li>
-            <li><strong>Project date</strong>: 01 March, 2020</li>
-            <li><strong>Project URL</strong>: <a href="#">www.example.com</a></li>
+          <ul class="mx-4">
+            {% if github %}
+              <li><strong>GitHub URL:</strong> <a href="{{ github.url }}" target="_blank">{{ github.url }}</a></li>
+            {% endif %}
+            {% if vercel %}
+              <li><strong>Vercel URL:</strong> <a href="{{ vercel.url }}" target="_blank">{{ vercel.url }}</a></li>
+            {% endif %}
+            {% if others %}
+              {% for other in others %}
+                <li><strong>URL:</strong> <a href="{{ other.url }}" target="_blank">{{ other.url }}</a></li>
+              {% endfor %}
+            {% endif %}
+            <li><strong>Project date:</strong> {{ project.create_date }}</li>
+            <li class="tags-container"><strong>Skills:</strong>
+              {% for tag in project.tags.all %}
+                <p class="tags">{{ tag.name }}</p>
+              {% endfor %}
+            </li>
           </ul>
-
-          <p>
-            {{ project.introduction|safe }}Auerunt eius.
-          </p>
         </div>
+      </div>
+
+      <hr>
+      <div class="row">
+        <div class="section-title">
+          <h2>Introduction</h2>
+        </div>
+        <p>{{ project.introduction|safe }}</p>
+        <hr>
+        <div class="section-title">
+          <h2>Learning Experience</h2>
+        </div>
+        <p>{{ project.content|safe }}</p>
       </div>
     </div>
   </section><!-- End Portfolio Details -->
