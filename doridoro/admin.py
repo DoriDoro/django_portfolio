@@ -10,7 +10,6 @@ from doridoro.models import (
     Language,
     Reference,
     SocialMedia,
-    Website,
 )
 
 
@@ -63,9 +62,4 @@ class ReferenceAdmin(admin.ModelAdmin):
 
 @admin.register(SocialMedia)
 class SocialMediaAdmin(admin.ModelAdmin):
-    list_display = ["name", "published"]
-
-
-@admin.register(Website)
-class WebsiteAdmin(admin.ModelAdmin):
     list_display = ["name", "published"]

@@ -4,8 +4,8 @@ from django.core.management.base import BaseCommand
 
 class Command(BaseCommand):
     help = (
-        "This command creates one DoriDoro instance and all other model instances inside "
-        "the doridoro application."
+        "This command creates one Admin and one DoriDoro instance and all other model instances "
+        "of doridoro and project application."
     )
 
     def handle(self, *args, **options):
@@ -19,6 +19,5 @@ class Command(BaseCommand):
         call_command("create_languages")
         call_command("create_references")
         call_command("create_socialmedia")
-        call_command("create_websites")
         call_command("create_tags")
         call_command("create_links")

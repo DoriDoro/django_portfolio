@@ -217,14 +217,3 @@ class SocialMedia(models.Model):
 
     def __str__(self):
         return f"{self.name} ({self.published})"
-
-
-class Website(models.Model):
-    name = models.CharField(max_length=100, verbose_name=_("name of website"))
-    url = models.URLField(max_length=250, verbose_name=_("url of website"))
-    published = models.BooleanField(
-        default=True, verbose_name=_("url visible on website")
-    )
-
-    def __str__(self):
-        return f"{self.name} ({self.published})"

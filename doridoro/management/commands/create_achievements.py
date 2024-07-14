@@ -1,3 +1,5 @@
+import json
+
 from django.contrib.auth import get_user_model
 from django.core.management.base import BaseCommand
 from django.db import IntegrityError, transaction
@@ -10,64 +12,44 @@ UserModel = get_user_model()
 class Command(BaseCommand):
     help = "This command creates all Achievement instances for DoriDoro."
 
-    def handle(self, *args, **options):
+    def get_achievements(self, path):
         try:
-            achievements = [
-                {
-                    "title": "Formation",
-                    "content": (
-                        "In July 2024: Completed a 24-month training program in just 20 months."
-                    ),
-                },
-                {
-                    "title": "Relocate",
-                    "content": (
-                        "Relocated to Rennes and started a formation within 6 weeks, despite the "
-                        "challenge of finding accommodation."
-                    ),
-                },
-                {
-                    "title": "Single parent",
-                    "content": (
-                        "Single parent, working full-time (80% in enterprise and 20% formation)."
-                    ),
-                },
-                {
-                    "title": "French",
-                    "content": (
-                        "Undertook formation in French, despite limited proficiency in the "
-                        "language."
-                    ),
-                },
-                {
-                    "title": "Challenges",
-                    "content": (
-                        "Demonstrated resilience and adaptability in overcoming challenges."
-                    ),
-                },
-                {
-                    "title": "Self",
-                    "content": (
-                        "Proved commitment to continuous self-improvement and ability to thrive "
-                        "in adverse situations."
-                    ),
-                },
-                {
-                    "title": "Myself",
-                    "content": (
-                        "Through sheer determination and perseverance, I navigated through the "
-                        "complexities of the coursework and emerged victorious, showcasing my "
-                        "resilience and adaptability in adverse situations."
-                    ),
-                },
-            ]
+            with open(path, "r") as file:
+                data = json.load(file)
+                achievements = data["achievements"]
 
-            if Achievement.objects.exists():
-                self.stdout.write(
-                    self.style.WARNING("These instances of Achievement exists already!")
+                return achievements
+
+        except FileNotFoundError:
+            self.stdout.write(self.style.ERROR(f"The file {path} was not found."))
+        except IOError:
+            self.stdout.write(
+                self.style.ERROR(
+                    f"An error occurred while trying to read the file {path}."
                 )
-                return
+            )
+        except json.JSONDecodeError:
+            self.stdout.write(
+                self.style.ERROR(f"The file {path} does not contain valid JSON.")
+            )
+        except Exception as e:
+            self.stdout.write(self.style.ERROR(f"An unexpected error occurred: {e}"))
+        return None
 
+    def handle(self, *args, **options):
+        path = "doridoro/management/commands/data.json"
+
+        achievements = self.get_achievements(path)
+        if achievements is None:
+            return None
+
+        if Achievement.objects.exists():
+            self.stdout.write(
+                self.style.WARNING("These instances of Achievement exists already!")
+            )
+            return
+
+        try:
             with transaction.atomic():
                 for achievement in achievements:
                     Achievement.objects.create(**achievement)

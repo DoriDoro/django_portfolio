@@ -1,3 +1,5 @@
+import json
+
 from django.core.management.base import BaseCommand
 from django.db import IntegrityError, transaction
 
@@ -5,231 +7,49 @@ from projects.models import Tag
 
 
 class Command(BaseCommand):
-    help = "This command creates all Job instances for DoriDoro."
+    help = "This command creates all Tag instances for DoriDoro."
+
+    def get_tags(self, path):
+        try:
+            with open(path, "r") as file:
+                data = json.load(file)
+                tags = data["tags"]
+
+                for tag in tags:
+                    tag["category"] = getattr(Tag, tag["category"])
+
+            return tags
+
+        except FileNotFoundError:
+            self.stdout.write(self.style.ERROR(f"The file {path} was not found."))
+        except IOError:
+            self.stdout.write(
+                self.style.ERROR(
+                    f"An error occurred while trying to read the file {path}."
+                )
+            )
+        except json.JSONDecodeError:
+            self.stdout.write(
+                self.style.ERROR(f"The file {path} does not contain valid JSON.")
+            )
+        except Exception as e:
+            self.stdout.write(self.style.ERROR(f"An unexpected error occurred: {e}"))
+        return None
 
     def handle(self, *args, **options):
+        path = "doridoro/management/commands/data.json"
+
+        tags = self.get_tags(path)
+        if tags is None:
+            return None
+
+        if Tag.objects.exists():
+            self.stdout.write(
+                self.style.WARNING("These instances of Tag exists already!")
+            )
+            return
+
         try:
-            tags = [
-                {
-                    "name": "Python",
-                    "category": Tag.PROGRAMMING_SKILLS,
-                },
-                {
-                    "name": "Django",
-                    "category": Tag.PROGRAMMING_SKILLS,
-                },
-                {
-                    "name": "DRF",
-                    "category": Tag.PROGRAMMING_SKILLS,
-                },
-                {
-                    "name": "Flask",
-                    "category": Tag.PROGRAMMING_SKILLS,
-                },
-                {
-                    "name": "Unittest",
-                    "category": Tag.PROGRAMMING_SKILLS,
-                },
-                {
-                    "name": "Pytest",
-                    "category": Tag.PROGRAMMING_SKILLS,
-                },
-                {
-                    "name": "CLI application",
-                    "category": Tag.PROGRAMMING_SKILLS,
-                },
-                {
-                    "name": "Git",
-                    "category": Tag.PROGRAMMING_SKILLS,
-                },
-                {
-                    "name": "GitHub",
-                    "category": Tag.PROGRAMMING_SKILLS,
-                },
-                {
-                    "name": "GitHub actions",
-                    "category": Tag.PROGRAMMING_SKILLS,
-                },
-                {
-                    "name": "GitLab",
-                    "category": Tag.PROGRAMMING_SKILLS,
-                },
-                {
-                    "name": "Branching",
-                    "category": Tag.PROGRAMMING_SKILLS,
-                },
-                {
-                    "name": "SQLite",
-                    "category": Tag.PROGRAMMING_SKILLS,
-                },
-                {
-                    "name": "PostgreSQL",
-                    "category": Tag.PROGRAMMING_SKILLS,
-                },
-                {
-                    "name": "SQL",
-                    "category": Tag.PROGRAMMING_SKILLS,
-                },
-                {
-                    "name": "Postman",
-                    "category": Tag.PROGRAMMING_SKILLS,
-                },
-                {
-                    "name": "Celery",
-                    "category": Tag.PROGRAMMING_SKILLS,
-                },
-                {
-                    "name": "UML",
-                    "category": Tag.PROGRAMMING_SKILLS,
-                },
-                {
-                    "name": "Wireframe",
-                    "category": Tag.PROGRAMMING_SKILLS,
-                },
-                {
-                    "name": "User Story",
-                    "category": Tag.PROGRAMMING_SKILLS,
-                },
-                {
-                    "name": "ERD",
-                    "category": Tag.PROGRAMMING_SKILLS,
-                },
-                {
-                    "name": "Sentry",
-                    "category": Tag.PROGRAMMING_SKILLS,
-                },
-                {
-                    "name": "Docker",
-                    "category": Tag.PROGRAMMING_SKILLS,
-                },
-                {
-                    "name": "Heroku",
-                    "category": Tag.PROGRAMMING_SKILLS,
-                },
-                {
-                    "name": "Vercel",
-                    "category": Tag.PROGRAMMING_SKILLS,
-                },
-                {
-                    "name": "Render",
-                    "category": Tag.PROGRAMMING_SKILLS,
-                },
-                {
-                    "name": "Communication",
-                    "category": Tag.SOFT_SKILLS,
-                },
-                {
-                    "name": "Problem-solving",
-                    "category": Tag.SOFT_SKILLS,
-                },
-                {
-                    "name": "Attention to details",
-                    "category": Tag.SOFT_SKILLS,
-                },
-                {
-                    "name": "Time management",
-                    "category": Tag.SOFT_SKILLS,
-                },
-                {
-                    "name": "Continuous learning",
-                    "category": Tag.SOFT_SKILLS,
-                },
-                {
-                    "name": "Adaptability",
-                    "category": Tag.SOFT_SKILLS,
-                },
-                {
-                    "name": "Empathy",
-                    "category": Tag.SOFT_SKILLS,
-                },
-                {
-                    "name": "Positive attitude",
-                    "category": Tag.SOFT_SKILLS,
-                },
-                {
-                    "name": "Conflict resolution",
-                    "category": Tag.SOFT_SKILLS,
-                },
-                {
-                    "name": "Organisational ability with prioritisation",
-                    "category": Tag.STRENGTH,
-                },
-                {
-                    "name": "Quick comprehension",
-                    "category": Tag.STRENGTH,
-                },
-                {
-                    "name": "Independence",
-                    "category": Tag.STRENGTH,
-                },
-                {
-                    "name": "Personal responsibility",
-                    "category": Tag.STRENGTH,
-                },
-                {
-                    "name": "Reliable",
-                    "category": Tag.STRENGTH,
-                },
-                {
-                    "name": "Finish the job",
-                    "category": Tag.STRENGTH,
-                },
-                {
-                    "name": "Do not give up",
-                    "category": Tag.STRENGTH,
-                },
-                {
-                    "name": "Home office experience",
-                    "category": Tag.STRENGTH,
-                },
-                {
-                    "name": "Introverted",
-                    "category": Tag.WEAKNESSES,
-                },
-                {
-                    "name": "Shy",
-                    "category": Tag.WEAKNESSES,
-                },
-                {
-                    "name": "Making small talk",
-                    "category": Tag.WEAKNESSES,
-                },
-                {
-                    "name": "Perfectionism",
-                    "category": Tag.WEAKNESSES,
-                },
-                {
-                    "name": "Communication barrier in French",
-                    "category": Tag.WEAKNESSES,
-                },
-                {
-                    "name": "Afraid not to be good enough",
-                    "category": Tag.WEAKNESSES,
-                },
-                {
-                    "name": "PyCharm",
-                    "category": Tag.OTHER,
-                },
-                {
-                    "name": "Visual Studio Code",
-                    "category": Tag.OTHER,
-                },
-                {
-                    "name": "Linux (Ubuntu)",
-                    "category": Tag.OTHER,
-                },
-                {
-                    "name": "macOS",
-                    "category": Tag.OTHER,
-                },
-            ]
-
-            if Tag.objects.exists():
-                self.stdout.write(
-                    self.style.WARNING("These instances of Tag exists already!")
-                )
-                return
-
             with transaction.atomic():
                 for tag in tags:
                     Tag.objects.create(**tag)

@@ -121,6 +121,7 @@ class Picture(models.Model):
 class Link(models.Model):
     GITHUB = "GITHUB"
     VERCEL = "VERCEL"
+    RENDER = "RENDER"
     OTHER = "OTHER"
 
     OPENCLASSROOMS = "OPENCLASSROOMS"
@@ -129,6 +130,7 @@ class Link(models.Model):
     ORIGIN_CHOICES = [
         (GITHUB, _("GitHub")),
         (VERCEL, _("Vercel")),
+        (RENDER, _("Render")),
         (OTHER, _("Other")),
     ]
     PLATFORM_CHOICES = [

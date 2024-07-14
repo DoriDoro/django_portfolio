@@ -23,6 +23,7 @@ class PortfolioDetailView(DetailView):
         links = self.object.links.all()
         context["github"] = links.filter(origin=Link.GITHUB, published=True).first()
         context["vercel"] = links.filter(origin="VERCEL", published=True).first()
+        context["render"] = links.filter(origin="RENDER", published=True).first()
         context["others"] = links.filter(origin="OTHER", published=True)
 
         return context

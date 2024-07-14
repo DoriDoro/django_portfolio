@@ -35,10 +35,10 @@ class Command(BaseCommand):
     def handle(self, *args, **options):
         try:
             if not UserModel.objects.filter(username="Admin").exists():
-                raw_password = input("Please enter the password for Admin: ")
-
                 UserModel.objects.create_superuser(
-                    username="Admin", email="admin@mail.com", password=raw_password
+                    username="Admin",
+                    email="admin@mail.com",
+                    password="AdminPassWord147",
                 )
         except IntegrityError:
             self.stdout.write(self.style.WARNING("This superuser exists already!"))
