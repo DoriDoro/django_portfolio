@@ -27,7 +27,6 @@ class AboutView(TemplateView):
         context["current_positions"] = self.get_current_position()
         context["projects"] = self.get_projects_data()
         context["projects_count"] = self.get_projects_data().count()
-        context["hobbies"] = Hobby.objects.filter(published=True)
         context["programming_skills"] = self.get_tags_data().filter(
             category=Tag.PROGRAMMING_SKILLS
         )
@@ -36,6 +35,11 @@ class AboutView(TemplateView):
         context["strength"] = self.get_tags_data().filter(category=Tag.STRENGTH)
         context["weaknesses"] = self.get_tags_data().filter(category=Tag.WEAKNESSES)
         context["skills_count"] = self.get_tags_data().count()
+        context["achievements"] = Achievement.objects.filter(
+            published=True
+        ).values_list("content", flat=True)
+        context["hobbies"] = Hobby.objects.filter(published=True)
+
         return context
 
     def get_projects_data(self):
@@ -67,17 +71,6 @@ class SkillsView(TemplateView):
 
     def get_tags_data(self):
         return Tag.objects.filter(published=True)
-
-
-class AchievementsView(TemplateView):
-    template_name = "achievements.html"
-
-    def get_context_data(self, **kwargs):
-        context = super().get_context_data(**kwargs)
-        context["achievements"] = Achievement.objects.filter(
-            published=True
-        ).values_list("content", flat=True)
-        return context
 
 
 class ResumeView(TemplateView):

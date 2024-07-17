@@ -99,6 +99,26 @@
 
   </div><!-- End Counts -->
 
+    <!-- ======= Achievements ======= -->
+  <div class="about-me container">
+    <div class="section-title">
+      <h2>Achievements</h2>
+    </div>
+
+    {% if achievements %}
+      <div class="row">
+        <div class="col content">
+          {% for achievement in achievements %}
+          <ul>
+            <li><i class="bi bi-chevron-right"></i>{{ achievement }}</li>
+          </ul>
+          {% endfor %}
+        </div>
+      </div>
+      {% endif %}
+  </div><!-- End Achievements -->
+
+
   <!-- ======= Hobbies ======= -->
   <div class="interests container">
 
