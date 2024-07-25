@@ -61,6 +61,7 @@ INSTALLED_APPS = [
 
 MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",
+    "whitenoise.middleware.WhiteNoiseMiddleware",
     "django.contrib.sessions.middleware.SessionMiddleware",
     "django.middleware.common.CommonMiddleware",
     "django.middleware.csrf.CsrfViewMiddleware",
@@ -144,16 +145,12 @@ STATICFILES_DIRS = [
 MEDIA_URL = "/img/"
 MEDIA_ROOT = os.path.join(BASE_DIR, "core/media")
 
-# settings for CKEditor (django-ckeditor)
-CKEDITOR_UPLOAD_PATH = "core/static/assets/img/ckeditor/"
-"""
-The location is determined in the ckeditor-init.js script. and defaults to 
-static/ckeditor/ckeditor/. This does not work all the time, for example when using 
-ManifestStaticFilesStorage, any asset packaging pipeline or whatnot. django-ckeditor is quite 
-good at automatically detecting the correct place even then, but sometimes you have to 
-hardcode CKEDITOR_BASEPATH somewhere.
-"""
-# CKEDITOR_BASEPATH = "core/static/ckeditor/ckeditor/"
+
+STORAGES = {
+    "staticfiles": {
+        "BACKEND": "whitenoise.storage.CompressedStaticFilesStorage",
+    },
+}
 
 
 # Default primary key field type
