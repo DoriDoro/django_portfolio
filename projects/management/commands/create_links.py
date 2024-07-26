@@ -13,7 +13,7 @@ class Command(BaseCommand):
         try:
             with open(path, "r") as file:
                 data = json.load(file)
-                links = data["links"]
+                links = data["Link"]
 
                 for link in links:
                     link["origin"] = getattr(Link, link["origin"])
@@ -38,7 +38,7 @@ class Command(BaseCommand):
         return None
 
     def handle(self, *args, **options):
-        path = "doridoro/management/commands/data.json"
+        path = "projects/management/commands/data_projects.json"
 
         links = self.get_links(path)
         if links is None:

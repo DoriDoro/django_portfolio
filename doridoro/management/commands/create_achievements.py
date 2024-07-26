@@ -16,7 +16,7 @@ class Command(BaseCommand):
         try:
             with open(path, "r") as file:
                 data = json.load(file)
-                achievements = data["achievements"]
+                achievements = data["Achievement"]
 
                 return achievements
 
@@ -37,7 +37,7 @@ class Command(BaseCommand):
         return None
 
     def handle(self, *args, **options):
-        path = "doridoro/management/commands/data.json"
+        path = "doridoro/management/commands/data_doridoro.json"
 
         achievements = self.get_achievements(path)
         if achievements is None:

@@ -12,11 +12,14 @@ UserModel = get_user_model()
 class Command(BaseCommand):
     help = "This command creates one DoriDoro instance."
 
-    def get_descriptions(self, key, path):
+    def get_descriptions(self, path):
         try:
             with open(path, "r") as file:
-                descriptions = json.load(file)
-                return descriptions.get(key)
+                data = json.load(file)
+                doridoro_descriptions = data["DoriDoro"]
+
+                return doridoro_descriptions
+
         except FileNotFoundError:
             print(f"The file {path} was not found.")
         except IOError:
@@ -33,7 +36,11 @@ class Command(BaseCommand):
             not DoriDoro.objects.exists()
             and not UserModel.objects.filter(username="doridoro").exists()
         ):
-            path = "doridoro/management/commands/data.json"
+            path = "doridoro/management/commands/data_doridoro.json"
+
+            descriptions = self.get_descriptions(path)
+            if descriptions is None:
+                return None
 
             try:
                 with transaction.atomic():
@@ -50,9 +57,9 @@ class Command(BaseCommand):
                         phone="0033768132147",
                         address="35710 Bruz in France",
                         profession="Python/Django Developer",
-                        introduction=self.get_descriptions("profile_description", path),
-                        dream_job=self.get_descriptions("dream_job_description", path),
-                        free_time=self.get_descriptions("free_time_description", path),
+                        introduction=descriptions[0]["introduction"]["en"],
+                        dream_job=descriptions[1]["dream_job"]["en"],
+                        free_time=descriptions[2]["free_time"]["en"],
                     )
 
             except IntegrityError:

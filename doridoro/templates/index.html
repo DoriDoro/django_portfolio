@@ -7,14 +7,21 @@
     <div class="container index">
 
       <h1 class="mb-4 ms-5">{{ doridoro.get_full_name }}</h1>
-      <h2>I'm a <span>{{ doridoro.profession|lower }}</span> from Germany, living in France.</h2>
+      <h2>
+        {% blocktrans with profession=doridoro.profession|lower %}
+          I'm a <span>{{ profession }}</span> from Germany, living in France.
+        {% endblocktrans %}
+      </h2>
 
       {% if facts %}
       <div class="row mt-4 container">
         <div class="col-lg-7 content">
           {% for fact in facts %}
           <ul>
-            <li><i class="bi bi-chevron-right"></i>{{ fact }}</li>
+            <li>
+              <i class="bi bi-chevron-right"></i>
+              {% blocktrans %}{{ fact }}{% endblocktrans %}
+            </li>
           </ul>
           {% endfor %}
         </div>

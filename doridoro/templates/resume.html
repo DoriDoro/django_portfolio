@@ -1,5 +1,5 @@
 {% extends 'base.html' %}
-{% load static %}
+{% load i18n static %}
 
   {% block content %}
   <!-- ======= Resume Section ======= -->
@@ -7,13 +7,13 @@
     <div class="container">
 
       <div class="section-title">
-        <h2>Resume</h2>
+        <h2>{% trans "Resume" %}</h2>
       </div>
 
       <div class="row">
         <div class="col-lg-6">
           {% if jobs_formation %}
-          <h3 class="resume-title">Education</h3>
+          <h3 class="resume-title">{% trans "Education" %}</h3>
           {% for job_f in jobs_formation %}
           <div class="resume-item">
             <h4>{{ job_f.position }}{% if job_f.company_name %} at {{ job_f.company_name }}{% endif %}</h4>
@@ -25,7 +25,7 @@
           {% endif %}
 
           {% if jobs_mentoring %}
-          <h3 class="resume-title">Mentoring</h3>
+          <h3 class="resume-title">{% trans "Mentoring" %}</h3>
           {% for job_m in jobs_mentoring %}
           <div class="resume-item">
             <h4>{{ job_m.position }}{% if job_m.company_name %} at {{ job_m.company_name }}{% endif %}</h4>
@@ -39,7 +39,7 @@
 
         {% if jobs_experience %}
         <div class="col-lg-6">
-          <h3 class="resume-title">Professional Experience</h3>
+          <h3 class="resume-title">{% trans "Professional Experience" %}</h3>
           {% for job_exp in jobs_experience %}
           <div class="resume-item">
             <h4>{{ job_exp.position }}{% if job_exp.company_name %} at {{ job_exp.company_name }}{% endif %}</h4>

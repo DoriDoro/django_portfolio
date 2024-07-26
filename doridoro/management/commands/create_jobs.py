@@ -14,7 +14,7 @@ class Command(BaseCommand):
         try:
             with open(path, "r") as file:
                 data = json.load(file)
-                jobs = data["jobs"]
+                jobs = data["Job"]
 
                 for job in jobs:
                     job["job_type"] = getattr(Job, job["job_type"])
@@ -41,7 +41,7 @@ class Command(BaseCommand):
         return None
 
     def handle(self, *args, **options):
-        path = "doridoro/management/commands/data.json"
+        path = "doridoro/management/commands/data_doridoro.json"
 
         jobs = self.get_jobs(path)
         if jobs is None:

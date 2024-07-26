@@ -10,16 +10,14 @@ class DoriDoro(models.Model):
         null=True,
         on_delete=models.SET_NULL,
         related_name="doro_user",
-        verbose_name=_("user of DoriDoro"),
+        verbose_name=_("user instance"),
     )
-    phone = models.CharField(max_length=14, verbose_name=_("phone of DoriDoro"))
-    address = models.CharField(max_length=150, verbose_name=_("address of DoriDoro"))
-    profession = models.CharField(
-        max_length=150, verbose_name=_("profession of DoriDoro")
-    )
-    introduction = HTMLField(verbose_name=_("introduction of DoriDoro"))
-    dream_job = HTMLField(verbose_name=_("dream job description of DoriDoro"))
-    free_time = HTMLField(verbose_name=_("after work description of DoriDoro"))
+    phone = models.CharField(max_length=14)
+    address = models.CharField(max_length=150)
+    profession = models.CharField(max_length=150)
+    introduction = HTMLField()
+    dream_job = HTMLField(verbose_name=_("dream job description"))
+    free_time = HTMLField(verbose_name=_("after work description"))
 
     class Meta:
         verbose_name_plural = "DoriDoro"
@@ -33,8 +31,8 @@ class DoriDoro(models.Model):
 
 
 class Achievement(models.Model):
-    title = models.CharField(max_length=100, verbose_name=_("title of achievement"))
-    content = models.TextField(verbose_name=_("content of achievement"))
+    title = models.CharField(max_length=100)
+    content = models.TextField()
     published = models.BooleanField(
         default=True, verbose_name=_("achievement visible on website")
     )
@@ -44,10 +42,8 @@ class Achievement(models.Model):
 
 
 class Degree(models.Model):
-    organization = models.CharField(
-        max_length=100, verbose_name=_("organization of degree")
-    )
-    degree = models.CharField(max_length=100, verbose_name=_("degree"))
+    organization = models.CharField(max_length=100)
+    degree = models.CharField(max_length=100)
     published = models.BooleanField(
         default=True, verbose_name=_("degree visible on website")
     )
@@ -57,8 +53,8 @@ class Degree(models.Model):
 
 
 class Fact(models.Model):
-    title = models.CharField(max_length=100, verbose_name=_("title of fact"))
-    content = models.TextField(verbose_name=_("content of fact"))
+    title = models.CharField(max_length=100)
+    content = models.TextField()
     published = models.BooleanField(
         default=True, verbose_name=_("fact visible on website")
     )
@@ -68,7 +64,7 @@ class Fact(models.Model):
 
 
 class Hobby(models.Model):
-    name = models.CharField(max_length=100, verbose_name=_("name of hobby"))
+    name = models.CharField(max_length=100)
     published = models.BooleanField(
         default=True, verbose_name=_("hobby visible on website")
     )
@@ -95,36 +91,26 @@ class Job(models.Model):
         (EMPLOYED, _("Employed")),
         (APPRENTICESHIP, _("Apprenticeship")),
         (FORMATION, _("Formation")),
-        (MENTORING, _("MENTORING")),
+        (MENTORING, _("Mentoring")),
         (PARENTAL_LEAVE, _("Parental_Leave")),
         (SABBATICAL, _("Sabbatical")),
     ]
 
-    company_name = models.CharField(
-        max_length=200, verbose_name=_("company name of the job")
-    )
-    position = models.CharField(max_length=200, verbose_name=_("position of the job"))
-    start_date = models.DateField(verbose_name=_("start date of the job"))
-    end_date = models.DateField(
-        blank=True, null=True, verbose_name=_("end date of the job")
-    )
+    company_name = models.CharField(max_length=200)
+    position = models.CharField(max_length=200)
+    start_date = models.DateField(verbose_name=_("start date"))
+    end_date = models.DateField(blank=True, null=True, verbose_name=_("end date"))
     until_present = models.BooleanField(default=False, verbose_name=_("until present"))
-    address = models.CharField(
-        max_length=100, blank=True, null=True, verbose_name="address of job"
-    )
+    address = models.CharField(max_length=100, blank=True, null=True)
     job_type = models.CharField(
-        max_length=14, choices=JOB_TYPES, verbose_name=_("type of job")
+        max_length=14, choices=JOB_TYPES, verbose_name=_("job type")
     )
-    description = models.TextField(verbose_name=_("description of job"))
+    description = models.TextField()
     published = models.BooleanField(
         default=True, verbose_name=_("job visible on website")
     )
-    tags = models.ManyToManyField(
-        "projects.Tag", related_name="job_tags", verbose_name=_("tags of the job")
-    )
-    links = models.ManyToManyField(
-        "projects.Link", related_name="job_links", verbose_name="links of the job"
-    )
+    tags = models.ManyToManyField("projects.Tag", related_name="job_tags")
+    links = models.ManyToManyField("projects.Link", related_name="job_links")
 
     def __str__(self):
         return f"{self.job_type} ({self.company_name} - {self.published})"
@@ -134,15 +120,11 @@ class Job(models.Model):
 
         if self.until_present and self.end_date is not None:
             raise ValidationError(
-                _(
-                    "If the job is ongoing (until present is True), the end date should be null"
-                )
+                _("If the job is ongoing, the end date should be empty.")
             )
         if not self.until_present and self.end_date is None:
             raise ValidationError(
-                _(
-                    "End date must be provided if the job is not ongoing (until_present is False)."
-                )
+                _("End date must be provided if the job is not ongoing.")
             )
         if self.end_date and self.start_date and self.end_date < self.start_date:
             raise ValidationError(_("End date should be after start date."))
@@ -168,12 +150,11 @@ class Language(models.Model):
         (NATIVE, _("Native Speaker")),
     ]
 
-    name = models.CharField(max_length=50, verbose_name=_("language"))
+    name = models.CharField(max_length=50)
     level = models.CharField(
         max_length=7,
         choices=LEVEL_CHOICES,
         default=A1,
-        verbose_name=_("level of language"),
     )
     published = models.BooleanField(
         default=True, verbose_name=_("language visible on website")
@@ -184,19 +165,11 @@ class Language(models.Model):
 
 
 class Reference(models.Model):
-    name = models.CharField(max_length=150, verbose_name=_("name of reference"))
-    profession = models.CharField(
-        max_length=250, verbose_name=_("profession of reference")
-    )
-    email = models.EmailField(
-        max_length=250, verbose_name=_("email address of reference")
-    )
-    phone = models.CharField(
-        blank=True, max_length=14, verbose_name=_("phone of reference")
-    )
-    language = models.CharField(
-        max_length=100, verbose_name=_("spoken language of reference")
-    )
+    name = models.CharField(max_length=150)
+    profession = models.CharField(max_length=250)
+    email = models.EmailField(max_length=250, verbose_name=_("email address"))
+    phone = models.CharField(blank=True, max_length=14)
+    language = models.CharField(max_length=100, verbose_name=_("spoken language"))
     published = models.BooleanField(
         default=True, verbose_name=_("reference visible on website")
     )
@@ -206,8 +179,8 @@ class Reference(models.Model):
 
 
 class SocialMedia(models.Model):
-    name = models.CharField(max_length=150, verbose_name=_("name of social media"))
-    url = models.URLField(max_length=250, verbose_name=_("url of social media"))
+    name = models.CharField(max_length=150)
+    url = models.URLField(max_length=250)
     published = models.BooleanField(
         default=True, verbose_name=_("social media visible on website")
     )

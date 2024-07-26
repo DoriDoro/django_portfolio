@@ -13,7 +13,7 @@ class Command(BaseCommand):
         try:
             with open(path, "r") as file:
                 data = json.load(file)
-                tags = data["tags"]
+                tags = data["Tag"]
 
                 for tag in tags:
                     tag["category"] = getattr(Tag, tag["category"])
@@ -37,7 +37,7 @@ class Command(BaseCommand):
         return None
 
     def handle(self, *args, **options):
-        path = "doridoro/management/commands/data.json"
+        path = "projects/management/commands/data_projects.json"
 
         tags = self.get_tags(path)
         if tags is None:

@@ -13,7 +13,7 @@ class Command(BaseCommand):
         try:
             with open(path, "r") as file:
                 data = json.load(file)
-                facts = data["facts"]
+                facts = data["Fact"]
 
                 return facts
 
@@ -34,7 +34,7 @@ class Command(BaseCommand):
         return None
 
     def handle(self, *args, **options):
-        path = "doridoro/management/commands/data.json"
+        path = "doridoro/management/commands/data_doridoro.json"
 
         facts = self.get_facts(path)
         if facts is None:

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 
-{% load static %}
+{% load i18n static %}
 
 <head>
   <meta charset="utf-8">
@@ -40,17 +40,18 @@
 
 <body>
 
+  <!-- Navbar -->
   <div class="container">
     <nav id="navbar" class="navbar">
-      <h1><a href="{% url 'doridoro:index' %}">Dorothea Reher</a></h1>
-      <ul>
-        <li><a class="nav-link active" href="{% url 'doridoro:index' %}">Home</a></li>
-        <li><a class="nav-link" href="{% url 'doridoro:about' %}">About</a></li>
-        <li><a class="nav-link" href="{% url 'doridoro:skills' %}">Skills</a></li>
-        <li><a class="nav-link" href="{% url 'doridoro:resume' %}">Resume</a></li>
-        <li><a class="nav-link" href="{% url 'projects:portfolio' %}">Portfolio</a></li>
+      <a href="{% url 'doridoro:index' %}">Dorothea Reher</a>
 
+      <ul>
+        <li><a class="nav-link" href="{% url 'doridoro:about' %}">{% trans "About" %}</a></li>
+        <li><a class="nav-link" href="{% url 'doridoro:skills' %}">{% trans "Skills" %}</a></li>
+        <li><a class="nav-link" href="{% url 'doridoro:resume' %}">{% trans "Resume" %}</a></li>
+        <li><a class="nav-link" href="{% url 'projects:portfolio' %}">{% trans "Portfolio" %}</a></li>
       </ul>
+
       <i class="bi bi-list mobile-nav-toggle"></i>
     </nav><!-- .navbar -->
   </div>
@@ -64,7 +65,19 @@
     <!-- You can delete the links only if you purchased the pro version. -->
     <!-- Licensing information: https://bootstrapmade.com/license/ -->
     <!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/personal-free-resume-bootstrap-template/ -->
-    Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
+    <div class="dropdown">
+      <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false"></button>
+      <ul class="dropdown-menu">
+        {% get_current_language as LANGUAGE_CODE %}
+        {% get_available_languages as LANGUAGES %}
+        {% get_language_info_list for LANGUAGES as languages %}
+
+        {% for lang in languages %}
+        <li><a class='dropdown-item' href='/{{ lang.code }}/'>{{ lang.name_local }}</a></li>
+        {% endfor %}
+      </ul>
+    </div>
+    Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a> and modified by DoriDoro
   </div>
 
   <!-- Vendor JS Files -->

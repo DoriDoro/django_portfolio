@@ -2,32 +2,27 @@ from io import BytesIO
 
 from django.core.files.base import ContentFile
 from django.db import models
-from django.utils.translation import gettext_lazy as _
+from django.utils.translation import gettext_lazy as _, gettext_lazy
 from tinymce.models import HTMLField
 from PIL import Image
 
 
 class Project(models.Model):
-    title = models.CharField(max_length=250, verbose_name=_("project title"))
-    slug = models.SlugField(verbose_name=_("project slug"))
-    create_date = models.DateField(verbose_name=_("project created on"))
-    introduction = HTMLField(verbose_name=_("project introduction"))
-    content = HTMLField(verbose_name=_("project content"))
+    title = models.CharField(max_length=250)
+    slug = models.SlugField()
+    create_date = models.DateField(verbose_name=_("create date"))
+    introduction = HTMLField()
+    content = HTMLField()
     published = models.BooleanField(
         default=True, verbose_name=_("project visible on website")
     )
-    tags = models.ManyToManyField(
-        "Tag", related_name="project_tags", verbose_name=_("tags of the project")
-    )
-    links = models.ManyToManyField(
-        "Link", related_name="project_links", verbose_name=_("links of the project")
-    )
+    tags = models.ManyToManyField("Tag", related_name="project_tags")
+    links = models.ManyToManyField("Link", related_name="project_links")
     doridoro = models.ForeignKey(
         "doridoro.DoriDoro",
         on_delete=models.SET_NULL,
         null=True,
         related_name="doro_project",
-        verbose_name=_("project of DoriDoro"),
     )
 
     def __str__(self):
@@ -43,8 +38,8 @@ class Project(models.Model):
 
 
 class Picture(models.Model):
-    legend = models.CharField(max_length=100, verbose_name=_("legend of picture"))
-    slug = models.SlugField(verbose_name=_("slug of picture"))
+    legend = models.CharField(max_length=100)
+    slug = models.SlugField()
     cover_picture = models.BooleanField(default=False, verbose_name=_("cover picture"))
     photo = models.ImageField(
         upload_to="images/",
@@ -59,7 +54,6 @@ class Picture(models.Model):
         "projects.Project",
         on_delete=models.CASCADE,
         related_name="project_picture",
-        verbose_name=_("picture of project"),
     )
 
     def __str__(self):
@@ -71,14 +65,19 @@ class Picture(models.Model):
                 img = Image.open(self.photo)
                 img.verify()
             except (IOError, SyntaxError) as e:
-                raise ValueError(f"The uploaded file is not a valid image. -- {e}")
+                raise ValueError(
+                    gettext_lazy("The uploaded file is not a valid image. -- %s") % e
+                )
 
             # Reopen the image to reset the file pointer
             try:
                 img = Image.open(self.photo)
             except (IOError, SyntaxError) as e:
                 raise ValueError(
-                    f"The uploaded file could not be reopened as an image. -- {e}"
+                    gettext_lazy(
+                        "The uploaded file could not be reopened as an image. -- %s"
+                    )
+                    % e
                 )
 
             if img.width > 800:
@@ -109,11 +108,16 @@ class Picture(models.Model):
                     )
                 except (IOError, SyntaxError) as e:
                     raise ValueError(
-                        f"An error occurred while processing the image. -- {e}"
+                        gettext_lazy(
+                            "An error occurred while processing the image. -- %s"
+                        )
+                        % e
                     )
 
             else:
-                raise ValueError(f"The image width is smaller than 800 pixels.")
+                raise ValueError(
+                    gettext_lazy("The image width is smaller than 800 pixels.")
+                )
 
         super().save(*args, **kwargs)
 
@@ -138,18 +142,12 @@ class Link(models.Model):
         (PERSONAL_PROJECT, _("Personal Project")),
     ]
 
-    title = models.CharField(max_length=200, verbose_name=_("title of link"))
-    legend = models.CharField(
-        max_length=100, null=True, blank=True, verbose_name=_("legend of link")
-    )
-    origin = models.CharField(
-        max_length=6, choices=ORIGIN_CHOICES, verbose_name=_("origin of link")
-    )
-    platform = models.CharField(
-        max_length=17, choices=PLATFORM_CHOICES, verbose_name=_("platform of link")
-    )
+    title = models.CharField(max_length=200)
+    legend = models.CharField(max_length=100, null=True, blank=True)
+    origin = models.CharField(max_length=6, choices=ORIGIN_CHOICES)
+    platform = models.CharField(max_length=17, choices=PLATFORM_CHOICES)
 
-    url = models.URLField(verbose_name=_("url of link"))
+    url = models.URLField()
     published = models.BooleanField(
         default=True, verbose_name=_("link visible on website")
     )
@@ -173,12 +171,10 @@ class Tag(models.Model):
         (STRENGTH, _("Strength")),
         (WEAKNESSES, _("Weakness")),
     ]
-    name = models.CharField(max_length=50, verbose_name=_("name of tag/skill"))
-    category = models.CharField(
-        max_length=20, choices=TAG_CHOICES, verbose_name=_("category of tag/skill")
-    )
+    name = models.CharField(max_length=50)
+    category = models.CharField(max_length=20, choices=TAG_CHOICES)
     published = models.BooleanField(
-        default=True, verbose_name=_("tag/skill visible on website")
+        default=True, verbose_name=_("tag visible on website")
     )
 
     def __str__(self):

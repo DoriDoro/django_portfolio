@@ -3,7 +3,7 @@ Django Local Settings Template
 
 By importing from `oc_lettings_site.settings import *`, this template inherits all the
 configurations defined in the main settings.py file. This ensures that all the default settings
-and configurations are preserved, providing a solid foundation for the local development
+and configurations are preserved, providing a solid foundation for the locale development
 environment.
 """
 
@@ -26,7 +26,7 @@ DEBUG = True
 
 """
 The ALLOWED_HOSTS setting is configured to include 'localhost' and '127.0.0.1', allowing the
-Django application to serve requests from the local machine.This is a common configuration
+Django application to serve requests from the locale machine.This is a common configuration
 for development environments, ensuring that the application can be accessed locally.
 """
 ALLOWED_HOSTS = ["localhost", "127.0.0.1"]
@@ -34,7 +34,7 @@ ALLOWED_HOSTS = ["localhost", "127.0.0.1"]
 """
 The template includes placeholders for Sentry DSN(SENTRY_DSN=).Sentry is a popular error tracking
 tool that helps developers monitor and fix crashes in real-time.By configuring Sentry in the
-local settings, developers can easily track errors and exceptions that occur during development,
+locale settings, developers can easily track errors and exceptions that occur during development,
 improving the overall quality and stability of the application.
 https://docs.sentry.io/platforms/python/integrations/django/#install
 """
