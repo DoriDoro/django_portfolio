@@ -24,176 +24,499 @@
   ],
   "Achievement": [
     {
-      "title": "Formation",
-      "content": "In June 2024: Ready to complete a 24-month training program within 21 month."
+      "title": {
+        "en": "Formation",
+        "de": "Weiterbildung",
+        "fr": "Formation"
+      },
+      "content": {
+        "en": "In June 2024: Ready to complete a 24-month training program within 21 month.",
+        "de": "Im Juni 2024: Bereit, ein 24-monatiges Ausbildungsprogramm innerhalb von 21 Monaten zu absolvieren.",
+        "fr": "En juin 2024 : Prêt à compléter un programme de formation de 24 mois dans un délai de 21 mois."
+      }
     },
     {
-      "title": "Relocate",
-      "content": "Relocated to Rennes and started a formation within 6 weeks, despite the challenge of finding accommodation."
+      "title": {
+        "en": "Relocate",
+        "de": "Umzug",
+        "fr": "Délocalisation"
+      },
+      "content": {
+        "en": "Relocated to Rennes and started a formation within 6 weeks, despite the challenge of finding accommodation.",
+        "de": "Umzug nach Rennes und Beginner einer Ausbildung innerhalb von 6 Wochen, obwohl es schwierig war, eine Unterkunft zu finden.",
+        "fr": "Déménagé à Rennes et commencé une formation en 6 semaines, malgré la difficulté de trouver un logement."
+      }
     },
     {
-      "title": "Single parent",
-      "content": "Single parent, working full-time (80% in enterprise and 20% formation)."
+      "title": {
+        "en": "Single parent",
+        "de": "Alleinerziehend",
+        "fr": "Mére isolé"
+      },
+      "content": {
+        "en": "Single parent, working full-time (80% in enterprise and 20% formation).",
+        "de": "Alleinerziehend, Vollzeitbeschäftigung (80% im Unternehmen und 20% in der Ausbildung).",
+        "fr": "Mére isolé, travaillant à temps plein (80 % en entreprise et 20 % en formation)."
+      }
     },
     {
-      "title": "French",
-      "content": "Undertook formation in French, despite limited proficiency in the language."
+      "title": {
+        "en": "French",
+        "de": "Französisch",
+        "fr": "Française"
+      },
+      "content": {
+        "en": "Undertook formation in French, despite limited proficiency in the language.",
+        "de": "Trotz begrenzter Französischsprachkenntnisse eine Ausbildung in Französisch absolviert.",
+        "fr": "Suivi une formation en français, malgré une maîtrise limitée de la langue."
+      }
     },
     {
-      "title": "Challenges",
-      "content": "Demonstrated resilience and adaptability in overcoming challenges."
+      "title": {
+        "en": "Challenges",
+        "de": "Herausforderungen",
+        "fr": "Défis"
+      },
+      "content": {
+        "en": "Demonstrated resilience and adaptability in overcoming challenges.",
+        "de": "Bewiesene Widerstandsfähigkeit und Anpassungsfähigkeit bei der Bewältigung von Herausforderungen.",
+        "fr": "Faire preuve de résilience et d'adaptabilité pour surmonter les difficultés."
+      }
     },
     {
-      "title": "Self",
-      "content": "Proved commitment to continuous self-improvement and ability to thrive in adverse situations."
+      "title": {
+        "en": "Self",
+        "de": "Selbst",
+        "fr": "Soi-même"
+      },
+      "content": {
+        "en": "Proved commitment to continuous self-improvement and ability to thrive in adverse situations.",
+        "de": "Nachgewiesene Bereitschaft zur ständigen Selbstverbesserung und Fähigkeit, auch in schwierigen Situationen erfolgreich zu sein.",
+        "fr": "Engagement prouvé en faveur d'une amélioration continue de soi et capacité à s'épanouir dans des situations défavorables."
+      }
     },
     {
-      "title": "Myself",
-      "content": "Through sheer determination and perseverance, I navigated through the complexities of the coursework and emerged victorious, showcasing my resilience and adaptability in adverse situations."
+      "title": {
+        "en": "Myself",
+        "de": "Myself",
+        "fr": "Moi-même"
+      },
+      "content": {
+        "en": "Through sheer determination and perseverance, I navigated through the complexities of the coursework and emerged victorious, showcasing my resilience and adaptability in adverse situations.",
+        "de": "Durch schiere Entschlossenheit und Beharrlichkeit habe ich mich durch komplexe Programme gearbeitet und habe Erfolge erziehlt, wobei ich meine Widerstandsfähigkeit und Anpassungsfähigkeit in schwierigen Situationen unter Beweis gestellt habe.",
+        "fr": "À force de détermination et de persévérance, j'ai surmonté les complexités du travail de cours et j'en suis sorti victorieux, démontrant ainsi ma résilience et ma capacité d'adaptation dans des situations difficiles."
+      }
     }
   ],
   "Fact": [
     {
-      "title": "Availability",
-      "content": "I am currently in search of a new job opportunity and am available to start within 1.5 months. I am eager to bring my skills and experience to a new role and contribute to the success of a dynamic organization."
+      "title": {
+        "en": "Availability",
+        "de": "Verfügbarkeit",
+        "fr": "Disponibilité"
+      },
+      "content": {
+        "en": "I am currently in search of a new job opportunity and am available to start within 1.5 months. I am eager to bring my skills and experience to a new role and contribute to the success of a dynamic organization.",
+        "de": "Ich bin derzeit auf der Suche nach einer neuen Stelle und kann innerhalb von 1,5 Monaten anfangen. Ich freue mich darauf, meine Fähigkeiten und Erfahrungen in eine neue Aufgabe einzubringen und zum Erfolg eines dynamischen Unternehmens beizutragen",
+        "fr": "Je suis actuellement à la recherche d'un nouvel emploi et je suis disponible pour commencer dans un délai d'un mois et demi. Je suis impatient d'apporter mes compétences et mon expérience à un nouveau rôle et de contribuer au succès d'une organisation dynamique."
+      }
     },
     {
-      "title": "Relocate",
-      "content": "I need to vacate my current apartment by 31.12.2024 and am fully prepared to relocate within France, preferably near the German border, or to Switzerland. I am open to new opportunities that align with this transition."
+      "title": {
+        "en": "Relocate",
+        "de": "Umzug",
+        "fr": "Délocalisation"
+      },
+      "content": {
+        "en": "I need to vacate my current apartment by 31.12.2024 and am fully prepared to relocate within France, preferably near the German border, or to Switzerland. I am open to new opportunities that align with this transition.",
+        "de": "Ich muss meine derzeitige Wohnung zum 31.12.2024 räumen und bin bereit, innerhalb Frankreichs, vorzugsweise nahe der deutschen Grenze, oder in die Schweiz umzuziehen. Ich bin offen für neue Möglichkeiten, die mit diesem Übergang in Einklang stehen.",
+        "fr": "Je dois quitter mon appartement actuel d'ici le 31.12.2024 et je suis tout à fait disposé à déménager en France, de préférence près de la frontière allemande, ou en Suisse. Je suis ouvert à de nouvelles opportunités qui correspondent à cette transition."
+      }
     },
     {
-      "title": "Formation",
-      "content": "I am currently at the final stage of my formation and will complete it upon securing a new employer. I am eager to apply my knowledge and skills in a new role and finalize my training with hands-on experience in a professional setting."
+      "title": {
+        "en": "Formation",
+        "de": "Weiterbildung",
+        "fr": "Formation"
+      },
+      "content": {
+        "en": "I am currently at the final stage of my formation and will complete it upon securing a new employer. I am eager to apply my knowledge and skills in a new role and finalize my training with hands-on experience in a professional setting.",
+        "de": "Ich befinde mich derzeit in der letzten Phase meiner Ausbildung und werde sie abschließen, sobald ich einen neuen Arbeitgeber gefunden habe. Ich bin begierig darauf, meine Kenntnisse und Fähigkeiten in einer neuen Rolle anzuwenden und meine Ausbildung mit praktischer Erfahrung in einem professionellen Umfeld abzuschließen.",
+        "fr": "J'en suis actuellement à la dernière étape de ma formation et je l'achèverai lorsque j'aurai trouvé un nouvel employeur. Je suis impatient d'appliquer mes connaissances et mes compétences dans un nouveau rôle et de finaliser ma formation avec une expérience pratique dans un cadre professionnel."
+      }
     }
   ],
   "Job": [
     {
-      "company_name": "Cocoonr Hosting Power and Book&Pay",
-      "position": "Apprenticeship as Python Developer",
+      "company_name": {
+        "en": "Cocoonr Hosting Power and Book&Pay",
+        "de": "Cocoonr Hosting Power und Book&Pay",
+        "fr": "Cocoonr Hosting Power et Book&Pay"
+      },
+      "position": {
+        "en": "Apprenticeship as Python Developer",
+        "de": "Berufsausbildung zum Python-Entwicklerin",
+        "fr": "Apprentissage de développeuse Python"
+      },
       "start_date": "2022-11-21",
       "until_present": "True",
-      "address": "Rennes (FRANCE)",
-      "description": [
-        "I have effectively utilized Notion as an integral tool for managing project workflows.",
-        "My expertise includes working on tasks within Notion, where I have seamlessly created, tracked, and completed independently various project assignments, ensuring timely delivery and adherence to project goals.",
-        "Proficient in handling database requests and exporting data into CSV files.",
-        "Responsible for managing the internal Slack chat 'Assistance Technique' where colleagues report bugs, problems, and server errors.",
-        "Skilled in checking Sentry for errors and identifying issues promptly.",
-        "Experienced in verifying bugs, resolving them, or creating development requests as necessary.",
-        "Capable of analyzing code to provide explanations for issues and propose solutions.",
-        "Enhanced understanding of website operations and management through problem-solving activities.",
-        "Proficient in generating scripts with templates for inserting new data, such as new cities, into the database.",
-        "Skilled in implementing new dashboard modules and assembling custom code modules to create innovative dashboard features."
-      ],
+      "address": {
+        "en": "Rennes (FRANCE)",
+        "de": "Rennes (FRANKREICH)",
+        "fr": "Rennes (FRANCE)"
+      },
+      "description": {
+        "en": [
+          "I have effectively utilized Notion as an integral tool for managing project workflows.",
+          "My expertise includes working on tasks within Notion, where I have seamlessly created, tracked, and completed independently various project assignments, ensuring timely delivery and adherence to project goals.",
+          "Proficient in handling database requests and exporting data into CSV files.",
+          "Responsible for managing the internal Slack chat 'Assistance Technique' where colleagues report bugs, problems, and server errors.",
+          "Skilled in checking Sentry for errors and identifying issues promptly.",
+          "Experienced in verifying bugs, resolving them, or creating development requests as necessary.",
+          "Capable of analyzing code to provide explanations for issues and propose solutions.",
+          "Enhanced understanding of website operations and management through problem-solving activities.",
+          "Skilled in implementing new dashboard modules and assembling custom code modules to create innovative dashboard features."
+        ],
+        "de": [
+          "Ich habe Notion effektiv als integrales Werkzeug für die Verwaltung von Projektabläufen eingesetzt.",
+          "Zu meinen Fachkenntnissen gehört die Arbeit an Aufgaben innerhalb von Notion, in dem ich verschiedene Projektaufgaben nahtlos erstellt, verfolgt und unabhängig abgeschlossen habe, wobei ich die rechtzeitige Lieferung und Einhaltung der Projektziele sichergestellt habe.",
+          "Beherrscht den Umgang mit Datenbankanfragen und den Export von Daten in CSV-Dateien.",
+          "Verantwortlich für die Verwaltung des internen Slack-Chats „Assistance Technique“, in dem Kollegen Bugs, Probleme und Serverfehler melden.",
+          "In der Lage, Sentry auf Fehler zu überprüfen und Probleme sofort zu erkennen.",
+          "Erfahrung mit der Überprüfung von Fehlern, deren Behebung oder der Erstellung von Entwicklungsaufträgen, falls erforderlich.",
+          "In der Lage, Code zu analysieren, um Erklärungen für Probleme zu liefern und Lösungen vorzuschlagen.",
+          "Verbessertes Verständnis von Website-Betrieb und -Verwaltung durch Problemlösungsaktivitäten.",
+          "In der Lage, neue Dashboard-Module zu implementieren und benutzerdefinierte Code-Module zusammenzustellen, um innovative Dashboard-Funktionen zu schaffen."
+        ],
+        "fr": [
+          "J'ai utilisé Notion de manière efficace en tant qu'outil intégral de gestion des flux de travail des projets.",
+          "Mon expertise comprend le travail sur des tâches au sein de Notion, où j'ai créé, suivi et achevé de manière transparente et indépendante diverses missions de projet, en veillant à la livraison dans les délais et au respect des objectifs du projet.",
+          "Maîtrise de la gestion des demandes de bases de données et de l'exportation des données dans des fichiers CSV.",
+          "Responsable de la gestion du chat interne Slack « Technique d'assistance » où les collègues signalent les bogues, les problèmes et les erreurs de serveur.",
+          "Compétences en matière de recherche d'erreurs dans Sentry et d'identification rapide des problèmes.",
+          "Expérience de la vérification des bogues, de leur résolution ou de la création de demandes de développement si nécessaire.",
+          "Capable d'analyser le code pour fournir des explications sur les problèmes et proposer des solutions.",
+          "Amélioration de la compréhension des opérations et de la gestion des sites web par le biais d'activités de résolution de problèmes.",
+          "Compétences dans la mise en œuvre de nouveaux modules de tableaux de bord et dans l'assemblage de modules de code personnalisés pour créer des fonctions de tableaux de bord innovantes."
+        ]
+      },
       "job_type": "APPRENTICESHIP"
     },
     {
-      "company_name": "",
-      "position": "Parental Leave",
+      "company_name": {
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "position": {
+        "en": "Parental Leave",
+        "de": "Elternzeit",
+        "fr": "Congé parental"
+      },
       "start_date": "2020-09-01",
       "end_date": "2022-11-21",
-      "description": [
-        "Dedication to my family's needs and being present during key developmental stages of my child's life. Grow personally and develop important skills such as patience, time management, and multitasking.",
-        "Maintain a healthy work-life balance by taking time off to prioritize family while also recognizing the significance of personal and professional development."
-      ],
+      "address": {
+        "en": "Villeneuve-la-Garenne (FRANCE)",
+        "de": "Villeneuve-la-Garenne (FRANKREICH)",
+        "fr": "Villeneuve-la-Garenne (FRANCE)"
+      },
+      "description": {
+        "en": [
+          "Dedication to my family's needs and being present during key developmental stages of my child's life. Grow personally and develop important skills such as patience, time management, and multitasking.",
+          "Maintain a healthy work-life balance by taking time off to prioritize family while also recognizing the significance of personal and professional development."
+        ],
+        "de": [
+          "Sich den Bedürfnissen meiner Familie zu widmen und in den wichtigsten Entwicklungsphasen meines Kindes präsent zu sein. Persönlich zu wachsen und wichtige Fähigkeiten wie Geduld, Zeitmanagement und Multitasking zu entwickeln.",
+          "Halten Sie ein gesundes Gleichgewicht zwischen Arbeit und Privatleben aufrecht, indem Sie sich Zeit für die Familie nehmen, aber auch die Bedeutung der persönlichen und beruflichen Entwicklung anerkennen."
+        ],
+        "fr": [
+          "Se consacrer aux besoins de ma famille et être présent lors des étapes clés du développement de la vie de mon enfant. M'épanouir personnellement et développer des compétences importantes telles que la patience, la gestion du temps et la capacité à effectuer plusieurs tâches à la fois.",
+          "Maintenir un bon équilibre entre vie professionnelle et vie privée en prenant des congés pour donner la priorité à la famille, tout en reconnaissant l'importance du développement personnel et professionnel."
+        ]
+      },
       "job_type": "PARENTAL_LEAVE"
     },
     {
-      "company_name": "Comdata (Nissan)",
-      "position": "Customer Support Agent (Helpdesk)",
+      "company_name": {
+        "en": "Comdata (Nissan)",
+        "de": "Comdata (Nissan)",
+        "fr": "Comdata (Nissan)"
+      },
+      "position": {
+        "en": "Customer Support Agent (Helpdesk)",
+        "de": "Kundensupport-Agent (Helpdesk)",
+        "fr": "Agent de support client (Helpdesk)"
+      },
       "start_date": "2016-06-01",
       "end_date": "2020-09-01",
-      "address": "Gennevilliers (FRANCE)",
-      "description": [
-        "Proficiently managed multilingual communication channels in both German and English, handling calls, chats, and emails with customers.",
-        "Demonstrated efficiency in problem resolution by escalating technical issues to relevant third-party providers, ensuring timely and effective solutions.",
-        "Specialized expertise as a Telematics Agent (Helpdesk Agent), tasked with resolving inquiries and addressing issues pertaining to the onboard infotainment system and associated services within automotive environments.",
-        "Utilized Salesforce CRM proficiently as a comprehensive recording and management system, facilitating streamlined documentation and tracking of customer interactions and resolutions."
-      ],
+      "address": {
+        "en": "Gennevilliers (FRANCE)",
+        "de": "Gennevilliers (FRANKREICH)",
+        "fr": "Gennevilliers (FRANCE)"
+      },
+      "description": {
+        "en": [
+          "Proficiently managed multilingual communication channels in both German and English, handling calls, chats, and emails with customers.",
+          "Demonstrated efficiency in problem resolution by escalating technical issues to relevant third-party providers, ensuring timely and effective solutions.",
+          "Specialized expertise as a Telematics Agent (Helpdesk Agent), tasked with resolving inquiries and addressing issues pertaining to the onboard infotainment system and associated services within automotive environments.",
+          "Utilized Salesforce CRM proficiently as a comprehensive recording and management system, facilitating streamlined documentation and tracking of customer interactions and resolutions."
+        ],
+        "de": [
+          "Beherrschte die mehrsprachigen Kommunikationskanäle in Deutsch und Englisch und bearbeitete Anrufe, Chats und E-Mails mit Kunden.",
+          "Nachgewiesene Effizienz bei der Problemlösung durch Weiterleitung von technischen Problemen an die entsprechenden Drittanbieter, um zeitnahe und effektive Lösungen zu gewährleisten.",
+          "Spezialisiertes Fachwissen als Telematik-Agent (Helpdesk-Agent), der mit der Lösung von Anfragen und Problemen im Zusammenhang mit dem bordeigenen Infotainment-System und den damit verbundenen Diensten in Automobilumgebungen betraut ist.",
+          "Nutzte Salesforce CRM als umfassendes Aufzeichnungs- und Managementsystem, das eine optimierte Dokumentation und Verfolgung von Kundeninteraktionen und -lösungen ermöglichte."
+        ],
+        "fr": [
+          "Gestion efficace des canaux de communication multilingues en allemand et en anglais, traitement des appels, des chats et des courriels avec les clients.",
+          "Faire preuve d'efficacité dans la résolution des problèmes en faisant remonter les problèmes techniques aux fournisseurs tiers concernés, en veillant à ce que les solutions soient rapides et efficaces.",
+          "Expertise spécialisée en tant qu'agent télématique (agent du service d'assistance), chargé de répondre aux demandes de renseignements et de résoudre les problèmes liés au système d'infodivertissement embarqué et aux services associés dans les environnements automobiles.",
+          "Utilisation efficace de Salesforce CRM en tant que système d'enregistrement et de gestion complet, facilitant la documentation rationalisée et le suivi des interactions avec les clients et des résolutions."
+        ]
+      },
       "job_type": "EMPLOYED"
     },
     {
-      "company_name": "",
-      "position": "Time of integration in France",
+      "company_name": {
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "position": {
+        "en": "Time of integration in France",
+        "de": "Zeit der Integration in Frankreich",
+        "fr": "Temps d'intégration en France"
+      },
       "start_date": "2015-05-01",
       "end_date": "2016-06-01",
-      "description": [
-        "Proactively relocated to France, demonstrating adaptability and a readiness to embrace new experiences.",
-        "Engaged in the vibrant community of Paris as a dog walker, providing attentive care and companionship to pets while exploring the city's diverse neighborhoods."
-      ],
+      "address": {
+        "en": "Paris (FRANCE)",
+        "de": "Paris (FRANKREICH)",
+        "fr": "Paris (FRANCE)"
+      },
+      "description": {
+        "en": [
+          "Proactively relocated to France, demonstrating adaptability and a readiness to embrace new experiences.",
+          "Engaged in the vibrant community of Paris as a dog walker, providing attentive care and companionship to pets while exploring the city's diverse neighborhoods."
+        ],
+        "de": [
+          "Freiwilliger Umzug nach Frankreich und dabei die Anpassungsfähigkeit und die Bereitschaft bewiesen, sich auf neue Erfahrungen einzulassen.",
+          "Engagiert sich in der pulsierenden Gemeinschaft von Paris als Hundeausführerin, die sich aufmerksam um ihre Haustiere kümmert und sie begleitet, während sie die verschiedenen Viertel der Stadt erkundet."
+        ],
+        "fr": [
+          "A déménagé en France de manière proactive, en faisant preuve d'adaptabilité et d'une volonté d'accepter de nouvelles expériences.",
+          "Engagé dans la communauté dynamique de Paris en tant que promeneur de chiens, fournissant des soins attentifs et de la compagnie aux animaux de compagnie tout en explorant les divers quartiers de la ville."
+        ]
+      },
       "job_type": "SABBATICAL"
     },
     {
-      "company_name": "Research Clinical Center of Freiburg im Breisgau",
-      "position": "Chemical Technical Assistant",
+      "company_name": {
+        "en": "Research Clinical Center of Freiburg im Breisgau",
+        "de": "Zentrale Klinische Forschung in Freiburg im Breisgau",
+        "fr": "Centre de recherche clinique de Fribourg-en-Brisgau"
+      },
+      "position": {
+        "en": "Chemical Technical Assistant",
+        "de": "Chemisch Technische Assistentin",
+        "fr": "Assistant technique en chimie"
+      },
       "start_date": "2008-06-01",
       "end_date": "2015-02-01",
-      "address": "Freiburg im Breisgau (Germany)",
-      "description": [
-        "Autonomously managed projects under the supervision of senior leadership, demonstrating initiative and self-reliance in project execution.",
-        "Proficiently analyzed project-generated data, translating findings into visually informative graphs and reports to facilitate data-driven decision-making processes. Collaborated effectively with post-doctoral researchers, fostering teamwork and knowledge exchange to achieve project objectives efficiently."
-      ],
+      "address": {
+        "en": "Freiburg im Breisgau (Germany)",
+        "de": "Freiburg im Breisgau (Deutschland)",
+        "fr": "Fribourg-en-Brisgau (Allemagne)"
+      },
+      "description": {
+        "en": [
+          "Autonomously managed projects under the supervision of senior leadership, demonstrating initiative and self-reliance in project execution.",
+          "Proficiently analyzed project-generated data, translating findings into visually informative graphs and reports to facilitate data-driven decision-making processes. Collaborated effectively with post-doctoral researchers, fostering teamwork and knowledge exchange to achieve project objectives efficiently."
+        ],
+        "de": [
+          "Selbstständige Leitung von Projekten unter der Aufsicht von Führungskräften, wobei er bei der Projektdurchführung Eigeninitiative und Selbstständigkeit bewiesen hat.",
+          "Analysierte die im Rahmen des Projekts gewonnenen Daten und erstellte aussagekräftige Diagramme und Berichte, um datengestützte Entscheidungsprozesse zu erleichtern. Effektive Zusammenarbeit mit Post-Docs, Förderung der Teamarbeit und des Wissensaustauschs, um die Projektziele effizient zu erreichen."
+        ],
+        "fr": [
+          "Gérer de manière autonome des projets sous la supervision de la direction générale, en faisant preuve d'initiative et d'autonomie dans l'exécution des projets.",
+          "A analysé avec compétence les données générées par le projet, traduisant les résultats en graphiques et rapports visuellement informatifs afin de faciliter les processus de prise de décision fondés sur des données. Collaborer efficacement avec des chercheurs post-doctoraux, en favorisant le travail d'équipe et l'échange de connaissances afin d'atteindre efficacement les objectifs du projet."
+        ]
+      },
       "job_type": "EMPLOYED"
     },
     {
-      "company_name": "OpenClassrooms",
-      "position": "Path: Developer Python",
+      "company_name": {
+        "en": "OpenClassrooms",
+        "de": "OpenClassrooms",
+        "fr": "OpenClassrooms"
+      },
+      "position": {
+        "en": "Path: Developer Python",
+        "de": "Path: Developer Python",
+        "fr": "Path: Developer Python"
+      },
       "start_date": "2022-11-21",
       "until_present": "True",
-      "address": "Home Office (FRANCE)",
-      "description": [
-        "Online training with OpenClassrooms, demonstrating dedication to self-improvement and professional development through distance learning.",
-        "Successfully completed coursework and assignments from a home office environment, showcasing adaptability and self-discipline in remote work settings.",
-        "Bachelor's-level diploma program, underscoring academic achievement and commitment to continuous learning and skill enhancement.",
-        "Data management via ETL, Git/GitHub version control, Python basics.",
-        "UML use case diagram, user stories, functional models, macro project breakdown with Kanban.",
-        "Python code structuring with design patterns, PEP 8 adherence, object-oriented programming.",
-        "Interacting with REST APIs, front-end development with HTML/CSS/JS.",
-        "Problem deconstruction, algorithm development.",
-        "Agile project management, functional requirement definition, prototyping with domain models/mock-ups.",
-        "API security (OWASP/RGPD), Django REST API creation, Postman.",
-        "Python test suite implementation, error handling, environment configuration, debugging.",
-        "Secure database implementation with Python/SQL.",
-        "Application documentation, technical debt reduction, Sentry code control, deployment, CI/CD methodology, modular Python architecture."
-      ],
+      "address": {
+        "en": "Home Office (FRANCE)",
+        "de": "Home-Office (FRANKREICH)",
+        "fr": "Télétravail (FRANCE)"
+      },
+      "description": {
+        "en": [
+          "Online training with OpenClassrooms, demonstrating dedication to self-improvement and professional development through distance learning.",
+          "Successfully completed coursework and assignments from a home office environment, showcasing adaptability and self-discipline in remote work settings.",
+          "Bachelor's-level diploma program, underscoring academic achievement and commitment to continuous learning and skill enhancement.",
+          "Data management via ETL, Git/GitHub version control, Python basics.",
+          "UML use case diagram, user stories, functional models, macro project breakdown with Kanban.",
+          "Python code structuring with design patterns, PEP 8 adherence, object-oriented programming.",
+          "Interacting with REST APIs, front-end development with HTML/CSS/JS.",
+          "Problem deconstruction, algorithm development.",
+          "Agile project management, functional requirement definition, prototyping with domain models/mock-ups.",
+          "API security (OWASP/RGPD), Django REST API creation, Postman.",
+          "Python test suite implementation, error handling, environment configuration, debugging.",
+          "Secure database implementation with Python/SQL.",
+          "Application documentation, technical error reduction, Sentry code control, deployment, CI/CD methodology, modular Python architecture."
+        ],
+        "de": [
+          "Online-Weiterbildung mit OpenClassrooms, die das Engagement für die Selbstverbesserung und die berufliche Entwicklung durch Fernunterricht unter Beweis stellt.",
+          "Erfolgreiche Erledigung von Kursen und Aufgaben im Home-Office, die Anpassungsfähigkeit und Selbstdisziplin bei der Arbeit an entfernten Standorten unter Beweis gestellt haben.",
+          "Diplomstudiengang auf Bachelor-Niveau, der die akademischen Leistungen und das Engagement für kontinuierliches Lernen und die Verbesserung der Fähigkeiten unterstreicht.",
+          "Datenmanagement über ETL, Git/GitHub Versionskontrolle, Python-Grundlagen.",
+          "UML-Use-Case-Diagramm, Benutzergeschichten, Funktionsmodelle, Makro-Projektgliederung mit Kanban.",
+          "Python-Code-Strukturierung mit Entwurfsmustern, Einhaltung von PEP 8, objektorientierte Programmierung.",
+          "Interaktion mit REST-APIs, Front-End-Entwicklung mit HTML/CSS/JS.",
+          "Problemzerlegung, Algorithmenentwicklung.",
+          "Agiles Projektmanagement, Definition funktionaler Anforderungen, Prototyping mit Domänenmodellen/Mock-ups.",
+          "API-Sicherheit (OWASP/RGPD), Erstellung von Django REST API, Postman.",
+          "Implementierung einer Python- Testumgebung, Fehlerbehandlung, Umgebungskonfiguration, Debugging.",
+          "Sichere Datenbankimplementierung mit Python/SQL.",
+          "Anwendungsdokumentation, Reduzierung der technischen Fehler, Sentry-Codekontrolle, Bereitstellung, CI/CD-Methodik, modulare Python-Architektur."
+        ],
+        "fr": [
+          "Formation en ligne avec OpenClassrooms, démontrant un dévouement à l'auto-amélioration et au développement professionnel par le biais de l'apprentissage à distance.",
+          "A réalisé avec succès des travaux de cours et des missions à partir d'un bureau à domicile, faisant preuve d'adaptabilité et d'autodiscipline dans des environnements de travail à distance.",
+          "Programme diplômant de niveau licence, soulignant la réussite académique et l'engagement en faveur de l'apprentissage continu et de l'amélioration des compétences.",
+          "Gestion des données via ETL, contrôle de version Git/GitHub, bases de Python.",
+          "Diagramme de cas d'utilisation UML, récits d'utilisateurs, modèles fonctionnels, macro-découpage de projet avec Kanban.",
+          "Structuration du code Python avec des modèles de conception, adhésion au PEP 8, programmation orientée objet.",
+          "Interaction avec les API REST, développement frontal avec HTML/CSS/JS.",
+          "Déconstruction de problèmes, développement d'algorithmes.",
+          "Gestion de projet agile, définition des exigences fonctionnelles, prototypage avec des modèles/maquettes de domaine.",
+          "Sécurité des API (OWASP/RGPD), création d'API REST en Django, Postman.",
+          "Mise en œuvre d'une suite de tests Python, gestion des erreurs, configuration de l'environnement, débogage.",
+          "Mise en œuvre de bases de données sécurisées avec Python/SQL.",
+          "Documentation des applications, réduction des erreurs techniques, contrôle du code Sentry, déploiement, méthodologie CI/CD, architecture modulaire Python."
+        ]
+      },
       "job_type": "FORMATION"
     },
     {
-      "company_name": "",
-      "position": "weekly mentor sessions with Django and OpenClassrooms Mentor",
+      "company_name": {
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "position": {
+        "en": "weekly mentor sessions with Django and OpenClassrooms Mentor",
+        "de": "wöchentliche Mentorensitzungen mit Django und OpenClassrooms Mentor",
+        "fr": "sessions hebdomadaires de mentorat avec Django et OpenClassrooms Mentor"
+      },
       "start_date": "2022-11-21",
       "until_present": "True",
-      "address": "Home Office (FRANCE)",
-      "description": [
-        "Engaged in distance learning mentor sessions with an OpenClassrooms mentor as part of my coursework. Utilizing the sessions to seek guidance and clarification on OpenClassrooms projects, ensuring comprehension and successful completion of assignments.",
-        "Received personalized support and mentorship to navigate through the projects, benefiting from expert guidance and practical insights to enhance project understanding and execution."
-      ],
+      "address": {
+        "en": "Home Office (FRANCE)",
+        "de": "Home-Office (FRANKREICH)",
+        "fr": "Télétravail (FRANCE)"
+      },
+      "description": {
+        "en": [
+          "Engaged in distance learning mentor sessions with an OpenClassrooms mentor as part of my coursework. Utilizing the sessions to seek guidance and clarification on OpenClassrooms projects, ensuring comprehension and successful completion of assignments.",
+          "Received personalized support and mentorship to navigate through the projects, benefiting from expert guidance and practical insights to enhance project understanding and execution."
+        ],
+        "de": [
+          "Teilnahme an Fernunterrichtssitzungen mit einem OpenClassrooms-Mentor als Teil meiner Kursarbeit. Ich nutzte die Sitzungen, um mich bei OpenClassrooms-Projekten beraten zu lassen und um sicherzustellen, dass ich die Aufgaben verstehe und erfolgreich abschließen kann.",
+          "Erhielt persönliche Unterstützung und Betreuung bei der Durchführung der Projekte und profitierten von fachkundiger Anleitung und praktischen Einblicken, um das Verständnis und die Durchführung der Projekte zu verbessern."
+        ],
+        "fr": [
+          "J'ai participé à des sessions d'apprentissage à distance avec un mentor OpenClassrooms dans le cadre de mes cours. J'ai utilisé ces sessions pour demander des conseils et des éclaircissements sur les projets OpenClassrooms, en m'assurant de la compréhension et de la réussite des travaux.",
+          "Bénéficié d'un soutien personnalisé et d'un mentorat pour mener à bien les projets, en profitant de conseils d'experts et d'idées pratiques pour améliorer la compréhension et l'exécution des projets."
+        ]
+      },
       "job_type": "MENTORING"
     },
     {
-      "company_name": "",
-      "position": "weekly mentor sessions with Django Mentor",
+      "company_name": {
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "position": {
+        "en": "weekly mentor sessions with Django Mentor",
+        "de": "wöchentliche Mentorensitzungen mit Django Mentor",
+        "fr": "sessions hebdomadaires de mentorat avec Django Mentor"
+      },
       "start_date": "2023-09-01",
       "end_date": "2024-07-01",
-      "address": "Home Office (FRANCE)",
-      "description": [
-        "Comprehensive understanding of Django's core principles, including its processes, functionalities, and best practices.",
-        "Received personalized guidance and support in effectively utilizing Django for project development, including practical insights into implementation strategies and optimization techniques.",
-        "Additionally, received assistance with OpenClassrooms projects to deepen comprehension and refine project execution, enhancing overall learning outcomes and skill proficiency."
-      ],
+      "address": {
+        "en": "Home Office (FRANCE)",
+        "de": "Home-Office (FRANKREICH)",
+        "fr": "Télétravail (FRANCE)"
+      },
+      "description": {
+        "en": [
+          "Comprehensive understanding of Django's core principles, including its processes, functionalities, and best practices.",
+          "Received personalized guidance and support in effectively utilizing Django for project development, including practical insights into implementation strategies and optimization techniques.",
+          "Additionally, received assistance with OpenClassrooms projects to deepen comprehension and refine project execution, enhancing overall learning outcomes and skill proficiency."
+        ],
+        "de": [
+          "Umfassendes Verständnis der Kernprinzipien von Django, einschließlich seiner Prozesse, Funktionalitäten und Best Practices.",
+          "Erhielt persönliche Anleitung und Unterstützung bei der effektiven Nutzung von Django für die Projektentwicklung, einschließlich praktischer Einblicke in Implementierungsstrategien und Optimierungstechniken.",
+          "Darüber hinaus erhielt ich Unterstützung bei OpenClassrooms-Projekten, um das Verständnis zu vertiefen und die Projektdurchführung zu verfeinern, was die allgemeinen Lernergebnisse und Fähigkeiten verbesserte."
+        ],
+        "fr": [
+          "Compréhension globale des principes fondamentaux de Django, y compris ses processus, ses fonctionnalités et ses meilleures pratiques.",
+          "Conseils personnalisés et soutien dans l'utilisation efficace de Django pour le développement de projets, y compris des aperçus pratiques sur les stratégies de mise en œuvre et les techniques d'optimisation.",
+          "En outre, j'ai bénéficié d'une assistance pour les projets OpenClassrooms afin d'approfondir la compréhension et d'affiner l'exécution du projet, ce qui a permis d'améliorer les résultats globaux de l'apprentissage et la maîtrise des compétences."
+        ]
+      },
       "job_type": "MENTORING"
     },
     {
-      "company_name": "Ironhack Paris",
-      "position": "Web development bootcamp",
+      "company_name": {
+        "en": "Ironhack Paris",
+        "de": "Ironhack Paris",
+        "fr": "Ironhack Paris"
+      },
+      "position": {
+        "en": "Web development bootcamp",
+        "de": "Bootcamp für Webentwicklung",
+        "fr": "Développement web bootcamp"
+      },
       "start_date": "2019-08-01",
       "end_date": "2019-10-01",
-      "address": "Paris (FRANCE)",
-      "description": [
-        "Completed a rigorous 3-month intensive bootcamp focused on becoming a proficient Full Stack Web Developer.",
-        "Comprehensive instruction covering fundamental concepts and tools essential for full stack web  development.",
-        "Actively engaged in hands-on learning, culminating in the creation of personalized projects to solidify understanding and apply newly acquired skills."
-      ],
+      "address": {
+        "en": "Paris (FRANCE)",
+        "de": "Paris (FRANKREICH)",
+        "fr": "Paris (FRANCE)"
+      },
+      "description": {
+        "en": [
+          "Completed a rigorous 3-month intensive bootcamp focused on becoming a proficient Full Stack Web Developer.",
+          "Comprehensive instruction covering fundamental concepts and tools essential for full stack web  development.",
+          "Actively engaged in hands-on learning, culminating in the creation of personalized projects to solidify understanding and apply newly acquired skills."
+        ],
+        "de": [
+          "Abschluss einer anspruchsvollen 3-monatigen Intensiv-Bootcamps mit dem Ziel, ein kompetenter Full Stack Web Developer zu werden.",
+          "Umfassender Unterricht zu grundlegenden Konzepten und Tools, die für die Full-Stack-Webentwicklung unerlässlich sind.",
+          "Aktives praktisches Lernen, das in der Erstellung individueller Projekte endet, um das Verständnis zu festigen und neu erworbene Fähigkeiten anzuwenden."
+        ],
+        "fr": [
+          "J'ai suivi un rigoureux bootcamp intensif de 3 mois visant à devenir un développeur Web Full Stack compétent.",
+          "Une formation complète couvrant les concepts fondamentaux et les outils essentiels pour le développement web complet.",
+          "S'engager activement dans un apprentissage pratique, culminant avec la création de projets personnalisés pour consolider la compréhension et appliquer les compétences nouvellement acquises."
+        ]
+      },
       "job_type": "FORMATION"
     }
   ]

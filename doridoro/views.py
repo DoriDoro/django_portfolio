@@ -24,32 +24,15 @@ class AboutView(TemplateView):
         context = super().get_context_data(**kwargs)
 
         context["doridoro"] = DoriDoro.objects.first()
-        context["current_positions"] = self.get_current_position()
-        context["projects"] = self.get_projects_data()
-        context["projects_count"] = self.get_projects_data().count()
-        context["programming_skills"] = self.get_tags_data().filter(
-            category=Tag.PROGRAMMING_SKILLS
-        )
-        context["soft_skills"] = self.get_tags_data().filter(category=Tag.SOFT_SKILLS)
-        context["other_skills"] = self.get_tags_data().filter(category=Tag.OTHER)
-        context["strength"] = self.get_tags_data().filter(category=Tag.STRENGTH)
-        context["weaknesses"] = self.get_tags_data().filter(category=Tag.WEAKNESSES)
-        context["skills_count"] = self.get_tags_data().count()
+        context["current_positions"] = Job.objects.filter(until_present=True)
+        context["projects_count"] = Project.objects.filter(published=True).count()
+        context["skills_count"] = Tag.objects.filter(published=True)
         context["achievements"] = Achievement.objects.filter(
             published=True
         ).values_list("content", flat=True)
         context["hobbies"] = Hobby.objects.filter(published=True)
 
         return context
-
-    def get_projects_data(self):
-        return Project.objects.filter(published=True)
-
-    def get_current_position(self):
-        return Job.objects.filter(until_present=True)
-
-    def get_tags_data(self):
-        return Tag.objects.filter(published=True)
 
 
 class SkillsView(TemplateView):

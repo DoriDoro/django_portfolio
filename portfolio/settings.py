@@ -43,6 +43,8 @@ ALLOWED_HOSTS = (
 # Application definition
 
 INSTALLED_APPS = [
+    # installed package for translation
+    "modeltranslation",
     "django.contrib.admin",
     "django.contrib.auth",
     "django.contrib.contenttypes",
@@ -130,6 +132,7 @@ TIME_ZONE = "Europe/Paris"
 USE_I18N = True
 USE_L10N = True
 USE_TZ = True
+gettext = lambda s: s
 LANGUAGES = (
     ("en", _("English")),
     ("de", _("German")),

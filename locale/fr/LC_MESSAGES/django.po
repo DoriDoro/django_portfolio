@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-07-26 20:57+0200\n"
+"POT-Creation-Date: 2024-07-29 00:56+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -30,7 +30,7 @@ msgstr "Compétences"
 msgid "Resume"
 msgstr "Résumé"
 
-#: core/templates/base.html:52 projects/templates/portfolio.html:8
+#: core/templates/base.html:52 projects/templates/portfolio.html:9
 msgid "Portfolio"
 msgstr "Portfolio"
 
@@ -174,6 +174,18 @@ msgstr "médias sociaux visibles sur le site web"
 msgid "Contact Details"
 msgstr "Coordonnées"
 
+#: doridoro/templates/about.html:22
+msgid "PHONE"
+msgstr "TÉLÉPHONE"
+
+#: doridoro/templates/about.html:25
+msgid "CITY"
+msgstr "VILLE"
+
+#: doridoro/templates/about.html:28
+msgid "EMAIL"
+msgstr "EMAIL"
+
 #: doridoro/templates/about.html:38
 msgid "Current Positions"
 msgstr "Postes actuels"
@@ -213,11 +225,6 @@ msgstr ""
 "          Je suis une <span>%(profession)s</span> originaire d'Allemagne et "
 "vivant en France.\n"
 "        "
-
-#: doridoro/templates/index.html:23
-#, python-format
-msgid "%(fact)s"
-msgstr ""
 
 #: doridoro/templates/resume.html:16
 msgid "Education"
@@ -259,15 +266,15 @@ msgstr "Force"
 msgid "Weaknesses"
 msgstr "Faiblesse"
 
-#: portfolio/settings.py:134
+#: portfolio/settings.py:137
 msgid "English"
 msgstr "Anglais"
 
-#: portfolio/settings.py:135
+#: portfolio/settings.py:138
 msgid "German"
 msgstr "Allemand"
 
-#: portfolio/settings.py:136
+#: portfolio/settings.py:139
 msgid "French"
 msgstr "Français"
 

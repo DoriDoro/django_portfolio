@@ -14,13 +14,21 @@ class Command(BaseCommand):
                     "name": "Aurélien MALVÉ",
                     "profession": "Django Mentor",
                     "email": "aurelien.malve@djungo.io",
-                    "language": "French, less English",
+                    "language": {
+                        "en": "French, less English",
+                        "de": "Französisch, weniger Englisch",
+                        "fr": "Français, moins d'anglais",
+                    },
                 },
                 {
                     "name": "Nicolas CHARTIER",
                     "profession": "OpenClassrooms Mentor",
                     "email": "arctenischloria@gmail.com",
-                    "language": "French and English",
+                    "language": {
+                        "en": "French and English",
+                        "de": "Französisch und English",
+                        "fr": "Français et Anglais",
+                    },
                 },
             ]
 
@@ -32,7 +40,12 @@ class Command(BaseCommand):
 
             with transaction.atomic():
                 for reference in references:
-                    Reference.objects.create(**reference)
+                    Reference.objects.create(
+                        language_en=reference["language"]["en"],
+                        language_de=reference["language"]["de"],
+                        language_fr=reference["language"]["fr"],
+                        **reference,
+                    )
 
             self.stdout.write(
                 self.style.SUCCESS("Instances of Reference successfully created!")

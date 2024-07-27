@@ -14,8 +14,14 @@ class Command(BaseCommand):
                     "name": "LinkedIn",
                     "url": "https://fr.linkedin.com/in/dorothea-reher",
                 },
-                {"name": "GitHub", "url": "https://github.com/DoriDoro"},
-                {"name": "Dev articles", "url": "https://dev.to/doridoro"},
+                {
+                    "name": "GitHub",
+                    "url": "https://github.com/DoriDoro",
+                },
+                {
+                    "name": "Dev.to",
+                    "url": "https://dev.to/doridoro",
+                },
             ]
 
             if SocialMedia.objects.exists():

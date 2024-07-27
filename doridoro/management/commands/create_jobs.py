@@ -25,19 +25,25 @@ class Command(BaseCommand):
                 return jobs
 
         except FileNotFoundError:
-            self.stdout.write(self.style.ERROR(f"The file {path} was not found."))
+            self.stdout.write(
+                self.style.ERROR(f"Job(s) - The file {path} was not found.")
+            )
         except IOError:
             self.stdout.write(
                 self.style.ERROR(
-                    f"An error occurred while trying to read the file {path}."
+                    f"Job(s) - An error occurred while trying to read the file {path}."
                 )
             )
         except json.JSONDecodeError:
             self.stdout.write(
-                self.style.ERROR(f"The file {path} does not contain valid JSON.")
+                self.style.ERROR(
+                    f"Job(s) - The file {path} does not contain valid JSON."
+                )
             )
         except Exception as e:
-            self.stdout.write(self.style.ERROR(f"An unexpected error occurred: {e}"))
+            self.stdout.write(
+                self.style.ERROR(f"Job(s) - An unexpected error occurred: {e}")
+            )
         return None
 
     def handle(self, *args, **options):
@@ -55,19 +61,38 @@ class Command(BaseCommand):
 
         try:
             with transaction.atomic():
+                formatted_description = {}
                 for job in jobs:
-                    formatted_description = format_html(
-                        "<ul>{}</ul>",
-                        format_html_join(
-                            "",
-                            "<li><i class='bi bi-chevron-right'></i>{}</li>",
-                            ((item,) for item in job["description"]),
-                        ),
-                    )
+                    for lang in ["en", "de", "fr"]:
+                        formatted_description[lang] = format_html(
+                            "<ul>{}</ul>",
+                            format_html_join(
+                                "",
+                                "<li><i class='bi bi-chevron-right'></i>{}</li>",
+                                ((item,) for item in job["description"][lang]),
+                            ),
+                        )
 
                     job.pop("description")
 
-                    Job.objects.create(description=formatted_description, **job)
+                    Job.objects.create(
+                        company_name_en=job["company_name"]["en"],
+                        company_name_de=job["company_name"]["de"],
+                        company_name_fr=job["company_name"]["fr"],
+                        position_en=job["position"]["en"],
+                        position_de=job["position"]["de"],
+                        position_fr=job["position"]["fr"],
+                        address_en=job["address"]["en"],
+                        address_de=job["address"]["de"],
+                        address_fr=job["address"]["fr"],
+                        job_type_en=job["job_type"],
+                        job_type_de=job["job_type"],
+                        job_type_fr=job["job_type"],
+                        description_en=formatted_description["en"],
+                        description_de=formatted_description["de"],
+                        description_fr=formatted_description["fr"],
+                        **job,
+                    )
 
             self.stdout.write(
                 self.style.SUCCESS("Instances of Job successfully created!")
@@ -76,4 +101,6 @@ class Command(BaseCommand):
         except IntegrityError:
             self.stdout.write(self.style.WARNING("These Job instances exists already!"))
         except Exception as e:
-            self.stdout.write(self.style.ERROR(f"An unexpected error occurred: {e}"))
+            self.stdout.write(
+                self.style.ERROR(f"Job - An unexpected error occurred: {e}")
+            )

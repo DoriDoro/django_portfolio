@@ -11,15 +11,15 @@ class Command(BaseCommand):
         try:
             languages = [
                 {
-                    "name": "German",
+                    "name": {"en": "German", "de": "Deutsch", "fr": "Allemand"},
                     "level": Language.NATIVE,
                 },
                 {
-                    "name": "English",
+                    "name": {"en": "English", "de": "Englisch", "fr": "Anglais"},
                     "level": Language.C1,
                 },
                 {
-                    "name": "French",
+                    "name": {"en": "French", "de": "Französich", "fr": "Français"},
                     "level": Language.B2,
                 },
             ]
@@ -32,7 +32,15 @@ class Command(BaseCommand):
 
             with transaction.atomic():
                 for language in languages:
-                    Language.objects.create(**language)
+                    Language.objects.create(
+                        name_en=language["name"]["en"],
+                        name_de=language["name"]["de"],
+                        name_fr=language["name"]["fr"],
+                        level_en=language["level"],
+                        level_de=language["level"],
+                        level_fr=language["level"],
+                        **language,
+                    )
 
             self.stdout.write(
                 self.style.SUCCESS("Instances of Language successfully created!")

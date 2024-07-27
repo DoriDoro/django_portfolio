@@ -1,0 +1,352 @@
+{
+  "Link": [
+    {
+      "title": "ToDoro",
+      "origin": "GITHUB",
+      "platform": "PERSONAL_PROJECT",
+      "url": "https://github.com/DoriDoro/ToDoro"
+    },
+    {
+      "title": "Book to Scrape",
+      "legend": {
+        "en": "Project 2 of OpenClassrooms Python Path",
+        "de": "Projekt 2 des OpenClassrooms Python Path",
+        "fr": "Projet 2 de OpenClassrooms Python Path"
+      },
+      "origin": "GITHUB",
+      "platform": "OPENCLASSROOMS",
+      "url": "https://github.com/DoriDoro/Book_to_Scrape"
+    },
+    {
+      "title": "Chess Tournament",
+      "legend": {
+        "en": "Project 4 of OpenClassrooms Python Path",
+        "de": "Projet 4 des OpenClassrooms Python Path",
+        "fr": "Projet 4 de OpenClassrooms Python Path"
+      },
+      "origin": "GITHUB",
+      "platform": "OPENCLASSROOMS",
+      "url": "https://github.com/DoriDoro/Chess_Tournament"
+    },
+    {
+      "title": "Just Stream It",
+      "legend": {
+        "en": "Project 6 of OpenClassrooms Python Path",
+        "de": "Projekt 6 des OpenClassrooms Python Path",
+        "fr": "Projet 6 de OpenClassrooms Python Path"
+      },
+      "origin": "GITHUB",
+      "platform": "OPENCLASSROOMS",
+      "url": "https://github.com/DoriDoro/JustStreamIt"
+    },
+    {
+      "title": "Algo Invest Trade",
+      "legend": {
+        "en": "Project 7 of OpenClassrooms Python Path",
+        "de": "Projekt 7 des OpenClassrooms Python Path",
+        "fr": "Projet 7 de OpenClassrooms Python Path"
+      },
+      "origin": "GITHUB",
+      "platform": "OPENCLASSROOMS",
+      "url": "https://github.com/DoriDoro/algoInvest_trade"
+    },
+    {
+      "title": "Litrature Reviue Project",
+      "legend": {
+        "en": "Project 9 of OpenClassrooms Python Path",
+        "de": "Projekt 9 des OpenClassrooms Python Path",
+        "fr": "Projet 9 de OpenClassrooms Python Path"
+      },
+      "origin": "GITHUB",
+      "platform": "OPENCLASSROOMS",
+      "url": "https://github.com/DoriDoro/LITRevu-project"
+    },
+    {
+      "title": "SoftDesk API",
+      "legend": {
+        "en": "Project 10 of OpenClassrooms Python Path",
+        "de": "Projekt 10 des OpenClassrooms Python Path",
+        "fr": "Projet 10 de OpenClassrooms Python Path"
+      },
+      "origin": "GITHUB",
+      "platform": "OPENCLASSROOMS",
+      "url": "https://github.com/DoriDoro/SoftDesk_api"
+    },
+    {
+      "title": "Gudlft",
+      "legend": {
+        "en": "Project 11 of OpenClassrooms Python Path",
+        "de": "Projekt 11 des OpenClassrooms Python Path",
+        "fr": "Projet 11 de OpenClassrooms Python Path"
+      },
+      "origin": "GITHUB",
+      "platform": "OPENCLASSROOMS",
+      "url": "https://github.com/DoriDoro/Gudlft"
+    },
+    {
+      "title": "Epic Events",
+      "legend": {
+        "en": "Project 12 of OpenClassrooms Python Path",
+        "de": "Projekt 12 des OpenClassrooms Python Path",
+        "fr": "Projet 12 de OpenClassrooms Python Path"
+      },
+      "origin": "GITHUB",
+      "platform": "OPENCLASSROOMS",
+      "url": "https://github.com/DoriDoro/EpicEvents"
+    },
+    {
+      "title": "Orange Country Lettings",
+      "legend": {
+        "en": "Project 13 of OpenClassrooms Python Path",
+        "de": "Projekt 13 des OpenClassrooms Python Path",
+        "fr": "Projet 13 de OpenClassrooms Python Path"
+      },
+      "origin": "GITHUB",
+      "platform": "OPENCLASSROOMS",
+      "url": "https://github.com/DoriDoro/OC_lettings"
+    },
+    {
+      "title": "Orange Country Lettings",
+      "legend": {
+        "en": "Project 13 of OpenClassrooms Python Path",
+        "de": "Projekt 13 des OpenClassrooms Python Path",
+        "fr": "Projet 13 de OpenClassrooms Python Path"
+      },
+      "origin": "RENDER",
+      "platform": "OPENCLASSROOMS",
+      "url": "https://oc-lettings-site-latest-c1cc.onrender.com"
+    },
+    {
+      "title": "Django Portfolio",
+      "origin": "GITHUB",
+      "platform": "PERSONAL_PROJECT",
+      "url": "https://github.com/DoriDoro/django_portfolio"
+    },
+    {
+      "title": "Flask Portfolio",
+      "origin": "GITHUB",
+      "platform": "PERSONAL_PROJECT",
+      "url": "https://github.com/DoriDoro/portfolio_dorothea-reher"
+    },
+    {
+      "title": "Flask Portfolio",
+      "origin": "VERCEL",
+      "platform": "PERSONAL_PROJECT",
+      "url": "https://portfolio-dorothea-reher.vercel.app/"
+    }
+  ],
+  "Tag": [
+    {
+      "name": "Python",
+      "category": "PROGRAMMING_SKILLS"
+    },
+    {
+      "name": "Django",
+      "category": "PROGRAMMING_SKILLS"
+    },
+    {
+      "name": "DRF",
+      "category": "PROGRAMMING_SKILLS"
+    },
+    {
+      "name": "Flask",
+      "category": "PROGRAMMING_SKILLS"
+    },
+    {
+      "name": "Unittest",
+      "category": "PROGRAMMING_SKILLS"
+    },
+    {
+      "name": "Pytest",
+      "category": "PROGRAMMING_SKILLS"
+    },
+    {
+      "name": "CLI application",
+      "category": "PROGRAMMING_SKILLS"
+    },
+    {
+      "name": "Git",
+      "category": "PROGRAMMING_SKILLS"
+    },
+    {
+      "name": "GitHub",
+      "category": "PROGRAMMING_SKILLS"
+    },
+    {
+      "name": "GitHub actions",
+      "category": "PROGRAMMING_SKILLS"
+    },
+    {
+      "name": "GitLab",
+      "category": "PROGRAMMING_SKILLS"
+    },
+    {
+      "name": "Branching",
+      "category": "PROGRAMMING_SKILLS"
+    },
+    {
+      "name": "SQLite",
+      "category": "PROGRAMMING_SKILLS"
+    },
+    {
+      "name": "PostgreSQL",
+      "category": "PROGRAMMING_SKILLS"
+    },
+    {
+      "name": "SQL",
+      "category": "PROGRAMMING_SKILLS"
+    },
+    {
+      "name": "Postman",
+      "category": "PROGRAMMING_SKILLS"
+    },
+    {
+      "name": "Celery",
+      "category": "PROGRAMMING_SKILLS"
+    },
+    {
+      "name": "UML",
+      "category": "PROGRAMMING_SKILLS"
+    },
+    {
+      "name": "Wireframe",
+      "category": "PROGRAMMING_SKILLS"
+    },
+    {
+      "name": "User Story",
+      "category": "PROGRAMMING_SKILLS"
+    },
+    {
+      "name": "ERD",
+      "category": "PROGRAMMING_SKILLS"
+    },
+    {
+      "name": "Sentry",
+      "category": "PROGRAMMING_SKILLS"
+    },
+    {
+      "name": "Docker",
+      "category": "PROGRAMMING_SKILLS"
+    },
+    {
+      "name": "Heroku",
+      "category": "PROGRAMMING_SKILLS"
+    },
+    {
+      "name": "Vercel",
+      "category": "PROGRAMMING_SKILLS"
+    },
+    {
+      "name": "Render",
+      "category": "PROGRAMMING_SKILLS"
+    },
+    {
+      "name": "Communication",
+      "category": "SOFT_SKILLS"
+    },
+    {
+      "name": "Problem-solving",
+      "category": "SOFT_SKILLS"
+    },
+    {
+      "name": "Attention to details",
+      "category": "SOFT_SKILLS"
+    },
+    {
+      "name": "Time management",
+      "category": "SOFT_SKILLS"
+    },
+    {
+      "name": "Continuous learning",
+      "category": "SOFT_SKILLS"
+    },
+    {
+      "name": "Adaptability",
+      "category": "SOFT_SKILLS"
+    },
+    {
+      "name": "Empathy",
+      "category": "SOFT_SKILLS"
+    },
+    {
+      "name": "Positive attitude",
+      "category": "SOFT_SKILLS"
+    },
+    {
+      "name": "Conflict resolution",
+      "category": "SOFT_SKILLS"
+    },
+    {
+      "name": "Organisational ability with prioritisation",
+      "category": "STRENGTH"
+    },
+    {
+      "name": "Quick comprehension",
+      "category": "STRENGTH"
+    },
+    {
+      "name": "Independence",
+      "category": "STRENGTH"
+    },
+    {
+      "name": "Personal responsibility",
+      "category": "STRENGTH"
+    },
+    {
+      "name": "Reliable",
+      "category": "STRENGTH"
+    },
+    {
+      "name": "Finish the job",
+      "category": "STRENGTH"
+    },
+    {
+      "name": "Do not give up",
+      "category": "STRENGTH"
+    },
+    {
+      "name": "Home office experience",
+      "category": "STRENGTH"
+    },
+    {
+      "name": "Introverted",
+      "category": "WEAKNESSES"
+    },
+    {
+      "name": "Shy",
+      "category": "WEAKNESSES"
+    },
+    {
+      "name": "Making small talk",
+      "category": "WEAKNESSES"
+    },
+    {
+      "name": "Perfectionism",
+      "category": "WEAKNESSES"
+    },
+    {
+      "name": "Communication barrier in French",
+      "category": "WEAKNESSES"
+    },
+    {
+      "name": "Afraid not to be good enough",
+      "category": "WEAKNESSES"
+    },
+    {
+      "name": "PyCharm",
+      "category": "OTHER"
+    },
+    {
+      "name": "Visual Studio Code",
+      "category": "OTHER"
+    },
+    {
+      "name": "Linux (Ubuntu)",
+      "category": "OTHER"
+    },
+    {
+      "name": "macOS",
+      "category": "OTHER"
+    }
+  ]
+}

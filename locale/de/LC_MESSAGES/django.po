@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-07-26 20:57+0200\n"
+"POT-Creation-Date: 2024-07-29 00:56+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -30,7 +30,7 @@ msgstr "Kenntnisse"
 msgid "Resume"
 msgstr "Lebenslauf"
 
-#: core/templates/base.html:52 projects/templates/portfolio.html:8
+#: core/templates/base.html:52 projects/templates/portfolio.html:9
 msgid "Portfolio"
 msgstr "Projekte"
 
@@ -112,11 +112,15 @@ msgstr "Beruf auf der Webseite sichtbar"
 
 #: doridoro/models.py:123
 msgid "If the job is ongoing, the end date should be empty."
-msgstr "Wenn es sich um einen laufenden Auftrag handelt, sollte das Enddatum leer sein."
+msgstr ""
+"Wenn es sich um einen laufenden Auftrag handelt, sollte das Enddatum leer "
+"sein."
 
 #: doridoro/models.py:127
 msgid "End date must be provided if the job is not ongoing."
-msgstr "Das Enddatum muss angegeben werden, wenn es sich nicht um einen laufenden Auftrag handelt."
+msgstr ""
+"Das Enddatum muss angegeben werden, wenn es sich nicht um einen laufenden "
+"Auftrag handelt."
 
 #: doridoro/models.py:130
 msgid "End date should be after start date."
@@ -174,6 +178,18 @@ msgstr "Social Media auf der Website sichtbar"
 msgid "Contact Details"
 msgstr "Kontaktinformationen"
 
+#: doridoro/templates/about.html:22
+msgid "PHONE"
+msgstr "TELEFON"
+
+#: doridoro/templates/about.html:25
+msgid "CITY"
+msgstr "STADT"
+
+#: doridoro/templates/about.html:28
+msgid "EMAIL"
+msgstr "EMAIL"
+
 #: doridoro/templates/about.html:38
 msgid "Current Positions"
 msgstr "Derzeitige Positionen"
@@ -214,18 +230,13 @@ msgstr ""
 "in Frankreich.\n"
 "        "
 
-#: doridoro/templates/index.html:23
-#, python-format
-msgid "%(fact)s"
-msgstr ""
-
 #: doridoro/templates/resume.html:16
 msgid "Education"
-msgstr ""
+msgstr "Ausbildung"
 
 #: doridoro/templates/resume.html:42
 msgid "Professional Experience"
-msgstr ""
+msgstr "Berufliche Erfahrung"
 
 #: doridoro/templates/skills.html:9
 msgid "Motto"
@@ -259,15 +270,15 @@ msgstr "Stärken"
 msgid "Weaknesses"
 msgstr "Schwächen"
 
-#: portfolio/settings.py:134
+#: portfolio/settings.py:137
 msgid "English"
 msgstr "Englisch"
 
-#: portfolio/settings.py:135
+#: portfolio/settings.py:138
 msgid "German"
 msgstr "Deutsch"
 
-#: portfolio/settings.py:136
+#: portfolio/settings.py:139
 msgid "French"
 msgstr "Französisch"
 
@@ -299,8 +310,7 @@ msgstr "Die hochgeladene Datei ist kein gültiges Bild. -- %s"
 #: projects/models.py:78
 #, python-format
 msgid "The uploaded file could not be reopened as an image. -- %s"
-msgstr ""
-"Die hochgeladene Datei konnte nicht erneut als Bild geöffnet werden. -- %s"
+msgstr "Die hochgeladene Datei konnte nicht erneut als Bild geöffnet werden. -- %s"
 
 #: projects/models.py:112
 #, python-format

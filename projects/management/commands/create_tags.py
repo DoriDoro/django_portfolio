@@ -21,19 +21,25 @@ class Command(BaseCommand):
             return tags
 
         except FileNotFoundError:
-            self.stdout.write(self.style.ERROR(f"The file {path} was not found."))
+            self.stdout.write(
+                self.style.ERROR(f"Tag(s) - The file {path} was not found.")
+            )
         except IOError:
             self.stdout.write(
                 self.style.ERROR(
-                    f"An error occurred while trying to read the file {path}."
+                    f"Tag(s) - An error occurred while trying to read the file {path}."
                 )
             )
         except json.JSONDecodeError:
             self.stdout.write(
-                self.style.ERROR(f"The file {path} does not contain valid JSON.")
+                self.style.ERROR(
+                    f"Tag(s) - The file {path} does not contain valid JSON."
+                )
             )
         except Exception as e:
-            self.stdout.write(self.style.ERROR(f"An unexpected error occurred: {e}"))
+            self.stdout.write(
+                self.style.ERROR(f"Tag(s) - An unexpected error occurred: {e}")
+            )
         return None
 
     def handle(self, *args, **options):
@@ -52,7 +58,12 @@ class Command(BaseCommand):
         try:
             with transaction.atomic():
                 for tag in tags:
-                    Tag.objects.create(**tag)
+                    Tag.objects.create(
+                        category_en=tag["category"],
+                        category_de=tag["category"],
+                        category_fr=tag["category"],
+                        **tag,
+                    )
 
             self.stdout.write(
                 self.style.SUCCESS("Instances of Tag successfully created!")
@@ -61,4 +72,6 @@ class Command(BaseCommand):
         except IntegrityError:
             self.stdout.write(self.style.WARNING("These Tag instances exists already!"))
         except Exception as e:
-            self.stdout.write(self.style.ERROR(f"An unexpected error occurred: {e}"))
+            self.stdout.write(
+                self.style.ERROR(f"Tag - An unexpected error occurred: {e}")
+            )

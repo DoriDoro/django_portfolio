@@ -53,7 +53,15 @@ class Command(BaseCommand):
         try:
             with transaction.atomic():
                 for link in links:
-                    Link.objects.create(**link)
+                    Link.objects.create(
+                        origin_en=link["origin"],
+                        origin_de=link["origin"],
+                        origin_fr=link["origin"],
+                        platform_en=link["platform"],
+                        platform_de=link["platform"],
+                        platform_fr=link["platform"],
+                        **link,
+                    )
 
             self.stdout.write(
                 self.style.SUCCESS("Instances of Link successfully created!")
