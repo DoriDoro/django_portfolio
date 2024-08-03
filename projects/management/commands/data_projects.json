@@ -309,6 +309,10 @@
       "category": "STRENGTH"
     },
     {
+      "name": "Perfectionism",
+      "category": "STRENGTH"
+    },
+    {
       "name": "Introverted",
       "category": "WEAKNESSES"
     },
@@ -318,10 +322,6 @@
     },
     {
       "name": "Making small talk",
-      "category": "WEAKNESSES"
-    },
-    {
-      "name": "Perfectionism",
       "category": "WEAKNESSES"
     },
     {

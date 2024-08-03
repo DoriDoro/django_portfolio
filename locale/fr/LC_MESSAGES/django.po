@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-07-29 00:56+0200\n"
+"POT-Creation-Date: 2024-08-03 11:41+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -122,30 +122,6 @@ msgstr "La date de fin doit être indiquée si le travail n'est pas en cours."
 msgid "End date should be after start date."
 msgstr "La date de fin doit être postérieure à la date de début."
 
-#: doridoro/models.py:144
-msgid "A1 (Beginner)"
-msgstr "A1 (débutant)"
-
-#: doridoro/models.py:145
-msgid "A2 (Elementary)"
-msgstr "A2 (élémentaire)"
-
-#: doridoro/models.py:146
-msgid "B1 (Intermediate)"
-msgstr "B1 (Intermédiaire)"
-
-#: doridoro/models.py:147
-msgid "B2 (Upper Intermediate)"
-msgstr "B2 (Intermédiaire supérieur)"
-
-#: doridoro/models.py:148
-msgid "C1 (Advanced)"
-msgstr "C1 (avancé)"
-
-#: doridoro/models.py:149
-msgid "C2 (Proficient)"
-msgstr "C2 (compétent)"
-
 #: doridoro/models.py:150
 msgid "Native Speaker"
 msgstr "Langue maternelle"
@@ -198,19 +174,19 @@ msgstr "Qui est DoriDoro"
 msgid "Free time"
 msgstr "Temps libre"
 
-#: doridoro/templates/about.html:85
+#: doridoro/templates/about.html:82
 msgid "Projects"
 msgstr "Projets"
 
-#: doridoro/templates/about.html:94
+#: doridoro/templates/about.html:90
 msgid "Amount of skills"
 msgstr "Nombre de compétences"
 
-#: doridoro/templates/about.html:105
+#: doridoro/templates/about.html:99
 msgid "Achievements"
 msgstr "Réalisations"
 
-#: doridoro/templates/about.html:126
+#: doridoro/templates/about.html:119
 msgid "Interests"
 msgstr "Intérêts"
 
@@ -265,6 +241,10 @@ msgstr "Force"
 #: doridoro/templates/skills.html:70
 msgid "Weaknesses"
 msgstr "Faiblesse"
+
+#: doridoro/templates/skills.html:81
+msgid "Languages"
+msgstr "Langues"
 
 #: portfolio/settings.py:137
 msgid "English"
@@ -380,3 +360,72 @@ msgstr "Introduction"
 #: projects/templates/portfolio_details.html:58
 msgid "Learning Experience"
 msgstr "L'expérience de l'apprentissage"
+
+msgid "Communication"
+msgstr "Communication"
+
+msgid "Problem-solving"
+msgstr "Résoudre des problèmes"
+
+msgid "Attention to details"
+msgstr "Attention aux détails"
+
+msgid "Time management"
+msgstr "Gestion du temps"
+
+msgid "Continuous learning"
+msgstr "Apprentissage continu"
+
+msgid "Adaptability"
+msgstr "Adaptabilité"
+
+msgid "Empathy"
+msgstr "Empathie"
+
+msgid "Positive attitude"
+msgstr "Attitude positive"
+
+msgid "Conflict resolution"
+msgstr "Résolution de conflits"
+
+msgid "Organisational ability with prioritisation"
+msgstr "Capacité d'organisation et de priorisation"
+
+msgid "Quick comprehension"
+msgstr "Compréhension rapide"
+
+msgid "Independence"
+msgstr "Indépendance"
+
+msgid "Personal responsibility"
+msgstr "Responsabilité personnelle"
+
+msgid "Reliable"
+msgstr "Reliable"
+
+msgid "Finish the job"
+msgstr "Termine la tâche"
+
+msgid "Do not give up"
+msgstr "N'abandonnez pas"
+
+msgid "Home office experience"
+msgstr "Expérience du télétravail"
+
+msgid "Perfectionism"
+msgstr "Perfectionnisme"
+
+msgid "Introverted"
+msgstr "Introverti"
+
+msgid "Shy"
+msgstr "Timide"
+
+msgid "Making small talk"
+msgstr "Faire du small talk"
+
+msgid "Communication barrier in French"
+msgstr "Barrière de la communication en français"
+
+msgid "Afraid not to be good enough"
+msgstr "Peur de ne pas être à la hauteur"

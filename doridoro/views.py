@@ -1,6 +1,15 @@
+from django.utils.translation import gettext
 from django.views.generic import TemplateView
 
-from doridoro.models import DoriDoro, Job, SocialMedia, Fact, Hobby, Achievement
+from doridoro.models import (
+    DoriDoro,
+    Achievement,
+    Fact,
+    Hobby,
+    Job,
+    Language,
+    SocialMedia,
+)
 from projects.models import Project, Tag
 
 
@@ -26,7 +35,7 @@ class AboutView(TemplateView):
         context["doridoro"] = DoriDoro.objects.first()
         context["current_positions"] = Job.objects.filter(until_present=True)
         context["projects_count"] = Project.objects.filter(published=True).count()
-        context["skills_count"] = Tag.objects.filter(published=True)
+        context["skills_count"] = Tag.objects.filter(published=True).count()
         context["achievements"] = Achievement.objects.filter(
             published=True
         ).values_list("content", flat=True)
@@ -45,15 +54,33 @@ class SkillsView(TemplateView):
         context["programming_skills"] = self.get_tags_data().filter(
             category=Tag.PROGRAMMING_SKILLS
         )
-        context["soft_skills"] = self.get_tags_data().filter(category=Tag.SOFT_SKILLS)
+        context["soft_skills"] = self.translate_tags_name(category=Tag.SOFT_SKILLS)
         context["other_skills"] = self.get_tags_data().filter(category=Tag.OTHER)
-        context["strength"] = self.get_tags_data().filter(category=Tag.STRENGTH)
-        context["weaknesses"] = self.get_tags_data().filter(category=Tag.WEAKNESSES)
+        context["strength"] = self.translate_tags_name(category=Tag.STRENGTH)
+        context["weaknesses"] = self.translate_tags_name(category=Tag.WEAKNESSES)
+        context["languages"] = self.get_languages_data()
 
         return context
 
     def get_tags_data(self):
         return Tag.objects.filter(published=True)
+
+    def translate_tags_name(self, category):
+        tags = self.get_tags_data().values_list("name", "category")
+        result_dict = {"SOFT_SKILLS": (), "STRENGTH": (), "WEAKNESSES": ()}
+        for tag in tags:
+            if tag[1] in ["SOFT_SKILLS", "STRENGTH", "WEAKNESSES"]:
+                translated_name = gettext(tag[0])
+                result_dict[tag[1]] += ((translated_name, tag[1]),)
+
+        return result_dict[category]
+
+    def get_languages_data(self):
+        languages = Language.objects.all()
+        language_tuple = ()
+        for language in languages:
+            language_tuple += ((language.name, language.get_level_display()),)
+        return language_tuple
 
 
 class ResumeView(TemplateView):

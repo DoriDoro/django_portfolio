@@ -141,12 +141,12 @@ class Language(models.Model):
     NATIVE = "Native"
 
     LEVEL_CHOICES = [
-        (A1, _("A1 (Beginner)")),
-        (A2, _("A2 (Elementary)")),
-        (B1, _("B1 (Intermediate)")),
-        (B2, _("B2 (Upper Intermediate)")),
-        (C1, _("C1 (Advanced)")),
-        (C2, _("C2 (Proficient)")),
+        (A1, "A1"),
+        (A2, "A2"),
+        (B1, "B1"),
+        (B2, "B2"),
+        (C1, "C1"),
+        (C2, "C2"),
         (NATIVE, _("Native Speaker")),
     ]
 

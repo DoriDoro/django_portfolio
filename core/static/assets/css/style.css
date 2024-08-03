@@ -553,7 +553,7 @@ section .container {
 --------------------------------------------------------------*/
 .interests .icon-box {
   display: flex;
-  align-items: center;
+  justify-content: center;
   padding: 20px;
   background: rgba(255, 255, 255, 0.08);
   transition: ease-in-out 0.3s;

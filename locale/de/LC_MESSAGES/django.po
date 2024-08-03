@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-07-29 00:56+0200\n"
+"POT-Creation-Date: 2024-08-03 11:41+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -126,30 +126,6 @@ msgstr ""
 msgid "End date should be after start date."
 msgstr "Das Enddatum sollte nach dem Startdatum liegen."
 
-#: doridoro/models.py:144
-msgid "A1 (Beginner)"
-msgstr "A1 (Anfänger)"
-
-#: doridoro/models.py:145
-msgid "A2 (Elementary)"
-msgstr "A2 (Grundkenntnisse)"
-
-#: doridoro/models.py:146
-msgid "B1 (Intermediate)"
-msgstr "B1 (Fortgeschritten)"
-
-#: doridoro/models.py:147
-msgid "B2 (Upper Intermediate)"
-msgstr "B2 (weiter Fortgeschritten)"
-
-#: doridoro/models.py:148
-msgid "C1 (Advanced)"
-msgstr "C1 ()"
-
-#: doridoro/models.py:149
-msgid "C2 (Proficient)"
-msgstr "C2 (Beherrschung)"
-
 #: doridoro/models.py:150
 msgid "Native Speaker"
 msgstr "Muttersprache"
@@ -202,19 +178,19 @@ msgstr "Wer ist DoriDoro"
 msgid "Free time"
 msgstr "Freizeit"
 
-#: doridoro/templates/about.html:85
+#: doridoro/templates/about.html:82
 msgid "Projects"
 msgstr "Projekte"
 
-#: doridoro/templates/about.html:94
+#: doridoro/templates/about.html:90
 msgid "Amount of skills"
 msgstr "Anzahl der Fähigkeiten"
 
-#: doridoro/templates/about.html:105
+#: doridoro/templates/about.html:99
 msgid "Achievements"
 msgstr "Errungenschaften"
 
-#: doridoro/templates/about.html:126
+#: doridoro/templates/about.html:119
 msgid "Interests"
 msgstr "Interessen"
 
@@ -270,6 +246,10 @@ msgstr "Stärken"
 msgid "Weaknesses"
 msgstr "Schwächen"
 
+#: doridoro/templates/skills.html:81
+msgid "Languages"
+msgstr "Sprachen"
+
 #: portfolio/settings.py:137
 msgid "English"
 msgstr "Englisch"
@@ -310,7 +290,8 @@ msgstr "Die hochgeladene Datei ist kein gültiges Bild. -- %s"
 #: projects/models.py:78
 #, python-format
 msgid "The uploaded file could not be reopened as an image. -- %s"
-msgstr "Die hochgeladene Datei konnte nicht erneut als Bild geöffnet werden. -- %s"
+msgstr ""
+"Die hochgeladene Datei konnte nicht erneut als Bild geöffnet werden. -- %s"
 
 #: projects/models.py:112
 #, python-format
@@ -384,3 +365,72 @@ msgstr "Einleitung"
 #: projects/templates/portfolio_details.html:58
 msgid "Learning Experience"
 msgstr "Lernerfahrung"
+
+msgid "Communication"
+msgstr "Kommunikation"
+
+msgid "Problem-solving"
+msgstr "Probleme lösen"
+
+msgid "Attention to details"
+msgstr "Liebe zum Detail"
+
+msgid "Time management"
+msgstr "Zeitmanagement"
+
+msgid "Continuous learning"
+msgstr "Fortlaufendes Lernen"
+
+msgid "Adaptability"
+msgstr "Anpassungsfähigkeit"
+
+msgid "Empathy"
+msgstr "Einfühlungsvermögen"
+
+msgid "Positive attitude"
+msgstr "Positive Einstellung"
+
+msgid "Conflict resolution"
+msgstr "Konfliktbewältigung"
+
+msgid "Organisational ability with prioritisation"
+msgstr "Organisationstalent mit Prioritätensetzung"
+
+msgid "Quick comprehension"
+msgstr "Schnelle Auffassungsgabe"
+
+msgid "Independence"
+msgstr "Selbstständigkeit"
+
+msgid "Personal responsibility"
+msgstr "Eigenverantwortung"
+
+msgid "Reliable"
+msgstr "Zuverlässig"
+
+msgid "Finish the job"
+msgstr "Beende den Auftrag"
+
+msgid "Do not give up"
+msgstr "Geben Sie nicht auf"
+
+msgid "Home office experience"
+msgstr "Home Office Erfahrung"
+
+msgid "Perfectionism"
+msgstr "Perfektionismus"
+
+msgid "Introverted"
+msgstr "Introvertiert"
+
+msgid "Shy"
+msgstr "Schüchtern"
+
+msgid "Making small talk"
+msgstr "Smalltalk führen"
+
+msgid "Communication barrier in French"
+msgstr "Kommunikationsbarriere auf Französisch"
+
+msgid "Afraid not to be good enough"
+msgstr "Angst, nicht gut genug zu sein"

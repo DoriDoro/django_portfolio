@@ -155,7 +155,7 @@
       },
       "position": {
         "en": "Apprenticeship as Python Developer",
-        "de": "Berufsausbildung zum Python-Entwicklerin",
+        "de": "Berufsausbildung zur Python-Entwicklerin",
         "fr": "Apprentissage de développeuse Python"
       },
       "start_date": "2022-11-21",
@@ -351,9 +351,9 @@
         "fr": "OpenClassrooms"
       },
       "position": {
-        "en": "Path: Developer Python",
-        "de": "Path: Developer Python",
-        "fr": "Path: Developer Python"
+        "en": "Online Formation as Developer Python",
+        "de": "Online-Ausbildung zur Python Entwicklerin",
+        "fr": "Formation en ligne de développeuse Python"
       },
       "start_date": "2022-11-21",
       "until_present": "True",
