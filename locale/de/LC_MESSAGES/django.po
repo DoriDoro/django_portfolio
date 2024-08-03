@@ -412,7 +412,7 @@ msgid "Finish the job"
 msgstr "Beende den Auftrag"
 
 msgid "Do not give up"
-msgstr "Geben Sie nicht auf"
+msgstr "Gebe nicht auf"
 
 msgid "Home office experience"
 msgstr "Home Office Erfahrung"
