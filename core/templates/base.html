@@ -65,18 +65,23 @@
     <!-- You can delete the links only if you purchased the pro version. -->
     <!-- Licensing information: https://bootstrapmade.com/license/ -->
     <!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/personal-free-resume-bootstrap-template/ -->
-    <div class="dropdown">
-      <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false"></button>
-      <ul class="dropdown-menu">
-        {% get_current_language as LANGUAGE_CODE %}
-        {% get_available_languages as LANGUAGES %}
-        {% get_language_info_list for LANGUAGES as languages %}
 
-        {% for lang in languages %}
-        <li><a class='dropdown-item' href='/{{ lang.code }}/'>{{ lang.name_local }}</a></li>
-        {% endfor %}
-      </ul>
-    </div>
+    <!-- Language switch form -->
+    <form action="{% url 'set_language' %}" method="post">{% csrf_token %}
+      <input name="next" type="hidden" value="{{ redirect_to }}">
+      <select name="language">
+          {% get_current_language as LANGUAGE_CODE %}
+          {% get_available_languages as LANGUAGES %}
+          {% get_language_info_list for LANGUAGES as languages %}
+          {% for language in languages %}
+              <option value="{{ language.code }}"{% if language.code == LANGUAGE_CODE %} selected{% endif %}>
+                  {{ language.name_local }} ({{ language.code }})
+              </option>
+          {% endfor %}
+      </select>
+      <input type="submit" value="Go">
+    </form>
+    <!-- End of Language switch form -->
     Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a> and modified by DoriDoro
   </div>
 
