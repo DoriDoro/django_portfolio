@@ -16,12 +16,12 @@ from doridoro.models import (
 
 @admin.register(DoriDoro)
 class DoriDoroAdmin(TranslationAdmin):
-    list_display = ["address", "profession"]
+    list_display = ["phone", "address", "profession"]
 
 
 @admin.register(Achievement)
 class AchievementAdmin(TranslationAdmin):
-    list_display = ["title", "published"]
+    list_display = ["title", "content", "published"]
 
 
 @admin.register(Degree)
@@ -31,7 +31,7 @@ class DegreeAdmin(admin.ModelAdmin):
 
 @admin.register(Fact)
 class FactAdmin(TranslationAdmin):
-    list_display = ["title", "published"]
+    list_display = ["title", "content", "published"]
 
 
 @admin.register(Hobby)
@@ -58,9 +58,9 @@ class LanguageAdmin(TranslationAdmin):
 
 @admin.register(Reference)
 class ReferenceAdmin(TranslationAdmin):
-    list_display = ["name", "published"]
+    list_display = ["name", "email", "published"]
 
 
 @admin.register(SocialMedia)
 class SocialMediaAdmin(admin.ModelAdmin):
-    list_display = ["name", "published"]
+    list_display = ["name", "url", "published"]

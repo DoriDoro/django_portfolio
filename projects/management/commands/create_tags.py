@@ -59,9 +59,9 @@ class Command(BaseCommand):
             with transaction.atomic():
                 for tag in tags:
                     Tag.objects.create(
-                        category_en=tag["category"],
-                        category_de=tag["category"],
-                        category_fr=tag["category"],
+                        name_en=tag["name"],
+                        name_de=tag["name"],
+                        name_fr=tag["name"],
                         **tag,
                     )
 

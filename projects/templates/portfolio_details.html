@@ -34,7 +34,7 @@
             {% endif %}
             {% if others %}
               {% for other in others %}
-                <li><strong>{% trans "URL" %}:</strong> <a href="{{ other.url }}" target="_blank">{{ other.url }}</a></li>
+                <li><strong>URL:</strong> <a href="{{ other.url }}" target="_blank">{{ other.url }}</a></li>
               {% endfor %}
             {% endif %}
             <li><strong>{% trans "Project date" %}:</strong> {{ project.create_date }}</li>

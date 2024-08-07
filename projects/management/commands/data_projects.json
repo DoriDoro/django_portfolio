@@ -2,6 +2,11 @@
   "Link": [
     {
       "title": "ToDoro",
+      "legend": {
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
       "origin": "GITHUB",
       "platform": "PERSONAL_PROJECT",
       "url": "https://github.com/DoriDoro/ToDoro"
@@ -118,18 +123,33 @@
     },
     {
       "title": "Django Portfolio",
+      "legend": {
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
       "origin": "GITHUB",
       "platform": "PERSONAL_PROJECT",
       "url": "https://github.com/DoriDoro/django_portfolio"
     },
     {
       "title": "Flask Portfolio",
+      "legend": {
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
       "origin": "GITHUB",
       "platform": "PERSONAL_PROJECT",
       "url": "https://github.com/DoriDoro/portfolio_dorothea-reher"
     },
     {
       "title": "Flask Portfolio",
+      "legend": {
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
       "origin": "VERCEL",
       "platform": "PERSONAL_PROJECT",
       "url": "https://portfolio-dorothea-reher.vercel.app/"
@@ -249,10 +269,6 @@
       "category": "SOFT_SKILLS"
     },
     {
-      "name": "Attention to details",
-      "category": "SOFT_SKILLS"
-    },
-    {
       "name": "Time management",
       "category": "SOFT_SKILLS"
     },
@@ -277,31 +293,47 @@
       "category": "SOFT_SKILLS"
     },
     {
-      "name": "Organisational ability with prioritisation",
-      "category": "STRENGTH"
-    },
-    {
       "name": "Quick comprehension",
       "category": "STRENGTH"
     },
     {
-      "name": "Independence",
+      "name": "Prioritising tasks",
       "category": "STRENGTH"
     },
     {
-      "name": "Personal responsibility",
+      "name": "Autonomy",
       "category": "STRENGTH"
     },
     {
-      "name": "Reliable",
+      "name": "Adaptability",
       "category": "STRENGTH"
     },
     {
-      "name": "Finish the job",
+      "name": "Determination",
       "category": "STRENGTH"
     },
     {
-      "name": "Do not give up",
+      "name": "Commitment",
+      "category": "STRENGTH"
+    },
+    {
+      "name": "Patience",
+      "category": "STRENGTH"
+    },
+    {
+      "name": "Patience",
+      "category": "STRENGTH"
+    },
+    {
+      "name": "Reliability",
+      "category": "STRENGTH"
+    },
+    {
+      "name": "Persistence",
+      "category": "STRENGTH"
+    },
+    {
+      "name": "Professionalism",
       "category": "STRENGTH"
     },
     {
@@ -311,26 +343,6 @@
     {
       "name": "Perfectionism",
       "category": "STRENGTH"
-    },
-    {
-      "name": "Introverted",
-      "category": "WEAKNESSES"
-    },
-    {
-      "name": "Shy",
-      "category": "WEAKNESSES"
-    },
-    {
-      "name": "Making small talk",
-      "category": "WEAKNESSES"
-    },
-    {
-      "name": "Communication barrier in French",
-      "category": "WEAKNESSES"
-    },
-    {
-      "name": "Afraid not to be good enough",
-      "category": "WEAKNESSES"
     },
     {
       "name": "PyCharm",

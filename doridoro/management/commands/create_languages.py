@@ -36,9 +36,6 @@ class Command(BaseCommand):
                         name_en=language["name"]["en"],
                         name_de=language["name"]["de"],
                         name_fr=language["name"]["fr"],
-                        level_en=language["level"],
-                        level_de=language["level"],
-                        level_fr=language["level"],
                         **language,
                     )
 

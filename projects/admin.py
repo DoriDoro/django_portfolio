@@ -15,13 +15,13 @@ from projects.models import Project, Tag, Picture, Link
 
 @admin.register(Project)
 class ProjectAdmin(TranslationAdmin):
-    list_display = ["title", "create_date", "published"]
+    list_display = ["title", "legend", "create_date", "evaluation_date", "published"]
     prepopulated_fields = {"slug": ["title"]}
 
 
 @admin.register(Picture)
 class PictureAdmin(TranslationAdmin):
-    list_display = ["legend", "photo", "published"]
+    list_display = ["legend", "photo", "cover_picture", "published"]
     prepopulated_fields = {"slug": ["legend"]}
 
 

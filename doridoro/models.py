@@ -167,8 +167,10 @@ class Language(models.Model):
 class Reference(models.Model):
     name = models.CharField(max_length=150)
     profession = models.CharField(max_length=250)
-    email = models.EmailField(max_length=250, verbose_name=_("email address"))
-    phone = models.CharField(blank=True, max_length=14)
+    email = models.EmailField(
+        blank=True, null=True, max_length=250, verbose_name=_("email address")
+    )
+    phone = models.CharField(blank=True, null=True, max_length=14)
     language = models.CharField(max_length=100, verbose_name=_("spoken language"))
     published = models.BooleanField(
         default=True, verbose_name=_("reference visible on website")

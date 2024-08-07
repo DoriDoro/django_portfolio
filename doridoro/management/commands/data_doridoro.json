@@ -49,18 +49,6 @@
     },
     {
       "title": {
-        "en": "Single parent",
-        "de": "Alleinerziehend",
-        "fr": "Mére isolé"
-      },
-      "content": {
-        "en": "Single parent, working full-time (80% in enterprise and 20% formation).",
-        "de": "Alleinerziehend, Vollzeitbeschäftigung (80% im Unternehmen und 20% in der Ausbildung).",
-        "fr": "Mére isolé, travaillant à temps plein (80 % en entreprise et 20 % en formation)."
-      }
-    },
-    {
-      "title": {
         "en": "French",
         "de": "Französisch",
         "fr": "Française"
@@ -116,7 +104,7 @@
         "fr": "Disponibilité"
       },
       "content": {
-        "en": "I am currently in search of a new job opportunity and am available to start within 1.5 months. I am eager to bring my skills and experience to a new role and contribute to the success of a dynamic organization.",
+        "en": "I am ready to start a new job in a month and a half and would like to work in a dynamic company.",
         "de": "Ich bin bereit, in 1,5 Monaten eine neue Stelle anzutreten und möchte in einem dynamischen Unternehmen mitarbeiten.",
         "fr": "Je suis disponible pour commencer un nouvel emploi dans un 1.5 et désireux de contribuer à une organisation dynamique."
       }
@@ -167,37 +155,28 @@
       },
       "description": {
         "en": [
-          "I have effectively utilized Notion as an integral tool for managing project workflows.",
-          "My expertise includes working on tasks within Notion, where I have seamlessly created, tracked, and completed independently various project assignments, ensuring timely delivery and adherence to project goals.",
-          "Proficient in handling database requests and exporting data into CSV files.",
+          "Scale-up specialising in furnished tourist accommodation, 14 agencies in France, over 3.500 accommodations, 80 employees, Turnover > 9.38M € in 2023 and Sales growth rate 61.9% in 2023.",
+          "Usage of Notion as an integral tool for managing project workflows.",
+          "Working on tasks, where I have seamlessly created, tracked, and completed independently various project assignments, ensuring timely delivery and adherence to project goals.",
           "Responsible for managing the internal Slack chat 'Assistance Technique' where colleagues report bugs, problems, and server errors.",
-          "Skilled in checking Sentry for errors and identifying issues promptly.",
-          "Experienced in verifying bugs, resolving them, or creating development requests as necessary.",
-          "Capable of analyzing code to provide explanations for issues and propose solutions.",
-          "Enhanced understanding of website operations and management through problem-solving activities.",
-          "Skilled in implementing new dashboard modules and assembling custom code modules to create innovative dashboard features."
+          "Analysis of error reports and corrections.",
+          "Development of functionalities."
         ],
         "de": [
-          "Ich habe Notion effektiv als integrales Werkzeug für die Verwaltung von Projektabläufen eingesetzt.",
-          "Zu meinen Fachkenntnissen gehört die Arbeit an Aufgaben innerhalb von Notion, in dem ich verschiedene Projektaufgaben nahtlos erstellt, verfolgt und unabhängig abgeschlossen habe, wobei ich die rechtzeitige Lieferung und Einhaltung der Projektziele sichergestellt habe.",
-          "Beherrscht den Umgang mit Datenbankanfragen und den Export von Daten in CSV-Dateien.",
+          "Scale-up, spezialisiert auf möblierte Unterkünfte, 14 Agenturen in Frankreich, über 3.500 Unterkünfte, 80 Mitarbeiter, Umsatz > 9,38 Mio. € im Jahr 2023 und Umsatzwachstum von 61,9% im Jahr 2023.",
+          "Nutzung von Notion als integrales Werkzeug für die Verwaltung von Projektabläufen eingesetzt.",
+          "Arbeit an Aufgaben, bei denen ich nahtlos verschiedene Projektaufträge erstellt, verfolgt und selbstständig abgeschlossen habe, wobei ich die rechtzeitige Lieferung und Einhaltung der Projektziele sichergestellt habe.",
           "Verantwortlich für die Verwaltung des internen Slack-Chats „Assistance Technique“, in dem Kollegen Bugs, Probleme und Serverfehler melden.",
-          "In der Lage, Sentry auf Fehler zu überprüfen und Probleme sofort zu erkennen.",
-          "Erfahrung mit der Überprüfung von Fehlern, deren Behebung oder der Erstellung von Entwicklungsaufträgen, falls erforderlich.",
-          "In der Lage, Code zu analysieren, um Erklärungen für Probleme zu liefern und Lösungen vorzuschlagen.",
-          "Verbessertes Verständnis von Website-Betrieb und -Verwaltung durch Problemlösungsaktivitäten.",
-          "In der Lage, neue Dashboard-Module zu implementieren und benutzerdefinierte Code-Module zusammenzustellen, um innovative Dashboard-Funktionen zu schaffen."
+          "Analyse von Fehlermeldungen und Korrekturen.",
+          "Entwicklung von Funktionalitäten."
         ],
         "fr": [
+          "Scale-up spécialisée dans la location meublée de tourisme, 14 agences en France, plus de 3500 logements disponibles, 80 collaborateurs, Chiffre d’affaires > 9,38M € en 2023 et Taux de croissance du CA 61,9% en 2023.",
           "J'ai utilisé Notion de manière efficace en tant qu'outil intégral de gestion des flux de travail des projets.",
-          "Mon expertise comprend le travail sur des tâches au sein de Notion, où j'ai créé, suivi et achevé de manière transparente et indépendante diverses missions de projet, en veillant à la livraison dans les délais et au respect des objectifs du projet.",
-          "Maîtrise de la gestion des demandes de bases de données et de l'exportation des données dans des fichiers CSV.",
+          "Travailler sur des tâches pour lesquelles j'ai créé, suivi et mené à bien de manière indépendante divers projets, en veillant à ce qu'ils soient livrés dans les délais et à ce que les objectifs fixés soient atteints.",
           "Responsable de la gestion du chat interne Slack « Technique d'assistance » où les collègues signalent les bogues, les problèmes et les erreurs de serveur.",
-          "Compétences en matière de recherche d'erreurs dans Sentry et d'identification rapide des problèmes.",
-          "Expérience de la vérification des bogues, de leur résolution ou de la création de demandes de développement si nécessaire.",
-          "Capable d'analyser le code pour fournir des explications sur les problèmes et proposer des solutions.",
-          "Amélioration de la compréhension des opérations et de la gestion des sites web par le biais d'activités de résolution de problèmes.",
-          "Compétences dans la mise en œuvre de nouveaux modules de tableaux de bord et dans l'assemblage de modules de code personnalisés pour créer des fonctions de tableaux de bord innovantes."
+          "Analyse des rapports d'erreurs et corrections.",
+          "Développement de fonctionnalités."
         ]
       },
       "job_type": "APPRENTICESHIP"
@@ -223,15 +202,18 @@
       "description": {
         "en": [
           "Dedication to my family's needs and being present during key developmental stages of my child's life. Grow personally and develop important skills such as patience, time management, and multitasking.",
-          "Maintain a healthy work-life balance by taking time off to prioritize family while also recognizing the significance of personal and professional development."
+          "Maintain a healthy work-life balance by taking time off to prioritize family while also recognizing the significance of personal and professional development.",
+          "Preparing my career transition project: choosing a school and finding a partner company."
         ],
         "de": [
           "Sich den Bedürfnissen meiner Familie zu widmen und in den wichtigsten Entwicklungsphasen meines Kindes präsent zu sein. Persönlich zu wachsen und wichtige Fähigkeiten wie Geduld, Zeitmanagement und Multitasking zu entwickeln.",
-          "Halten Sie ein gesundes Gleichgewicht zwischen Arbeit und Privatleben aufrecht, indem Sie sich Zeit für die Familie nehmen, aber auch die Bedeutung der persönlichen und beruflichen Entwicklung anerkennen."
+          "Halten Sie ein gesundes Gleichgewicht zwischen Arbeit und Privatleben aufrecht, indem Sie sich Zeit für die Familie nehmen, aber auch die Bedeutung der persönlichen und beruflichen Entwicklung anerkennen.",
+          "Vorbereitung meines Umschulungsprojekts: Wahl der Schule und Suche nach einem Partnerunternehmen."
         ],
         "fr": [
           "Se consacrer aux besoins de ma famille et être présent lors des étapes clés du développement de la vie de mon enfant. M'épanouir personnellement et développer des compétences importantes telles que la patience, la gestion du temps et la capacité à effectuer plusieurs tâches à la fois.",
-          "Maintenir un bon équilibre entre vie professionnelle et vie privée en prenant des congés pour donner la priorité à la famille, tout en reconnaissant l'importance du développement personnel et professionnel."
+          "Maintenir un bon équilibre entre vie professionnelle et vie privée en prenant des congés pour donner la priorité à la famille, tout en reconnaissant l'importance du développement personnel et professionnel.",
+          "Préparation de mon project de reconversion professionnelle : choix de l’école et recherche de l’entreprise partenaires."
         ]
       },
       "job_type": "PARENTAL_LEAVE"
@@ -515,6 +497,46 @@
           "J'ai suivi un rigoureux bootcamp intensif de 3 mois visant à devenir un développeur Web Full Stack compétent.",
           "Une formation complète couvrant les concepts fondamentaux et les outils essentiels pour le développement web complet.",
           "S'engager activement dans un apprentissage pratique, culminant avec la création de projets personnalisés pour consolider la compréhension et appliquer les compétences nouvellement acquises."
+        ]
+      },
+      "job_type": "FORMATION"
+    },
+    {
+      "company_name": {
+        "en": "Walther Rathenau Technical School",
+        "de": "Walther-Rathenau-Gewerbeschule",
+        "fr": "École des métiers Walther-Rathenau"
+      },
+      "position": {
+        "en": "Chemicals Technical Assistant",
+        "de": "Chemisch Technische Assistentin",
+        "fr": "Assistant Technique en Chimie"
+      },
+      "start_date": "2006-09-01",
+      "end_date": "2008-06-01",
+      "address": {
+        "en": "Freiburg im Breisgau (GERMANY)",
+        "de": "Freiburg im Breisgau (FRANKREICH)",
+        "fr": "Fribourg-en-Brisgau (ALLEMANGE)"
+      },
+      "description": {
+        "en": [
+          "School education.",
+          "Planning and carrying out chemical analyses and tests.",
+          "Analysis of measurement results.",
+          "Biological and chemical analyses."
+        ],
+        "de": [
+          "Schulische Ausbildung.",
+          "Planung und Durchführung von chemischen Analysen und Tests.",
+          "Analyse der Messergebnisse.",
+          "Biologische und chemische Analysen"
+        ],
+        "fr": [
+          "Formation scolaire.",
+          "Planification et réalisation d'analyses et d'essais chimiques.",
+          "Planning and carrying out chemical analyses and tests.",
+          "Analyses biologiques et chimiques."
         ]
       },
       "job_type": "FORMATION"

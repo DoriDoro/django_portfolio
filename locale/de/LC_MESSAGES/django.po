@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-08-03 11:41+0200\n"
+"POT-Creation-Date: 2024-08-07 15:51+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -134,19 +134,19 @@ msgstr "Muttersprache"
 msgid "language visible on website"
 msgstr "Sprache auf der Webseite sichtbar"
 
-#: doridoro/models.py:170
+#: doridoro/models.py:171
 msgid "email address"
 msgstr "Emailadresse"
 
-#: doridoro/models.py:172
+#: doridoro/models.py:174
 msgid "spoken language"
 msgstr "gesprochene Sprache"
 
-#: doridoro/models.py:174
+#: doridoro/models.py:176
 msgid "reference visible on website"
 msgstr "Referenz auf der Website sichtbar"
 
-#: doridoro/models.py:185
+#: doridoro/models.py:187
 msgid "social media visible on website"
 msgstr "Social Media auf der Website sichtbar"
 
@@ -210,6 +210,23 @@ msgstr ""
 msgid "Education"
 msgstr "Ausbildung"
 
+#: doridoro/templates/resume.html:19 doridoro/templates/resume.html:31
+#: doridoro/templates/resume.html:45
+msgid "at"
+msgstr "bei"
+
+#: doridoro/templates/resume.html:20 doridoro/templates/resume.html:32
+#: doridoro/templates/resume.html:46
+msgid "to"
+msgstr "bis"
+
+#: doridoro/templates/resume.html:20 doridoro/templates/resume.html:32
+#: doridoro/templates/resume.html:46
+#, fuzzy
+#| msgid "until present"
+msgid "present"
+msgstr "bis heute"
+
 #: doridoro/templates/resume.html:42
 msgid "Professional Experience"
 msgstr "Berufliche Erfahrung"
@@ -226,29 +243,29 @@ msgstr ""
 "\"Bringe Organisationstalent, Programmierkenntnisse und manchmal auch Kekse "
 "mit zur Arbeit.\""
 
-#: doridoro/templates/skills.html:26 projects/models.py:168
+#: doridoro/templates/skills.html:13 projects/models.py:170
 msgid "Programming Skills"
 msgstr "Programmierfähigkeiten"
 
-#: doridoro/templates/skills.html:37 projects/models.py:169
+#: doridoro/templates/skills.html:22 projects/models.py:171
 msgid "Soft Skills"
 msgstr "Sozale Fähigkeiten"
 
-#: doridoro/templates/skills.html:48
+#: doridoro/templates/skills.html:31
 msgid "Other Skills"
 msgstr "Andere Fähigkeiten"
 
-#: doridoro/templates/skills.html:59 projects/models.py:171
+#: doridoro/templates/skills.html:40 projects/models.py:173
 msgid "Strength"
 msgstr "Stärken"
 
-#: doridoro/templates/skills.html:70
-msgid "Weaknesses"
-msgstr "Schwächen"
-
-#: doridoro/templates/skills.html:81
+#: doridoro/templates/skills.html:58
 msgid "Languages"
 msgstr "Sprachen"
+
+#: doridoro/templates/skills.html:67
+msgid "My dream job"
+msgstr "Mein Traumjob"
 
 #: portfolio/settings.py:137
 msgid "English"
@@ -262,79 +279,65 @@ msgstr "Deutsch"
 msgid "French"
 msgstr "Französisch"
 
-#: projects/models.py:13
+#: projects/models.py:14
 msgid "create date"
 msgstr "Erstelldatum"
 
-#: projects/models.py:17
+#: projects/models.py:15
+#, fuzzy
+#| msgid "create date"
+msgid "evaluation date"
+msgstr "Erstelldatum"
+
+#: projects/models.py:19
 msgid "project visible on website"
 msgstr "Projekt auf der Website sichtbar"
 
-#: projects/models.py:43
+#: projects/models.py:45
 msgid "cover picture"
 msgstr "Titelbild"
 
-#: projects/models.py:46
+#: projects/models.py:48
 msgid "picture"
 msgstr "Bild"
 
-#: projects/models.py:51
+#: projects/models.py:53
 msgid "picture visible on website"
 msgstr "Bild auf der Website sichtbar"
 
-#: projects/models.py:69
+#: projects/models.py:71
 #, python-format
 msgid "The uploaded file is not a valid image. -- %s"
 msgstr "Die hochgeladene Datei ist kein gültiges Bild. -- %s"
 
-#: projects/models.py:78
+#: projects/models.py:80
 #, python-format
 msgid "The uploaded file could not be reopened as an image. -- %s"
 msgstr ""
 "Die hochgeladene Datei konnte nicht erneut als Bild geöffnet werden. -- %s"
 
-#: projects/models.py:112
+#: projects/models.py:114
 #, python-format
 msgid "An error occurred while processing the image. -- %s"
 msgstr "Bei der Verarbeitung des Bildes ist ein Fehler aufgetreten. -- %s"
 
-#: projects/models.py:119
+#: projects/models.py:121
 msgid "The image width is smaller than 800 pixels."
 msgstr "Die Bildbreite ist kleiner als 800 Pixel."
 
-#: projects/models.py:135
-msgid "GitHub"
-msgstr "GitHub"
-
-#: projects/models.py:136
-msgid "Vercel"
-msgstr "Vercel"
-
-#: projects/models.py:137
-msgid "Render"
-msgstr "Render"
-
-#: projects/models.py:138 projects/models.py:170
+#: projects/models.py:140 projects/models.py:172
 msgid "Other"
 msgstr "Andere"
 
-#: projects/models.py:141
-msgid "OpenClasssrooms"
-msgstr "OpenClassrooms"
-
-#: projects/models.py:142
+#: projects/models.py:144
 msgid "Personal Project"
 msgstr "persönliches Projekt"
 
-#: projects/models.py:152
+#: projects/models.py:154
 msgid "link visible on website"
 msgstr "Link auf der Webseite sichtbar"
 
-#: projects/models.py:172
-msgid "Weakness"
-msgstr "Schwächen"
-
-#: projects/models.py:177
+#: projects/models.py:179
 msgid "tag visible on website"
 msgstr "Tag auf der Webseite sichtbar"
 
@@ -349,10 +352,6 @@ msgstr "GitHub URL"
 #: projects/templates/portfolio_details.html:33
 msgid "Vercel URL"
 msgstr "Vercel URL"
-
-#: projects/templates/portfolio_details.html:37
-msgid "URL"
-msgstr "URL"
 
 #: projects/templates/portfolio_details.html:40
 msgid "Project date"
@@ -372,17 +371,8 @@ msgstr "Kommunikation"
 msgid "Problem-solving"
 msgstr "Probleme lösen"
 
-msgid "Attention to details"
-msgstr "Liebe zum Detail"
-
 msgid "Time management"
 msgstr "Zeitmanagement"
-
-msgid "Continuous learning"
-msgstr "Fortlaufendes Lernen"
-
-msgid "Adaptability"
-msgstr "Anpassungsfähigkeit"
 
 msgid "Empathy"
 msgstr "Einfühlungsvermögen"
@@ -393,44 +383,41 @@ msgstr "Positive Einstellung"
 msgid "Conflict resolution"
 msgstr "Konfliktbewältigung"
 
-msgid "Organisational ability with prioritisation"
-msgstr "Organisationstalent mit Prioritätensetzung"
-
 msgid "Quick comprehension"
 msgstr "Schnelle Auffassungsgabe"
 
-msgid "Independence"
-msgstr "Selbstständigkeit"
+msgid "Prioritising tasks"
+msgstr "Priorisierung von Aufgaben"
 
-msgid "Personal responsibility"
-msgstr "Eigenverantwortung"
+msgid "Autonomy"
+msgstr "Eigenständigkeit"
 
-msgid "Reliable"
-msgstr "Zuverlässig"
+msgid "Adaptability"
+msgstr "Anpassungsfähigkeit"
 
-msgid "Finish the job"
-msgstr "Beende den Auftrag"
+msgid "Determination"
+msgstr "Entschlossenheit"
 
-msgid "Do not give up"
-msgstr "Gebe nicht auf"
+msgid "Commitment"
+msgstr "Verbindlichkeit"
+
+msgid "Patience"
+msgstr "Geduld"
+
+msgid "Continuous learning"
+msgstr "Kontinuierliches Lernen"
+
+msgid "Reliability"
+msgstr "Verlässlichkeit"
+
+msgid "Persistence"
+msgstr "Beharrlichkeit"
+
+msgid "Professionalism"
+msgstr "Professionalität"
 
 msgid "Home office experience"
 msgstr "Home Office Erfahrung"
 
 msgid "Perfectionism"
 msgstr "Perfektionismus"
-
-msgid "Introverted"
-msgstr "Introvertiert"
-
-msgid "Shy"
-msgstr "Schüchtern"
-
-msgid "Making small talk"
-msgstr "Smalltalk führen"
-
-msgid "Communication barrier in French"
-msgstr "Kommunikationsbarriere auf Französisch"
-
-msgid "Afraid not to be good enough"
-msgstr "Angst, nicht gut genug zu sein"

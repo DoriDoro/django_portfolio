@@ -5,7 +5,7 @@ from projects.models import Project, Picture, Link, Tag
 
 @register(Project)
 class ProjectTranslationOptions(TranslationOptions):
-    fields = ("title", "introduction", "content")
+    fields = ("title", "legend", "introduction", "content")
 
 
 @register(Picture)
@@ -15,9 +15,9 @@ class PictureTranslationOptions(TranslationOptions):
 
 @register(Link)
 class LinkTranslationOptions(TranslationOptions):
-    fields = ("legend", "origin", "platform")
+    fields = ("legend",)
 
 
 @register(Tag)
-class LinkTranslationOptions(TranslationOptions):
-    fields = ("category",)
+class TagTranslationOptions(TranslationOptions):
+    fields = ("name",)

@@ -10,7 +10,9 @@ from PIL import Image
 class Project(models.Model):
     title = models.CharField(max_length=250)
     slug = models.SlugField()
+    legend = models.CharField(max_length=100)
     create_date = models.DateField(verbose_name=_("create date"))
+    evaluation_date = models.DateField(verbose_name=_("evaluation date"))
     introduction = HTMLField()
     content = HTMLField()
     published = models.BooleanField(
@@ -132,18 +134,18 @@ class Link(models.Model):
     PERSONAL_PROJECT = "PERSONAL_PROJECT"
 
     ORIGIN_CHOICES = [
-        (GITHUB, _("GitHub")),
-        (VERCEL, _("Vercel")),
-        (RENDER, _("Render")),
+        (GITHUB, "GitHub"),
+        (VERCEL, "Vercel"),
+        (RENDER, "Render"),
         (OTHER, _("Other")),
     ]
     PLATFORM_CHOICES = [
-        (OPENCLASSROOMS, _("OpenClasssrooms")),
+        (OPENCLASSROOMS, "OpenClasssrooms"),
         (PERSONAL_PROJECT, _("Personal Project")),
     ]
 
     title = models.CharField(max_length=200)
-    legend = models.CharField(max_length=100, null=True, blank=True)
+    legend = models.CharField(max_length=100)
     origin = models.CharField(max_length=6, choices=ORIGIN_CHOICES)
     platform = models.CharField(max_length=17, choices=PLATFORM_CHOICES)
 

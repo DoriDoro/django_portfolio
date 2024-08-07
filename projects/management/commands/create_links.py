@@ -54,12 +54,9 @@ class Command(BaseCommand):
             with transaction.atomic():
                 for link in links:
                     Link.objects.create(
-                        origin_en=link["origin"],
-                        origin_de=link["origin"],
-                        origin_fr=link["origin"],
-                        platform_en=link["platform"],
-                        platform_de=link["platform"],
-                        platform_fr=link["platform"],
+                        legend_en=link["legend"]["en"],
+                        legend_de=link["legend"]["de"],
+                        legend_fr=link["legend"]["fr"],
                         **link,
                     )
 
@@ -72,4 +69,6 @@ class Command(BaseCommand):
                 self.style.WARNING("These Link instances exists already!")
             )
         except Exception as e:
-            self.stdout.write(self.style.ERROR(f"An unexpected error occurred: {e}"))
+            self.stdout.write(
+                self.style.ERROR(f"Link - An unexpected error occurred: {e}")
+            )

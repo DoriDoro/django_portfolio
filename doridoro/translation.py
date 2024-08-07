@@ -3,19 +3,24 @@ from modeltranslation.translator import register, TranslationOptions
 from doridoro.models import (
     DoriDoro,
     Achievement,
-    Degree,
     Fact,
     Hobby,
     Job,
     Language,
     Reference,
-    SocialMedia,
 )
 
 
 @register(DoriDoro)
 class DoriDoroTranslationOptions(TranslationOptions):
-    fields = ("address", "profession", "introduction", "dream_job", "free_time")
+    fields = (
+        "phone",
+        "address",
+        "profession",
+        "introduction",
+        "dream_job",
+        "free_time",
+    )
 
 
 @register(Achievement)
@@ -40,7 +45,7 @@ class JobTranslationOptions(TranslationOptions):
 
 @register(Language)
 class LanguageTranslationOptions(TranslationOptions):
-    fields = ("name", "level")
+    fields = ("name",)
 
 
 @register(Reference)

@@ -54,8 +54,10 @@ class Command(BaseCommand):
                     )
                     DoriDoro.objects.create(
                         user=user,
-                        phone="0033768132147",
-                        address="35710 Bruz in France",
+                        phone_en="0033 768132147",
+                        phone_de="+33 768 132147",
+                        phone_fr="07 68 13 21 47",
+                        address_en="35710 Bruz in France",
                         address_de="35710 Bruz in Frankreich",
                         address_fr="35710 Bruz en France",
                         profession_en="Python/Django Developer",

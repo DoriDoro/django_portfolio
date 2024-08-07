@@ -57,7 +57,6 @@ class SkillsView(TemplateView):
         context["soft_skills"] = self.translate_tags_name(category=Tag.SOFT_SKILLS)
         context["other_skills"] = self.get_tags_data().filter(category=Tag.OTHER)
         context["strength"] = self.translate_tags_name(category=Tag.STRENGTH)
-        context["weaknesses"] = self.translate_tags_name(category=Tag.WEAKNESSES)
         context["languages"] = self.get_languages_data()
 
         return context
@@ -67,9 +66,9 @@ class SkillsView(TemplateView):
 
     def translate_tags_name(self, category):
         tags = self.get_tags_data().values_list("name", "category")
-        result_dict = {"SOFT_SKILLS": (), "STRENGTH": (), "WEAKNESSES": ()}
+        result_dict = {"SOFT_SKILLS": (), "STRENGTH": ()}
         for tag in tags:
-            if tag[1] in ["SOFT_SKILLS", "STRENGTH", "WEAKNESSES"]:
+            if tag[1] in ["SOFT_SKILLS", "STRENGTH"]:
                 translated_name = gettext(tag[0])
                 result_dict[tag[1]] += ((translated_name, tag[1]),)
 
