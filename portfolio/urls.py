@@ -30,7 +30,6 @@ urlpatterns = [
 urlpatterns += i18n_patterns(
     path("", include("doridoro.urls", namespace="doridoro")),
     path("portfolio/", include("projects.urls", namespace="projects")),
-    prefix_default_language=False,
 )
 
 if settings.DEBUG:
