@@ -16,7 +16,7 @@ class Command(BaseCommand):
                 tags = data["Tag"]
 
                 for tag in tags:
-                    tag["category"] = getattr(Tag, tag["category"])
+                    tag["tag"] = getattr(Tag, tag["tag"])
 
             return tags
 
@@ -58,12 +58,7 @@ class Command(BaseCommand):
         try:
             with transaction.atomic():
                 for tag in tags:
-                    Tag.objects.create(
-                        name_en=tag["name"],
-                        name_de=tag["name"],
-                        name_fr=tag["name"],
-                        **tag,
-                    )
+                    Tag.objects.create(**tag)
 
             self.stdout.write(
                 self.style.SUCCESS("Instances of Tag successfully created!")
