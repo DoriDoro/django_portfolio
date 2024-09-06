@@ -10,7 +10,7 @@ from doridoro.models import (
     Language,
     SocialMedia,
 )
-from projects.models import Project, Tag
+from projects.models import Project, Skill
 
 
 class IndexView(TemplateView):
@@ -35,7 +35,7 @@ class AboutView(TemplateView):
         context["doridoro"] = DoriDoro.objects.first()
         context["current_positions"] = Job.objects.filter(until_present=True)
         context["projects_count"] = Project.objects.filter(published=True).count()
-        context["skills_count"] = Tag.objects.filter(published=True).count()
+        context["skills_count"] = Skill.objects.filter(published=True).count()
         context["achievements"] = Achievement.objects.filter(
             published=True
         ).values_list("content", flat=True)
@@ -52,17 +52,17 @@ class SkillsView(TemplateView):
 
         context["doridoro"] = DoriDoro.objects.first()
         context["programming_skills"] = self.get_tags_data().filter(
-            category=Tag.PROGRAMMING_SKILLS
+            category=Skill.PROGRAMMING_SKILLS
         )
-        context["soft_skills"] = self.translate_tags_name(category=Tag.SOFT_SKILLS)
-        context["other_skills"] = self.get_tags_data().filter(category=Tag.OTHER)
-        context["strength"] = self.translate_tags_name(category=Tag.STRENGTH)
+        context["soft_skills"] = self.translate_tags_name(category=Skill.SOFT_SKILLS)
+        context["other_skills"] = self.get_tags_data().filter(category=Skill.OTHER)
+        context["strength"] = self.translate_tags_name(category=Skill.STRENGTH)
         context["languages"] = self.get_languages_data()
 
         return context
 
     def get_tags_data(self):
-        return Tag.objects.filter(published=True)
+        return Skill.objects.filter(published=True)
 
     def translate_tags_name(self, category):
         tags = self.get_tags_data().values_list("name", "category")

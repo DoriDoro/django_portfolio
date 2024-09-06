@@ -155,7 +155,7 @@
       "url": "https://portfolio-dorothea-reher.vercel.app/"
     }
   ],
-  "Tag": [
+  "Skill": [
     {
       "name": "Python",
       "category": "PROGRAMMING_SKILLS"
@@ -359,6 +359,14 @@
     {
       "name": "macOS",
       "category": "OTHER"
+    }
+  ],
+  "Tag": [
+    {
+      "tag": "OPENCLASSROOMS_PROJECT"
+    },
+    {
+      "tag": "PERSONAL_PROJECT"
     }
   ]
 }

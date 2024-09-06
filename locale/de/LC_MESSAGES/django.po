@@ -3,9 +3,6 @@
 # This file is distributed under the same license as the PACKAGE package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
-#, fuzzy
-msgid ""
-msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-08-07 15:51+0200\n"
@@ -222,8 +219,6 @@ msgstr "bis"
 
 #: doridoro/templates/resume.html:20 doridoro/templates/resume.html:32
 #: doridoro/templates/resume.html:46
-#, fuzzy
-#| msgid "until present"
 msgid "present"
 msgstr "bis heute"
 
@@ -284,8 +279,6 @@ msgid "create date"
 msgstr "Erstelldatum"
 
 #: projects/models.py:15
-#, fuzzy
-#| msgid "create date"
 msgid "evaluation date"
 msgstr "Erstelldatum"
 
@@ -313,8 +306,7 @@ msgstr "Die hochgeladene Datei ist kein gültiges Bild. -- %s"
 #: projects/models.py:80
 #, python-format
 msgid "The uploaded file could not be reopened as an image. -- %s"
-msgstr ""
-"Die hochgeladene Datei konnte nicht erneut als Bild geöffnet werden. -- %s"
+msgstr "Die hochgeladene Datei konnte nicht erneut als Bild geöffnet werden. -- %s"
 
 #: projects/models.py:114
 #, python-format

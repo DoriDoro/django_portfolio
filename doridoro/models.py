@@ -109,7 +109,7 @@ class Job(models.Model):
     published = models.BooleanField(
         default=True, verbose_name=_("job visible on website")
     )
-    tags = models.ManyToManyField("projects.Tag", related_name="job_tags")
+    skill = models.ManyToManyField("projects.Skill", related_name="job_skills")
     links = models.ManyToManyField("projects.Link", related_name="job_links")
 
     def __str__(self):

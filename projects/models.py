@@ -12,14 +12,17 @@ class Project(models.Model):
     slug = models.SlugField()
     legend = models.CharField(max_length=100)
     create_date = models.DateField(verbose_name=_("create date"))
-    evaluation_date = models.DateField(verbose_name=_("evaluation date"))
+    evaluation_date = models.DateField(
+        null=True, blank=True, verbose_name=_("evaluation date")
+    )
     introduction = HTMLField()
     content = HTMLField()
     published = models.BooleanField(
         default=True, verbose_name=_("project visible on website")
     )
-    tags = models.ManyToManyField("Tag", related_name="project_tags")
     links = models.ManyToManyField("Link", related_name="project_links")
+    skill = models.ManyToManyField("Skill", related_name="project_skills")
+    tag = models.ManyToManyField("Tag", related_name="project_tags")
     doridoro = models.ForeignKey(
         "doridoro.DoriDoro",
         on_delete=models.SET_NULL,
@@ -37,6 +40,39 @@ class Project(models.Model):
             old_instance = Project.object.get(pk=self.pk)
             self.create_date = old_instance.create_date
         super().save(*args, **kwargs)
+
+
+class Link(models.Model):
+    GITHUB = "GITHUB"
+    VERCEL = "VERCEL"
+    RENDER = "RENDER"
+    OTHER = "OTHER"
+
+    OPENCLASSROOMS = "OPENCLASSROOMS"
+    PERSONAL_PROJECT = "PERSONAL_PROJECT"
+
+    ORIGIN_CHOICES = [
+        (GITHUB, "GitHub"),
+        (VERCEL, "Vercel"),
+        (RENDER, "Render"),
+        (OTHER, _("Other")),
+    ]
+    PLATFORM_CHOICES = [
+        (OPENCLASSROOMS, "OpenClasssrooms"),
+        (PERSONAL_PROJECT, _("Personal Project")),
+    ]
+
+    title = models.CharField(max_length=200)
+    legend = models.CharField(max_length=100)
+    origin = models.CharField(max_length=6, choices=ORIGIN_CHOICES)
+    platform = models.CharField(max_length=17, choices=PLATFORM_CHOICES)
+    url = models.URLField()
+    published = models.BooleanField(
+        default=True, verbose_name=_("link visible on website")
+    )
+
+    def __str__(self):
+        return self.url
 
 
 class Picture(models.Model):
@@ -124,49 +160,14 @@ class Picture(models.Model):
         super().save(*args, **kwargs)
 
 
-class Link(models.Model):
-    GITHUB = "GITHUB"
-    VERCEL = "VERCEL"
-    RENDER = "RENDER"
-    OTHER = "OTHER"
-
-    OPENCLASSROOMS = "OPENCLASSROOMS"
-    PERSONAL_PROJECT = "PERSONAL_PROJECT"
-
-    ORIGIN_CHOICES = [
-        (GITHUB, "GitHub"),
-        (VERCEL, "Vercel"),
-        (RENDER, "Render"),
-        (OTHER, _("Other")),
-    ]
-    PLATFORM_CHOICES = [
-        (OPENCLASSROOMS, "OpenClasssrooms"),
-        (PERSONAL_PROJECT, _("Personal Project")),
-    ]
-
-    title = models.CharField(max_length=200)
-    legend = models.CharField(max_length=100)
-    origin = models.CharField(max_length=6, choices=ORIGIN_CHOICES)
-    platform = models.CharField(max_length=17, choices=PLATFORM_CHOICES)
-
-    url = models.URLField()
-    published = models.BooleanField(
-        default=True, verbose_name=_("link visible on website")
-    )
-
-    def __str__(self):
-        return self.url
-
-
-class Tag(models.Model):
-    # tag is a skill
+class Skill(models.Model):
     PROGRAMMING_SKILLS = "PROGRAMMING_SKILLS"
     SOFT_SKILLS = "SOFT_SKILLS"
     OTHER = "OTHER"
     STRENGTH = "STRENGTH"
     WEAKNESSES = "WEAKNESSES"
 
-    TAG_CHOICES = [
+    SKILL_CHOICES = [
         (PROGRAMMING_SKILLS, _("Programming Skills")),
         (SOFT_SKILLS, _("Soft Skills")),
         (OTHER, _("Other")),
@@ -174,10 +175,25 @@ class Tag(models.Model):
         (WEAKNESSES, _("Weakness")),
     ]
     name = models.CharField(max_length=50)
-    category = models.CharField(max_length=20, choices=TAG_CHOICES)
+    category = models.CharField(max_length=20, choices=SKILL_CHOICES)
     published = models.BooleanField(
-        default=True, verbose_name=_("tag visible on website")
+        default=True, verbose_name=_("skill visible on website")
     )
 
     def __str__(self):
         return f"{self.name} ({self.category})"
+
+
+class Tag(models.Model):
+    OPENCLASSROOMS_PROJECT = "OPENCLASSROOMS_PROJECT"
+    PERSONAL_PROJECT = "PERSONAL_PROJECT"
+
+    TAG_CHOICES = [
+        (OPENCLASSROOMS_PROJECT, _("OpenClassrooms Project")),
+        (PERSONAL_PROJECT, _("Personal Project")),
+    ]
+
+    tag = models.CharField(max_length=22, choices=TAG_CHOICES)
+    published = models.BooleanField(
+        default=True, verbose_name=_("tag visible on website")
+    )

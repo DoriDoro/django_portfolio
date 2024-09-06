@@ -1,6 +1,6 @@
 from modeltranslation.translator import register, TranslationOptions
 
-from projects.models import Project, Picture, Link, Tag
+from projects.models import Project, Picture, Link, Skill
 
 
 @register(Project)
@@ -18,6 +18,6 @@ class LinkTranslationOptions(TranslationOptions):
     fields = ("legend",)
 
 
-@register(Tag)
-class TagTranslationOptions(TranslationOptions):
+@register(Skill)
+class SkillTranslationOptions(TranslationOptions):
     fields = ("name",)
