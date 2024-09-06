@@ -8,11 +8,6 @@ class ProjectTranslationOptions(TranslationOptions):
     fields = ("title", "legend", "introduction", "content")
 
 
-@register(Picture)
-class PictureTranslationOptions(TranslationOptions):
-    fields = ("legend",)
-
-
 @register(Link)
 class LinkTranslationOptions(TranslationOptions):
     fields = ("legend",)

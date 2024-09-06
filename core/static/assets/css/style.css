@@ -548,6 +548,14 @@ section .container {
   background: rgba(255, 255, 255, 0.12);
 }
 
+.skills .row p {
+  color: #fff;
+}
+
+.skills .content p {
+  color: #fff;
+}
+
 /*--------------------------------------------------------------
 # Interests
 --------------------------------------------------------------*/
@@ -995,6 +1003,10 @@ section .container {
   margin-top: 10px;
 }
 
+.portfolio-details .portfolio-info h3, strong {
+    color: #fff;
+}
+
 .portfolio-details .portfolio-info p {
   font-size: 15px;
 }
@@ -1005,20 +1017,28 @@ section .container {
   }
 }
 
-.portfolio-details .portfolio-info .tags-container {
+.portfolio-details .portfolio-info .skill-container {
     display: flex;
 }
 
-.portfolio-details .portfolio-info .tags-container strong {
+.portfolio-details .portfolio-info .skill-container strong {
     align-content: center;
 }
 
-.tags {
+.skill {
     border: 1px #18d26e solid;
     border-radius: 5px;
     width: fit-content;
     padding: 4px 6px;
     margin: 6px 8px;
+}
+
+.portfolio-details .row p {
+  color: #fff;
+}
+
+.portfolio-details .content p {
+  color: #fff;
 }
 
 .portfolio-details .swiper-pagination {

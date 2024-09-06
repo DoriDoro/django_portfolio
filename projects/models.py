@@ -21,8 +21,10 @@ class Project(models.Model):
         default=True, verbose_name=_("project visible on website")
     )
     links = models.ManyToManyField("Link", related_name="project_links")
-    skill = models.ManyToManyField("Skill", related_name="project_skills")
-    tag = models.ManyToManyField("Tag", related_name="project_tags")
+    skills = models.ManyToManyField("Skill", related_name="project_skills")
+    tags = models.ForeignKey(
+        "Tag", on_delete=models.SET_NULL, null=True, related_name="project_tags"
+    )
     doridoro = models.ForeignKey(
         "doridoro.DoriDoro",
         on_delete=models.SET_NULL,
@@ -90,7 +92,8 @@ class Picture(models.Model):
     )
     project = models.ForeignKey(
         "projects.Project",
-        on_delete=models.CASCADE,
+        on_delete=models.SET_NULL,
+        null=True,
         related_name="project_picture",
     )
 
@@ -197,3 +200,6 @@ class Tag(models.Model):
     published = models.BooleanField(
         default=True, verbose_name=_("tag visible on website")
     )
+
+    def __str__(self):
+        return self.tag

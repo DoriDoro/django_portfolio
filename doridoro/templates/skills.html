@@ -14,7 +14,7 @@
     </div>
     <div class="row">
       {% for programming_skill in programming_skills %}
-        <p class="tags">{{ programming_skill.name }}</p>
+        <p class="skill">{{ programming_skill.name }}</p>
       {% endfor %}
     </div>
     <hr>
@@ -23,7 +23,7 @@
     </div>
     <div class="row">
       {% for soft_skill in soft_skills %}
-        <p class="tags">{{ soft_skill.0 }}</p>
+        <p class="skill">{{ soft_skill.0 }}</p>
       {% endfor %}
     </div>
     <hr>
@@ -32,7 +32,7 @@
     </div>
     <div class="row">
       {% for other_skill in other_skills %}
-        <p class="tags">{{ other_skill.name }}</p>
+        <p class="skill">{{ other_skill.name }}</p>
       {% endfor %}
     </div>
     <hr>
@@ -41,7 +41,7 @@
     </div>
     <div class="row">
       {% for s in strength %}
-        <p class="tags">{{ s.0 }}</p>
+        <p class="skill">{{ s.0 }}</p>
       {% endfor %}
     </div>
     <hr>
@@ -50,7 +50,7 @@
     </div>
     <div class="row">
     {% for language in languages %}
-      <p class="tags">{{ language.0 }} - {{ language.1 }}</p>
+      <p class="skill">{{ language.0 }} - {{ language.1 }}</p>
     {% endfor %}
     </div>
     <hr>

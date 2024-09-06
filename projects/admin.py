@@ -25,7 +25,7 @@ class LinkAdmin(TranslationAdmin):
 
 
 @admin.register(Picture)
-class PictureAdmin(TranslationAdmin):
+class PictureAdmin(admin.ModelAdmin):
     list_display = ["legend", "photo", "cover_picture", "published"]
     prepopulated_fields = {"slug": ["legend"]}
 

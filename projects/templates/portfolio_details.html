@@ -38,9 +38,9 @@
               {% endfor %}
             {% endif %}
             <li><strong>{% trans "Project date" %}:</strong> {{ project.create_date }}</li>
-            <li class="tags-container"><strong>{% trans "Skills" %}:</strong>
-              {% for tag in project.tags.all %}
-                <p class="tags">{{ tag.name }}</p>
+            <li class="skill-container"><strong>{% trans "Skills" %}:</strong>
+              {% for skill in project.skills.all %}
+                <p class="skill">{{ skill.name }}</p>
               {% endfor %}
             </li>
           </ul>
