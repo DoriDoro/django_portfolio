@@ -1,5 +1,5 @@
 {% extends 'base.html' %}
-{% load static %}
+{% load i18n static %}
 
   {% block content %}
   <!-- ======= Portfolio Details ======= -->
@@ -24,23 +24,23 @@
         </div>
 
         <div class="col-lg-7 portfolio-info">
-          <h3>Project information</h3>
+          <h3>{% trans "Project information" %}</h3>
           <ul class="mx-4">
             {% if github %}
-              <li><strong>GitHub URL:</strong> <a href="{{ github.url }}" target="_blank">{{ github.url }}</a></li>
+              <li><strong>{% trans "GitHub URL" %}:</strong> <a href="{{ github.url }}" target="_blank">{{ github.url }}</a></li>
             {% endif %}
             {% if vercel %}
-              <li><strong>Vercel URL:</strong> <a href="{{ vercel.url }}" target="_blank">{{ vercel.url }}</a></li>
+              <li><strong>{% trans "Vercel URL" %}:</strong> <a href="{{ vercel.url }}" target="_blank">{{ vercel.url }}</a></li>
             {% endif %}
             {% if others %}
               {% for other in others %}
                 <li><strong>URL:</strong> <a href="{{ other.url }}" target="_blank">{{ other.url }}</a></li>
               {% endfor %}
             {% endif %}
-            <li><strong>Project date:</strong> {{ project.create_date }}</li>
-            <li class="tags-container"><strong>Skills:</strong>
-              {% for tag in project.tags.all %}
-                <p class="tags">{{ tag.name }}</p>
+            <li><strong>{% trans "Project date" %}:</strong> {{ project.create_date }}</li>
+            <li class="skill-container"><strong>{% trans "Skills" %}:</strong>
+              {% for skill in project.skills.all %}
+                <p class="skill">{{ skill.name }}</p>
               {% endfor %}
             </li>
           </ul>
@@ -50,12 +50,12 @@
       <hr>
       <div class="row">
         <div class="section-title">
-          <h2>Introduction</h2>
+          <h2>{% trans "Introduction" %}</h2>
         </div>
         <p>{{ project.introduction|safe }}</p>
         <hr>
         <div class="section-title">
-          <h2>Learning Experience</h2>
+          <h2>{% trans "Learning Experience" %}</h2>
         </div>
         <p>{{ project.content|safe }}</p>
       </div>

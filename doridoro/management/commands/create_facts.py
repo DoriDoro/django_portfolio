@@ -13,7 +13,7 @@ class Command(BaseCommand):
         try:
             with open(path, "r") as file:
                 data = json.load(file)
-                facts = data["facts"]
+                facts = data["Fact"]
 
                 return facts
 
@@ -34,7 +34,7 @@ class Command(BaseCommand):
         return None
 
     def handle(self, *args, **options):
-        path = "doridoro/management/commands/data.json"
+        path = "doridoro/management/commands/data_doridoro.json"
 
         facts = self.get_facts(path)
         if facts is None:
@@ -49,7 +49,14 @@ class Command(BaseCommand):
         try:
             with transaction.atomic():
                 for fact in facts:
-                    Fact.objects.create(**fact)
+                    Fact.objects.create(
+                        title_en=fact["title"]["en"],
+                        title_de=fact["title"]["de"],
+                        title_fr=fact["title"]["fr"],
+                        content_en=fact["content"]["en"],
+                        content_de=fact["content"]["de"],
+                        content_fr=fact["content"]["fr"],
+                    )
 
             self.stdout.write(
                 self.style.SUCCESS("Instances of Fact successfully created!")

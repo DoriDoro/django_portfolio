@@ -13,7 +13,7 @@ class Command(BaseCommand):
         try:
             with open(path, "r") as file:
                 data = json.load(file)
-                links = data["links"]
+                links = data["Link"]
 
                 for link in links:
                     link["origin"] = getattr(Link, link["origin"])
@@ -38,7 +38,7 @@ class Command(BaseCommand):
         return None
 
     def handle(self, *args, **options):
-        path = "doridoro/management/commands/data.json"
+        path = "projects/management/commands/data_projects.json"
 
         links = self.get_links(path)
         if links is None:
@@ -53,7 +53,12 @@ class Command(BaseCommand):
         try:
             with transaction.atomic():
                 for link in links:
-                    Link.objects.create(**link)
+                    Link.objects.create(
+                        legend_en=link["legend"]["en"],
+                        legend_de=link["legend"]["de"],
+                        legend_fr=link["legend"]["fr"],
+                        **link,
+                    )
 
             self.stdout.write(
                 self.style.SUCCESS("Instances of Link successfully created!")
@@ -64,4 +69,6 @@ class Command(BaseCommand):
                 self.style.WARNING("These Link instances exists already!")
             )
         except Exception as e:
-            self.stdout.write(self.style.ERROR(f"An unexpected error occurred: {e}"))
+            self.stdout.write(
+                self.style.ERROR(f"Link - An unexpected error occurred: {e}")
+            )

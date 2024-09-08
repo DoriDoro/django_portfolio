@@ -10,14 +10,26 @@ class Command(BaseCommand):
     def handle(self, *args, **options):
         try:
             hobbies = [
-                {"name": "dogs"},
-                {"name": "horses"},
-                {"name": "handicraft"},
-                {"name": "yoga"},
-                {"name": "learning"},
-                {"name": "hiking"},
-                {"name": "biking"},
-                {"name": "movies"},
+                {
+                    "name": {
+                        "en": "dogs",
+                        "de": "Hunde",
+                        "fr": "chiens",
+                    }
+                },
+                {
+                    "name": {
+                        "en": "horses",
+                        "de": "Pferde",
+                        "fr": "cheveaux",
+                    }
+                },
+                {"name": {"en": "handicraft", "de": "Handwerk", "fr": "artisanat"}},
+                {"name": {"en": "yoga", "de": "Yoga", "fr": "yoga"}},
+                {"name": {"en": "learning", "de": "Lernen", "fr": "apprendre"}},
+                {"name": {"en": "hiking", "de": "Wandern", "fr": "randonnée"}},
+                {"name": {"en": "biking", "de": "Radfahren", "fr": "vélo"}},
+                {"name": {"en": "movies", "de": "Filme", "fr": "films"}},
             ]
 
             if Hobby.objects.exists():
@@ -28,7 +40,11 @@ class Command(BaseCommand):
 
             with transaction.atomic():
                 for hobby in hobbies:
-                    Hobby.objects.create(**hobby)
+                    Hobby.objects.create(
+                        name_en=hobby["name"]["en"],
+                        name_de=hobby["name"]["de"],
+                        name_fr=hobby["name"]["fr"],
+                    )
 
             self.stdout.write(
                 self.style.SUCCESS("Instances of Hobby successfully created!")

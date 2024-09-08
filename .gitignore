@@ -14,7 +14,7 @@ venv
 # IDE
 .idea
 
-# local staticfiles
+# locale staticfiles
 core/staticfiles
 
 # Local configuration

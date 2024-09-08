@@ -1,7 +1,16 @@
+from django.utils.translation import gettext
 from django.views.generic import TemplateView
 
-from doridoro.models import DoriDoro, Job, SocialMedia, Fact, Hobby, Achievement
-from projects.models import Project, Tag
+from doridoro.models import (
+    DoriDoro,
+    Achievement,
+    Fact,
+    Hobby,
+    Job,
+    Language,
+    SocialMedia,
+)
+from projects.models import Project, Skill
 
 
 class IndexView(TemplateView):
@@ -24,32 +33,15 @@ class AboutView(TemplateView):
         context = super().get_context_data(**kwargs)
 
         context["doridoro"] = DoriDoro.objects.first()
-        context["current_positions"] = self.get_current_position()
-        context["projects"] = self.get_projects_data()
-        context["projects_count"] = self.get_projects_data().count()
-        context["programming_skills"] = self.get_tags_data().filter(
-            category=Tag.PROGRAMMING_SKILLS
-        )
-        context["soft_skills"] = self.get_tags_data().filter(category=Tag.SOFT_SKILLS)
-        context["other_skills"] = self.get_tags_data().filter(category=Tag.OTHER)
-        context["strength"] = self.get_tags_data().filter(category=Tag.STRENGTH)
-        context["weaknesses"] = self.get_tags_data().filter(category=Tag.WEAKNESSES)
-        context["skills_count"] = self.get_tags_data().count()
+        context["current_positions"] = Job.objects.filter(until_present=True)
+        context["projects_count"] = Project.objects.filter(published=True).count()
+        context["skills_count"] = Skill.objects.filter(published=True).count()
         context["achievements"] = Achievement.objects.filter(
             published=True
         ).values_list("content", flat=True)
         context["hobbies"] = Hobby.objects.filter(published=True)
 
         return context
-
-    def get_projects_data(self):
-        return Project.objects.filter(published=True)
-
-    def get_current_position(self):
-        return Job.objects.filter(until_present=True)
-
-    def get_tags_data(self):
-        return Tag.objects.filter(published=True)
 
 
 class SkillsView(TemplateView):
@@ -60,17 +52,34 @@ class SkillsView(TemplateView):
 
         context["doridoro"] = DoriDoro.objects.first()
         context["programming_skills"] = self.get_tags_data().filter(
-            category=Tag.PROGRAMMING_SKILLS
+            category=Skill.PROGRAMMING_SKILLS
         )
-        context["soft_skills"] = self.get_tags_data().filter(category=Tag.SOFT_SKILLS)
-        context["other_skills"] = self.get_tags_data().filter(category=Tag.OTHER)
-        context["strength"] = self.get_tags_data().filter(category=Tag.STRENGTH)
-        context["weaknesses"] = self.get_tags_data().filter(category=Tag.WEAKNESSES)
+        context["soft_skills"] = self.translate_tags_name(category=Skill.SOFT_SKILLS)
+        context["other_skills"] = self.get_tags_data().filter(category=Skill.OTHER)
+        context["strength"] = self.translate_tags_name(category=Skill.STRENGTH)
+        context["languages"] = self.get_languages_data()
 
         return context
 
     def get_tags_data(self):
-        return Tag.objects.filter(published=True)
+        return Skill.objects.filter(published=True)
+
+    def translate_tags_name(self, category):
+        tags = self.get_tags_data().values_list("name", "category")
+        result_dict = {"SOFT_SKILLS": (), "STRENGTH": ()}
+        for tag in tags:
+            if tag[1] in ["SOFT_SKILLS", "STRENGTH"]:
+                translated_name = gettext(tag[0])
+                result_dict[tag[1]] += ((translated_name, tag[1]),)
+
+        return result_dict[category]
+
+    def get_languages_data(self):
+        languages = Language.objects.all()
+        language_tuple = ()
+        for language in languages:
+            language_tuple += ((language.name, language.get_level_display()),)
+        return language_tuple
 
 
 class ResumeView(TemplateView):

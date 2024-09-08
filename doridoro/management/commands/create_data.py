@@ -19,5 +19,7 @@ class Command(BaseCommand):
         call_command("create_languages")
         call_command("create_references")
         call_command("create_socialmedia")
-        call_command("create_tags")
+
         call_command("create_links")
+        call_command("create_skills")
+        call_command("create_tags")

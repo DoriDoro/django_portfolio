@@ -2,32 +2,34 @@ from io import BytesIO
 
 from django.core.files.base import ContentFile
 from django.db import models
-from django.utils.translation import gettext_lazy as _
+from django.utils.translation import gettext_lazy as _, gettext_lazy
 from tinymce.models import HTMLField
 from PIL import Image
 
 
 class Project(models.Model):
-    title = models.CharField(max_length=250, verbose_name=_("project title"))
-    slug = models.SlugField(verbose_name=_("project slug"))
-    create_date = models.DateField(verbose_name=_("project created on"))
-    introduction = HTMLField(verbose_name=_("project introduction"))
-    content = HTMLField(verbose_name=_("project content"))
+    title = models.CharField(max_length=250)
+    slug = models.SlugField()
+    legend = models.CharField(max_length=100)
+    create_date = models.DateField(verbose_name=_("create date"))
+    evaluation_date = models.DateField(
+        null=True, blank=True, verbose_name=_("evaluation date")
+    )
+    introduction = HTMLField()
+    content = HTMLField()
     published = models.BooleanField(
         default=True, verbose_name=_("project visible on website")
     )
-    tags = models.ManyToManyField(
-        "Tag", related_name="project_tags", verbose_name=_("tags of the project")
-    )
-    links = models.ManyToManyField(
-        "Link", related_name="project_links", verbose_name=_("links of the project")
+    links = models.ManyToManyField("Link", related_name="project_links")
+    skills = models.ManyToManyField("Skill", related_name="project_skills")
+    tags = models.ForeignKey(
+        "Tag", on_delete=models.SET_NULL, null=True, related_name="project_tags"
     )
     doridoro = models.ForeignKey(
         "doridoro.DoriDoro",
         on_delete=models.SET_NULL,
         null=True,
         related_name="doro_project",
-        verbose_name=_("project of DoriDoro"),
     )
 
     def __str__(self):
@@ -42,9 +44,42 @@ class Project(models.Model):
         super().save(*args, **kwargs)
 
 
+class Link(models.Model):
+    GITHUB = "GITHUB"
+    VERCEL = "VERCEL"
+    RENDER = "RENDER"
+    OTHER = "OTHER"
+
+    OPENCLASSROOMS = "OPENCLASSROOMS"
+    PERSONAL_PROJECT = "PERSONAL_PROJECT"
+
+    ORIGIN_CHOICES = [
+        (GITHUB, "GitHub"),
+        (VERCEL, "Vercel"),
+        (RENDER, "Render"),
+        (OTHER, _("Other")),
+    ]
+    PLATFORM_CHOICES = [
+        (OPENCLASSROOMS, "OpenClasssrooms"),
+        (PERSONAL_PROJECT, _("Personal Project")),
+    ]
+
+    title = models.CharField(max_length=200)
+    legend = models.CharField(max_length=100)
+    origin = models.CharField(max_length=6, choices=ORIGIN_CHOICES)
+    platform = models.CharField(max_length=17, choices=PLATFORM_CHOICES)
+    url = models.URLField()
+    published = models.BooleanField(
+        default=True, verbose_name=_("link visible on website")
+    )
+
+    def __str__(self):
+        return self.url
+
+
 class Picture(models.Model):
-    legend = models.CharField(max_length=100, verbose_name=_("legend of picture"))
-    slug = models.SlugField(verbose_name=_("slug of picture"))
+    legend = models.CharField(max_length=100)
+    slug = models.SlugField()
     cover_picture = models.BooleanField(default=False, verbose_name=_("cover picture"))
     photo = models.ImageField(
         upload_to="images/",
@@ -57,9 +92,9 @@ class Picture(models.Model):
     )
     project = models.ForeignKey(
         "projects.Project",
-        on_delete=models.CASCADE,
+        on_delete=models.SET_NULL,
+        null=True,
         related_name="project_picture",
-        verbose_name=_("picture of project"),
     )
 
     def __str__(self):
@@ -71,14 +106,19 @@ class Picture(models.Model):
                 img = Image.open(self.photo)
                 img.verify()
             except (IOError, SyntaxError) as e:
-                raise ValueError(f"The uploaded file is not a valid image. -- {e}")
+                raise ValueError(
+                    gettext_lazy("The uploaded file is not a valid image. -- %s") % e
+                )
 
             # Reopen the image to reset the file pointer
             try:
                 img = Image.open(self.photo)
             except (IOError, SyntaxError) as e:
                 raise ValueError(
-                    f"The uploaded file could not be reopened as an image. -- {e}"
+                    gettext_lazy(
+                        "The uploaded file could not be reopened as an image. -- %s"
+                    )
+                    % e
                 )
 
             if img.width > 800:
@@ -109,77 +149,57 @@ class Picture(models.Model):
                     )
                 except (IOError, SyntaxError) as e:
                     raise ValueError(
-                        f"An error occurred while processing the image. -- {e}"
+                        gettext_lazy(
+                            "An error occurred while processing the image. -- %s"
+                        )
+                        % e
                     )
 
             else:
-                raise ValueError(f"The image width is smaller than 800 pixels.")
+                raise ValueError(
+                    gettext_lazy("The image width is smaller than 800 pixels.")
+                )
 
         super().save(*args, **kwargs)
 
 
-class Link(models.Model):
-    GITHUB = "GITHUB"
-    VERCEL = "VERCEL"
-    RENDER = "RENDER"
-    OTHER = "OTHER"
-
-    OPENCLASSROOMS = "OPENCLASSROOMS"
-    PERSONAL_PROJECT = "PERSONAL_PROJECT"
-
-    ORIGIN_CHOICES = [
-        (GITHUB, _("GitHub")),
-        (VERCEL, _("Vercel")),
-        (RENDER, _("Render")),
-        (OTHER, _("Other")),
-    ]
-    PLATFORM_CHOICES = [
-        (OPENCLASSROOMS, _("OpenClasssrooms")),
-        (PERSONAL_PROJECT, _("Personal Project")),
-    ]
-
-    title = models.CharField(max_length=200, verbose_name=_("title of link"))
-    legend = models.CharField(
-        max_length=100, null=True, blank=True, verbose_name=_("legend of link")
-    )
-    origin = models.CharField(
-        max_length=6, choices=ORIGIN_CHOICES, verbose_name=_("origin of link")
-    )
-    platform = models.CharField(
-        max_length=17, choices=PLATFORM_CHOICES, verbose_name=_("platform of link")
-    )
-
-    url = models.URLField(verbose_name=_("url of link"))
-    published = models.BooleanField(
-        default=True, verbose_name=_("link visible on website")
-    )
-
-    def __str__(self):
-        return self.url
-
-
-class Tag(models.Model):
-    # tag is a skill
+class Skill(models.Model):
     PROGRAMMING_SKILLS = "PROGRAMMING_SKILLS"
     SOFT_SKILLS = "SOFT_SKILLS"
     OTHER = "OTHER"
     STRENGTH = "STRENGTH"
     WEAKNESSES = "WEAKNESSES"
 
-    TAG_CHOICES = [
+    SKILL_CHOICES = [
         (PROGRAMMING_SKILLS, _("Programming Skills")),
         (SOFT_SKILLS, _("Soft Skills")),
         (OTHER, _("Other")),
         (STRENGTH, _("Strength")),
         (WEAKNESSES, _("Weakness")),
     ]
-    name = models.CharField(max_length=50, verbose_name=_("name of tag/skill"))
-    category = models.CharField(
-        max_length=20, choices=TAG_CHOICES, verbose_name=_("category of tag/skill")
-    )
+    name = models.CharField(max_length=50)
+    category = models.CharField(max_length=20, choices=SKILL_CHOICES)
     published = models.BooleanField(
-        default=True, verbose_name=_("tag/skill visible on website")
+        default=True, verbose_name=_("skill visible on website")
     )
 
     def __str__(self):
         return f"{self.name} ({self.category})"
+
+
+class Tag(models.Model):
+    OPENCLASSROOMS_PROJECT = "OPENCLASSROOMS_PROJECT"
+    PERSONAL_PROJECT = "PERSONAL_PROJECT"
+
+    TAG_CHOICES = [
+        (OPENCLASSROOMS_PROJECT, _("OpenClassrooms Project")),
+        (PERSONAL_PROJECT, _("Personal Project")),
+    ]
+
+    tag = models.CharField(max_length=22, choices=TAG_CHOICES)
+    published = models.BooleanField(
+        default=True, verbose_name=_("tag visible on website")
+    )
+
+    def __str__(self):
+        return self.tag

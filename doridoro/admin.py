@@ -1,4 +1,5 @@
 from django.contrib import admin
+from modeltranslation.admin import TranslationAdmin
 
 from doridoro.models import (
     DoriDoro,
@@ -14,13 +15,13 @@ from doridoro.models import (
 
 
 @admin.register(DoriDoro)
-class DoriDoroAdmin(admin.ModelAdmin):
-    list_display = ["address", "profession"]
+class DoriDoroAdmin(TranslationAdmin):
+    list_display = ["phone", "address", "profession"]
 
 
 @admin.register(Achievement)
-class AchievementAdmin(admin.ModelAdmin):
-    list_display = ["title", "published"]
+class AchievementAdmin(TranslationAdmin):
+    list_display = ["title", "content", "published"]
 
 
 @admin.register(Degree)
@@ -29,17 +30,17 @@ class DegreeAdmin(admin.ModelAdmin):
 
 
 @admin.register(Fact)
-class FactAdmin(admin.ModelAdmin):
-    list_display = ["title", "published"]
+class FactAdmin(TranslationAdmin):
+    list_display = ["title", "content", "published"]
 
 
 @admin.register(Hobby)
-class HobbyAdmin(admin.ModelAdmin):
+class HobbyAdmin(TranslationAdmin):
     list_display = ["name", "published"]
 
 
 @admin.register(Job)
-class JobAdmin(admin.ModelAdmin):
+class JobAdmin(TranslationAdmin):
     list_display = [
         "company_name",
         "position",
@@ -51,15 +52,15 @@ class JobAdmin(admin.ModelAdmin):
 
 
 @admin.register(Language)
-class LanguageAdmin(admin.ModelAdmin):
+class LanguageAdmin(TranslationAdmin):
     list_display = ["name", "level", "published"]
 
 
 @admin.register(Reference)
-class ReferenceAdmin(admin.ModelAdmin):
-    list_display = ["name", "published"]
+class ReferenceAdmin(TranslationAdmin):
+    list_display = ["name", "email", "published"]
 
 
 @admin.register(SocialMedia)
 class SocialMediaAdmin(admin.ModelAdmin):
-    list_display = ["name", "published"]
+    list_display = ["name", "url", "published"]

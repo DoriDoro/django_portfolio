@@ -1,5 +1,6 @@
 black==24.4.2
 django-tinymce==4.1.0
+django-modeltranslation==0.19.5
 Django==5.0.6
 flake8==7.1.0
 gunicorn==22.0.0
