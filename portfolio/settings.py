@@ -53,9 +53,7 @@ INSTALLED_APPS = [
     "django.contrib.staticfiles",
     # custom apps
     "accounts",
-    "contact",
     "core",
-    "donation",
     "doridoro",
     "projects",
     # installed packages
@@ -133,7 +131,6 @@ TIME_ZONE = "Europe/Paris"
 USE_I18N = True
 USE_L10N = True
 USE_TZ = True
-gettext = lambda s: s
 LANGUAGES = (
     ("en", _("English")),
     ("de", _("German")),
