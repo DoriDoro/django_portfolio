@@ -30,11 +30,24 @@
         "fr": "Formation"
       },
       "content": {
-        "en": "In June 2024: Ready to complete a 24-month training program within 21 month.",
-        "de": "Im Juni 2024: Bereit, ein 24-monatiges Ausbildungsprogramm innerhalb von 21 Monaten zu absolvieren.",
-        "fr": "En juin 2024 : Prêt à compléter un programme de formation de 24 mois dans un délai de 21 mois."
+        "en": "In June 2024: Ready to complete a 24-month training program within 19 month.",
+        "de": "Im Juni 2024: Bereit, ein 24-monatiges Ausbildungsprogramm innerhalb von 19 Monaten zu absolvieren.",
+        "fr": "En juin 2024 : Prêt à compléter un programme de formation de 24 mois dans un délai de 19 mois."
       }
     },
+    {
+      "title": {
+        "en": "Career",
+        "de": "Werdegang",
+        "fr": "Carrière"
+      },
+      "content": {
+        "en": "Started in 2019 as a career changer in software development. Started apprenticeship as a Python developer in November 2022.",
+        "de": "Begann 2019 als Quereinsteigerin in der Softwareentwicklung. Beginn der Berufsabildung zur Python-Entwicklerin im November 2022.",
+        "fr": "Commencé en 2019 en tant que personne en reconversion professionnelle dans le développement de logiciels. Début de la formation en apprentissage de développeuse Python en novembre 2022."
+      }
+    },
+
     {
       "title": {
         "en": "Relocate",
@@ -104,9 +117,9 @@
         "fr": "Disponibilité"
       },
       "content": {
-        "en": "I am ready to start a new job in a month and a half and would like to work in a dynamic company.",
-        "de": "Ich bin bereit, in 1,5 Monaten eine neue Stelle anzutreten und möchte in einem dynamischen Unternehmen mitarbeiten.",
-        "fr": "Je suis disponible pour commencer un nouvel emploi dans un 1.5 et désireux de contribuer à une organisation dynamique."
+        "en": "Available for new position from 4 November 2024.",
+        "de": "Verfügbar für eine neue Stelle ab dem 4. November 2024.",
+        "fr": "Disponible pour un nouveau poste à partir du 4 novembre 2024."
       }
     },
     {
@@ -117,7 +130,7 @@
       },
       "content": {
         "en": "I need to vacate my apartment by 31.12.2024 and am ready to relocate within France.",
-        "de": "Ich muss meine Wohnung zum 31.12.2024 räumen und bin bereit, innerhalb Frankreichs.",
+        "de": "Ich muss meine Wohnung zum 31.12.2024 räumen und bin bereit innerhalb Frankreichs umzuziehen.",
         "fr": "Je dois quitter mon appartement pour le 31 décembre 2024 et je suis prêt à déménager en France."
       }
     },
@@ -128,11 +141,24 @@
         "fr": "Formation"
       },
       "content": {
-        "en": "I am finishing my training and will complete it upon securing a new employer, eager to apply my knowledge and skills in a professional setting.",
-        "de": "Ich beende meine Ausbildung und werde sie abschließen, sobald ich einen neuen Arbeitgeber gefunden habe, und möchte meine Kenntnisse und Fähigkeiten in einem professionellen Umfeld anwenden.",
-        "fr": "Je suis en train de terminer ma formation et je l'achèverai lorsque j'aurai trouvé un nouvel employeur, impatient d'appliquer mes connaissances et mes compétences dans un cadre professionnel."
+        "en": "Evaluation of my last project from the OpenClassrooms training on 09/09/2024. The training is now finished.",
+        "de": "Evaluation meines letzten Projekts der OpenClassrooms-Ausbildung am 09.09.2024. Die Ausbildung ist nun beendet.",
+        "fr": "Evaluation de mon dernier projet de la formation OpenClassrooms du 09/09/2024. La formation est maintenant terminée."
+      }
+    },
+    {
+      "title": {
+        "en": "Diploma",
+        "de": "Zertifikat",
+        "fr": "Diplôme"
+      },
+      "content": {
+        "en": "Awaiting my diploma certificate.",
+        "de": "Warte auf meine Diplomurkunde.",
+        "fr": "Attente de mon certificat de diplôme."
       }
     }
+
   ],
   "Job": [
     {
@@ -306,9 +332,9 @@
       "start_date": "2008-06-01",
       "end_date": "2015-02-01",
       "address": {
-        "en": "Freiburg im Breisgau (Germany)",
-        "de": "Freiburg im Breisgau (Deutschland)",
-        "fr": "Fribourg-en-Brisgau (Allemagne)"
+        "en": "Freiburg im Breisgau (GERMANY)",
+        "de": "Freiburg im Breisgau (DEUTSCHLAND)",
+        "fr": "Fribourg-en-Brisgau (ALLEMAGNE)"
       },
       "description": {
         "en": [
@@ -346,7 +372,7 @@
       },
       "description": {
         "en": [
-          "Online training with OpenClassrooms, demonstrating dedication to self-improvement and professional development through distance learning.",
+          "Online training with OpenClassrooms.",
           "Successfully completed coursework and assignments from a home office environment, showcasing adaptability and self-discipline in remote work settings.",
           "Bachelor's-level diploma program, underscoring academic achievement and commitment to continuous learning and skill enhancement.",
           "Data management via ETL, Git/GitHub version control, Python basics.",
@@ -361,9 +387,9 @@
           "Application documentation, technical error reduction, Sentry code control, deployment, CI/CD methodology, modular Python architecture."
         ],
         "de": [
-          "Online-Weiterbildung mit OpenClassrooms, die das Engagement für die Selbstverbesserung und die berufliche Entwicklung durch Fernunterricht unter Beweis stellt.",
-          "Erfolgreiche Erledigung von Kursen und Aufgaben im Home-Office, die Anpassungsfähigkeit und Selbstdisziplin bei der Arbeit an entfernten Standorten unter Beweis gestellt haben.",
-          "Diplomstudiengang auf Bachelor-Niveau, der die akademischen Leistungen und das Engagement für kontinuierliches Lernen und die Verbesserung der Fähigkeiten unterstreicht.",
+          "Online-Ausbildung mit OpenClassrooms.",
+          "Erfolgreiche Erledigung von Kursen und Aufgaben im Home-Office, was die Anpassungsfähigkeit und Selbstdisziplin in einer entfernten Arbeitsumgebung unterstreicht.",
+          "Bachelor-Diplom-Ausbildung, der die akademischen Leistungen und das Engagement für kontinuierliches Lernen und die Verbesserung der Fähigkeiten unterstreicht.,",
           "Datenmanagement über ETL, Git/GitHub Versionskontrolle, Python-Grundlagen.",
           "UML-Use-Case-Diagramm, Benutzergeschichten, Funktionsmodelle, Makro-Projektgliederung mit Kanban.",
           "Python-Code-Strukturierung mit Entwurfsmustern, Einhaltung von PEP 8, objektorientierte Programmierung.",
@@ -376,8 +402,8 @@
           "Anwendungsdokumentation, Reduzierung der technischen Fehler, Sentry-Codekontrolle, Bereitstellung, CI/CD-Methodik, modulare Python-Architektur."
         ],
         "fr": [
-          "Formation en ligne avec OpenClassrooms, démontrant un dévouement à l'auto-amélioration et au développement professionnel par le biais de l'apprentissage à distance.",
-          "A réalisé avec succès des travaux de cours et des missions à partir d'un bureau à domicile, faisant preuve d'adaptabilité et d'autodiscipline dans des environnements de travail à distance.",
+          "Formation en ligne avec OpenClassrooms.",
+          "A terminé avec succès les cours et les travaux à partir d'un bureau à domicile, faisant preuve d'adaptabilité et d'autodiscipline dans les environnements de travail à distance.",
           "Programme diplômant de niveau licence, soulignant la réussite académique et l'engagement en faveur de l'apprentissage continu et de l'amélioration des compétences.",
           "Gestion des données via ETL, contrôle de version Git/GitHub, bases de Python.",
           "Diagramme de cas d'utilisation UML, récits d'utilisateurs, modèles fonctionnels, macro-découpage de projet avec Kanban.",
@@ -413,15 +439,18 @@
       },
       "description": {
         "en": [
-          "Engaged in distance learning mentor sessions with an OpenClassrooms mentor as part of my coursework. Utilizing the sessions to seek guidance and clarification on OpenClassrooms projects, ensuring comprehension and successful completion of assignments.",
+          "Distance learning mentor sessions with an OpenClassrooms mentor.",
+          "Utilizing the sessions to seek guidance and clarification on OpenClassrooms projects, ensuring comprehension and successful completion of assignments.",
           "Received personalized support and mentorship to navigate through the projects, benefiting from expert guidance and practical insights to enhance project understanding and execution."
         ],
         "de": [
-          "Teilnahme an Fernunterrichtssitzungen mit einem OpenClassrooms-Mentor als Teil meiner Kursarbeit. Ich nutzte die Sitzungen, um mich bei OpenClassrooms-Projekten beraten zu lassen und um sicherzustellen, dass ich die Aufgaben verstehe und erfolgreich abschließen kann.",
+          "Teilnahme an Fernunterrichtssitzungen mit einem OpenClassrooms-Mentor.",
+          "Ich nutzte die Sitzungen, um mich bei OpenClassrooms-Projekten beraten zu lassen und um sicherzustellen, dass ich die Aufgaben verstehe und erfolgreich abschließen kann.",
           "Erhielt persönliche Unterstützung und Betreuung bei der Durchführung der Projekte und profitierten von fachkundiger Anleitung und praktischen Einblicken, um das Verständnis und die Durchführung der Projekte zu verbessern."
         ],
         "fr": [
-          "J'ai participé à des sessions d'apprentissage à distance avec un mentor OpenClassrooms dans le cadre de mes cours. J'ai utilisé ces sessions pour demander des conseils et des éclaircissements sur les projets OpenClassrooms, en m'assurant de la compréhension et de la réussite des travaux.",
+          "J'ai participé à des sessions d'apprentissage à distance avec un mentor OpenClassrooms.",
+          "J'ai utilisé ces sessions pour demander des conseils et des éclaircissements sur les projets OpenClassrooms, en m'assurant de la compréhension et de la réussite des travaux.",
           "Bénéficié d'un soutien personnalisé et d'un mentorat pour mener à bien les projets, en profitant de conseils d'experts et d'idées pratiques pour améliorer la compréhension et l'exécution des projets."
         ]
       },

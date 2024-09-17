@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-08-07 15:51+0200\n"
+"POT-Creation-Date: 2024-09-12 18:19+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -217,6 +217,7 @@ msgid "to"
 msgstr "à"
 
 #: doridoro/templates/resume.html:20 doridoro/templates/resume.html:32
+#: doridoro/templates/resume.html:46
 msgid "present"
 msgstr "jusqu'à présent"
 
@@ -236,11 +237,11 @@ msgstr ""
 "\"Apportez au travail talent d'organisateur, des compétences en "
 "programmation et parfois des biscuits.\""
 
-#: doridoro/templates/skills.html:13 projects/models.py:170
+#: doridoro/templates/skills.html:13 projects/models.py:174
 msgid "Programming Skills"
 msgstr "Compétences en programmation"
 
-#: doridoro/templates/skills.html:22 projects/models.py:171
+#: doridoro/templates/skills.html:22 projects/models.py:175
 msgid "Soft Skills"
 msgstr "Compétences générales"
 
@@ -248,27 +249,27 @@ msgstr "Compétences générales"
 msgid "Other Skills"
 msgstr "Autres compétences"
 
-#: doridoro/templates/skills.html:40 projects/models.py:173
+#: doridoro/templates/skills.html:40 projects/models.py:177
 msgid "Strength"
 msgstr "Force"
 
-#: doridoro/templates/skills.html:58
+#: doridoro/templates/skills.html:49
 msgid "Languages"
 msgstr "Langues"
 
-#: doridoro/templates/skills.html:67
+#: doridoro/templates/skills.html:58
 msgid "My dream job"
 msgstr "Le métier de mes rêves"
 
-#: portfolio/settings.py:137
+#: portfolio/settings.py:138
 msgid "English"
 msgstr "Anglais"
 
-#: portfolio/settings.py:138
+#: portfolio/settings.py:139
 msgid "German"
 msgstr "Allemand"
 
-#: portfolio/settings.py:139
+#: portfolio/settings.py:140
 msgid "French"
 msgstr "Français"
 
@@ -276,60 +277,77 @@ msgstr "Français"
 msgid "create date"
 msgstr "date de création"
 
-#: projects/models.py:15
+#: projects/models.py:16
 msgid "evaluation date"
 msgstr "date de création"
 
-#: projects/models.py:19
+#: projects/models.py:21
 msgid "project visible on website"
 msgstr "projet visible sur le site web"
 
-#: projects/models.py:45
+#: projects/models.py:60 projects/models.py:176
+msgid "Other"
+msgstr "Autres"
+
+#: projects/models.py:64 projects/models.py:196
+#: projects/templates/portfolio.html:17
+msgid "Personal Project"
+msgstr "Projet Personnel"
+
+#: projects/models.py:73
+msgid "link visible on website"
+msgstr "lien visible sur le site web"
+
+#: projects/models.py:83
 msgid "cover picture"
 msgstr "image de couverture"
 
-#: projects/models.py:48
+#: projects/models.py:86
 msgid "picture"
 msgstr "image"
 
-#: projects/models.py:53
+#: projects/models.py:91
 msgid "picture visible on website"
 msgstr "image visible sur le site web"
 
-#: projects/models.py:71
+#: projects/models.py:110
 #, python-format
 msgid "The uploaded file is not a valid image. -- %s"
 msgstr "Le fichier téléchargé n'est pas une image valide. -- %s"
 
-#: projects/models.py:80
+#: projects/models.py:119
 #, python-format
 msgid "The uploaded file could not be reopened as an image. -- %s"
 msgstr "Le fichier téléchargé n'a pas pu être rouvert en tant qu'image. -- %s"
 
-#: projects/models.py:114
+#: projects/models.py:153
 #, python-format
 msgid "An error occurred while processing the image. -- %s"
 msgstr "Une erreur s'est produite lors du traitement de l'image. -- %s"
 
-#: projects/models.py:121
+#: projects/models.py:160
 msgid "The image width is smaller than 800 pixels."
 msgstr "La largeur de l'image est inférieure à 800 pixels."
 
-#: projects/models.py:140 projects/models.py:172
-msgid "Other"
-msgstr "Autres"
+#: projects/models.py:178
+msgid "Weakness"
+msgstr "Faiblesse"
 
-#: projects/models.py:144
-msgid "Personal Project"
-msgstr "Projet personnel"
+#: projects/models.py:183
+msgid "skill visible on website"
+msgstr "compétences visibles sur le site web"
 
-#: projects/models.py:154
-msgid "link visible on website"
-msgstr "lien visible sur le site web"
+#: projects/models.py:195 projects/templates/portfolio.html:16
+msgid "OpenClassrooms Project"
+msgstr "Projet OpenClassrooms"
 
-#: projects/models.py:179
+#: projects/models.py:201
 msgid "tag visible on website"
 msgstr "balise visible sur le site web"
+
+#: projects/templates/portfolio.html:15
+msgid "All"
+msgstr "Tous"
 
 #: projects/templates/portfolio_details.html:27
 msgid "Project information"

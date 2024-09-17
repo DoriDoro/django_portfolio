@@ -1,6 +1,6 @@
 from modeltranslation.translator import register, TranslationOptions
 
-from projects.models import Project, Picture, Link, Skill
+from projects.models import Project, Link, Skill
 
 
 @register(Project)
