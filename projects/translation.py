@@ -5,7 +5,7 @@ from projects.models import Project, Link, Skill
 
 @register(Project)
 class ProjectTranslationOptions(TranslationOptions):
-    fields = ("title", "legend", "introduction", "content")
+    fields = ("title", "legend", "keywords", "introduction", "experience")
 
 
 @register(Link)

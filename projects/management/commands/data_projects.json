@@ -165,7 +165,7 @@
       "category": "PROGRAMMING_SKILLS"
     },
     {
-      "name": "DRF",
+      "name": "Django-REST-Framework",
       "category": "PROGRAMMING_SKILLS"
     },
     {
@@ -181,7 +181,11 @@
       "category": "PROGRAMMING_SKILLS"
     },
     {
-      "name": "CLI application",
+      "name": "Django Testing Tool: TestCase",
+      "category": "PROGRAMMING_SKILLS"
+    },
+    {
+      "name": "CLI (Command Line Interface) application",
       "category": "PROGRAMMING_SKILLS"
     },
     {
@@ -225,7 +229,7 @@
       "category": "PROGRAMMING_SKILLS"
     },
     {
-      "name": "UML",
+      "name": "UML (Unified Modelling Language)",
       "category": "PROGRAMMING_SKILLS"
     },
     {
@@ -237,7 +241,7 @@
       "category": "PROGRAMMING_SKILLS"
     },
     {
-      "name": "ERD",
+      "name": "ERD (Entity-Relationship Diagram)",
       "category": "PROGRAMMING_SKILLS"
     },
     {
@@ -258,6 +262,34 @@
     },
     {
       "name": "Render",
+      "category": "PROGRAMMING_SKILLS"
+    },
+    {
+      "name": "Beautiful Soup",
+      "category": "PROGRAMMING_SKILLS"
+    },
+    {
+      "name": "Web Scraping",
+      "category": "PROGRAMMING_SKILLS"
+    },
+    {
+      "name": "lxml",
+      "category": "PROGRAMMING_SKILLS"
+    },
+    {
+      "name": "CSV (Comma-separated values)",
+      "category": "PROGRAMMING_SKILLS"
+    },
+    {
+      "name": "MVC (Model-View-Controller) architecture",
+      "category": "PROGRAMMING_SKILLS"
+    },
+    {
+      "name": "Flake8",
+      "category": "PROGRAMMING_SKILLS"
+    },
+    {
+      "name": "PEP8",
       "category": "PROGRAMMING_SKILLS"
     },
     {
@@ -338,10 +370,6 @@
     },
     {
       "name": "Home office experience",
-      "category": "STRENGTH"
-    },
-    {
-      "name": "Perfectionism",
       "category": "STRENGTH"
     },
     {

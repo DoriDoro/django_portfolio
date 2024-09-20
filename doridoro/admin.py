@@ -26,7 +26,7 @@ class AchievementAdmin(TranslationAdmin):
 
 @admin.register(Degree)
 class DegreeAdmin(admin.ModelAdmin):
-    list_display = ["organization", "degree", "published"]
+    list_display = ["organization", "degree", "url", "published"]
 
 
 @admin.register(Fact)

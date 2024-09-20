@@ -10,8 +10,18 @@ class Command(BaseCommand):
     def handle(self, *args, **options):
         try:
             degrees = [
-                {"organization": "Ironhack Paris", "degree": "Bachelor"},
-                {"organization": "OpenClassrooms", "degree": "Bachelor"},
+                {
+                    "organization": "Ironhack Paris",
+                    "degree_en": "RNCP Level 6, Bac+3",
+                    "degree_de": "RNCP Level 6, Bac+3",
+                    "degree_fr": "RNCP Niveau 6, Bac+3",
+                },
+                {
+                    "organization": "OpenClassrooms",
+                    "degree_en": "RNCP Level 6, Bac+4",
+                    "degree_de": "RNCP Level 6, Bac+4",
+                    "degree_fr": "RNCP Niveau 6, Bac+4",
+                },
             ]
 
             if Degree.objects.exists():

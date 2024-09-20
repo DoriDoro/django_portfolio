@@ -117,9 +117,9 @@
         "fr": "Disponibilité"
       },
       "content": {
-        "en": "Available for new position from 4 November 2024.",
-        "de": "Verfügbar für eine neue Stelle ab dem 4. November 2024.",
-        "fr": "Disponible pour un nouveau poste à partir du 4 novembre 2024."
+        "en": "Available for new position.",
+        "de": "Verfügbar für eine neue Stelle.",
+        "fr": "Disponible pour un nouveau poste."
       }
     },
     {
@@ -129,9 +129,9 @@
         "fr": "Délocalisation"
       },
       "content": {
-        "en": "I need to vacate my apartment by 31.12.2024 and am ready to relocate within France.",
-        "de": "Ich muss meine Wohnung zum 31.12.2024 räumen und bin bereit innerhalb Frankreichs umzuziehen.",
-        "fr": "Je dois quitter mon appartement pour le 31 décembre 2024 et je suis prêt à déménager en France."
+        "en": "Open to relocation for the right opportunity.",
+        "de": "Bei der richtigen Gelegenheit ist ein Umzug möglich.",
+        "fr": "Ouvert à la relocalisation pour la bonne opportunité."
       }
     },
     {
@@ -141,24 +141,11 @@
         "fr": "Formation"
       },
       "content": {
-        "en": "Evaluation of my last project from the OpenClassrooms training on 09/09/2024. The training is now finished.",
-        "de": "Evaluation meines letzten Projekts der OpenClassrooms-Ausbildung am 09.09.2024. Die Ausbildung ist nun beendet.",
-        "fr": "Evaluation de mon dernier projet de la formation OpenClassrooms du 09/09/2024. La formation est maintenant terminée."
-      }
-    },
-    {
-      "title": {
-        "en": "Diploma",
-        "de": "Zertifikat",
-        "fr": "Diplôme"
-      },
-      "content": {
-        "en": "Awaiting my diploma certificate.",
-        "de": "Warte auf meine Diplomurkunde.",
-        "fr": "Attente de mon certificat de diplôme."
+        "en": "Training completed, awaiting diploma.",
+        "de": "Die Ausbildung ist abgeschlossen, das Diplom steht noch aus.",
+        "fr": "Formation terminée, en attente du diplôme."
       }
     }
-
   ],
   "Job": [
     {
@@ -186,7 +173,7 @@
           "Working on tasks, where I have seamlessly created, tracked, and completed independently various project assignments, ensuring timely delivery and adherence to project goals.",
           "Responsible for managing the internal Slack chat 'Assistance Technique' where colleagues report bugs, problems, and server errors.",
           "Analysis of error reports and corrections.",
-          "Development of functionalities."
+          "Developed new functionalities that enhanced the user experience for over 3,500 accommodations, contributing to a 61.9% growth in sales."
         ],
         "de": [
           "Scale-up, spezialisiert auf möblierte Unterkünfte, 14 Agenturen in Frankreich, über 3.500 Unterkünfte, 80 Mitarbeiter, Umsatz > 9,38 Mio. € im Jahr 2023 und Umsatzwachstum von 61,9% im Jahr 2023.",
@@ -194,7 +181,7 @@
           "Arbeit an Aufgaben, bei denen ich nahtlos verschiedene Projektaufträge erstellt, verfolgt und selbstständig abgeschlossen habe, wobei ich die rechtzeitige Lieferung und Einhaltung der Projektziele sichergestellt habe.",
           "Verantwortlich für die Verwaltung des internen Slack-Chats „Assistance Technique“, in dem Kollegen Bugs, Probleme und Serverfehler melden.",
           "Analyse von Fehlermeldungen und Korrekturen.",
-          "Entwicklung von Funktionalitäten."
+          "Entwicklung neuer Funktionen, die die Benutzerfreundlichkeit für über 3.500 Unterkünfte verbesserten und zu einem Umsatzwachstum von 61,9 % beitrugen."
         ],
         "fr": [
           "Scale-up spécialisée dans la location meublée de tourisme, 14 agences en France, plus de 3500 logements disponibles, 80 collaborateurs, Chiffre d’affaires > 9,38M € en 2023 et Taux de croissance du CA 61,9% en 2023.",
@@ -202,7 +189,7 @@
           "Travailler sur des tâches pour lesquelles j'ai créé, suivi et mené à bien de manière indépendante divers projets, en veillant à ce qu'ils soient livrés dans les délais et à ce que les objectifs fixés soient atteints.",
           "Responsable de la gestion du chat interne Slack « Technique d'assistance » où les collègues signalent les bogues, les problèmes et les erreurs de serveur.",
           "Analyse des rapports d'erreurs et corrections.",
-          "Développement de fonctionnalités."
+          "Développé de nouvelles fonctionnalités qui ont amélioré l'expérience des utilisateurs pour plus de 3 500 hébergements, contribuant ainsi à une croissance des ventes de 61,9 %."
         ]
       },
       "job_type": "APPRENTICESHIP"

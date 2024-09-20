@@ -15,8 +15,9 @@ class Project(models.Model):
     evaluation_date = models.DateField(
         null=True, blank=True, verbose_name=_("evaluation date")
     )
+    keywords = HTMLField()
     introduction = HTMLField()
-    content = HTMLField()
+    experience = HTMLField()
     published = models.BooleanField(
         default=True, verbose_name=_("project visible on website")
     )
@@ -39,7 +40,7 @@ class Project(models.Model):
         if not self.pk:
             self.create_date = self.create_date
         else:
-            old_instance = Project.object.get(pk=self.pk)
+            old_instance = Project.objects.get(pk=self.pk)
             self.create_date = old_instance.create_date
         super().save(*args, **kwargs)
 

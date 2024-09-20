@@ -44,6 +44,9 @@ class Achievement(models.Model):
 class Degree(models.Model):
     organization = models.CharField(max_length=100)
     degree = models.CharField(max_length=100)
+    url = models.URLField(
+        max_length=250, null=True, blank=True, verbose_name=_("url of degree")
+    )
     published = models.BooleanField(
         default=True, verbose_name=_("degree visible on website")
     )
@@ -182,7 +185,7 @@ class Reference(models.Model):
 
 class SocialMedia(models.Model):
     name = models.CharField(max_length=150)
-    url = models.URLField(max_length=250)
+    url = models.URLField(max_length=250, verbose_name=_("url of social media"))
     published = models.BooleanField(
         default=True, verbose_name=_("social media visible on website")
     )

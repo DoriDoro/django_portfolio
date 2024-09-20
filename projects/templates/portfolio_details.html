@@ -37,11 +37,16 @@
                 <li><strong>URL:</strong> <a href="{{ other.url }}" target="_blank">{{ other.url }}</a></li>
               {% endfor %}
             {% endif %}
-            <li><strong>{% trans "Project date" %}:</strong> {{ project.create_date }}</li>
+            <li><strong>{% trans "create date" %}:</strong> {{ project.create_date }}</li>
+            {% if project.evaluation_date %}
+              <li><strong>{% trans "evaluation date" %}:</strong> {{ project.evaluation_date }}</li>
+            {% endif %}
             <li class="skill-container"><strong>{% trans "Skills" %}:</strong>
-              {% for skill in project.skills.all %}
-                <p class="skill">{{ skill.name }}</p>
-              {% endfor %}
+              <div class="row">
+                {% for skill in project.skills.all %}
+                  <p class="skill">{{ skill.name }}</p>
+                {% endfor %}
+              </div>
             </li>
           </ul>
         </div>
@@ -55,9 +60,14 @@
         <p>{{ project.introduction|safe }}</p>
         <hr>
         <div class="section-title">
+          <h2>{% trans "Keywords" %}</h2>
+        </div>
+        <p>{{ project.keywords|safe }}</p>
+        <hr>
+        <div class="section-title">
           <h2>{% trans "Learning Experience" %}</h2>
         </div>
-        <p>{{ project.content|safe }}</p>
+        <p>{{ project.experience|safe }}</p>
       </div>
     </div>
   </section><!-- End Portfolio Details -->
