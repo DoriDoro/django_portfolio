@@ -80,24 +80,14 @@ class Hobby(models.Model):
 
 
 class Job(models.Model):
-    # JOB_TYPE variables:
-    FREELANCE = "FREELANCE"
-    EMPLOYED = "EMPLOYED"
-    APPRENTICESHIP = "APPRENTICESHIP"
-    FORMATION = "FORMATION"
-    MENTORING = "MENTORING"
-    PARENTAL_LEAVE = "PARENTAL_LEAVE"
-    SABBATICAL = "SABBATICAL"
-
-    JOB_TYPES = [
-        (FREELANCE, _("Freelance")),
-        (EMPLOYED, _("Employed")),
-        (APPRENTICESHIP, _("Apprenticeship")),
-        (FORMATION, _("Formation")),
-        (MENTORING, _("Mentoring")),
-        (PARENTAL_LEAVE, _("Parental_Leave")),
-        (SABBATICAL, _("Sabbatical")),
-    ]
+    class JobType(models.TextChoices):
+        FREELANCE = "FREELANCE", _("Freelance")
+        EMPLOYED = "EMPLOYED", _("Employed")
+        APPRENTICESHIP = "APPRENTICESHIP", _("Apprenticeship")
+        FORMATION = "FORMATION", _("Formation")
+        MENTORING = "MENTORING", _("Mentoring")
+        PARENTAL_LEAVE = "PARENTAL_LEAVE", _("Parental_Leave")
+        SABBATICAL = "SABBATICAL", _("Sabbatical")
 
     company_name = models.CharField(max_length=200)
     position = models.CharField(max_length=200)
@@ -106,7 +96,7 @@ class Job(models.Model):
     until_present = models.BooleanField(default=False, verbose_name=_("until present"))
     address = models.CharField(max_length=100, blank=True, null=True)
     job_type = models.CharField(
-        max_length=14, choices=JOB_TYPES, verbose_name=_("job type")
+        max_length=14, choices=JobType, verbose_name=_("job type")
     )
     description = models.TextField()
     published = models.BooleanField(
@@ -134,30 +124,20 @@ class Job(models.Model):
 
 
 class Language(models.Model):
-    # LEVEL_CHOICES variables:
-    A1 = "A1"
-    A2 = "A2"
-    B1 = "B1"
-    B2 = "B2"
-    C1 = "C1"
-    C2 = "C2"
-    NATIVE = "Native"
-
-    LEVEL_CHOICES = [
-        (A1, "A1"),
-        (A2, "A2"),
-        (B1, "B1"),
-        (B2, "B2"),
-        (C1, "C1"),
-        (C2, "C2"),
-        (NATIVE, _("Native Speaker")),
-    ]
+    class LevelChoices(models.TextChoices):
+        A1 = "A1", _("A1 - Beginner")
+        A2 = "A2", _("A2 - Elementary")
+        B1 = "B1", _("B1 - Intermediate")
+        B2 = "B2", _("B2 - Upper Intermediate")
+        C1 = "C1", _("C1 - Advanced")
+        C2 = "C2", _("C2 - Proficient")
+        NATIVE = "Native", _("Native Speaker")
 
     name = models.CharField(max_length=50)
     level = models.CharField(
-        max_length=7,
-        choices=LEVEL_CHOICES,
-        default=A1,
+        max_length=6,
+        choices=LevelChoices,
+        default=LevelChoices.A1,
     )
     published = models.BooleanField(
         default=True, verbose_name=_("language visible on website")

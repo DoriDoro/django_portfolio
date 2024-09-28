@@ -12,15 +12,15 @@ class Command(BaseCommand):
             languages = [
                 {
                     "name": {"en": "German", "de": "Deutsch", "fr": "Allemand"},
-                    "level": Language.NATIVE,
+                    "level": "Native",
                 },
                 {
                     "name": {"en": "English", "de": "Englisch", "fr": "Anglais"},
-                    "level": Language.C1,
+                    "level": "C1",
                 },
                 {
                     "name": {"en": "French", "de": "Französich", "fr": "Français"},
-                    "level": Language.B2,
+                    "level": "B2",
                 },
             ]
 

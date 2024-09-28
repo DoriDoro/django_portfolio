@@ -16,7 +16,7 @@ class Command(BaseCommand):
                 skills = data["Skill"]
 
                 for skill in skills:
-                    skill["category"] = getattr(Skill, skill["category"])
+                    skill["category"] = getattr(Skill.SkillChoices, skill["category"])
 
             return skills
 

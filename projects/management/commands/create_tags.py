@@ -16,7 +16,7 @@ class Command(BaseCommand):
                 tags = data["Tag"]
 
                 for tag in tags:
-                    tag["tag"] = getattr(Tag, tag["tag"])
+                    tag["tag"] = getattr(Tag.TagChoices, tag["tag"])
 
             return tags
 

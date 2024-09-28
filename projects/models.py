@@ -46,29 +46,20 @@ class Project(models.Model):
 
 
 class Link(models.Model):
-    GITHUB = "GITHUB"
-    VERCEL = "VERCEL"
-    RENDER = "RENDER"
-    OTHER = "OTHER"
+    class OriginChoices(models.TextChoices):
+        GITHUB = "GITHUB", "GitHub"
+        VERCEL = "VERCEL", "Vercel"
+        RENDER = "RENDER", "Render"
+        OTHER = "OTHER", _("Other")
 
-    OPENCLASSROOMS = "OPENCLASSROOMS"
-    PERSONAL_PROJECT = "PERSONAL_PROJECT"
-
-    ORIGIN_CHOICES = [
-        (GITHUB, "GitHub"),
-        (VERCEL, "Vercel"),
-        (RENDER, "Render"),
-        (OTHER, _("Other")),
-    ]
-    PLATFORM_CHOICES = [
-        (OPENCLASSROOMS, "OpenClasssrooms"),
-        (PERSONAL_PROJECT, _("Personal Project")),
-    ]
+    class PlatformChoices(models.TextChoices):
+        OPENCLASSROOMS = "OPENCLASSROOMS", "OpenClasssrooms"
+        PERSONAL_PROJECT = "PERSONAL_PROJECT", _("Personal Project")
 
     title = models.CharField(max_length=200)
     legend = models.CharField(max_length=100)
-    origin = models.CharField(max_length=6, choices=ORIGIN_CHOICES)
-    platform = models.CharField(max_length=17, choices=PLATFORM_CHOICES)
+    origin = models.CharField(max_length=6, choices=OriginChoices)
+    platform = models.CharField(max_length=17, choices=PlatformChoices)
     url = models.URLField()
     published = models.BooleanField(
         default=True, verbose_name=_("link visible on website")
@@ -165,21 +156,15 @@ class Picture(models.Model):
 
 
 class Skill(models.Model):
-    PROGRAMMING_SKILLS = "PROGRAMMING_SKILLS"
-    SOFT_SKILLS = "SOFT_SKILLS"
-    OTHER = "OTHER"
-    STRENGTH = "STRENGTH"
-    WEAKNESSES = "WEAKNESSES"
+    class SkillChoices(models.TextChoices):
+        PROGRAMMING_SKILLS = "PROGRAMMING_SKILLS", _("Programming Skills")
+        SOFT_SKILLS = "SOFT_SKILLS", _("Soft Skills")
+        OTHER = "OTHER", _("Other")
+        STRENGTH = "STRENGTH", _("Strength")
+        WEAKNESSES = "WEAKNESSES", _("Weakness")
 
-    SKILL_CHOICES = [
-        (PROGRAMMING_SKILLS, _("Programming Skills")),
-        (SOFT_SKILLS, _("Soft Skills")),
-        (OTHER, _("Other")),
-        (STRENGTH, _("Strength")),
-        (WEAKNESSES, _("Weakness")),
-    ]
     name = models.CharField(max_length=50)
-    category = models.CharField(max_length=20, choices=SKILL_CHOICES)
+    category = models.CharField(max_length=20, choices=SkillChoices)
     published = models.BooleanField(
         default=True, verbose_name=_("skill visible on website")
     )
@@ -189,15 +174,11 @@ class Skill(models.Model):
 
 
 class Tag(models.Model):
-    OPENCLASSROOMS_PROJECT = "OPENCLASSROOMS_PROJECT"
-    PERSONAL_PROJECT = "PERSONAL_PROJECT"
+    class TagChoices(models.TextChoices):
+        OPENCLASSROOMS_PROJECT = "OPENCLASSROOMS_PROJECT", _("OpenClassrooms Project")
+        PERSONAL_PROJECT = "PERSONAL_PROJECT", _("Personal Project")
 
-    TAG_CHOICES = [
-        (OPENCLASSROOMS_PROJECT, _("OpenClassrooms Project")),
-        (PERSONAL_PROJECT, _("Personal Project")),
-    ]
-
-    tag = models.CharField(max_length=22, choices=TAG_CHOICES)
+    tag = models.CharField(max_length=22, choices=TagChoices)
     published = models.BooleanField(
         default=True, verbose_name=_("tag visible on website")
     )

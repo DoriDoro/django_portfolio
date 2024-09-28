@@ -17,7 +17,7 @@ class Command(BaseCommand):
                 jobs = data["Job"]
 
                 for job in jobs:
-                    job["job_type"] = getattr(Job, job["job_type"])
+                    job["job_type"] = getattr(Job.JobType, job["job_type"])
 
                     if "until_present" in job:
                         job["until_present"] = job["until_present"].lower() == "true"

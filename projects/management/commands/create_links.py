@@ -16,8 +16,8 @@ class Command(BaseCommand):
                 links = data["Link"]
 
                 for link in links:
-                    link["origin"] = getattr(Link, link["origin"])
-                    link["platform"] = getattr(Link, link["platform"])
+                    link["origin"] = getattr(Link.OriginChoices, link["origin"])
+                    link["platform"] = getattr(Link.PlatformChoices, link["platform"])
 
                 return links
 

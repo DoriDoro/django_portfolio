@@ -52,11 +52,17 @@ class SkillsView(TemplateView):
 
         context["doridoro"] = DoriDoro.objects.first()
         context["programming_skills"] = self.get_tags_data().filter(
-            category=Skill.PROGRAMMING_SKILLS
+            category=Skill.SkillChoices.PROGRAMMING_SKILLS
         )
-        context["soft_skills"] = self.translate_tags_name(category=Skill.SOFT_SKILLS)
-        context["other_skills"] = self.get_tags_data().filter(category=Skill.OTHER)
-        context["strength"] = self.translate_tags_name(category=Skill.STRENGTH)
+        context["soft_skills"] = self.translate_tags_name(
+            category=Skill.SkillChoices.SOFT_SKILLS
+        )
+        context["other_skills"] = self.get_tags_data().filter(
+            category=Skill.SkillChoices.OTHER
+        )
+        context["strength"] = self.translate_tags_name(
+            category=Skill.SkillChoices.STRENGTH
+        )
         context["languages"] = self.get_languages_data()
 
         return context
@@ -91,21 +97,21 @@ class ResumeView(TemplateView):
         context["doridoro"] = DoriDoro.objects.first()
         context["jobs_formation"] = (
             self.get_job_data()
-            .filter(job_type=Job.FORMATION)
+            .filter(job_type=Job.JobType.FORMATION)
             .order_by("-until_present", "-start_date")
         )
         context["jobs_mentoring"] = (
             self.get_job_data()
-            .filter(job_type=Job.MENTORING)
+            .filter(job_type=Job.JobType.MENTORING)
             .order_by("-until_present", "-start_date")
         )
         context["jobs_experience"] = self.get_job_data().filter(
             job_type__in=[
-                Job.FREELANCE,
-                Job.EMPLOYED,
-                Job.APPRENTICESHIP,
-                Job.PARENTAL_LEAVE,
-                Job.SABBATICAL,
+                Job.JobType.FREELANCE,
+                Job.JobType.EMPLOYED,
+                Job.JobType.APPRENTICESHIP,
+                Job.JobType.PARENTAL_LEAVE,
+                Job.JobType.SABBATICAL,
             ]
         )
         return context
