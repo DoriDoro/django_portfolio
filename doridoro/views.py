@@ -51,27 +51,27 @@ class SkillsView(TemplateView):
         context = super().get_context_data(**kwargs)
 
         context["doridoro"] = DoriDoro.objects.first()
-        context["programming_skills"] = self.get_tags_data().filter(
+        context["programming_skills_published"] = self.get_skills_data().filter(
             category=Skill.SkillChoices.PROGRAMMING_SKILLS
         )
-        context["soft_skills"] = self.translate_tags_name(
+        context["soft_skills"] = self.translate_skills_name(
             category=Skill.SkillChoices.SOFT_SKILLS
         )
-        context["other_skills"] = self.get_tags_data().filter(
+        context["other_skills_published"] = self.get_skills_data().filter(
             category=Skill.SkillChoices.OTHER
         )
-        context["strength"] = self.translate_tags_name(
+        context["strength"] = self.translate_skills_name(
             category=Skill.SkillChoices.STRENGTH
         )
         context["languages"] = self.get_languages_data()
 
         return context
 
-    def get_tags_data(self):
+    def get_skills_data(self):
         return Skill.objects.filter(published=True)
 
-    def translate_tags_name(self, category):
-        tags = self.get_tags_data().values_list("name", "category")
+    def translate_skills_name(self, category):
+        tags = self.get_skills_data().values_list("name", "category")
         result_dict = {"SOFT_SKILLS": (), "STRENGTH": ()}
         for tag in tags:
             if tag[1] in ["SOFT_SKILLS", "STRENGTH"]:

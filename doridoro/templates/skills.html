@@ -13,7 +13,7 @@
       <h2>{% trans "Programming Skills" %}</h2>
     </div>
     <div class="row">
-      {% for programming_skill in programming_skills %}
+      {% for programming_skill in programming_skills_published %}
         <p class="skill">{{ programming_skill.name }}</p>
       {% endfor %}
     </div>
@@ -31,7 +31,7 @@
       <h2>{% trans "Other Skills" %}</h2>
     </div>
     <div class="row">
-      {% for other_skill in other_skills %}
+      {% for other_skill in other_skills_published %}
         <p class="skill">{{ other_skill.name }}</p>
       {% endfor %}
     </div>

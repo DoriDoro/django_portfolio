@@ -166,19 +166,23 @@
     },
     {
       "name": "Django-REST-Framework",
-      "category": "PROGRAMMING_SKILLS"
+      "category": "PROGRAMMING_SKILLS",
+      "published": "False"
     },
     {
       "name": "Flask",
-      "category": "PROGRAMMING_SKILLS"
+      "category": "PROGRAMMING_SKILLS",
+      "published": "False"
     },
     {
       "name": "Unittest",
-      "category": "PROGRAMMING_SKILLS"
+      "category": "PROGRAMMING_SKILLS",
+      "published": "False"
     },
     {
       "name": "Pytest",
-      "category": "PROGRAMMING_SKILLS"
+      "category": "PROGRAMMING_SKILLS",
+      "published": "False"
     },
     {
       "name": "Django Testing Tool: TestCase",
@@ -186,7 +190,8 @@
     },
     {
       "name": "CLI (Command Line Interface) application",
-      "category": "PROGRAMMING_SKILLS"
+      "category": "PROGRAMMING_SKILLS",
+      "published": "False"
     },
     {
       "name": "Git",
@@ -218,7 +223,8 @@
     },
     {
       "name": "SQL",
-      "category": "PROGRAMMING_SKILLS"
+      "category": "PROGRAMMING_SKILLS",
+      "published": "False"
     },
     {
       "name": "Postman",
@@ -226,23 +232,28 @@
     },
     {
       "name": "Celery",
-      "category": "PROGRAMMING_SKILLS"
+      "category": "PROGRAMMING_SKILLS",
+      "published": "False"
     },
     {
       "name": "UML (Unified Modelling Language)",
-      "category": "PROGRAMMING_SKILLS"
+      "category": "PROGRAMMING_SKILLS",
+      "published": "False"
     },
     {
       "name": "Wireframe",
-      "category": "PROGRAMMING_SKILLS"
+      "category": "PROGRAMMING_SKILLS",
+      "published": "False"
     },
     {
       "name": "User Story",
-      "category": "PROGRAMMING_SKILLS"
+      "category": "PROGRAMMING_SKILLS",
+      "published": "False"
     },
     {
       "name": "ERD (Entity-Relationship Diagram)",
-      "category": "PROGRAMMING_SKILLS"
+      "category": "PROGRAMMING_SKILLS",
+      "published": "False"
     },
     {
       "name": "Sentry",
@@ -254,11 +265,13 @@
     },
     {
       "name": "Heroku",
-      "category": "PROGRAMMING_SKILLS"
+      "category": "PROGRAMMING_SKILLS",
+      "published": "False"
     },
     {
       "name": "Vercel",
-      "category": "PROGRAMMING_SKILLS"
+      "category": "PROGRAMMING_SKILLS",
+      "published": "False"
     },
     {
       "name": "Render",
@@ -266,31 +279,38 @@
     },
     {
       "name": "Beautiful Soup",
-      "category": "PROGRAMMING_SKILLS"
+      "category": "PROGRAMMING_SKILLS",
+      "published": "False"
     },
     {
       "name": "Web Scraping",
-      "category": "PROGRAMMING_SKILLS"
+      "category": "PROGRAMMING_SKILLS",
+      "published": "False"
     },
     {
       "name": "lxml",
-      "category": "PROGRAMMING_SKILLS"
+      "category": "PROGRAMMING_SKILLS",
+      "published": "False"
     },
     {
       "name": "CSV (Comma-separated values)",
-      "category": "PROGRAMMING_SKILLS"
+      "category": "PROGRAMMING_SKILLS",
+      "published": "False"
     },
     {
       "name": "MVC (Model-View-Controller) architecture",
-      "category": "PROGRAMMING_SKILLS"
+      "category": "PROGRAMMING_SKILLS",
+      "published": "False"
     },
     {
       "name": "Flake8",
-      "category": "PROGRAMMING_SKILLS"
+      "category": "PROGRAMMING_SKILLS",
+      "published": "False"
     },
     {
       "name": "PEP8",
-      "category": "PROGRAMMING_SKILLS"
+      "category": "PROGRAMMING_SKILLS",
+      "published": "False"
     },
     {
       "name": "Communication",
@@ -306,10 +326,6 @@
     },
     {
       "name": "Continuous learning",
-      "category": "SOFT_SKILLS"
-    },
-    {
-      "name": "Adaptability",
       "category": "SOFT_SKILLS"
     },
     {
@@ -353,10 +369,6 @@
       "category": "STRENGTH"
     },
     {
-      "name": "Patience",
-      "category": "STRENGTH"
-    },
-    {
       "name": "Reliability",
       "category": "STRENGTH"
     },
@@ -378,7 +390,8 @@
     },
     {
       "name": "Visual Studio Code",
-      "category": "OTHER"
+      "category": "OTHER",
+      "published": "False"
     },
     {
       "name": "Linux (Ubuntu)",
@@ -386,7 +399,13 @@
     },
     {
       "name": "macOS",
-      "category": "OTHER"
+      "category": "OTHER",
+      "published": "False"
+    },
+    {
+      "name": "Windows",
+      "category": "OTHER",
+      "published": "False"
     }
   ],
   "Tag": [
