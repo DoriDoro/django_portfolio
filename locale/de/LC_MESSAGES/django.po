@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-09-12 18:19+0200\n"
+"POT-Creation-Date: 2024-09-28 10:00+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -22,7 +22,7 @@ msgstr ""
 msgid "About"
 msgstr "Info"
 
-#: core/templates/base.html:50 projects/templates/portfolio_details.html:41
+#: core/templates/base.html:50 projects/templates/portfolio_details.html:44
 msgid "Skills"
 msgstr "Kenntnisse"
 
@@ -51,102 +51,134 @@ msgid "achievement visible on website"
 msgstr "Errungenschaft auf der Webseite sichtbar"
 
 #: doridoro/models.py:48
+msgid "url of degree"
+msgstr "Url des Abschlusses"
+
+#: doridoro/models.py:51
 msgid "degree visible on website"
 msgstr "Abschluss auf der Webseite sichtbar"
 
-#: doridoro/models.py:59
+#: doridoro/models.py:62
 msgid "fact visible on website"
 msgstr "Tatsache auf der Webseite sichtbar"
 
-#: doridoro/models.py:69
+#: doridoro/models.py:72
 msgid "hobby visible on website"
 msgstr "Hobby auf der Webseite sichtbar"
 
-#: doridoro/models.py:90
+#: doridoro/models.py:84
 msgid "Freelance"
 msgstr "Freiberufliche Tätigkeit"
 
-#: doridoro/models.py:91
+#: doridoro/models.py:85
 msgid "Employed"
 msgstr "Angestellt"
 
-#: doridoro/models.py:92
+#: doridoro/models.py:86
 msgid "Apprenticeship"
 msgstr "Berufsausbildung"
 
-#: doridoro/models.py:93
+#: doridoro/models.py:87
 msgid "Formation"
 msgstr "Weiterbildung"
 
-#: doridoro/models.py:94 doridoro/templates/resume.html:28
+#: doridoro/models.py:88 doridoro/templates/resume.html:28
 msgid "Mentoring"
 msgstr "Berufsbegleitende Person"
 
-#: doridoro/models.py:95
+#: doridoro/models.py:89
 msgid "Parental_Leave"
 msgstr "Elternzeit"
 
-#: doridoro/models.py:96
+#: doridoro/models.py:90
 msgid "Sabbatical"
 msgstr "Sabbatjahr"
 
-#: doridoro/models.py:101
+#: doridoro/models.py:94
 msgid "start date"
 msgstr "Startdatum"
 
-#: doridoro/models.py:102
+#: doridoro/models.py:95
 msgid "end date"
 msgstr "Enddatum"
 
-#: doridoro/models.py:103
+#: doridoro/models.py:96
 msgid "until present"
 msgstr "bis heute"
 
-#: doridoro/models.py:106
+#: doridoro/models.py:99
 msgid "job type"
 msgstr "Berufsbeyeichnung"
 
-#: doridoro/models.py:110
+#: doridoro/models.py:103
 msgid "job visible on website"
 msgstr "Beruf auf der Webseite sichtbar"
 
-#: doridoro/models.py:123
+#: doridoro/models.py:116
 msgid "If the job is ongoing, the end date should be empty."
 msgstr ""
 "Wenn es sich um einen laufenden Auftrag handelt, sollte das Enddatum leer "
 "sein."
 
-#: doridoro/models.py:127
+#: doridoro/models.py:120
 msgid "End date must be provided if the job is not ongoing."
 msgstr ""
 "Das Enddatum muss angegeben werden, wenn es sich nicht um einen laufenden "
 "Auftrag handelt."
 
-#: doridoro/models.py:130
+#: doridoro/models.py:123
 msgid "End date should be after start date."
 msgstr "Das Enddatum sollte nach dem Startdatum liegen."
 
-#: doridoro/models.py:150
+#: doridoro/models.py:128
+msgid "A1 - Beginner"
+msgstr "A1 - Anfänger"
+
+#: doridoro/models.py:129
+msgid "A2 - Elementary"
+msgstr "A2 - Grundkenntnisse"
+
+#: doridoro/models.py:130
+msgid "B1 - Intermediate"
+msgstr "B1 - Mittelstufe"
+
+#: doridoro/models.py:131
+msgid "B2 - Upper Intermediate"
+msgstr "B2 - Fortgeschritten"
+
+#: doridoro/models.py:132
+msgid "C1 - Advanced"
+msgstr "C1 - Fortgeschrittenes Niveau"
+
+#: doridoro/models.py:133
+msgid "C2 - Proficient"
+msgstr "C2 - Kompetent"
+
+#: doridoro/models.py:134
 msgid "Native Speaker"
 msgstr "Muttersprache"
 
-#: doridoro/models.py:160
+#: doridoro/models.py:143
 msgid "language visible on website"
 msgstr "Sprache auf der Webseite sichtbar"
 
-#: doridoro/models.py:171
+#: doridoro/models.py:154
 msgid "email address"
 msgstr "Emailadresse"
 
-#: doridoro/models.py:174
+#: doridoro/models.py:157
 msgid "spoken language"
 msgstr "gesprochene Sprache"
 
-#: doridoro/models.py:176
+#: doridoro/models.py:159
 msgid "reference visible on website"
 msgstr "Referenz auf der Website sichtbar"
 
-#: doridoro/models.py:187
+#: doridoro/models.py:168
+msgid "url of social media"
+msgstr "Url der sozialen Medien"
+
+#: doridoro/models.py:170
 msgid "social media visible on website"
 msgstr "Social Media auf der Website sichtbar"
 
@@ -241,11 +273,11 @@ msgstr ""
 "\"Bringe Organisationstalent, Programmierkenntnisse und manchmal auch Kekse "
 "mit zur Arbeit.\""
 
-#: doridoro/templates/skills.html:13 projects/models.py:174
+#: doridoro/templates/skills.html:13 projects/models.py:160
 msgid "Programming Skills"
 msgstr "Programmierfähigkeiten"
 
-#: doridoro/templates/skills.html:22 projects/models.py:175
+#: doridoro/templates/skills.html:22 projects/models.py:161
 msgid "Soft Skills"
 msgstr "Sozale Fähigkeiten"
 
@@ -253,7 +285,7 @@ msgstr "Sozale Fähigkeiten"
 msgid "Other Skills"
 msgstr "Andere Fähigkeiten"
 
-#: doridoro/templates/skills.html:40 projects/models.py:177
+#: doridoro/templates/skills.html:40 projects/models.py:163
 msgid "Strength"
 msgstr "Stärken"
 
@@ -265,88 +297,88 @@ msgstr "Sprachen"
 msgid "My dream job"
 msgstr "Mein Traumjob"
 
-#: portfolio/settings.py:138
+#: portfolio/settings.py:135
 msgid "English"
 msgstr "Englisch"
 
-#: portfolio/settings.py:139
+#: portfolio/settings.py:136
 msgid "German"
 msgstr "Deutsch"
 
-#: portfolio/settings.py:140
+#: portfolio/settings.py:137
 msgid "French"
 msgstr "Französisch"
 
-#: projects/models.py:14
+#: projects/models.py:14 projects/templates/portfolio_details.html:40
 msgid "create date"
 msgstr "Erstelldatum"
 
-#: projects/models.py:16
+#: projects/models.py:16 projects/templates/portfolio_details.html:42
 msgid "evaluation date"
 msgstr "Erstelldatum"
 
-#: projects/models.py:21
+#: projects/models.py:22
 msgid "project visible on website"
 msgstr "Projekt auf der Website sichtbar"
 
-#: projects/models.py:60 projects/models.py:176
+#: projects/models.py:53 projects/models.py:162
 msgid "Other"
 msgstr "Andere"
 
-#: projects/models.py:64 projects/models.py:196
+#: projects/models.py:57 projects/models.py:179
 #: projects/templates/portfolio.html:17
 msgid "Personal Project"
 msgstr "Persönliches Projekt"
 
-#: projects/models.py:73
+#: projects/models.py:65
 msgid "link visible on website"
 msgstr "Link auf der Webseite sichtbar"
 
-#: projects/models.py:83
+#: projects/models.py:75
 msgid "cover picture"
 msgstr "Titelbild"
 
-#: projects/models.py:86
+#: projects/models.py:78
 msgid "picture"
 msgstr "Bild"
 
-#: projects/models.py:91
+#: projects/models.py:83
 msgid "picture visible on website"
 msgstr "Bild auf der Website sichtbar"
 
-#: projects/models.py:110
+#: projects/models.py:102
 #, python-format
 msgid "The uploaded file is not a valid image. -- %s"
 msgstr "Die hochgeladene Datei ist kein gültiges Bild. -- %s"
 
-#: projects/models.py:119
+#: projects/models.py:111
 #, python-format
 msgid "The uploaded file could not be reopened as an image. -- %s"
 msgstr ""
 "Die hochgeladene Datei konnte nicht erneut als Bild geöffnet werden. -- %s"
 
-#: projects/models.py:153
+#: projects/models.py:145
 #, python-format
 msgid "An error occurred while processing the image. -- %s"
 msgstr "Bei der Verarbeitung des Bildes ist ein Fehler aufgetreten. -- %s"
 
-#: projects/models.py:160
+#: projects/models.py:152
 msgid "The image width is smaller than 800 pixels."
 msgstr "Die Bildbreite ist kleiner als 800 Pixel."
 
-#: projects/models.py:178
+#: projects/models.py:164
 msgid "Weakness"
 msgstr "Schwäche"
 
-#: projects/models.py:183
+#: projects/models.py:169
 msgid "skill visible on website"
 msgstr "Fähigkeit auf der Webseite sichtbar"
 
-#: projects/models.py:195 projects/templates/portfolio.html:16
+#: projects/models.py:178 projects/templates/portfolio.html:16
 msgid "OpenClassrooms Project"
 msgstr "OpenClassrooms Projekt"
 
-#: projects/models.py:201
+#: projects/models.py:183
 msgid "tag visible on website"
 msgstr "Tag auf der Webseite sichtbar"
 
@@ -366,17 +398,20 @@ msgstr "GitHub URL"
 msgid "Vercel URL"
 msgstr "Vercel URL"
 
-#: projects/templates/portfolio_details.html:40
-msgid "Project date"
-msgstr "Erstelldatum"
-
-#: projects/templates/portfolio_details.html:53
+#: projects/templates/portfolio_details.html:58
 msgid "Introduction"
 msgstr "Einleitung"
 
-#: projects/templates/portfolio_details.html:58
+#: projects/templates/portfolio_details.html:63
+msgid "Competences"
+msgstr "Kompetenzen"
+
+#: projects/templates/portfolio_details.html:68
 msgid "Learning Experience"
 msgstr "Lernerfahrung"
+
+msgid "Project date"
+msgstr "Erstelldatum"
 
 msgid "Communication"
 msgstr "Kommunikation"
