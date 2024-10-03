@@ -149,16 +149,18 @@ STATICFILES_DIRS = [
     BASE_DIR / "core/static",
 ]
 
-MEDIA_URL = "/img/"
+MEDIA_URL = "/images/"
 MEDIA_ROOT = os.path.join(BASE_DIR, "core/media")
 
 
 STORAGES = {
+    "default": {
+        "BACKEND": "django.core.files.storage.FileSystemStorage",
+    },
     "staticfiles": {
         "BACKEND": "whitenoise.storage.CompressedStaticFilesStorage",
     },
 }
-
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
