@@ -19,20 +19,20 @@
     </div>
     <hr>
     <div class="section-title mt-5">
-      <h2>{% trans "Soft Skills" %}</h2>
-    </div>
-    <div class="row">
-      {% for soft_skill in soft_skills %}
-        <p class="skill">{{ soft_skill.0 }}</p>
-      {% endfor %}
-    </div>
-    <hr>
-    <div class="section-title mt-5">
       <h2>{% trans "Other Skills" %}</h2>
     </div>
     <div class="row">
       {% for other_skill in other_skills_published %}
         <p class="skill">{{ other_skill.name }}</p>
+      {% endfor %}
+    </div>
+    <hr>
+    <div class="section-title mt-5">
+      <h2>{% trans "Soft Skills" %}</h2>
+    </div>
+    <div class="row">
+      {% for soft_skill in soft_skills %}
+        <p class="skill">{{ soft_skill.0 }}</p>
       {% endfor %}
     </div>
     <hr>
