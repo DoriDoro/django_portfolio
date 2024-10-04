@@ -62,7 +62,7 @@ jobs:
           docker images
 
       - name: Tag the Docker image
-        run: docker tag django-portfolio:latest doridoro/django-portfolio:${COMMIT_HASH::7}
+        run: docker tag django-portfolio:latest doridoro/django-portfolio:latest
 
       - name: Login to DockerHub
         uses: docker/login-action@v3
@@ -71,4 +71,4 @@ jobs:
           password: ${{ secrets.DOCKERHUB_TOKEN }}
 
       - name: Push Docker image to Docker Hub
-        run: docker push doridoro/django-portfolio:${COMMIT_HASH::7}
+        run: docker push doridoro/django-portfolio:latest
