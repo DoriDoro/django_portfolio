@@ -68,6 +68,13 @@
           <h2>{% trans "Learning Experience" %}</h2>
         </div>
         <p>{{ project.experience|safe }}</p>
+        {% if project.future %}
+          <hr>
+          <div class="section-title">
+            <h2>{% trans "Implementations in the future" %}</h2>
+          </div>
+          <p>{{ project.future|safe }}</p>
+        {% endif %}
       </div>
     </div>
   </section><!-- End Portfolio Details -->

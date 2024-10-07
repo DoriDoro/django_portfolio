@@ -18,6 +18,7 @@ class Project(models.Model):
     keywords = HTMLField()
     introduction = HTMLField()
     experience = HTMLField()
+    future = HTMLField(null=True, blank=True)
     published = models.BooleanField(
         default=True, verbose_name=_("project visible on website")
     )
