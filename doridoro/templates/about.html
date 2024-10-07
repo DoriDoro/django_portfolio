@@ -53,7 +53,7 @@
               <h2>{% trans "Who is DoriDoro" %}?</h2>
             </div>
             <p>
-              {{ doridoro.introduction|linebreaksbr }}
+              {{ doridoro.introduction|safe }}
             </p>
           </div>
 
@@ -64,7 +64,7 @@
               <h2>{% trans "Free time" %}</h2>
             </div>
             <p>
-              {{ doridoro.free_time|linebreaksbr }}
+              {{ doridoro.free_time|safe }}
             </p>
           </div>
         </div>
