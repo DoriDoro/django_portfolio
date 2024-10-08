@@ -11,6 +11,9 @@ create_db:
 server:
 	python manage.py runserver
 
+server_5:
+	python manage.py runserver 8005
+
 g_server:
 	gunicorn portfolio.wsgi:application
 
