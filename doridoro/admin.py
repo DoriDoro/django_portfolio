@@ -42,8 +42,8 @@ class HobbyAdmin(TranslationAdmin):
 @admin.register(Job)
 class JobAdmin(TranslationAdmin):
     list_display = [
-        "company_name",
         "position",
+        "company_name",
         "start_date",
         "until_present",
         "job_type",

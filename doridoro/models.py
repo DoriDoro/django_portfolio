@@ -89,7 +89,11 @@ class Job(models.Model):
         PARENTAL_LEAVE = "PARENTAL_LEAVE", _("Parental_Leave")
         SABBATICAL = "SABBATICAL", _("Sabbatical")
 
-    company_name = models.CharField(max_length=200)
+    company_name = models.CharField(
+        max_length=200,
+        blank=True,
+        null=True,
+    )
     position = models.CharField(max_length=200)
     start_date = models.DateField(verbose_name=_("start date"))
     end_date = models.DateField(blank=True, null=True, verbose_name=_("end date"))
