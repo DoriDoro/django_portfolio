@@ -44,9 +44,7 @@ class Achievement(models.Model):
 class Degree(models.Model):
     organization = models.CharField(max_length=100)
     degree = models.CharField(max_length=100)
-    url = models.URLField(
-        max_length=250, null=True, blank=True, verbose_name=_("url of degree")
-    )
+    url = models.URLField(max_length=250, null=True, blank=True)
     published = models.BooleanField(
         default=True, verbose_name=_("degree visible on website")
     )
@@ -97,7 +95,7 @@ class Job(models.Model):
     position = models.CharField(max_length=200)
     start_date = models.DateField(verbose_name=_("start date"))
     end_date = models.DateField(blank=True, null=True, verbose_name=_("end date"))
-    until_present = models.BooleanField(default=False, verbose_name=_("until present"))
+    until_present = models.BooleanField(default=False, verbose_name=_("present"))
     address = models.CharField(max_length=100, blank=True, null=True)
     job_type = models.CharField(
         max_length=14, choices=JobType, verbose_name=_("job type")

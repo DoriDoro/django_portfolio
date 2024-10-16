@@ -9,23 +9,24 @@ from PIL import Image
 
 class Project(models.Model):
     title = models.CharField(max_length=250)
-    slug = models.SlugField()
+    slug = models.SlugField(max_length=250)
     legend = models.CharField(max_length=100)
-    create_date = models.DateField(verbose_name=_("create date"))
-    evaluation_date = models.DateField(
-        null=True, blank=True, verbose_name=_("evaluation date")
-    )
-    keywords = HTMLField()
+    create_date = models.DateField()
+    evaluation_date = models.DateField(null=True, blank=True)
+    keywords = HTMLField(verbose_name=_("skill set of project"))
     introduction = HTMLField()
     experience = HTMLField()
-    future = HTMLField(null=True, blank=True)
+    future = HTMLField(null=True, blank=True, verbose_name=_("future plans of project"))
     published = models.BooleanField(
         default=True, verbose_name=_("project visible on website")
     )
     links = models.ManyToManyField("Link", related_name="project_links")
     skills = models.ManyToManyField("Skill", related_name="project_skills")
     tags = models.ForeignKey(
-        "Tag", on_delete=models.SET_NULL, null=True, related_name="project_tags"
+        "Tag",
+        on_delete=models.SET_NULL,
+        null=True,
+        related_name="project_tags",
     )
     doridoro = models.ForeignKey(
         "doridoro.DoriDoro",
@@ -72,8 +73,8 @@ class Link(models.Model):
 
 class Picture(models.Model):
     legend = models.CharField(max_length=100)
-    slug = models.SlugField()
-    cover_picture = models.BooleanField(default=False, verbose_name=_("cover picture"))
+    slug = models.SlugField(max_length=250)
+    cover_picture = models.BooleanField(default=False)
     photo = models.ImageField(
         upload_to="images/",
         verbose_name=_("picture"),
