@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+{% load i18n static %}
+
+{% block content %}
+<!-- ======= Journal Details ======= -->
+<section class="details-page section-show">
+  <div class="container">
+    <div class="section-title" style="display: flex; justify-content: space-between">
+      <h2>{{ journal.name }}</h2>
+      <a href="{% url 'journal:journal' %}" style="color: #fff"><i class="ri-close-large-fill"></i></a>
+    </div>
+    <div class="row">
+      <div class="portfolio-info">
+        <h3>{{ journal.title }}</h3>
+        {% if journal.tags.exists %}
+          <hr>
+          <p class="tags">
+            <strong>Tags:</strong>
+            {% for tag in journal.tags.all %}
+            <a href="{% url 'blog:post_list_by_tag' tag.slug %}">
+              {{ tag.name }}
+            </a>{% if not forloop.last %}, {% endif %}
+            {% endfor %}
+          </p>
+        {% endif %}
+      </div>
+    </div>
+
+    <hr>
+    <div class="row">
+      <p>{{ journal.content }}</p>
+    </div>
+  </div>
+</section><!-- End Journal Details -->
+{% endblock %}

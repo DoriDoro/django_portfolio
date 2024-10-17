@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% load i18n %}
+
+{% block content %}
+<!-- ======= Journal Section ======= -->
+<section class="journal section-show">
+  <div class="container">
+
+    <div class="section-title">
+      <h2>{% trans "Journal" %}</h2>
+    </div>
+    <div class="row">
+      {% for entry in entries %}
+      <div class="col-lg-3 col-md-5 mt-4">
+        <div class="icon-box">
+          <h4><a href="{% url 'journal:journal-detail' slug=entry.slug %}">{{ entry.title}}</a></h4>
+          <p>{{ entry.name }}</p>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section><!-- End Journal Section -->
+
+
+{% endblock %}
