@@ -61,6 +61,7 @@ INSTALLED_APPS = [
     "accounts",
     "core",
     "doridoro",
+    "journal",
     "projects",
     # installed packages
     "tinymce",
