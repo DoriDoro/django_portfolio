@@ -849,7 +849,7 @@ section .container {
 }
 
 
-.portfolio .portfolio-wrap .portfolio-info {
+.portfolio .portfolio-wrap .page-info {
   opacity: 0;
   position: absolute;
   top: 0;
@@ -865,7 +865,7 @@ section .container {
   align-items: center;
 }
 
-.portfolio .portfolio-wrap .portfolio-info::before {
+.portfolio .portfolio-wrap .page-info::before {
   display: block;
   content: "";
   width: 48px;
@@ -879,7 +879,7 @@ section .container {
   z-index: 9994;
 }
 
-.portfolio .portfolio-wrap .portfolio-info::after {
+.portfolio .portfolio-wrap .page-info::after {
   display: block;
   content: "";
   width: 48px;
@@ -893,13 +893,13 @@ section .container {
   z-index: 9994;
 }
 
-.portfolio .portfolio-wrap .portfolio-info h4 {
+.portfolio .portfolio-wrap .page-info h4 {
   font-size: 20px;
   color: #fff;
   font-weight: 600;
 }
 
-.portfolio .portfolio-wrap .portfolio-info p {
+.portfolio .portfolio-wrap .page-info p {
   color: #ffffff;
   font-size: 14px;
   text-transform: uppercase;
@@ -932,16 +932,16 @@ section .container {
   opacity: 1;
 }
 
-.portfolio .portfolio-wrap:hover .portfolio-info {
+.portfolio .portfolio-wrap:hover .page-info {
   opacity: 1;
 }
 
-.portfolio .portfolio-wrap:hover .portfolio-info::before {
+.portfolio .portfolio-wrap:hover .page-info::before {
   top: 15px;
   left: 15px;
 }
 
-.portfolio .portfolio-wrap:hover .portfolio-info::after {
+.portfolio .portfolio-wrap:hover .page-info::after {
   bottom: 15px;
   right: 15px;
 }
@@ -958,35 +958,35 @@ section .container {
     width: inherit;
 }
 
-.details-page .portfolio-info ul {
+.details-page .page-info ul {
   list-style: none;
   padding: 0;
   font-size: 15px;
 }
 
-.details-page .portfolio-info ul li+li {
+.details-page .page-info ul li+li {
   margin-top: 10px;
 }
 
-.details-page .portfolio-info h3, strong {
+.details-page .page-info h3, strong {
     color: #fff;
 }
 
-.details-page .portfolio-info p {
+.details-page .page-info p {
   font-size: 15px;
 }
 
 @media (max-width: 992px) {
-  .details-page .portfolio-info {
+  .details-page .page-info {
     padding-top: 20px;
   }
 }
 
-.details-page .portfolio-info .skill-container {
+.details-page .page-info .skill-container {
     display: flex;
 }
 
-.details-page .portfolio-info .skill-container strong {
+.details-page .page-info .skill-container strong {
     align-content: baseline;
     margin-right: 10px;
 }
