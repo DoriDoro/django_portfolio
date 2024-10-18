@@ -18,22 +18,14 @@ class PortfolioView(ListView):
 class PortfolioDetailView(DetailView):
     model = Project
     template_name = "portfolio_details.html"
-    queryset = Project.objects.filter(published=True)
+    queryset = Project.projects_published.all()
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        links = self.object.links.all()
-        context["github"] = links.filter(
-            origin=Link.OriginChoices.GITHUB, published=True
-        ).first()
-        context["vercel"] = links.filter(
-            origin=Link.OriginChoices.VERCEL, published=True
-        ).first()
-        context["render"] = links.filter(
-            origin=Link.OriginChoices.RENDER, published=True
-        ).first()
-        context["others"] = links.filter(
-            origin=Link.OriginChoices.OTHER, published=True
-        ).first()
+        links = self.object.links.filter(published=True)
+        context["githubs"] = links.filter(origin=Link.OriginChoices.GITHUB)
+        context["vercels"] = links.filter(origin=Link.OriginChoices.VERCEL)
+        context["renders"] = links.filter(origin=Link.OriginChoices.RENDER)
+        context["others"] = links.filter(origin=Link.OriginChoices.OTHER)
 
         return context

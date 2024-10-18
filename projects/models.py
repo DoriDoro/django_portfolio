@@ -7,6 +7,11 @@ from tinymce.models import HTMLField
 from PIL import Image
 
 
+class ProjectPublishedManager(models.Manager):
+    def get_queryset(self):
+        return super().get_queryset().filter(published=True)
+
+
 class Project(models.Model):
     title = models.CharField(max_length=250)
     slug = models.SlugField(max_length=250)
@@ -34,6 +39,9 @@ class Project(models.Model):
         null=True,
         related_name="doro_project",
     )
+
+    objects = models.Manager()
+    projects_published = ProjectPublishedManager()
 
     def __str__(self):
         return f"{self.title} ({self.published})"
@@ -68,7 +76,7 @@ class Link(models.Model):
     )
 
     def __str__(self):
-        return self.url
+        return self.title
 
 
 class Picture(models.Model):
