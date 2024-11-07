@@ -9,16 +9,13 @@ class PortfolioView(ListView):
 
     def get_context_data(self, *, object_list=None, **kwargs):
         context = super().get_context_data(**kwargs)
-        context["projects"] = Project.objects.filter(published=True).order_by(
-            "-create_date"
-        )
+        context["projects"] = Project.projects_published.order_by("-create_date")
         return context
 
 
 class PortfolioDetailView(DetailView):
     model = Project
     template_name = "portfolio_details.html"
-    queryset = Project.projects_published.all()
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)

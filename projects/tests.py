@@ -28,10 +28,10 @@ class ModelTestCase(TestCase):
     P_SLUG = "test-project-title"
     P_LEGEND = "Test Project legend"
     P_CREATE_DATE = datetime.now()
+    P_KEYWORDS = "Test Project keywords"
     P_INTRODUCTION = "Test Project introduction"
-    P_CONTENT = "Test Project content"
+    P_EXPERIENCE = "Test Project experience"
     P_TAGS = "PERSONAL_PROJECT"
-    P_DORIDORO = "Test Project doridoro"
 
     @classmethod
     def setUpTestData(cls):
@@ -52,10 +52,11 @@ class ModelTestCase(TestCase):
             slug=cls.P_SLUG,
             legend=cls.P_LEGEND,
             create_date=cls.P_CREATE_DATE,
+            keywords=cls.P_KEYWORDS,
             introduction=cls.P_INTRODUCTION,
-            content=cls.P_CONTENT,
+            content=cls.P_EXPERIENCE,
             tags=cls.P_TAGS,
-            doridoro=cls.P_DORIDORO,
+            doridoro=cls.doridoro,
         )
 
 
@@ -66,4 +67,4 @@ class ModelTestCase(TestCase):
 #         self.assertEqual(self.project.legend, self.P_LEGEND)
 #         self.assertEqual(self.project.introduction, self.P_INTRODUCTION)
 #         self.assertEqual(self.project.content, self.P_CONTENT)
-#         self.assertEqual(self.project.doridoro, self.P_DORIDORO)
+#         self.assertEqual(self.project.doridoro, self.doridoro)
