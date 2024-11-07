@@ -10,10 +10,10 @@
       <a href="{% url 'journal:journal' %}" style="color: #fff"><i class="ri-close-large-fill"></i></a>
     </div>
     <div class="row">
-      <div class="portfolio-info">
+      <div class="page-info">
         <h3>{{ journal.title }}</h3>
         {% if journal.tags.exists %}
-          <hr>
+        <hr>
           <p class="tags">
             <strong>Tags:</strong>
             {% for tag in journal.tags.all %}
@@ -28,8 +28,24 @@
 
     <hr>
     <div class="row">
-      <p>{{ journal.content }}</p>
+      <p>{{ journal.content|safe }}</p>
     </div>
+
+    <div class="page-info">
+      {% if platform_links %}
+      <hr>
+      <div>
+        <ul>
+          {% for platform, links in platform_links.items %}
+          <li><strong>{{ platform }}: </strong>
+            {% for title, url in links %}<a href="{{ url }}" target="_blank">{{ title }}</a>{% if not forloop.last %} | {% endif %}{% endfor %}
+          </li>
+          {% endfor %}
+        </ul>
+      </div>
+      {% endif %}
+    </div>
+
   </div>
 </section><!-- End Journal Details -->
 {% endblock %}

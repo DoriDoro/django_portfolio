@@ -3,17 +3,29 @@
 
 {% block content %}
 <!-- ======= Journal Section ======= -->
-<section class="journal section-show">
+<section class="journal portfolio section-show">
   <div class="container">
 
     <div class="section-title">
       <h2>{% trans "Journal" %}</h2>
     </div>
+
     <div class="row">
+      <div class="col-lg-12 d-flex justify-content-center">
+        <ul id="page-filters">
+          <li data-filter="*" class="filter-active">{% trans "All" %}</li>
+          {% for entry in filter_entries %}
+            <li data-filter=".filter-{{ entry }}">{{ entry }}</li>
+          {% endfor %}
+        </ul>
+      </div>
+    </div>
+
+    <div class="row page-container">
       {% for entry in entries %}
-      <div class="col-lg-3 col-md-5 mt-4">
+      <div class="col-lg-3 col-md-5 mt-4 portfolio-item filter-{{ entry.name|slugify }}">
         <div class="icon-box">
-          <h4><a href="{% url 'journal:journal-detail' slug=entry.slug %}">{{ entry.title}}</a></h4>
+          <h4><a href="{{ entry.get_absolute_url }}">{{ entry.title}}</a></h4>
           <p>{{ entry.name }}</p>
         </div>
       </div>
