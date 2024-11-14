@@ -6,8 +6,8 @@ from journal.models import Journal, Link, Platform
 @admin.register(Journal)
 class JournalAdmin(admin.ModelAdmin):
     list_display = ["title", "name", "author", "publish", "status"]
-    list_filter = ["status", "created", "publish", "author"]
-    search_fields = ["title"]
+    list_filter = ["status", "name", "created", "publish", "author"]
+    search_fields = ["title", "name"]
     prepopulated_fields = {"slug": ("title",)}
     date_hierarchy = "publish"
     ordering = ["status", "publish"]
