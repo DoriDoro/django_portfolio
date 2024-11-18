@@ -1,4 +1,3 @@
-from django.utils.text import slugify
 from django.views.generic import ListView, DetailView
 
 from journal.models import Journal
@@ -17,8 +16,10 @@ class JournalListView(ListView):
 
     def get_filter_entries(self):
         filter_entries = set()
-        for entry in self.queryset:
-            filter_entries.add(slugify(entry.name))
+        for entry in self.queryset.filter(category__name__isnull=False).values_list(
+            "category__name", "category__slug"
+        ):
+            filter_entries.add(entry)
         return filter_entries
 
 

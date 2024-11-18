@@ -15,7 +15,7 @@
         <ul id="page-filters">
           <li data-filter="*" class="filter-active">{% trans "All" %}</li>
           {% for entry in filter_entries %}
-            <li data-filter=".filter-{{ entry }}">{{ entry }}</li>
+            <li data-filter=".filter-{{ entry.1 }}">{{ entry.0 }}</li>
           {% endfor %}
         </ul>
       </div>
@@ -23,7 +23,7 @@
 
     <div class="row page-container">
       {% for entry in entries %}
-      <div class="col-lg-3 col-md-5 mt-4 portfolio-item filter-{{ entry.name|slugify }}">
+      <div class="col-lg-3 col-md-5 mt-4 portfolio-item filter-{{ entry.category.slug }}">
         <div class="icon-box">
           <h4><a href="{{ entry.get_absolute_url }}">{{ entry.title}}</a></h4>
           <p>{{ entry.name }}</p>

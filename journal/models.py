@@ -16,6 +16,12 @@ class Journal(models.Model):
         PUBLISHED = "PB", _("Published")
 
     name = models.CharField(max_length=100)
+    category = models.ForeignKey(
+        "journal.Category",
+        on_delete=models.SET_NULL,
+        null=True,
+        related_name="journal_category",
+    )
     title = models.CharField(max_length=250)
     slug = models.SlugField(max_length=250)
     content = HTMLField()
@@ -45,6 +51,22 @@ class Journal(models.Model):
 
     def get_absolute_url(self):
         return reverse("journal:journal-detail", args=[self.slug])
+
+
+class Category(models.Model):
+    name = models.CharField(max_length=50)
+    slug = models.SlugField(max_length=50)
+    published = models.BooleanField(
+        default=True, verbose_name=_("journal category visible on website")
+    )
+    created = models.DateTimeField(auto_now_add=True)
+    updated = models.DateTimeField(auto_now=True)
+
+    class Meta:
+        verbose_name_plural = "Categories"
+
+    def __str__(self):
+        return self.name
 
 
 class Link(models.Model):
