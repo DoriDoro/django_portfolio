@@ -31,20 +31,21 @@
             </ul>
           </div>
 
+          {% if current_positions %}
           <hr>
-
-          <div class="col">
-            <div class="section-title">
-              <h2>{% trans "Current Positions" %}</h2>
+            <div class="col">
+              <div class="section-title">
+                <h2>{% trans "Current Positions" %}</h2>
+              </div>
+              <ul>
+                {% for job in current_positions %}
+                <li><i class="bi bi-chevron-right"></i>
+                  <span>{{ job.0 }}{% if job.1 %} at <strong>{{ job.1 }}</strong>{% endif %}</span>
+                </li>
+                {% endfor %}
+              </ul>
             </div>
-            <ul>
-              {% for job in current_positions %}
-              <li><i class="bi bi-chevron-right"></i>
-                <span>{{ job.position }}{% if job.company_name %} at <strong>{{ job.company_name }}</strong>{% endif %}</span>
-              </li>
-              {% endfor %}
-            </ul>
-          </div>
+          {% endif %}
 
           <hr>
 
@@ -127,7 +128,7 @@
       {% for hobby in hobbies %}
       <div class="col-lg-3 col-md-4 mt-4">
         <div class="icon-box">
-          <h3>{{ hobby.name }}</h3>
+          <h3>{{ hobby }}</h3>
         </div>
       </div>
       {% endfor %}

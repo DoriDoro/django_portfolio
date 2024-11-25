@@ -18,8 +18,14 @@ class IndexView(TemplateView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context["doridoro"] = DoriDoro.objects.first()
-        context["social_media"] = SocialMedia.objects.all()
+        context["doridoro"] = (
+            DoriDoro.objects.select_related("user")
+            .only("profession", "user__first_name", "user__last_name")
+            .first()
+        )
+        context["social_media"] = SocialMedia.objects.filter(
+            published=True
+        ).values_list("name", "url")
         context["facts"] = Fact.objects.filter(published=True).values_list(
             "content", flat=True
         )
@@ -32,14 +38,30 @@ class AboutView(TemplateView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
 
-        context["doridoro"] = DoriDoro.objects.first()
-        context["current_positions"] = Job.objects.filter(until_present=True)
+        context["doridoro"] = (
+            DoriDoro.objects.select_related("user")
+            .only(
+                "user__email",
+                "phone",
+                "address",
+                "profession",
+                "introduction",
+                "free_time",
+            )
+            .first()
+        )
+        context["current_positions"] = Job.objects.filter(
+            until_present=True,
+            published=True,
+        ).values_list("position", "company_name")
         context["projects_count"] = Project.objects.filter(published=True).count()
         context["skills_count"] = Skill.objects.filter(published=True).count()
         context["achievements"] = Achievement.objects.filter(
             published=True
         ).values_list("content", flat=True)
-        context["hobbies"] = Hobby.objects.filter(published=True)
+        context["hobbies"] = Hobby.objects.filter(published=True).values_list(
+            "name", flat=True
+        )
 
         return context
 
@@ -50,7 +72,9 @@ class SkillsView(TemplateView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
 
-        context["doridoro"] = DoriDoro.objects.first()
+        context["doridoro"] = DoriDoro.objects.values_list(
+            "dream_job", flat=True
+        ).first()
         context["programming_skills_published"] = self.get_skills_data().filter(
             category=Skill.SkillChoices.PROGRAMMING_SKILLS
         )
@@ -68,7 +92,7 @@ class SkillsView(TemplateView):
         return context
 
     def get_skills_data(self):
-        return Skill.objects.filter(published=True)
+        return Skill.objects.filter(published=True).values_list("name", flat=True)
 
     def translate_skills_name(self, category):
         tags = self.get_skills_data().values_list("name", "category")
@@ -93,17 +117,11 @@ class ResumeView(TemplateView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-
-        context["doridoro"] = DoriDoro.objects.first()
-        context["jobs_formation"] = (
-            self.get_job_data()
-            .filter(job_type=Job.JobType.FORMATION)
-            .order_by("-until_present", "-start_date")
+        context["jobs_formation"] = self.get_job_data().filter(
+            job_type=Job.JobType.FORMATION
         )
-        context["jobs_mentoring"] = (
-            self.get_job_data()
-            .filter(job_type=Job.JobType.MENTORING)
-            .order_by("-until_present", "-start_date")
+        context["jobs_mentoring"] = self.get_job_data().filter(
+            job_type=Job.JobType.MENTORING
         )
         context["jobs_experience"] = self.get_job_data().filter(
             job_type__in=[
@@ -117,4 +135,15 @@ class ResumeView(TemplateView):
         return context
 
     def get_job_data(self):
-        return Job.objects.all()
+        return (
+            Job.objects.filter(published=True)
+            .order_by("-until_present", "-start_date")
+            .values_list(
+                "company_name",
+                "position",
+                "start_date",
+                "end_date",
+                "address",
+                "description",
+            )
+        )

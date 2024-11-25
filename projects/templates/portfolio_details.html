@@ -26,33 +26,33 @@
         <div class="col-lg-7 page-info">
           <h3>{% trans "Project information" %}</h3>
           <ul class="mx-4">
-            {% if githubs %}
+            {% if github %}
               <li>
                 <strong>{% trans "GitHub URL" %}:</strong>
-                {% for github in githubs %}
-                  <a href="{{ github.url}}" target="_blank">{{ github.url }}</a>
+                {% for title, url in github %}
+                  <a href="{{ url }}" target="_blank">{{ title }}</a>
                 {% endfor %}
               </li>
             {% endif %}
-            {% if vercels %}
+            {% if vercel %}
               <li>
                 <strong>{% trans "Vercel URL" %}:</strong>
-                {% for vercel in versels %}
-                  <a href="{{ vercel.url }}" target="_blank">{{ vercel.url }}</a>
+                {% for title, url in vercel %}
+                  <a href="{{ url }}" target="_blank">{{ title }}</a>
                 {% endfor %}
               </li>
             {% endif %}
-            {% if renders %}
+            {% if render %}
               <li>
                 <strong>{% trans "Render URL" %}:</strong>
-                {% for render in renders %}
-                  <a href="{{ render.url }}" target="_blank">{{ render.url }}</a>
+                {% for title, url in render %}
+                  <a href="{{ url }}" target="_blank">{{ tile }}</a>
                 {% endfor %}
               </li>
             {% endif %}
             {% if others %}
-              {% for other in others %}
-                <li><strong>URL:</strong> <a href="{{ other.url }}" target="_blank">{{ other.url }}</a></li>
+              {% for title, url in others %}
+                <li><strong>URL:</strong> <a href="{{ url }}" target="_blank">{{ tile }}</a></li>
               {% endfor %}
             {% endif %}
             <li><strong>{% trans "create date" %}:</strong> {{ project.create_date }}</li>

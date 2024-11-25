@@ -14,7 +14,7 @@
     </div>
     <div class="row">
       {% for programming_skill in programming_skills_published %}
-        <p class="skill">{{ programming_skill.name }}</p>
+        <p class="skill">{{ programming_skill }}</p>
       {% endfor %}
     </div>
     <hr>
@@ -23,7 +23,7 @@
     </div>
     <div class="row">
       {% for other_skill in other_skills_published %}
-        <p class="skill">{{ other_skill.name }}</p>
+        <p class="skill">{{ other_skill }}</p>
       {% endfor %}
     </div>
     <hr>
@@ -60,7 +60,7 @@
     <div class="row mx-4">
       <div class="col pt-4 pt-lg-0 content">
         <p>
-          {{ doridoro.dream_job|safe }}
+          {{ doridoro|safe }}
         </p>
       </div>
     </div>

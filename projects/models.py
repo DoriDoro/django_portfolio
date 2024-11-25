@@ -2,6 +2,7 @@ from io import BytesIO
 
 from django.core.files.base import ContentFile
 from django.db import models
+from django.urls import reverse
 from django.utils.translation import gettext_lazy as _, gettext_lazy
 from tinymce.models import HTMLField
 from PIL import Image
@@ -45,6 +46,9 @@ class Project(models.Model):
 
     def __str__(self):
         return f"{self.title} ({self.published})"
+
+    def get_absolute_url(self):
+        return reverse("projects:portfolio-detail", args=[self.slug])
 
     def save(self, *args, **kwargs):
         if not self.pk:

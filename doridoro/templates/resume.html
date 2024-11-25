@@ -1,57 +1,63 @@
 {% extends 'base.html' %}
 {% load i18n static %}
 
-  {% block content %}
-  <!-- ======= Resume Section ======= -->
-  <section id="resume" class="resume section-show">
-    <div class="container">
+{% block content %}
+<!-- ======= Resume Section ======= -->
+<section id="resume" class="resume section-show">
+  <div class="container">
 
-      <div class="section-title">
-        <h2>{% trans "Resume" %}</h2>
-      </div>
+    <div class="section-title">
+      <h2>{% trans "Resume" %}</h2>
+    </div>
 
-      <div class="row">
-        <div class="col-lg-6">
-          {% if jobs_formation %}
-          <h3 class="resume-title">{% trans "Education" %}</h3>
-          {% for job_f in jobs_formation %}
-          <div class="resume-item">
-            <h4>{{ job_f.position }}{% if job_f.company_name %} {% trans "at" %} {{ job_f.company_name }}{% endif %}</h4>
-            <h5>{{ job_f.start_date|date:"M o" }} {% trans "to" %} {% if job_f.end_date %}{{ job_f.end_date|date:"M o" }}{% else %}{% trans "present" %}{% endif %}</h5>
-            <p><em>{% if job_f.address %}{{ job_f.address }}{% endif %}</em></p>
-            {{ job_f.description|safe }}
-          </div>
-          {% endfor %}
-          {% endif %}
+    <div class="row">
+      <div class="col-lg-6">
+        {% if jobs_formation %}
+        <h3 class="resume-title">{% trans "Education" %}</h3>
+        {% for job_f in jobs_formation %}
+          {% with company_name=job_f.0 position=job_f.1 start_date=job_f.2 end_date=job_f.3 address=job_f.4 description=job_f.5 %}
+            <div class="resume-item">
+              <h4>{{ position }}{% if company_name %} {% trans "at" %} {{ company_name }}{% endif %}</h4>
+              <h5>{{ start_date|date:"M o" }} {% trans "to" %} {% if end_date %}{{ end_date|date:"M o" }}{% else %}{% trans "present" %}{% endif %}</h5>
+              <p><em>{% if address %}{{ address }}{% endif %}</em></p>
+              {{ description|safe }}
+            </div>
+          {% endwith %}
+        {% endfor %}
+        {% endif %}
 
-          {% if jobs_mentoring %}
-          <h3 class="resume-title">{% trans "Mentoring" %}</h3>
-          {% for job_m in jobs_mentoring %}
-          <div class="resume-item">
-            <h4>{{ job_m.position }}{% if job_m.company_name %} {% trans "at" %} {{ job_m.company_name }}{% endif %}</h4>
-            <h5>{{ job_m.start_date|date:"M o" }} {% trans "to" %} {% if job_m.end_date %}{{ job_m.end_date|date:"M o" }}{% else %}{% trans "present" %}{% endif %}</h5>
-            <p><em>{% if job_m.address %}{{ job_m.address }}{% endif %}</em></p>
-            <p>{{ job_m.description|safe }}</p>
-          </div>
-          {% endfor %}
-          {% endif %}
-        </div>
-
-        {% if jobs_experience %}
-        <div class="col-lg-6">
-          <h3 class="resume-title">{% trans "Professional Experience" %}</h3>
-          {% for job_exp in jobs_experience %}
-          <div class="resume-item">
-            <h4>{{ job_exp.position }}{% if job_exp.company_name %} {% trans "at" %} {{ job_exp.company_name }}{% endif %}</h4>
-            <h5>{{ job_exp.start_date|date:"M o" }} {% trans "to" %} {% if job_exp.end_date %}{{ job_exp.end_date|date:"M o" }}{% else %}{% trans "present" %}{% endif %}</h5>
-            <p><em>{% if job_exp.address %}{{ job_exp.address }}{% endif %}</em></p>
-            <p>{{ job_exp.description|safe }}</p>
-          </div>
-          {% endfor %}
-        </div>
+        {% if jobs_mentoring %}
+        <h3 class="resume-title">{% trans "Mentoring" %}</h3>
+        {% for job_m in jobs_mentoring %}
+          {% with company_name=job_m.0 position=job_m.1 start_date=job_m.2 end_date=job_m.3 address=job_m.4 description=job_m.5 %}
+            <div class="resume-item">
+              <h4>{{ position }}{% if company_name %} {% trans "at" %} {{ company_name }}{% endif %}</h4>
+              <h5>{{ start_date|date:"M o" }} {% trans "to" %} {% if end_date %}{{ end_date|date:"M o" }}{% else %}{% trans "present" %}{% endif %}</h5>
+              <p><em>{% if address %}{{ address }}{% endif %}</em></p>
+              <p>{{ description|safe }}</p>
+            </div>
+          {% endwith %}
+        {% endfor %}
         {% endif %}
       </div>
 
+      {% if jobs_experience %}
+      <div class="col-lg-6">
+        <h3 class="resume-title">{% trans "Professional Experience" %}</h3>
+        {% for job_exp in jobs_experience %}
+          {% with company_name=job_exp.0 position=job_exp.1 start_date=job_exp.2 end_date=job_exp.3 address=job_exp.4 description=job_exp.5 %}
+            <div class="resume-item">
+              <h4>{{ position }}{% if company_name %} {% trans "at" %} {{ company_name }}{% endif %}</h4>
+              <h5>{{ start_date|date:"M o" }} {% trans "to" %} {% if end_date %}{{ end_date|date:"M o" }}{% else %}{% trans "present" %}{% endif %}</h5>
+              <p><em>{% if address %}{{ address }}{% endif %}</em></p>
+              <p>{{ description|safe }}</p>
+            </div>
+          {% endwith %}
+        {% endfor %}
+      </div>
+      {% endif %}
     </div>
-  </section><!-- End Resume Section -->
-  {% endblock %}
+
+  </div>
+</section><!-- End Resume Section -->
+{% endblock %}

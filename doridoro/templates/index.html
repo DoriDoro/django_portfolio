@@ -6,7 +6,7 @@
   <header id="header">
     <div class="container index">
 
-      <h1 class="mb-4 ms-5">{{ doridoro.get_full_name }}</h1>
+      <h1 class="mb-4 ms-5">{{ doridoro.user.get_full_name }}</h1>
       <h2>
         {% blocktrans with profession=doridoro.profession|lower %}
           I'm a <span>{{ profession }}</span> from Germany, living in France.
@@ -30,9 +30,9 @@
 
       <div class="social-links">
         {% for media in social_media %}
-          {% if media.name == 'GitHub' %}<a href="{{ media.url }}" target="_blank" class="instagram"><i class="bi bi-github"></i></a>{% endif %}
-          {% if media.name == 'LinkedIn' %}<a href="{{ media.url }}" target="_blank" class="linkedin"><i class="bi bi-linkedin"></i></a>{% endif %}
-          {% if media.name == 'Dev.to' %}<a href="{{ media.url }}" target="_blank" class="linkedin"><i class="bi bi-link"></i></a>{% endif %}
+          {% if media.0 == 'GitHub' %}<a href="{{ media.1 }}" target="_blank" class="instagram"><i class="bi bi-github"></i></a>{% endif %}
+          {% if media.0 == 'LinkedIn' %}<a href="{{ media.1 }}" target="_blank" class="linkedin"><i class="bi bi-linkedin"></i></a>{% endif %}
+          {% if media.0 == 'Dev.to' %}<a href="{{ media.1 }}" target="_blank" class="linkedin"><i class="bi bi-link"></i></a>{% endif %}
         {% endfor %}
       </div>
 
