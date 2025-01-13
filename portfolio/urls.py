@@ -19,7 +19,10 @@ from django.conf import settings
 from django.conf.urls.i18n import i18n_patterns
 from django.conf.urls.static import static
 from django.contrib import admin
+from django.contrib.sitemaps.views import sitemap
 from django.urls import path, include
+
+from sitemaps import ProjectSitemap, JournalSitemap, StaticViewSitemap
 
 urlpatterns = [
     path("admin/", admin.site.urls),
@@ -28,10 +31,22 @@ urlpatterns = [
     path("journal/", include("journal.urls")),
 ]
 
+sitemaps = {
+    "projects": ProjectSitemap,
+    "journals": JournalSitemap,
+    "static": StaticViewSitemap,
+}
+
 urlpatterns += i18n_patterns(
     path("", include("core.urls", namespace="core")),
     path("", include("doridoro.urls", namespace="doridoro")),
     path("portfolio/", include("projects.urls", namespace="projects")),
+    path(
+        "sitemap.xml",
+        sitemap,
+        {"sitemaps": sitemaps},
+        name="django.contrib.sitemaps.views.sitemap",
+    ),
 )
 
 if settings.DEBUG:
