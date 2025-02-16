@@ -64,12 +64,12 @@ class ContactRequestForm(forms.ModelForm):
         message = self.cleaned_data["message"]
 
         create_message = f"""
-            Received a message form 
+            Received a message form
             Name: {name}
             Email: {email}
             with Subject: {subject}
             ------------------
-            
+
             {message}
             """
 

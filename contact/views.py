@@ -1,6 +1,6 @@
 from django.contrib.messages.views import SuccessMessageMixin
 from django.db import OperationalError
-from django.http import HttpResponse, HttpResponseServerError
+from django.http import HttpResponseServerError
 from django.urls import reverse_lazy
 from django.views.generic import FormView
 
