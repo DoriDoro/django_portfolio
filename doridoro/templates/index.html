@@ -5,6 +5,11 @@
   <!-- ======= Index Section ======= -->
   <header id="header">
     <div class="container index">
+      <!-- Alerts/Messages - Start -->
+      {% if messages %}
+        {% include 'messages.html' %}
+      {% endif %}
+      <!-- Alerts/Messages - End -->
 
       <h1 class="mb-4 ms-5">{{ doridoro.user.get_full_name }}</h1>
       <h2>
