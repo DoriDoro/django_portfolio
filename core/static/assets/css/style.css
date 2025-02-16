@@ -4,6 +4,10 @@
 * Updated: Mar 17 2024 with Bootstrap v5.3.3
 * Author: BootstrapMade.com
 * License: https://bootstrapmade.com/license/
+
+color: grey: rgba(255, 255, 255, 0.7);
+  color: rgba(255, 255, 255, 0.8);
+color: rgba(255, 255, 255, 0.5);
 */
 
 /*--------------------------------------------------------------
@@ -12,7 +16,7 @@
 body {
   font-family: "Open Sans", sans-serif;
   background-color: #040404;
-  color: rgba(255, 255, 255, 0.7);
+  color: #fff;
   position: relative;
   background: transparent;
   margin-top: 35px;
@@ -76,11 +80,9 @@ h6 {
   font-size: 24px;
   margin-top: 20px;
   margin-bottom: 40px;
-  color: rgba(255, 255, 255, 0.8);
 }
 
 #header h2 span {
-  color: #fff;
   border-bottom: 2px solid #18d26e;
   padding-bottom: 6px;
 }
@@ -134,49 +136,6 @@ h6 {
   }
 }
 
-/* Header Top */
-#header.header-top {
-  height: 80px;
-  position: fixed;
-  left: 0;
-  top: 0;
-  right: 0;
-  background: rgba(0, 0, 0, 0.9);
-}
-
-#header.header-top .social-links,
-#header.header-top h2 {
-  display: none;
-}
-
-#header.header-top h1 {
-  margin-right: auto;
-  font-size: 36px;
-}
-
-#header.header-top img {
-  max-height: 60px;
-  margin-right: 20px !important;
-}
-
-#header.header-top .container {
-  display: flex;
-  align-items: center;
-}
-
-#header.header-top .navbar {
-  margin: 0;
-}
-
-@media (max-width: 768px) {
-  #header.header-top {
-    height: 60px;
-  }
-
-  #header.header-top h1 {
-    font-size: 26px;
-  }
-}
 
 /*--------------------------------------------------------------
 # Navigation Menu
@@ -213,7 +172,7 @@ h6 {
   font-family: "Poppins", sans-serif;
   font-size: 16px;
   font-weight: 400;
-  color: rgba(255, 255, 255, 0.7);
+  color: #fff;
   white-space: nowrap;
   transition: 0.3s;
 }
@@ -249,7 +208,8 @@ h6 {
 .navbar .active,
 .navbar .active:focus,
 .navbar li:hover>a {
-  color: #fff;
+  color: rgba(255, 255, 255, 0.7);
+
 }
 
 /**
@@ -380,23 +340,12 @@ section .container {
   margin: 4px 10px;
 }
 
-.section-title p {
-  margin: 0;
-  margin: -15px 0 15px 0;
-  font-size: 36px;
-  font-weight: 700;
-  text-transform: uppercase;
-  font-family: "Poppins", sans-serif;
-  color: #fff;
-}
-
 .section-title span {
   margin: 0;
   font-size: 25px;
   font-weight: 500;
   text-transform: uppercase;
   font-family: "Poppins", sans-serif;
-  color: #fff;
 }
 
 
@@ -418,7 +367,6 @@ section .container {
   padding-bottom: 10px;
   display: flex;
   align-items: baseline;
-  color: #fff;
 }
 
 .index .content ul i {
@@ -431,12 +379,6 @@ section .container {
 /*--------------------------------------------------------------
 # About
 --------------------------------------------------------------*/
-.about-me .content h3 {
-  font-weight: 500;
-  font-size: 60px;
-  color: #fff;
-}
-
 .about-me .content-subtitle h2 {
   font-size: 14px;
   font-weight: 500;
@@ -445,7 +387,6 @@ section .container {
   margin: 0 0 20px 0;
   letter-spacing: 2px;
   text-transform: uppercase;
-  color: #fff;
   font-family: "Poppins", sans-serif;
 }
 
@@ -457,12 +398,10 @@ section .container {
   margin-bottom: 20px;
   display: flex;
   align-items: baseline;
-  color: #fff;
 }
 
 .about-me .content ul strong {
   margin-right: 10px;
-  color: #fff;
 }
 
 .about-me .content ul i {
@@ -470,10 +409,6 @@ section .container {
   margin-right: 5px;
   color: #18d26e;
   line-height: 0;
-}
-
-.about-me .content p {
-  color: #fff;
 }
 
 /*--------------------------------------------------------------
@@ -521,18 +456,6 @@ section .container {
 /*--------------------------------------------------------------
 # Skills
 --------------------------------------------------------------*/
-.skills .content-subtitle h2 {
-  font-size: 14px;
-  font-weight: 500;
-  padding: 0;
-  line-height: 1px;
-  margin: 0 0 20px 0;
-  letter-spacing: 2px;
-  text-transform: uppercase;
-  color: #fff;
-  font-family: "Poppins", sans-serif;
-}
-
 .skills .icon-box {
   padding: 20px;
   background: rgba(255, 255, 255, 0.08);
@@ -546,14 +469,6 @@ section .container {
 
 .skills .icon-box:hover {
   background: rgba(255, 255, 255, 0.12);
-}
-
-.skills .row p {
-  color: #fff;
-}
-
-.skills .content p {
-  color: #fff;
 }
 
 /*--------------------------------------------------------------
@@ -669,7 +584,6 @@ section .container {
   font-weight: 700;
   margin-top: 20px;
   margin-bottom: 20px;
-  color: #fff;
 }
 
 .resume .resume-item {
@@ -697,19 +611,21 @@ section .container {
   font-weight: 600;
   margin-left: 10px;
   margin-bottom: 10px;
-  color: #fff;
 }
 
-.resume .resume-item ul {
+.resume .resume-item p {
   list-style: none;
   padding-left: 0;
+}
+
+.resume .resume-item p {
+  color: rgba(255, 255, 255, 0.7);
 }
 
 .resume .resume-item ul li {
   padding-bottom: 10px;
   display: flex;
   align-items: baseline;
-  color: #fff;
 }
 
 .resume .resume-item ul i {
@@ -733,10 +649,6 @@ section .container {
   top: 0;
   background: #18d26e;
   border: 2px solid #18d26e;
-}
-
-.color-white {
-    color: #fff;
 }
 
 /*--------------------------------------------------------------
@@ -805,7 +717,6 @@ section .container {
   font-weight: 600;
   line-height: 1;
   text-transform: uppercase;
-  color: #fff;
   background: rgba(255, 255, 255, 0.1);
   margin: 0 3px 10px 3px;
   transition: all 0.3s ease-in-out;
@@ -895,12 +806,10 @@ section .container {
 
 .portfolio .portfolio-wrap .page-info h4 {
   font-size: 20px;
-  color: #fff;
   font-weight: 600;
 }
 
 .portfolio .portfolio-wrap .page-info p {
-  color: #ffffff;
   font-size: 14px;
   text-transform: uppercase;
   padding: 0;
@@ -913,7 +822,6 @@ section .container {
 }
 
 .portfolio .portfolio-wrap .portfolio-links a {
-  color: #fff;
   margin: 0 2px;
   font-size: 28px;
   display: inline-block;
@@ -968,10 +876,6 @@ section .container {
   margin-top: 10px;
 }
 
-.details-page .page-info h3, strong {
-    color: #fff;
-}
-
 .details-page .page-info p {
   font-size: 15px;
 }
@@ -999,14 +903,6 @@ section .container {
     margin: 6px 8px;
 }
 
-.details-page .row p {
-  color: #fff;
-}
-
-.details-page .content p {
-  color: #fff;
-}
-
 .details-page .swiper-pagination {
   margin-top: 20px;
   position: relative;
@@ -1026,159 +922,53 @@ section .container {
 /*--------------------------------------------------------------
 # Contact
 --------------------------------------------------------------*/
-.contact .info-box {
-  color: #444444;
-  padding: 20px;
-  width: 100%;
-  background: rgba(255, 255, 255, 0.08);
-}
-
-.contact .info-box i.bx {
-  font-size: 24px;
-  color: #18d26e;
-  border-radius: 50%;
-  padding: 14px;
-  float: left;
-  background: rgba(255, 255, 255, 0.1);
-}
-
-.contact .info-box h3 {
-  font-size: 20px;
-  color: rgba(255, 255, 255, 0.5);
-  font-weight: 700;
-  margin: 10px 0 8px 68px;
-}
-
-.contact .info-box p {
-  padding: 0;
-  color: #fff;
-  line-height: 24px;
-  font-size: 14px;
-  margin: 0 0 0 68px;
-}
-
-.contact .info-box .social-links {
-  margin: 5px 0 0 68px;
-  display: flex;
-}
-
-.contact .info-box .social-links a {
-  font-size: 18px;
-  display: inline-block;
-  color: #fff;
-  line-height: 1;
-  margin-right: 12px;
-  transition: 0.3s;
-}
-
-.contact .info-box .social-links a:hover {
-  color: #18d26e;
-}
-
-.contact .php-email-form {
+.contact .email-form {
   padding: 30px;
   background: rgba(255, 255, 255, 0.08);
 }
 
-.contact .php-email-form .error-message {
-  display: none;
-  background: rgba(255, 255, 255, 0.08);
-  background: #ed3c0d;
-  text-align: left;
-  padding: 15px;
-  font-weight: 600;
-}
-
-.contact .php-email-form .error-message br+br {
-  margin-top: 25px;
-}
-
-.contact .php-email-form .sent-message {
-  display: none;
-  background: rgba(255, 255, 255, 0.08);
-  background: #18d26e;
-  text-align: center;
-  padding: 15px;
-  font-weight: 600;
-}
-
-.contact .php-email-form .loading {
-  display: none;
-  background: rgba(255, 255, 255, 0.08);
-  text-align: center;
-  padding: 15px;
-}
-
-.contact .php-email-form .loading:before {
-  content: "";
-  display: inline-block;
-  border-radius: 50%;
-  width: 24px;
-  height: 24px;
-  margin: 0 10px -6px 0;
-  border: 3px solid #18d26e;
-  border-top-color: #eee;
-  animation: animate-loading 1s linear infinite;
-}
-
-.contact .php-email-form input,
-.contact .php-email-form textarea {
+.contact .email-form input,
+.contact .email-form textarea {
   border-radius: 0;
   box-shadow: none;
-  font-size: 14px;
   background: rgba(255, 255, 255, 0.08);
   border: 0;
   transition: 0.3s;
   color: #fff;
 }
 
-.contact .php-email-form input:focus,
-.contact .php-email-form textarea:focus {
-  background-color: rgba(255, 255, 255, 0.11);
-}
 
-.contact .php-email-form input::-moz-placeholder,
-.contact .php-email-form textarea::-moz-placeholder {
+.contact .email-form input::-moz-placeholder,
+.contact .email-form textarea::-moz-placeholder {
   color: rgba(255, 255, 255, 0.3);
   opacity: 1;
 }
 
-.contact .php-email-form input::placeholder,
-.contact .php-email-form textarea::placeholder {
-  color: rgba(255, 255, 255, 0.3);
-  opacity: 1;
+.contact .email-form input::placeholder,
+.contact .email-form textarea::placeholder {
+  color: #ccc;
 }
 
-.contact .php-email-form input {
+.contact .email-form input {
   padding: 10px 15px;
 }
 
-.contact .php-email-form textarea {
+.contact .email-form textarea {
   padding: 12px 15px;
 }
 
-.contact .php-email-form button[type=submit] {
+.contact .email-form button[type=submit] {
   background: #18d26e;
   border: 0;
   padding: 10px 30px;
-  color: #fff;
   transition: 0.4s;
   border-radius: 4px;
 }
 
-.contact .php-email-form button[type=submit]:hover {
+.contact .email-form button[type=submit]:hover {
   background: #15bb62;
 }
 
-@keyframes animate-loading {
-  0% {
-    transform: rotate(0deg);
-  }
-
-  100% {
-    transform: rotate(360deg);
-  }
-}
 
 /*--------------------------------------------------------------
 # Credits

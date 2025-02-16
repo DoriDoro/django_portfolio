@@ -28,7 +28,7 @@ urlpatterns = [
     path("admin/", admin.site.urls),
     path("i18n/", include("django.conf.urls.i18n")),
     path("tinymce/", include("tinymce.urls")),
-    path("journal/", include("journal.urls")),
+    path("journal/", include("journal.urls", namespace="journal")),
 ]
 
 sitemaps = {
@@ -37,10 +37,12 @@ sitemaps = {
     "static": StaticViewSitemap,
 }
 
+# translation enables urlpatterns:
 urlpatterns += i18n_patterns(
     path("", include("core.urls", namespace="core")),
     path("", include("doridoro.urls", namespace="doridoro")),
     path("portfolio/", include("projects.urls", namespace="projects")),
+    path("contact/", include("contact.urls", namespace="contact")),
     path(
         "sitemap.xml",
         sitemap,

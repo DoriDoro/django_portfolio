@@ -20,6 +20,8 @@ from pathlib import Path
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 
+PROJECT_NAME = os.environ.get("PROJECT_NAME")
+
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/5.0/howto/deployment/checklist/
 
@@ -60,6 +62,7 @@ INSTALLED_APPS = [
     "django.contrib.staticfiles",
     # custom apps
     "accounts",
+    "contact",
     "core",
     "doridoro",
     "journal",
@@ -224,3 +227,13 @@ TINYMCE_DEFAULT_CONFIG = {
 
 # Sitemap framework
 SITE_ID = 1
+
+
+# email configurations:
+EMAIL_HOST = "smtp.gmail.com"
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+EMAIL_HOST_USER = os.environ.get("EMAIL_HOST_USER")
+EMAIL_HOST_PASSWORD = os.environ.get("EMAIL_HOST_PASSWORD")
+DEFAULT_FROM_EMAIL = os.environ.get("DEFAULT_FROM_EMAIL")
+CONTACT_EMAIL = os.environ.get("CONTACT_EMAIL")
