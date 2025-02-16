@@ -3,15 +3,6 @@ from modeltranslation.admin import TranslationAdmin
 
 from projects.models import Project, Link, Picture, Skill, Tag
 
-"""
-    #list display
-    list_display = ['name', 'price', 'category', 'date']
-    #list Filter
-    list_filter = ('category','date') on the right hand side
-    # search list
-    search_fields = ['name']
-"""
-
 
 @admin.register(Project)
 class ProjectAdmin(TranslationAdmin):
@@ -33,6 +24,8 @@ class PictureAdmin(admin.ModelAdmin):
 @admin.register(Skill)
 class SkillAdmin(TranslationAdmin):
     list_display = ["name", "category", "published"]
+    list_filter = ["category", "published"]
+    list_per_page = 30
 
 
 @admin.register(Tag)

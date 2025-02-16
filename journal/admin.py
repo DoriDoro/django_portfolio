@@ -7,6 +7,7 @@ from journal.models import Journal, Link, Platform, Category
 class JournalAdmin(admin.ModelAdmin):
     list_display = ["title", "name", "category", "author", "publish", "status"]
     list_filter = ["status", "name", "category", "created", "publish", "author"]
+    list_per_page = 30
     search_fields = ["title", "name", "category"]
     prepopulated_fields = {"slug": ("title",)}
     date_hierarchy = "publish"
@@ -25,7 +26,10 @@ class CategoryAdmin(admin.ModelAdmin):
 @admin.register(Link)
 class LinkAdmin(admin.ModelAdmin):
     list_display = ["title", "platform", "url", "published"]
+    list_filter = ["platform"]
+    list_per_page = 30
     search_fields = ["title", "platform__name"]
+    date_hierarchy = "created"
     show_facets = admin.ShowFacets.ALWAYS
 
 
