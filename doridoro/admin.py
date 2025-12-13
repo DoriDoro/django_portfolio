@@ -21,22 +21,22 @@ class DoriDoroAdmin(TranslationAdmin):
 
 @admin.register(Achievement)
 class AchievementAdmin(TranslationAdmin):
-    list_display = ["title", "content", "published"]
+    list_display = ["title", "content", "active"]
 
 
 @admin.register(Degree)
 class DegreeAdmin(admin.ModelAdmin):
-    list_display = ["organization", "degree", "url", "published"]
+    list_display = ["organization", "degree", "url", "active"]
 
 
 @admin.register(Fact)
 class FactAdmin(TranslationAdmin):
-    list_display = ["title", "content", "published"]
+    list_display = ["title", "content", "active"]
 
 
 @admin.register(Hobby)
 class HobbyAdmin(TranslationAdmin):
-    list_display = ["name", "published"]
+    list_display = ["name", "active"]
 
 
 @admin.register(Job)
@@ -47,20 +47,20 @@ class JobAdmin(TranslationAdmin):
         "start_date",
         "until_present",
         "job_type",
-        "published",
+        "active",
     ]
 
 
 @admin.register(Language)
 class LanguageAdmin(TranslationAdmin):
-    list_display = ["name", "level", "published"]
+    list_display = ["name", "level", "active"]
 
 
 @admin.register(Reference)
 class ReferenceAdmin(TranslationAdmin):
-    list_display = ["name", "email", "published"]
+    list_display = ["name", "email", "active"]
 
 
 @admin.register(SocialMedia)
 class SocialMediaAdmin(admin.ModelAdmin):
-    list_display = ["name", "url", "published"]
+    list_display = ["name", "url", "active"]
