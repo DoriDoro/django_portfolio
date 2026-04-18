@@ -1,12 +1,13 @@
 import logging
 
 from django.contrib.messages.views import SuccessMessageMixin
-from django.db import OperationalError, transaction
+from django.db import transaction
 from django.urls import reverse_lazy
 from django.views.generic import CreateView
 
 from contact.forms import ContactRequestForm
 from contact.models import ContactRequest
+
 
 logger = logging.getLogger(__name__)
 
@@ -35,23 +36,10 @@ class ContactRequestView(SuccessMessageMixin, CreateView):
 
                 # Ensure email is only sent if DB commit succeeds
                 transaction.on_commit(lambda: form.send_email())
-        except OperationalError as e:
-            # DB-level problems (migrations missing, DB down, etc.)
-            logger.exception("Database error while handling contact form.")
-            form.add_error(
-                None,
-                f"We are experiencing a database issue: '{e}'. "
-                "Please try again later.",
-            )
-            return self.form_invalid(form)
-
-        except Exception as e:
-            # Any unexpected error (email, logic error, etc.)
+        except Exception:
             logger.exception("Unexpected error while handling contact form.")
             form.add_error(
-                None,
-                f"An unexpected error occurred while sending your message: '{e}'. "
-                "Please try again later.",
+                None, "An unexpected error occurred. Please try again later."
             )
             return self.form_invalid(form)
 

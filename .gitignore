@@ -20,10 +20,7 @@ core/staticfiles
 # Local configuration
 settings-local.py
 todo.txt
-
-htmlcov/
-.coverage
-.coverage.*
+*.sqlite3
 
 # Sphinx build directories
 /docs/_build/

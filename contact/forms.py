@@ -1,11 +1,16 @@
-from textwrap import dedent
+import logging
 
 from django.conf import settings
 from django import forms
+from django.core.exceptions import ValidationError
 from django.core.mail import send_mail
 from django.utils.html import strip_tags
+from textwrap import dedent
 
 from contact.models import ContactRequest
+
+
+logger = logging.getLogger(__name__)
 
 
 class ContactRequestForm(forms.ModelForm):
@@ -66,35 +71,32 @@ class ContactRequestForm(forms.ModelForm):
     # --- Normalization / extra validation ---
 
     def clean_first_name(self):
-        first_name = self.cleaned_data.get("first_name", "")
-        return first_name.strip()
+        first_name = (self.cleaned_data.get("first_name") or "").strip()
+        if not first_name:
+            raise ValidationError("Please provide a first name.")
+        return first_name
 
     def clean_last_name(self):
-        last_name = self.cleaned_data.get("last_name", "")
-        return last_name.strip()
+        last_name = (self.cleaned_data.get("last_name") or "").strip()
+        return last_name
 
     def clean_email(self):
-        """
-        Normalize email (strip + lowercase).
-
-        The model's `clean()` also normalizes, but doing it here makes
-        the value consistent for the rest of the form processing, including
-        send_email().
-        """
-        email = self.cleaned_data.get("email", "")
-        return email.strip().lower()
+        email = (self.cleaned_data.get("email") or "").strip().lower()
+        if not email:
+            raise ValidationError("Please provide an email address.")
+        return email
 
     def clean_subject(self):
-        subject = self.cleaned_data.get("subject", "")
-        return subject.strip()
+        subject = (self.cleaned_data.get("subject") or "").strip()
+        if not subject:
+            raise ValidationError("Please provide a subject.")
+        return subject
 
     def clean_message(self):
-        message = self.cleaned_data.get("message", "")
-        # Optional: enforce a minimum length / anti-spam check
-        if len(strip_tags(message).strip()) < 10:
-            raise forms.ValidationError(
-                "Please provide a bit more detail in your message."
-            )
+        message = (self.cleaned_data.get("message") or "").strip()
+        # Enforce a minimum length / anti-spam check
+        if len(strip_tags(message)) < 10:
+            raise forms.ValidationError("Please provide a more detailed message.")
         return message
 
     # --- Email sending ---
@@ -118,22 +120,21 @@ class ContactRequestForm(forms.ModelForm):
         email_subject = f"[{getattr(settings, 'PROJECT_NAME', '').strip() or 'Website'}] Contact form submission"
 
         body_plain = dedent(
-            f"""
-                    New contact form submission:
+            f"""\
+            New contact form submission:
 
-                    Name:  {name}
-                    Email: {email}
-                    Subject: {subject}
+            Name:  {name}
+            Email: {email}
+            Subject: {subject}
 
-                    ------------------------------
-                    Message:
-                    {message_plain}
-                    """
+            ------------------------------
+            Message:
+            {message_plain}
+        """
         ).strip()
 
         recipient = getattr(settings, "CONTACT_EMAIL", "").strip()
         if not recipient:
-            # Fail loudly during development if CONTACT_EMAIL is not configured
             raise RuntimeError("CONTACT_EMAIL setting is missing or empty.")
 
         try:
@@ -144,14 +145,5 @@ class ContactRequestForm(forms.ModelForm):
                 recipient_list=[recipient],
                 fail_silently=False,
             )
-        except Exception as exc:
-            # In real code, prefer Django's logging instead of print
-            # logger.exception("Failed contact form submission", extra={"email": email})
-            print(
-                "--- ERROR - FAILED Contact Form submission ---",
-                "email of sender:",
-                email,
-                "---> Error message:",
-                exc,
-            )
-            raise
+        except Exception:
+            logger.exception(f"Failed contact form submission for: '{email}'.")

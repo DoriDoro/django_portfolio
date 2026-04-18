@@ -1,12 +1,14 @@
+from datetime import timedelta
 from django.core.exceptions import ValidationError
 from django.db import models
 from django.db.models import Q
 from django.db.models.functions import Lower
+from django.utils import timezone
 from django.utils.translation import gettext_lazy as _
 from tinymce.models import HTMLField
-from typing import Dict
 
 from utils.manager.managers import ActiveManager
+from utils.database.validators import validate_not_blank
 from utils.slug.mixins import SlugCreateMixin
 
 
@@ -17,11 +19,11 @@ class ContactRequest(models.Model):
     """
 
     first_name = models.CharField(max_length=200)
-    last_name = models.CharField(max_length=200, null=True, blank=True)
+    last_name = models.CharField(max_length=200, blank=True, default="")
     email = models.EmailField(max_length=250)
 
     subject = models.CharField(max_length=200)
-    message = HTMLField()
+    message = HTMLField(validators=[validate_not_blank])
 
     submitted_at = models.DateTimeField(auto_now_add=True, db_index=True)
 
@@ -30,27 +32,29 @@ class ContactRequest(models.Model):
         on_delete=models.SET_NULL,
         null=True,
         blank=True,
-        related_name="contact_category",
+        related_name="contacts",
     )
 
     class Meta:
         constraints = [
-            # Ensure basic non-empty data at DB level (prevents all-spaces values)
             models.CheckConstraint(
-                check=~Q(first_name__exact="") & ~Q(email__exact=""),
-                name="ck_contact_not_empty_firstname_email",
-            )
+                check=~Q(first_name="") & ~Q(email="") & ~Q(subject=""),
+                name="ck_contact_first_email",
+                violation_error_code="check",
+                violation_error_message=_(
+                    "Your first name, the email address and the subject are required."
+                ),
+            ),
         ]
         indexes = [
-            # Common pattern: filter by category, order by submitted_at
             models.Index(
                 fields=["category", "-submitted_at"],
                 name="idx_contact_category_submitted",
             ),
-            # If you frequently filter by lowercase email, this helps
             models.Index(
                 Lower("email"),
-                name="idx_contact_lower_email",
+                Lower("first_name"),
+                name="idx_contact_first_name_email",
             ),
         ]
         ordering = ["-submitted_at"]
@@ -60,10 +64,7 @@ class ContactRequest(models.Model):
     def __str__(self):
         return f"Message from {self.first_name} - {self.email}"
 
-    def clean(self):
-        errors: Dict[str, str] = {}
-
-        # Normalize fields
+    def _normalize_fields(self):
         if self.first_name:
             self.first_name = self.first_name.strip()
 
@@ -76,15 +77,32 @@ class ContactRequest(models.Model):
         if self.subject:
             self.subject = self.subject.strip()
 
-        # First name must not be only whitespace
-        if not self.first_name:
-            errors["first_name"] = "First name cannot be blank."
+    def clean(self):
+        super().clean()
+        errors: dict[str, str] = {}
 
-        # Email must not be blank (DB CheckConstraint also enforces this)
-        if not self.email:
-            errors["email"] = "Email cannot be blank."
+        # Normalize fields
+        self._normalize_fields()
+
+        cutoff = timezone.now() - timedelta(days=14)
+        qs = ContactRequest.objects.filter(
+            first_name__iexact=self.first_name,
+            email__iexact=self.email,
+            subject__iexact=self.subject,
+            submitted_at__gte=cutoff,
+        )
+        if self.pk:
+            qs = qs.exclude(pk=self.pk)
+        if qs.exists():
+            raise ValidationError(
+                _(
+                    "This request was already submitted recently. "
+                    "Please wait 14 days before resubmitting."
+                )
+            )
 
         # Prevent assigning an inactive category
+        # internal usage
         if self.category and not self.category.active:
             errors["category"] = "Selected category is inactive."
 
@@ -92,6 +110,7 @@ class ContactRequest(models.Model):
             raise ValidationError(errors)
 
     def save(self, *args, **kwargs):
+        self._normalize_fields()
         self.full_clean()
         return super().save(*args, **kwargs)
 
@@ -102,15 +121,10 @@ class Category(SlugCreateMixin, models.Model):
     SlugCreateMixin: auto-generate 'slug' from 'name'.
     """
 
-    name = models.CharField(max_length=50, db_index=True)
+    name = models.CharField(max_length=50)
     slug = models.SlugField(max_length=50, blank=True, unique=True, editable=False)
 
-    active = models.BooleanField(
-        default=True,
-        verbose_name=_("contact category visible on website"),
-        db_index=True,
-    )
-
+    active = models.BooleanField(default=True, db_index=True)
     created = models.DateTimeField(auto_now_add=True)
     updated = models.DateTimeField(auto_now=True)
 
@@ -123,7 +137,9 @@ class Category(SlugCreateMixin, models.Model):
         constraints = [
             models.UniqueConstraint(
                 Lower("name"),
-                name="uix_contact_cat_lower_name",
+                name="uq_contact_cat_lower_name",
+                violation_error_code="unique",
+                violation_error_message=_("The category name already exists."),
             ),
         ]
         indexes = [
@@ -134,35 +150,28 @@ class Category(SlugCreateMixin, models.Model):
                 name="idx_contact_cat_name_active",
             ),
         ]
-        ordering = ["name", "pk"]
+        ordering = [Lower("name"), "pk"]
         verbose_name_plural = "Categories"
 
     def __str__(self):
         return self.name
 
-    def clean(self):
-        errors: Dict[str, str] = {}
-
-        if not self.name:
-            errors["name"] = "Name cannot be blank."
-
+    def _normalize_fields(self):
         if self.name:
             self.name = self.name.strip()
-
-        if (
-            self.name
-            and Category.objects.filter(name__iexact=self.name)
-            .exclude(pk=self.pk)
-            .exists()
-        ):
-            errors["name"] = f"Category with name: '{self.name}' exists already."
-
-        if errors:
-            raise ValidationError(errors)
 
     def save(self, *args, **kwargs):
-        if self.name:
-            self.name = self.name.strip()
+        self._normalize_fields()
+
+        if self.pk:
+            old_name = (
+                type(self)
+                .objects.filter(pk=self.pk)
+                .values_list("name", flat=True)
+                .first()
+            )
+            if old_name != self.name:
+                self.slug = ""
 
         if not self.slug and self.name:
             self.create_unique_slug(Category)
