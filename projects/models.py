@@ -117,7 +117,6 @@ class Link(models.Model):
         PERSONAL_PROJECT = "PERSONAL_PROJECT", _("Personal Project")
 
     title = models.CharField(max_length=200)
-    legend = models.CharField(max_length=100)
     origin = models.CharField(max_length=6, choices=OriginChoices.choices)
     platform = models.CharField(max_length=16, choices=PlatformChoices)
     url = models.URLField()
@@ -146,8 +145,6 @@ class Link(models.Model):
     def _normalize_fields(self):
         if self.title:
             self.title = self.title.strip()
-        if self.legend:
-            self.legend = self.legend.strip()
         if self.url:
             self.url = self.url.strip()
 

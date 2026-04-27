@@ -102,47 +102,6 @@ class Degree(models.Model):
         super().save(*args, **kwargs)
 
 
-class Fact(models.Model):
-    """Short details to inform."""
-
-    title = models.CharField(max_length=100)
-    content = models.CharField(max_length=500)
-
-    active = models.BooleanField(default=True)
-    created = models.DateTimeField(auto_now_add=True)
-    updated = models.DateTimeField(auto_now=True)
-
-    objects = models.Manager()
-    active_facts = ActiveManager()
-
-    class Meta:
-        constraints = [
-            models.UniqueConstraint(
-                Lower("title"),
-                name="uq_fact_low_title",
-                violation_error_code="unique",
-                violation_error_message="A Fact with this title exists already.",
-            )
-        ]
-        ordering = [Lower("title"), "pk"]
-
-    def __str__(self):
-        return f"{self.title} ({self.active})"
-
-    def _normalize_fields(self):
-        if self.title:
-            self.title = self.title.strip()
-        if self.content:
-            self.content = self.content.strip()
-
-    def save(self, *args, **kwargs):
-        clean = kwargs.pop("clean", True)
-        self._normalize_fields()
-        if clean:
-            self.full_clean()
-        super().save(*args, **kwargs)
-
-
 class Job(models.Model):
 
     class JobTypeChoices(models.TextChoices):
@@ -216,7 +175,7 @@ class Job(models.Model):
                 violation_error_message="End date should be after start date.",
             ),
         ]
-        ordering = [Lower("position"), "pk"]
+        ordering = ["start_date", "pk"]
 
     def __str__(self):
         return f"{self.job_type} ({self.company_name} - {self.active})"
