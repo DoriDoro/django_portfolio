@@ -144,32 +144,32 @@ class Job(models.Model):
                 violation_error_message="This position-company-start combination exists already.",
             ),
             models.CheckConstraint(
-                check=Q(until_present=True) | Q(end_date__isnull=False),
+                condition=Q(until_present=True) | Q(end_date__isnull=False),
                 name="ck_job_present_end",
                 violation_error_code="check",
                 violation_error_message="End date must be provided if the job is not ongoing.",
             ),
             models.CheckConstraint(
-                check=~Q(until_present=True) | Q(end_date__isnull=True),
+                condition=~Q(until_present=True) | Q(end_date__isnull=True),
                 name="ck_job_present_no_end",
                 violation_error_code="check",
                 violation_error_message="If the job is ongoing, the end date should be empty.",
             ),
             models.CheckConstraint(
-                check=Q(job_type__in=ALL_JOB_TYPE_CHOICES),
+                condition=Q(job_type__in=ALL_JOB_TYPE_CHOICES),
                 name="ck_job_type",
                 violation_error_code="check",
                 violation_error_message="This job type does not exist.",
             ),
             models.CheckConstraint(
-                check=~Q(job_type__in=SELECTED_JOB_TYPE_CHOICES)
+                condition=~Q(job_type__in=SELECTED_JOB_TYPE_CHOICES)
                 | Q(company_name__isnull=False),
                 name="ck_job_selected_type_company",
                 violation_error_code="check",
                 violation_error_message="With this job_type a company_name has to be filled out.",
             ),
             models.CheckConstraint(
-                check=Q(end_date__gte=F("start_date")) | Q(end_date__isnull=True),
+                condition=Q(end_date__gte=F("start_date")) | Q(end_date__isnull=True),
                 name="ck_job_start_before_end",
                 violation_error_code="check",
                 violation_error_message="End date should be after start date.",
@@ -229,8 +229,8 @@ class Language(models.Model):
                 violation_error_message="This language already exists.",
             ),
             models.CheckConstraint(
+                condition=Q(level__in=[l for l in LANGUAGE_CHOICES]),
                 name="ck_lang_level_valid",
-                check=Q(level__in=[l for l in LANGUAGE_CHOICES]),
                 violation_error_code="check",
                 violation_error_message="This language level does not exist.",
             ),

@@ -38,7 +38,7 @@ class ContactRequest(models.Model):
     class Meta:
         constraints = [
             models.CheckConstraint(
-                check=~Q(first_name="") & ~Q(email="") & ~Q(subject=""),
+                condition=~Q(first_name="") & ~Q(email="") & ~Q(subject=""),
                 name="ck_contact_first_email",
                 violation_error_code="check",
                 violation_error_message=_(

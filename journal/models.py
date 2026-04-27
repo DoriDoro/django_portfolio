@@ -65,7 +65,7 @@ class Journal(SlugCreateMixin, models.Model):
                 violation_error_message="An Journal with that name exists already.",
             ),
             models.CheckConstraint(
-                check=~Q(status="PB") | Q(published__isnull=False),
+                condition=~Q(status="PB") | Q(published__isnull=False),
                 name="ck_journal_published_has_date",
                 violation_error_code="check",
                 violation_error_message="A published journal must have a publish data.",

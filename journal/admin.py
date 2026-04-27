@@ -5,8 +5,8 @@ from journal.models import Journal, Link, Platform, Category
 
 @admin.register(Journal)
 class JournalAdmin(admin.ModelAdmin):
-    list_display = ["name", "category__name", "published", "status", "active"]
-    list_filter = ["status", "name", "category__name", "created", "published"]
+    list_display = ["name", "category", "published", "status", "active"]
+    list_filter = ["status", "name", "category", "created", "published"]
     search_fields = ["name"]
     date_hierarchy = "published"
     ordering = ["status", "-published"]

@@ -10,6 +10,8 @@ from doridoro.models import Job
 class Command(BaseCommand):
     help = "This command creates all Job instances for DoriDoro."
 
+    # TODO: description modified to JSONField()
+
     def get_jobs(self, path):
         try:
             with open(path, "r") as file:

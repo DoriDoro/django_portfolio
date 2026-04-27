@@ -40,7 +40,7 @@ sitemaps = {
 # translation enables urlpatterns:
 urlpatterns += i18n_patterns(
     path("", include("core.urls", namespace="core")),
-    path("", include("doridoro.urls", namespace="doridoro")),
+    # path("", include("doridoro.urls", namespace="doridoro")),
     path("portfolio/", include("projects.urls", namespace="projects")),
     path("contact/", include("contact.urls", namespace="contact")),
     path(

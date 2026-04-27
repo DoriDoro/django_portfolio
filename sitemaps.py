@@ -10,7 +10,7 @@ class ProjectSitemap(Sitemap):
     changefreq = "monthly"
 
     def items(self):
-        return Project.projects_published.all()
+        return Project.active_projects.all()
 
 
 class JournalSitemap(Sitemap):
@@ -18,7 +18,7 @@ class JournalSitemap(Sitemap):
     changefreq = "weekly"
 
     def items(self):
-        return Journal.journal_published.all()
+        return Journal.active_published_journals.all()
 
     def lastmod(self, obj):
         return obj.updated

@@ -142,22 +142,33 @@ LOCALE_PATHS = [
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.0/howto/static-files/
 
-STATIC_ROOT = os.path.join(BASE_DIR, "core/staticfiles")
+STATIC_ROOT = BASE_DIR / "core/staticfiles"
 STATIC_URL = "/static/"
-STATICFILES_DIRS = [
-    BASE_DIR / "core/static",
-]
+STATICFILES_DIRS = [BASE_DIR / "core/static"]
 
 MEDIA_URL = "/media/"
-MEDIA_ROOT = os.path.join(BASE_DIR, "core/media")
+MEDIA_ROOT = BASE_DIR / "core/media"
 
+staticfiles_backend = (
+    "whitenoise.storage.CompressedManifestStaticFilesStorage"
+    if DEBUG
+    else "django.contrib.staticfiles.storage.StaticFilesStorage"
+)
 
 STORAGES = {
     "default": {
         "BACKEND": "django.core.files.storage.FileSystemStorage",
+        "OPTIONS": {"location": MEDIA_ROOT},
+    },
+    "private": {
+        "BACKEND": "django.core.files.storage.FileSystemStorage",
+        "OPTIONS": {
+            "location": MEDIA_ROOT / "private",
+            "base_url": f"{MEDIA_URL}private/",
+        },
     },
     "staticfiles": {
-        "BACKEND": "whitenoise.storage.CompressedStaticFilesStorage",
+        "BACKEND": staticfiles_backend,
     },
 }
 

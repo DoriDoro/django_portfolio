@@ -11,4 +11,4 @@ admin.site.register(UserModel, UserAdmin)
 
 @admin.register(Profile)
 class ProfileAdmin(admin.ModelAdmin):
-    list_display = ("user__username", "email", "first_name", "last_name")
+    list_display = ("user__username", "user__email", "user__first_name", "user__last_name")

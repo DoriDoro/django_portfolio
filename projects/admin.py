@@ -15,7 +15,7 @@ class ProjectAdmin(TranslationAdmin):
 
 
 @admin.register(Link)
-class LinkAdmin(TranslationAdmin):
+class LinkAdmin(admin.ModelAdmin):
     list_display = ["title", "origin", "platform", "url", "active"]
     list_filter = ["platform", "active"]
     date_hierarchy = "created"

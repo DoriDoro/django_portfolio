@@ -7,7 +7,7 @@ class JournalListView(ListView):
     model = Journal
     template_name = "journal.html"
     context_object_name = "entries"
-    queryset = Journal.published_journals.all()
+    queryset = Journal.active_published_journals.all()
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)

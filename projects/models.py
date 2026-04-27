@@ -187,7 +187,7 @@ class Picture(SlugCreateMixin, models.Model):
     class Meta:
         constraints = [
             models.CheckConstraint(
-                check=Q(cover_picture=False) | Q(project__isnull=False),
+                condition=Q(cover_picture=False) | Q(project__isnull=False),
                 name="ck_pic_cover_req_project",
                 violation_error_code="check",
                 violation_error_message="This cover picture has to be connected to a Project.",
