@@ -7,9 +7,9 @@ from django.utils import timezone
 from django.utils.translation import gettext_lazy as _
 from tinymce.models import HTMLField
 
-from utils.manager.managers import ActiveManager
+from utils.database.managers import ActiveManager
 from utils.database.validators import validate_not_blank
-from utils.slug.mixins import SlugCreateMixin
+from utils.database.slug import SlugCreateMixin
 
 
 class ContactRequest(models.Model):

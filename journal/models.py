@@ -1,5 +1,4 @@
 from django.conf import settings
-from django.core.exceptions import ValidationError
 from django.db import models
 from django.db.models import Q
 from django.db.models.functions import Lower
@@ -8,8 +7,9 @@ from django.utils import timezone
 from django.utils.translation import gettext_lazy as _
 from tinymce.models import HTMLField
 
-from utils.manager.managers import ActiveManager
-from utils.slug.mixins import SlugCreateMixin
+from utils.database.managers import ActiveManager
+from utils.database.slug import SlugCreateMixin
+from utils.database.validators import validate_not_blank
 
 
 class JournalActivePublishedManager(models.Manager):
@@ -31,7 +31,7 @@ class Journal(SlugCreateMixin, models.Model):
     name = models.CharField(max_length=250)
     slug = models.SlugField(max_length=250, blank=True, unique=True, editable=True)
     status = models.CharField(max_length=2, choices=Status, default=Status.DRAFT)
-    content = HTMLField()
+    content = HTMLField(validators=[validate_not_blank])
 
     published = models.DateTimeField(blank=True, null=True)
 

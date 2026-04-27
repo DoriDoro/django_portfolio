@@ -3,7 +3,7 @@ from django.db.models import F, Q
 from django.db.models.functions import Lower
 from django.utils.translation import gettext_lazy as _
 
-from utils.manager.managers import ActiveManager
+from utils.database.managers import ActiveManager
 
 # --- CONSTANTS: Language model ---
 LANGUAGE_CHOICES = ["A1", "A2", "B1", "B2", "C1", "C2", "Native"]
