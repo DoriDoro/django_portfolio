@@ -1,21 +1,24 @@
+from django.conf import settings
 from django.core.exceptions import ValidationError
 from django.db import models
+from django.db.models import Q
 from django.db.models.functions import Lower
 from django.urls import reverse
 from django.utils import timezone
 from django.utils.translation import gettext_lazy as _
 from tinymce.models import HTMLField
-from typing import Dict
 
 from utils.manager.managers import ActiveManager
 from utils.slug.mixins import SlugCreateMixin
 
 
-class JournalPublishedManager(models.Manager):
+class JournalActivePublishedManager(models.Manager):
     """Filters queryset by 'status=PUBLISHED'."""
 
     def get_queryset(self):
-        return super().get_queryset().filter(status=Journal.Status.PUBLISHED)
+        return (
+            super().get_queryset().filter(active=True, status=Journal.Status.PUBLISHED)
+        )
 
 
 class Journal(SlugCreateMixin, models.Model):
@@ -25,22 +28,19 @@ class Journal(SlugCreateMixin, models.Model):
         DRAFT = "DF", _("Draft")
         PUBLISHED = "PB", _("Published")
 
-    name = models.CharField(max_length=100)
-    title = models.CharField(max_length=250)
+    name = models.CharField(max_length=250)
     slug = models.SlugField(max_length=250, blank=True, unique=True, editable=True)
     status = models.CharField(max_length=2, choices=Status, default=Status.DRAFT)
     content = HTMLField()
 
-    publish = models.DateTimeField(default=timezone.now)
+    published = models.DateTimeField(blank=True, null=True)
 
+    active = models.BooleanField(default=True, db_index=True)
     created = models.DateTimeField(auto_now_add=True)
     updated = models.DateTimeField(auto_now=True)
 
-    author = models.ForeignKey(
-        "accounts.User",
-        on_delete=models.SET_NULL,
-        null=True,
-        related_name="user_journals",
+    created_by = models.ForeignKey(
+        settings.AUTH_USER_MODEL, on_delete=models.CASCADE, related_name="user_journals"
     )
     category = models.ForeignKey(
         "journal.Category",
@@ -53,43 +53,78 @@ class Journal(SlugCreateMixin, models.Model):
     )
 
     objects = models.Manager()
-    published_journals = JournalPublishedManager()
+    active_journals = ActiveManager()
+    active_published_journals = JournalActivePublishedManager()
 
     class Meta:
-        ordering = ["-publish", "-created"]
-        indexes = [
-            models.Index(fields=["status", "-publish"], name="idx_journal_status_pub"),
+        constraints = [
+            models.UniqueConstraint(
+                Lower("name"),
+                name="uq_journal_name",
+                violation_error_code="unique",
+                violation_error_message="An Journal with that name exists already.",
+            ),
+            models.CheckConstraint(
+                check=~Q(status="PB") | Q(published__isnull=False),
+                name="ck_journal_published_has_date",
+                violation_error_code="check",
+                violation_error_message="A published journal must have a publish data.",
+            ),
         ]
+        indexes = [
+            models.Index(Lower("name"), "active", name="idx_journal_name_active"),
+            models.Index(
+                fields=["active", "status", "-published"],
+                name="idx_journal_active_status_pub",
+            ),
+        ]
+        ordering = ["-published", "-created"]
 
     def __str__(self):
-        return self.title
+        return self.name
+
+    def _normalize_fields(self):
+        if self.name:
+            self.name = self.name.strip()
+
+    def save(self, *args, **kwargs):
+        clean = kwargs.pop("clean", True)
+        update_fields = kwargs.get("update_fields")
+        fields_to_update = set(update_fields) if update_fields is not None else None
+
+        self._normalize_fields()
+        if clean:
+            self.full_clean()
+
+        if self.pk:
+            old_name = (
+                type(self)
+                .objects.filter(pk=self.pk)
+                .values_list("name", flat=True)
+                .first()
+            )
+            if old_name != self.name:
+                self.slug = ""
+                if fields_to_update is not None:
+                    fields_to_update.add("slug")
+
+        if not self.slug:
+            self.create_unique_slug(Journal)
+            if fields_to_update is not None:
+                fields_to_update.add("slug")
+
+        if fields_to_update is not None:
+            kwargs["update_fields"] = fields_to_update
+        super().save(*args, **kwargs)
+
+    def mark_published(self, commit: bool = True):
+        self.status = Journal.Status.PUBLISHED
+        self.published = timezone.now()
+        if commit:
+            self.save(update_fields=["status", "published", "updated"])
 
     def get_absolute_url(self):
         return reverse("journal:journal-detail", kwargs={"slug": self.slug})
-
-    def clean(self):
-        errors: Dict[str, str] = {}
-
-        # Status / publish logic
-        if self.status == Journal.Status.PUBLISHED:
-            # Avoid publishing with a future date
-            if self.publish and self.publish > timezone.now():
-                errors["publish"] = (
-                    "A published journal cannot have a publish date in the future."
-                )
-
-        if errors:
-            raise ValidationError(errors)
-
-    def save(self, *args, **kwargs):
-        if self.title:
-            self.title = self.title.strip()
-
-        if not self.slug and self.title:
-            self.create_unique_slug(Journal, field_name="title")
-
-        self.full_clean()
-        super().save(*args, **kwargs)
 
 
 class Category(SlugCreateMixin, models.Model):
@@ -98,12 +133,7 @@ class Category(SlugCreateMixin, models.Model):
     name = models.CharField(max_length=50)
     slug = models.SlugField(max_length=50, blank=True, unique=True, editable=True)
 
-    active = models.BooleanField(
-        default=True,
-        verbose_name=_("journal category visible on website"),
-        db_index=True,
-    )
-
+    active = models.BooleanField(default=True)
     created = models.DateTimeField(auto_now_add=True)
     updated = models.DateTimeField(auto_now=True)
 
@@ -111,39 +141,52 @@ class Category(SlugCreateMixin, models.Model):
     active_categories = ActiveManager()
 
     class Meta:
-        constraints = [models.UniqueConstraint(Lower("name"), name="uix_cat_low_name")]
-        indexes = [models.Index(fields=["name", "active"], name="idx_cat_name_active")]
-        ordering = ["name", "pk"]
+        constraints = [
+            models.UniqueConstraint(
+                Lower("name"),
+                name="uix_cat_low_name",
+                violation_error_code="unique",
+                violation_error_message="This Category exists already.",
+            )
+        ]
+        ordering = [Lower("name"), "pk"]
         verbose_name_plural = "Categories"
 
     def __str__(self):
         return self.name
 
-    def clean(self):
-        errors: Dict[str, str] = {}
-
+    def _normalize_fields(self):
         if self.name:
             self.name = self.name.strip()
-
-        if (
-            self.name
-            and Category.objects.filter(name__iexact=self.name)
-            .exclude(pk=self.pk)
-            .exists()
-        ):
-            errors["name"] = f"A Category with name: {self.name} exists already."
-
-        if errors:
-            raise ValidationError(errors)
 
     def save(self, *args, **kwargs):
-        if self.name:
-            self.name = self.name.strip()
+        clean = kwargs.pop("clean", True)
+        update_fields = kwargs.get("update_fields")
+        fields_to_update = set(update_fields) if update_fields is not None else None
 
-        if not self.slug and self.name:
+        self._normalize_fields()
+        if clean:
+            self.full_clean()
+
+        if self.pk:
+            old_name = (
+                type(self)
+                .objects.filter(pk=self.pk)
+                .values_list("name", flat=True)
+                .first()
+            )
+            if old_name != self.name:
+                self.slug = ""
+                if fields_to_update is not None:
+                    fields_to_update.add("slug")
+
+        if not self.slug:
             self.create_unique_slug(Category)
+            if fields_to_update is not None:
+                fields_to_update.add("slug")
 
-        self.full_clean()
+        if fields_to_update is not None:
+            kwargs["update_fields"] = fields_to_update
         super().save(*args, **kwargs)
 
 
@@ -153,10 +196,7 @@ class Link(models.Model):
     title = models.CharField(max_length=200)
     url = models.URLField()
 
-    active = models.BooleanField(
-        default=True, verbose_name=_("journal link visible on website"), db_index=True
-    )
-
+    active = models.BooleanField(default=True, db_index=True)
     created = models.DateTimeField(auto_now_add=True)
     updated = models.DateTimeField(auto_now=True)
 
@@ -169,44 +209,37 @@ class Link(models.Model):
 
     class Meta:
         constraints = [
-            # Same URL should not be duplicated per platform
             models.UniqueConstraint(
                 fields=["platform", "url"],
                 name="link_platform_url_unique",
+                violation_error_code="unique",
+                violation_error_message="This Link exists already.",
             ),
-            # Title should be unique per Platform
             models.UniqueConstraint(
-                Lower("title"), "platform", name="uix_link_low_title_platform"
+                Lower("title"),
+                "platform",
+                name="uix_link_low_title_platform",
+                violation_error_code="unique",
+                violation_error_message="The title has to be unique per platform.",
             ),
         ]
         indexes = [
-            models.Index(fields=["title", "active"], name="idx_link_title_active")
+            models.Index(fields=["active", "platform"], name="idx_link_active_platform")
         ]
-        ordering = ["title", "pk"]
+        ordering = [Lower("title"), "pk"]
 
     def __str__(self):
         return self.title
 
-    def clean(self):
-        errors: Dict[str, str] = {}
-
+    def _normalize_fields(self):
         if self.title:
             self.title = self.title.strip()
 
-        # Enforce Title/Platform uniqueness
-        if self.title and self.platform.id:
-            if (
-                Link.objects.filter(title__iexact=self.title, platform=self.platform)
-                .exclude(pk=self.pk)
-                .exists()
-            ):
-                errors["title"] = f"Link with name: '{self.title}' exists already."
-
-        if errors:
-            raise ValidationError(errors)
-
     def save(self, *args, **kwargs):
-        self.full_clean()
+        clean = kwargs.pop("clean", True)
+        self._normalize_fields()
+        if clean:
+            self.full_clean()
         super().save(*args, **kwargs)
 
 
@@ -216,38 +249,54 @@ class Platform(SlugCreateMixin, models.Model):
     name = models.CharField(max_length=250)
     slug = models.SlugField(max_length=250, blank=True, unique=True, editable=True)
 
+    active = models.BooleanField(default=True)
     created = models.DateTimeField(auto_now_add=True)
     updated = models.DateTimeField(auto_now=True)
 
     class Meta:
         constraints = [
-            models.UniqueConstraint(Lower("name"), name="uix_platform_low_name")
+            models.UniqueConstraint(
+                Lower("name"),
+                name="uix_platform_low_name",
+                violation_error_code="unique",
+                violation_error_message="This Platform exists already.",
+            ),
         ]
         ordering = ["name", "pk"]
 
     def __str__(self):
         return self.name
 
-    def clean(self):
-        errors: Dict[str, str] = {}
-
+    def _normalize_fields(self):
         if self.name:
             self.name = self.name.strip()
-
-        if (
-            self.name
-            and Platform.objects.filter(name__iexact=self.name)
-            .exclude(pk=self.pk)
-            .exists()
-        ):
-            errors["name"] = f"Platform with name: '{self.name}' exists already."
 
     def save(self, *args, **kwargs):
-        if self.name:
-            self.name = self.name.strip()
+        clean = kwargs.pop("clean", True)
+        update_fields = kwargs.get("update_fields")
+        fields_to_update = set(update_fields) if update_fields is not None else None
+
+        self._normalize_fields()
+        if clean:
+            self.full_clean()
+
+        if self.pk:
+            old_name = (
+                type(self)
+                .objects.filter(pk=self.pk)
+                .values_list("name", flat=True)
+                .first()
+            )
+            if old_name != self.name:
+                self.slug = ""
+                if fields_to_update is not None:
+                    fields_to_update.add("slug")
 
         if not self.slug and self.name:
             self.create_unique_slug(Platform)
+            if fields_to_update is not None:
+                fields_to_update.add("slug")
 
-        self.full_clean()
+        if fields_to_update is not None:
+            kwargs["update_fields"] = fields_to_update
         super().save(*args, **kwargs)
