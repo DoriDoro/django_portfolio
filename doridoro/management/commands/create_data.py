@@ -21,4 +21,3 @@ class Command(BaseCommand):
 
         call_command("create_links")
         call_command("create_skills")
-        call_command("create_tags")

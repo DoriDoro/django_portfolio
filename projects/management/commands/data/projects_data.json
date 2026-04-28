@@ -1,0 +1,152 @@
+{
+  "Links": [
+    {
+      "title": "Django Portfolio",
+      "origin": "GITHUB",
+      "platform": "PERSONAL_PROJECT",
+      "url": "https://github.com/DoriDoro/django_portfolio"
+    }
+  ],
+  "Skills": [
+    {
+      "name": "Python",
+      "category": "PROGRAMMING_SKILLS"
+    },
+    {
+      "name": "Django",
+      "category": "PROGRAMMING_SKILLS"
+    },
+    {
+      "name": "Django-REST-Framework",
+      "category": "PROGRAMMING_SKILLS"
+    },
+    {
+      "name": "Git",
+      "category": "PROGRAMMING_SKILLS"
+    },
+    {
+      "name": "GitHub",
+      "category": "PROGRAMMING_SKILLS"
+    },
+    {
+      "name": "GitHub actions",
+      "category": "PROGRAMMING_SKILLS"
+    },
+    {
+      "name": "Branching",
+      "category": "PROGRAMMING_SKILLS"
+    },
+    {
+      "name": "Supabase (PostgreSQL)",
+      "category": "PROGRAMMING_SKILLS"
+    },
+    {
+      "name": "SQL",
+      "category": "PROGRAMMING_SKILLS"
+    },
+    {
+      "name": "Postman",
+      "category": "PROGRAMMING_SKILLS"
+    },
+    {
+      "name": "Sentry",
+      "category": "PROGRAMMING_SKILLS"
+    },
+    {
+      "name": "Docker",
+      "category": "PROGRAMMING_SKILLS"
+    },
+    {
+      "name": "AWS - S3",
+      "category": "PROGRAMMING_SKILLS"
+    },
+    {
+      "name": "Render",
+      "category": "PROGRAMMING_SKILLS"
+    },
+    {
+      "name": "Debugging",
+      "category": "SOFT_SKILLS"
+    },
+    {
+      "name": "Problem-solving",
+      "category": "SOFT_SKILLS"
+    },
+    {
+      "name": "Time management",
+      "category": "SOFT_SKILLS"
+    },
+    {
+      "name": "Continuous learning",
+      "category": "SOFT_SKILLS"
+    },
+    {
+      "name": "Analytical thinking",
+      "category": "SOFT_SKILLS"
+    },
+    {
+      "name": "Structured",
+      "category": "SOFT_SKILLS"
+    },
+    {
+      "name": "Autonomously",
+      "category": "SOFT_SKILLS"
+    },
+    {
+      "name": "Quick comprehension",
+      "category": "STRENGTH"
+    },
+    {
+      "name": "Prioritising tasks",
+      "category": "STRENGTH"
+    },
+    {
+      "name": "Autonomy",
+      "category": "STRENGTH"
+    },
+    {
+      "name": "Adaptability",
+      "category": "STRENGTH"
+    },
+    {
+      "name": "Determination",
+      "category": "STRENGTH"
+    },
+    {
+      "name": "Commitment",
+      "category": "STRENGTH"
+    },
+    {
+      "name": "Patience",
+      "category": "STRENGTH"
+    },
+    {
+      "name": "Reliability",
+      "category": "STRENGTH"
+    },
+    {
+      "name": "Persistence",
+      "category": "STRENGTH"
+    },
+    {
+      "name": "Home office experience",
+      "category": "STRENGTH"
+    },
+    {
+      "name": "PyCharm",
+      "category": "OTHER"
+    },
+    {
+      "name": "Visual Studio Code",
+      "category": "OTHER"
+    },
+    {
+      "name": "Linux (Ubuntu)",
+      "category": "OTHER"
+    },
+    {
+      "name": "WSL (Linux)",
+      "category": "OTHER"
+    }
+  ]
+}
