@@ -10,11 +10,7 @@ class Command(BaseCommand):
 
     def handle(self, *args, **options):
         call_command(
-            "createsuperuser",
-            first_name="Dorothea",
-            last_name="Reher",
-            username="Doro",
-            email="dorothea.reher@gmail.com",
+            "createsuperuser", username="Doro", email="dorothea.reher@gmail.com"
         )
         call_command("create_doridoro")
         call_command("create_achievements")

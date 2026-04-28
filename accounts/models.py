@@ -14,7 +14,7 @@ class User(AbstractUser):
 
 class Profile(models.Model):
 
-    phone_number = models.CharField(max_length=11)
+    phone_number = models.CharField(max_length=14)
     address = models.CharField(max_length=150)
     profession = models.CharField(max_length=150)
 
