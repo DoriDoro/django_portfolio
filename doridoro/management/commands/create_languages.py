@@ -1,5 +1,5 @@
 from django.core.management.base import BaseCommand
-from django.db import IntegrityError, transaction
+from django.db import IntegrityError
 
 from doridoro.models import Language
 
@@ -30,14 +30,13 @@ class Command(BaseCommand):
                 )
                 return
 
-            with transaction.atomic():
-                for language in languages:
-                    Language.objects.create(
-                        name_en=language["name"]["en"],
-                        name_de=language["name"]["de"],
-                        name_fr=language["name"]["fr"],
-                        **language,
-                    )
+            for language in languages:
+                Language.objects.create(
+                    name_en=language["name"]["en"],
+                    name_de=language["name"]["de"],
+                    name_fr=language["name"]["fr"],
+                    **language,
+                )
 
             self.stdout.write(
                 self.style.SUCCESS("Instances of Language successfully created!")

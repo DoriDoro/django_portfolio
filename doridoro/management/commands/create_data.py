@@ -9,15 +9,18 @@ class Command(BaseCommand):
     )
 
     def handle(self, *args, **options):
-        call_command("create_superuser")
+        call_command(
+            "createsuperuser",
+            first_name="Dorothea",
+            last_name="Reher",
+            username="Doro",
+            email="dorothea.reher@gmail.com",
+        )
         call_command("create_doridoro")
         call_command("create_achievements")
         call_command("create_degrees")
-        call_command("create_facts")
-        call_command("create_hobbies")
         call_command("create_jobs")
         call_command("create_languages")
-        call_command("create_references")
         call_command("create_socialmedia")
 
         call_command("create_links")

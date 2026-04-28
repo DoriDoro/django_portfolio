@@ -1,5 +1,5 @@
 from django.core.management.base import BaseCommand
-from django.db import IntegrityError, transaction
+from django.db import IntegrityError
 
 from doridoro.models import Degree
 
@@ -30,17 +30,22 @@ class Command(BaseCommand):
                 )
                 return
 
-            with transaction.atomic():
-                for degree in degrees:
-                    Degree.objects.create(**degree)
+            for degree in degrees:
+                Degree.objects.create(**degree)
 
-            self.stdout.write(
-                self.style.SUCCESS("Instances of Degree successfully created!")
-            )
+                self.stdout.write(
+                    self.style.SUCCESS(
+                        f"Degree: '{degree["organization"]}' successfully created!"
+                    )
+                )
 
         except IntegrityError:
             self.stdout.write(
-                self.style.WARNING("These Degree instances exists already!")
+                self.style.WARNING(
+                    "[IntegrityError] - These Degree instances exists already!"
+                )
             )
         except Exception as e:
-            self.stdout.write(self.style.ERROR(f"An unexpected error occurred: {e}"))
+            self.stdout.write(
+                self.style.ERROR(f"[ERROR] - An unexpected error occurred: {e}")
+            )

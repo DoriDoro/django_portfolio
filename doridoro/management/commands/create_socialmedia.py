@@ -1,5 +1,5 @@
 from django.core.management.base import BaseCommand
-from django.db import IntegrityError, transaction
+from django.db import IntegrityError
 
 from doridoro.models import SocialMedia
 
@@ -18,10 +18,6 @@ class Command(BaseCommand):
                     "name": "GitHub",
                     "url": "https://github.com/DoriDoro",
                 },
-                {
-                    "name": "Dev.to",
-                    "url": "https://dev.to/doridoro",
-                },
             ]
 
             if SocialMedia.objects.exists():
@@ -32,9 +28,8 @@ class Command(BaseCommand):
                 )
                 return
 
-            with transaction.atomic():
-                for profile in social_media:
-                    SocialMedia.objects.create(**profile)
+            for profile in social_media:
+                SocialMedia.objects.create(**profile)
 
             self.stdout.write(
                 self.style.SUCCESS("Instances of SocialMedia successfully created!")

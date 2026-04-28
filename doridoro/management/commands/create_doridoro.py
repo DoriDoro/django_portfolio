@@ -1,90 +1,66 @@
-import json
+import logging
 
 from django.contrib.auth import get_user_model
+from django.core.management import call_command
 from django.core.management.base import BaseCommand
-from django.db import IntegrityError, transaction
+from django.db import IntegrityError
 
-from doridoro.models import DoriDoro
+from accounts.models import Profile
+from utils.management.read_json import read_json_file
 
+logger = logging.getLogger(__name__)
 UserModel = get_user_model()
 
 
 class Command(BaseCommand):
-    help = "This command creates one DoriDoro instance."
-
-    def get_descriptions(self, path):
-        try:
-            with open(path, "r") as file:
-                data = json.load(file)
-                doridoro_descriptions = data["DoriDoro"]
-
-                return doridoro_descriptions
-
-        except FileNotFoundError:
-            print(f"The file {path} was not found.")
-        except IOError:
-            print(f"An error occurred while trying to read the file {path}.")
-        except json.JSONDecodeError:
-            print(f"The file {path} does not contain valid JSON.")
-        except Exception as e:
-            print(f"An unexpected error occurred: {e}")
-
-        return None
+    help = "This command creates a Profile instance."
 
     def handle(self, *args, **options):
-        if (
-            not DoriDoro.objects.exists()
-            and not UserModel.objects.filter(username="doridoro").exists()
-        ):
-            path = "doridoro/management/commands/data_doridoro.json"
+        path = "doridoro/management/commands/data/profile_data.json"
+        data = read_json_file(json_path=path)
+        profile_data = data["Profile"]
 
-            descriptions = self.get_descriptions(path)
-            if descriptions is None:
-                return None
+        try:
+            user = UserModel.objects.get(username="Doro")
+        except UserModel.DoesNotExist:
+            user = call_command(
+                "createsuperuser",
+                username="Doro",
+                email="dorothea.reher@gmail.com",
+            )
 
+        for data in profile_data:
             try:
-                with transaction.atomic():
-                    user = UserModel.objects.create_user(
-                        username="doridoro",
-                        password="DoroPassWord147",
-                        email="dorothea.reher@gmail.com",
-                        first_name="Dorothea",
-                        last_name="Reher",
-                        is_staff=True,
-                    )
-                    DoriDoro.objects.create(
-                        user=user,
-                        phone_en="0033 768132147",
-                        phone_de="+33 768 132147",
-                        phone_fr="07 68 13 21 47",
-                        address_en="35710 Bruz in France",
-                        address_de="35710 Bruz in Frankreich",
-                        address_fr="35710 Bruz en France",
-                        profession_en="Python/Django Developer",
-                        profession_de="Python/Django Entwicklerin",
-                        profession_fr="Dévelopeuse Python/Django",
-                        introduction_en=descriptions[0]["introduction"]["en"],
-                        introduction_de=descriptions[0]["introduction"]["de"],
-                        introduction_fr=descriptions[0]["introduction"]["fr"],
-                        dream_job_en=descriptions[1]["dream_job"]["en"],
-                        dream_job_de=descriptions[1]["dream_job"]["de"],
-                        dream_job_fr=descriptions[1]["dream_job"]["fr"],
-                        free_time_en=descriptions[2]["free_time"]["en"],
-                        free_time_de=descriptions[2]["free_time"]["de"],
-                        free_time_fr=descriptions[2]["free_time"]["fr"],
-                    )
+                Profile.objects.create(
+                    user=user,
+                    phone_number_en=data["phone_number"]["en"],
+                    phone_number_de=data["phone_number"]["de"],
+                    phone_number_fr=data["phone_number"]["fr"],
+                    address_en=data["address"]["en"],
+                    address_de=data["address"]["de"],
+                    address_fr=data["address"]["fr"],
+                    profession_en=data["profession"]["en"],
+                    profession_de=data["profession"]["de"],
+                    profession_fr=data["profession"]["fr"],
+                    introduction_en=data["introduction"]["en"],
+                    introduction_de=data["introduction"]["de"],
+                    introduction_fr=data["introduction"]["fr"],
+                    dream_job_en=data["dream_job"]["en"],
+                    dream_job_de=data["dream_job"]["de"],
+                    dream_job_fr=data["dream_job"]["fr"],
+                )
 
             except IntegrityError:
                 self.stdout.write(
-                    self.style.WARNING("An instance of DoriDoro exists already!")
+                    self.style.WARNING(
+                        "[IntegrityError] - An instance of DoriDoro exists already!"
+                    )
                 )
             except Exception as e:
                 self.stdout.write(
-                    self.style.WARNING(f"An unexpected error occurred: {e}")
+                    self.style.ERROR(f"[ERROR] - An unexpected error occurred: {e}")
                 )
             else:
                 self.stdout.write(
                     self.style.SUCCESS("DoriDoro instance successfully created!")
                 )
-        else:
-            self.stdout.write(self.style.WARNING("A DoriDoro instance exists already!"))
