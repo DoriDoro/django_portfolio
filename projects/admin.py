@@ -37,7 +37,7 @@ class PictureAdmin(admin.ModelAdmin):
 
 
 @admin.register(Skill)
-class SkillAdmin(TranslationAdmin):
+class SkillAdmin(admin.ModelAdmin):
     list_display = ["name", "category", "active"]
     list_filter = ["category", "active"]
     date_hierarchy = "created"
