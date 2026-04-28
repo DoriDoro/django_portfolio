@@ -13,8 +13,8 @@
       <h2>{% trans "Programming Skills" %}</h2>
     </div>
     <div class="row">
-      {% for programming_skill in programming_skills_published %}
-        <p class="skill">{{ programming_skill }}</p>
+      {% for programming in programming_skills %}
+        <p class="skill">{{ programming }}</p>
       {% endfor %}
     </div>
     <hr>
@@ -22,8 +22,8 @@
       <h2>{% trans "Other Skills" %}</h2>
     </div>
     <div class="row">
-      {% for other_skill in other_skills_published %}
-        <p class="skill">{{ other_skill }}</p>
+      {% for other in other_skills %}
+        <p class="skill">{{ other }}</p>
       {% endfor %}
     </div>
     <hr>
@@ -31,8 +31,8 @@
       <h2>{% trans "Soft Skills" %}</h2>
     </div>
     <div class="row">
-      {% for soft_skill in soft_skills %}
-        <p class="skill">{{ soft_skill.0 }}</p>
+      {% for soft in soft_skills %}
+        <p class="skill">{{ soft }}</p>
       {% endfor %}
     </div>
     <hr>
@@ -41,7 +41,7 @@
     </div>
     <div class="row">
       {% for s in strength %}
-        <p class="skill">{{ s.0 }}</p>
+        <p class="skill">{{ s }}</p>
       {% endfor %}
     </div>
     <hr>
@@ -50,7 +50,9 @@
     </div>
     <div class="row">
     {% for language in languages %}
-      <p class="skill">{{ language.0 }}: {{ language.1 }}</p>
+      {% with name=language.0 level=language.1 %}
+        <p class="skill">{{ name }}: {{ level }}</p>
+      {% endwith %}
     {% endfor %}
     </div>
     <hr>
@@ -60,7 +62,7 @@
     <div class="row mx-4">
       <div class="col pt-4 pt-lg-0 content">
         <p>
-          {{ doridoro|safe }}
+          {{ doridoro.dream_job|safe }}
         </p>
       </div>
     </div>

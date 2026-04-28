@@ -1,144 +1,160 @@
-# from django.utils.translation import gettext
-# from django.views.generic import TemplateView
-#
-# from doridoro.models import (
-#     Achievement,
-#     Job,
-#     Language,
-#     SocialMedia,
-# )
-# from projects.models import Project, Skill
-#
-#
-# class IndexView(TemplateView):
-#     template_name = "index.html"
-#
-#     def get_context_data(self, **kwargs):
-#         context = super().get_context_data(**kwargs)
-#         context["doridoro"] = (
-#             DoriDoro.objects.select_related("user")
-#             .only("profession", "user__first_name", "user__last_name")
-#             .first()
-#         )
-#         context["social_media"] = SocialMedia.active_social_medias.values_list(
-#             "name", "url"
-#         )
-#         context["facts"] = Fact.active_facts.values_list("content", flat=True)
-#         return context
-#
-#
-# class AboutView(TemplateView):
-#     template_name = "about.html"
-#
-#     def get_context_data(self, **kwargs):
-#         context = super().get_context_data(**kwargs)
-#
-#         context["doridoro"] = (
-#             DoriDoro.objects.select_related("user")
-#             .only(
-#                 "user__email",
-#                 "phone",
-#                 "address",
-#                 "profession",
-#                 "introduction",
-#                 "free_time",
-#             )
-#             .first()
-#         )
-#         context["current_positions"] = Job.objects.filter(
-#             until_present=True,
-#             published=True,
-#         ).values_list("position", "company_name")
-#         context["projects_count"] = Project.objects.filter(published=True).count()
-#         context["skills_count"] = Skill.objects.filter(published=True).count()
-#         context["achievements"] = Achievement.objects.filter(
-#             published=True
-#         ).values_list("content", flat=True)
-#         context["hobbies"] = Hobby.objects.filter(published=True).values_list(
-#             "name", flat=True
-#         )
-#
-#         return context
-#
-#
-# class SkillsView(TemplateView):
-#     template_name = "skills.html"
-#
-#     def get_context_data(self, **kwargs):
-#         context = super().get_context_data(**kwargs)
-#
-#         context["doridoro"] = DoriDoro.objects.values_list(
-#             "dream_job", flat=True
-#         ).first()
-#         context["programming_skills_published"] = self.get_skills_data().filter(
-#             category=Skill.SkillChoices.PROGRAMMING_SKILLS
-#         )
-#         context["soft_skills"] = self.translate_skills_name(
-#             category=Skill.SkillChoices.SOFT_SKILLS
-#         )
-#         context["other_skills_published"] = self.get_skills_data().filter(
-#             category=Skill.SkillChoices.OTHER
-#         )
-#         context["strength"] = self.translate_skills_name(
-#             category=Skill.SkillChoices.STRENGTH
-#         )
-#         context["languages"] = self.get_languages_data()
-#
-#         return context
-#
-#     def get_skills_data(self):
-#         return Skill.objects.filter(published=True).values_list("name", flat=True)
-#
-#     def translate_skills_name(self, category):
-#         tags = self.get_skills_data().values_list("name", "category")
-#         result_dict = {"SOFT_SKILLS": (), "STRENGTH": ()}
-#         for tag in tags:
-#             if tag[1] in ["SOFT_SKILLS", "STRENGTH"]:
-#                 translated_name = gettext(tag[0])
-#                 result_dict[tag[1]] += ((translated_name, tag[1]),)
-#
-#         return result_dict[category]
-#
-#     def get_languages_data(self):
-#         languages = Language.objects.all()
-#         language_tuple = ()
-#         for language in languages:
-#             language_tuple += ((language.name, language.get_level_display()),)
-#         return language_tuple
-#
-#
-# class ResumeView(TemplateView):
-#     template_name = "resume.html"
-#
-#     def get_context_data(self, **kwargs):
-#         context = super().get_context_data(**kwargs)
-#         context["jobs_formation"] = self.get_job_data().filter(
-#             job_type=Job.JobType.FORMATION
-#         )
-#         context["jobs_mentoring"] = self.get_job_data().filter(
-#             job_type=Job.JobType.MENTORING
-#         )
-#         context["jobs_experience"] = self.get_job_data().filter(
-#             job_type__in=[
-#                 Job.JobType.FREELANCE,
-#                 Job.JobType.EMPLOYED,
-#                 Job.JobType.APPRENTICESHIP,
-#                 Job.JobType.PARENTAL_LEAVE,
-#                 Job.JobType.SABBATICAL,
-#             ]
-#         )
-#         return context
-#
-#     def get_job_data(self):
-#         return (
-#             Job.objects.filter(published=True)
-#             .order_by("-until_present", "-start_date")
-#             .values_list(
-#                 "company_name",
-#                 "position",
-#                 "start_date",
-#                 "end_date",
-#                 "address",
-#                 "description",
-#             )
-#         )
+import logging
+
+from django.shortcuts import get_object_or_404
+from django.utils.functional import cached_property
+from django.utils.translation import gettext
+from django.views.generic import TemplateView
+
+from accounts.models import Profile
+from doridoro.models import Achievement, Job, Language, SocialMedia
+from projects.models import Project, Skill
+
+logger = logging.getLogger(__name__)
+
+
+class IndexView(TemplateView):
+    template_name = "index.html"
+
+    @cached_property
+    def profile(self):
+        return get_object_or_404(
+            Profile.objects.select_related("user").only(
+                "id", "profession", "user__id", "user__first_name", "user__last_name"
+            ),
+            user__username="Doro",
+        )
+
+    def get_context_data(self, **kwargs):
+        ctx = super().get_context_data(**kwargs)
+        ctx["doridoro"] = self.profile
+        ctx["social_media"] = SocialMedia.active_social_medias.values_list(
+            "name", "url"
+        )
+        return ctx
+
+
+class AboutView(TemplateView):
+    template_name = "about.html"
+
+    @cached_property
+    def profile(self):
+        return get_object_or_404(
+            Profile.objects.select_related("user").only(
+                "id",
+                "phone_number",
+                "address",
+                "profession",
+                "introduction",
+                "user__id",
+                "user__email",
+            ),
+            user__username="Doro",
+        )
+
+    @cached_property
+    def jobs(self):
+        return Job.active_jobs.filter(until_present=True).values_list(
+            "position", "company_name"
+        )
+
+    def get_context_data(self, **kwargs):
+        ctx = super().get_context_data(**kwargs)
+
+        ctx["doridoro"] = self.profile
+        ctx["current_positions"] = self.jobs
+        ctx["projects_count"] = Project.active_projects.count()
+        ctx["skills_count"] = Skill.active_skills.count()
+        ctx["achievements"] = Achievement.active_achievements.values_list(
+            "title", "content"
+        )
+
+        return ctx
+
+
+class SkillsView(TemplateView):
+    template_name = "skills.html"
+
+    @cached_property
+    def skills_qs(self):
+        return Skill.active_skills.only("id", "name", "category").order_by("name", "pk")
+
+    @cached_property
+    def profile(self):
+        return get_object_or_404(
+            Profile.objects.only("id", "dream_job"),
+            user__username="Doro",
+        )
+
+    def _get_languages_data(self):
+        languages = Language.active_languages.only("id", "name", "level").order_by(
+            "-level"
+        )
+        return [(lang.name, lang.get_level_display()) for lang in languages]
+
+    def _create_skills_context(self):
+        all_skills = list(self.skills_qs)
+        programming_skills, other_skills, soft_skills, strength = [], [], [], []
+
+        for skill in all_skills:
+            if skill.category == Skill.SkillChoices.PROGRAMMING_SKILLS:
+                programming_skills.append(skill.name)
+            elif skill.category == Skill.SkillChoices.OTHER:
+                other_skills.append(skill.name)
+            elif skill.category == Skill.SkillChoices.SOFT_SKILLS:
+                soft_skills.append(gettext(skill.name))
+            elif skill.category == Skill.SkillChoices.STRENGTH:
+                strength.append(gettext(skill.name))
+
+        return {
+            "programming_skills": programming_skills,
+            "soft_skills": soft_skills,
+            "other_skills": other_skills,
+            "strength": strength,
+            "languages": self._get_languages_data(),
+        }
+
+    def get_context_data(self, **kwargs):
+
+        ctx = super().get_context_data(**kwargs)
+
+        ctx["doridoro"] = self.profile
+        ctx.update(self._create_skills_context())
+        return ctx
+
+
+class ResumeView(TemplateView):
+    template_name = "resume.html"
+
+    @cached_property
+    def jobs(self):
+        return Job.active_jobs.only(
+            "id",
+            "company_name",
+            "address",
+            "position",
+            "description",
+            "job_type",
+            "start_date",
+            "end_date",
+            "until_present",
+        ).order_by("-start_date", "pk")
+
+    def _create_jobs_context(self):
+        all_jobs = list(self.jobs)
+        formation_types = {Job.JobTypeChoices.FORMATION, Job.JobTypeChoices.MENTORING}
+        return {
+            "jobs_formation": [
+                j for j in all_jobs if j.job_type == Job.JobTypeChoices.FORMATION
+            ],
+            "jobs_mentoring": [
+                j for j in all_jobs if j.job_type == Job.JobTypeChoices.MENTORING
+            ],
+            "jobs_experience": [
+                j for j in all_jobs if j.job_type not in formation_types
+            ],
+        }
+
+    def get_context_data(self, **kwargs):
+        ctx = super().get_context_data(**kwargs)
+        ctx.update(self._create_jobs_context())
+        return ctx

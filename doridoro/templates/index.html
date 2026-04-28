@@ -12,26 +12,12 @@
       <!-- Alerts/Messages - End -->
 
       <h1 class="mb-4 ms-5">{{ doridoro.user.get_full_name }}</h1>
-      <h2>
+      <h2 class="lh-lg">
         {% blocktrans with profession=doridoro.profession|lower %}
-          I'm a <span>{{ profession }}</span> from Germany, living in France.
+          I'm a <span>{{ profession }}</span> with 2+ years building production APIs. <br>
+          Looking for remote-first roles in tech teams across France, Germany, or Switzerland.
         {% endblocktrans %}
       </h2>
-
-      {% if facts %}
-      <div class="row mt-4 container">
-        <div class="col-lg-7 content">
-          {% for fact in facts %}
-          <ul>
-            <li>
-              <i class="bi bi-chevron-right"></i>
-              {{ fact }}
-            </li>
-          </ul>
-          {% endfor %}
-        </div>
-      </div>
-      {% endif %}
 
       <div class="social-links">
         {% for media in social_media %}
