@@ -221,7 +221,7 @@ class Picture(SlugCreateMixin, models.Model):
             img = img.convert("RGB")
         new_height = int((800 / img.width) * img.height)
         try:
-            img = img.resize((800, new_height), Image.LANCZOS)
+            img = img.resize((800, new_height), Image.Resampling.LANCZOS)
             temp_img = BytesIO()
             img.save(temp_img, format="JPEG", optimize=True)
             temp_img.seek(0)
