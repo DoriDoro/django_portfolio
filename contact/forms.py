@@ -9,7 +9,6 @@ from textwrap import dedent
 
 from contact.models import ContactRequest
 
-
 logger = logging.getLogger(__name__)
 
 
@@ -117,10 +116,12 @@ class ContactRequestForm(forms.ModelForm):
         message_plain = strip_tags(message_html)
 
         # Email subject for your team
-        email_subject = f"[{getattr(settings, 'PROJECT_NAME', '').strip() or 'Website'}] Contact form submission"
+        email_subject = (
+            f"[{getattr(settings, 'PROJECT_NAME', '').strip() or 'Website'}] "
+            "Contact form submission"
+        )
 
-        body_plain = dedent(
-            f"""\
+        body_plain = dedent(f"""\
             New contact form submission:
 
             Name:  {name}
@@ -130,8 +131,7 @@ class ContactRequestForm(forms.ModelForm):
             ------------------------------
             Message:
             {message_plain}
-        """
-        ).strip()
+        """).strip()
 
         recipient = getattr(settings, "CONTACT_EMAIL", "").strip()
         if not recipient:

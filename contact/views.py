@@ -8,7 +8,6 @@ from django.views.generic import CreateView
 from contact.forms import ContactRequestForm
 from contact.models import ContactRequest
 
-
 logger = logging.getLogger(__name__)
 
 
