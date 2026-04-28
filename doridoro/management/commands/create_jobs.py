@@ -35,6 +35,7 @@ class Command(BaseCommand):
                         "end_date": job.get("end_date"),
                         "until_present": job.get("until_present", False),
                         "job_type": job["job_type"],
+                        "work_type": job["work_type"],
                     },
                 )
 

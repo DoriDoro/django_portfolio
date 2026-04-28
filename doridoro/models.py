@@ -113,11 +113,17 @@ class Job(models.Model):
         PARENTAL_LEAVE = "PARENTAL_LEAVE", _("Parental Leave")
         SABBATICAL = "SABBATICAL", _("Sabbatical")
 
+    class WorkTypeChoices(models.TextChoices):
+        ON_SITE = "ON_SITE", _("On site")
+        HYBRID = "HYBRID", _("Hybrid")
+        REMOTE = "REMOTE", _("Remote")
+
     company_name = models.CharField(max_length=200, blank=True, default="")
     address = models.CharField(max_length=100, blank=True, default="")
     position = models.CharField(max_length=200)
     description = models.JSONField(default=list)
     job_type = models.CharField(max_length=14, choices=JobTypeChoices.choices)
+    work_type = models.CharField(max_length=7, choices=WorkTypeChoices.choices)
 
     start_date = models.DateField(verbose_name=_("start date"))
     end_date = models.DateField(blank=True, null=True, verbose_name=_("end date"))

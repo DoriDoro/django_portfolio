@@ -5,7 +5,7 @@
     <h5>                                                                                                                                                                                                                           
       {{ job.start_date|date:"M Y" }} {% trans "to" %} {% if end_date %}{{ end_date|date:"M o" }}{% else %}{% trans "present" %}{% endif %}
     </h5>                                                                                                                                                                                                                          
-    <p><em>{% if job.address %}{{ job.address }}{% endif %}</em></p>                                                                                                                                                               
+    <p><em>{% if job.address %}{{ job.address }}{% endif %} - {% if job.work_type %}{{ job.get_work_type_display }}{% endif %}</em></p>
     <ul>                                                            
       {% for point in job.description %}                                                                                                                                                                                           
         <li><i class="bi bi-chevron-right"></i>{{ point|safe }}</li>                                                                                                                                                             

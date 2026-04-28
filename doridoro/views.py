@@ -134,6 +134,7 @@ class ResumeView(TemplateView):
             "position",
             "description",
             "job_type",
+            "work_type",
             "start_date",
             "end_date",
             "until_present",

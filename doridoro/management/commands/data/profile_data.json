@@ -162,7 +162,8 @@
         "Développement autonome d'outils frontend internes avec Bootstrap pour répondre aux besoins opérationnels."
       ]
       },
-      "job_type": "EMPLOYED"
+      "job_type": "EMPLOYED",
+      "work_type": "HYBRID"
     },
     {
       "company_name": "Cocoonr Hosting Power and Book&Pay",
@@ -204,7 +205,8 @@
           "Développé de nouvelles fonctionnalités qui ont amélioré l'expérience des utilisateurs pour plus de 3 500 hébergements, contribuant ainsi à une croissance des ventes de 61,9 %."
         ]
       },
-      "job_type": "APPRENTICESHIP"
+      "job_type": "APPRENTICESHIP",
+      "work_type": "HYBRID"
     },
     {
       "company_name": "",
@@ -237,7 +239,8 @@
           "Préparation de mon project de reconversion professionnelle : choix de l’école et recherche de l’entreprise partenaires."
         ]
       },
-      "job_type": "PARENTAL_LEAVE"
+      "job_type": "PARENTAL_LEAVE",
+      "work_type": "REMOTE"
     },
     {
       "company_name": "Comdata (Nissan)",
@@ -273,7 +276,8 @@
           "Utilisation efficace de Salesforce CRM en tant que système d'enregistrement et de gestion complet, facilitant la documentation rationalisée et le suivi des interactions avec les clients et des résolutions."
         ]
       },
-      "job_type": "EMPLOYED"
+      "job_type": "EMPLOYED",
+      "work_type": "ON_SITE"
     },
     {
       "company_name": "",
@@ -303,7 +307,8 @@
           "Engagé dans la communauté dynamique de Paris en tant que promeneur de chiens, fournissant des soins attentifs et de la compagnie aux animaux de compagnie tout en explorant les divers quartiers de la ville."
         ]
       },
-      "job_type": "SABBATICAL"
+      "job_type": "SABBATICAL",
+      "work_type": "REMOTE"
     },
     {
       "company_name": "Zentrale Klinische Forschung in Freiburg im Breisgau",
@@ -333,7 +338,8 @@
           "A analysé avec compétence les données générées par le projet, traduisant les résultats en graphiques et rapports visuellement informatifs afin de faciliter les processus de prise de décision fondés sur des données. Collaborer efficacement avec des chercheurs post-doctoraux, en favorisant le travail d'équipe et l'échange de connaissances afin d'atteindre efficacement les objectifs du projet."
         ]
       },
-      "job_type": "EMPLOYED"
+      "job_type": "EMPLOYED",
+      "work_type": "ON_SITE"
     },
     {
       "company_name": "OpenClassrooms",
@@ -345,9 +351,9 @@
       "start_date": "2022-11-21",
       "end_date": "2024-11-21",
       "address": {
-        "en": "Home Office (FRANCE)",
-        "de": "Home-Office (FRANKREICH)",
-        "fr": "Télétravail (FRANCE)"
+        "en": "Rennes (FRANCE)",
+        "de": "Rennes (FRANKREICH)",
+        "fr": "Rennes (FRANCE)"
       },
       "description": {
         "en": [
@@ -396,7 +402,8 @@
           "Documentation des applications, réduction des erreurs techniques, contrôle du code Sentry, déploiement, méthodologie CI/CD, architecture modulaire Python."
         ]
       },
-      "job_type": "FORMATION"
+      "job_type": "FORMATION",
+      "work_type": "REMOTE"
     },
     {
       "company_name": "",
@@ -408,9 +415,9 @@
       "start_date": "2022-11-21",
       "end_date": "2024-11-21",
       "address": {
-        "en": "Home Office (FRANCE)",
-        "de": "Home-Office (FRANKREICH)",
-        "fr": "Télétravail (FRANCE)"
+        "en": "Rennes (FRANCE)",
+        "de": "Rennes (FRANKREICH)",
+        "fr": "Rennes (FRANCE)"
       },
       "description": {
         "en": [
@@ -429,7 +436,8 @@
           "Bénéficié d'un soutien personnalisé et d'un mentorat pour mener à bien les projets, en profitant de conseils d'experts et d'idées pratiques pour améliorer la compréhension et l'exécution des projets."
         ]
       },
-      "job_type": "MENTORING"
+      "job_type": "MENTORING",
+      "work_type": "REMOTE"
     },
     {
       "company_name": "",
@@ -441,9 +449,9 @@
       "start_date": "2023-09-01",
       "end_date": "2024-07-01",
       "address": {
-        "en": "Home Office (FRANCE)",
-        "de": "Home-Office (FRANKREICH)",
-        "fr": "Télétravail (FRANCE)"
+        "en": "Rennes (FRANCE)",
+        "de": "Rennes (FRANKREICH)",
+        "fr": "Rennes (FRANCE)"
       },
       "description": {
         "en": [
@@ -462,7 +470,8 @@
           "En outre, j'ai bénéficié d'une assistance pour les projets OpenClassrooms afin d'approfondir la compréhension et d'affiner l'exécution du projet, ce qui a permis d'améliorer les résultats globaux de l'apprentissage et la maîtrise des compétences."
         ]
       },
-      "job_type": "MENTORING"
+      "job_type": "MENTORING",
+      "work_type": "REMOTE"
     },
     {
       "company_name": "Ironhack Paris",
@@ -495,7 +504,8 @@
           "S'engager activement dans un apprentissage pratique, culminant avec la création de projets personnalisés pour consolider la compréhension et appliquer les compétences nouvellement acquises."
         ]
       },
-      "job_type": "FORMATION"
+      "job_type": "FORMATION",
+      "work_type": "ON_SITE"
     },
     {
       "company_name": "Walther-Rathenau-Gewerbeschule",
@@ -531,7 +541,8 @@
           "Analyses biologiques et chimiques."
         ]
       },
-      "job_type": "FORMATION"
+      "job_type": "FORMATION",
+      "work_type": "ON_SITE"
     }
   ]
 }
