@@ -1,4 +1,5 @@
 from io import BytesIO
+from unicodedata import category
 
 from django.core.exceptions import ValidationError
 from django.core.files.base import ContentFile
@@ -14,6 +15,11 @@ from utils.database.images import upload_to, private_storage, validate_image_fil
 from utils.database.managers import ActiveManager
 from utils.database.slug import SlugCreateMixin
 from utils.database.validators import validate_not_blank
+
+# -- CONSTRAINTS --
+# -- Skill Choices --
+CATEGORY_CHOICES = ["PROGRAMMING_SKILLS", "SOFT_SKILLS", "STRENGTH"]
+SUBCATEGORY_CHOICES = ["BACKEND", "AUTH", "DATABASE", "DEV_OPS", "TOOLS"]
 
 
 class Project(SlugCreateMixin, models.Model):
@@ -40,11 +46,11 @@ class Project(SlugCreateMixin, models.Model):
 
     links = models.ManyToManyField("projects.Link", related_name="projects")
     skills = models.ManyToManyField("projects.Skill", related_name="projects")
-    doridoro = models.ForeignKey(
+    profile = models.ForeignKey(
         "accounts.Profile",
         on_delete=models.SET_NULL,
         null=True,
-        related_name="doro_projects",
+        related_name="projects",
     )
 
     objects = models.Manager()
@@ -266,15 +272,27 @@ class Picture(SlugCreateMixin, models.Model):
 class Skill(models.Model):
     """Used stack."""
 
-    class SkillChoices(models.TextChoices):
+    class CategoryChoices(models.TextChoices):
         PROGRAMMING_SKILLS = "PROGRAMMING_SKILLS", _("Programming Skills")
         SOFT_SKILLS = "SOFT_SKILLS", _("Soft Skills")
-        OTHER = "OTHER", _("Other")
         STRENGTH = "STRENGTH", _("Strength")
-        WEAKNESSES = "WEAKNESSES", _("Weakness")
 
-    name = models.CharField(max_length=50)
-    category = models.CharField(max_length=18, choices=SkillChoices.choices)
+    class SubCategory(models.TextChoices):
+        BACKEND = "BACKEND", _("Backend")
+        AUTH = "AUTH", _("Authentication")
+        DATABASE = "DATABASE", _("Database")
+        DEV_OPS = "DEV_OPS", _("DevOps")
+        TOOLS = "TOOLS", _("Tools")
+
+    # general
+    name = models.CharField(max_length=100)
+    category = models.CharField(max_length=18, choices=CategoryChoices.choices)
+    # PROGRAMMING_SKILLS
+    sub_category = models.CharField(
+        max_length=8, choices=SubCategory.choices, blank=True, default=""
+    )
+    # STRENGTH
+    content = models.CharField(max_length=500, blank=True, default="")
 
     active = models.BooleanField(default=True)
     created = models.DateTimeField(auto_now_add=True)
@@ -288,9 +306,34 @@ class Skill(models.Model):
             models.UniqueConstraint(
                 Lower("name"),
                 "category",
-                name="uq_skill_name_category",
+                name="uq_skill_name_per_cat",
                 violation_error_code="unique",
-                violation_error_message="This name-category-combination exists already.",
+                violation_error_message="Skill name already exists for this category.",
+            ),
+            models.CheckConstraint(
+                condition=Q(category__in=CATEGORY_CHOICES),
+                name="ck_skill_category",
+                violation_error_code="check",
+                violation_error_message="The category choice does not exist.",
+            ),
+            models.CheckConstraint(
+                condition=Q(sub_category="") | Q(sub_category__in=SUBCATEGORY_CHOICES),
+                name="ck_skill_sub_category",
+                violation_error_code="check",
+                violation_error_message="The sub_category choice does not exist.",
+            ),
+            models.CheckConstraint(
+                condition=~Q(category="PROGRAMMING_SKILLS")
+                | Q(sub_category__in=SUBCATEGORY_CHOICES),
+                name="ck_skill_cat_sub_cat",
+                violation_error_code="check",
+                violation_error_message="Programming Skills require a sub category.",
+            ),
+            models.CheckConstraint(
+                condition=~Q(category="STRENGTH,") | ~Q(content=""),
+                name="ck_skill_cat_sof_strength",
+                violation_error_code="check",
+                violation_error_message="Strength require 'content'.",
             ),
         ]
         ordering = [Lower("name"), "pk"]
@@ -301,6 +344,8 @@ class Skill(models.Model):
     def _normalize_fields(self):
         if self.name:
             self.name = self.name.strip()
+        if self.content:
+            self.content = self.content.strip()
 
     def save(self, *args, **kwargs):
         clean = kwargs.pop("clean", True)

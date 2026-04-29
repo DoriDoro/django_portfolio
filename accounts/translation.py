@@ -5,4 +5,11 @@ from accounts.models import Profile
 
 @register(Profile)
 class ProfileTranslationOptions(TranslationOptions):
-    fields = ("phone_number", "address", "profession", "introduction", "dream_job")
+    fields = (
+        "phone_number",
+        "address",
+        "profession",
+        "motto",
+        "introduction",
+        "more_details",
+    )

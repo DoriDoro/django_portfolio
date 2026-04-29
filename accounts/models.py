@@ -17,9 +17,10 @@ class Profile(models.Model):
     phone_number = models.CharField(max_length=14)
     address = models.CharField(max_length=150)
     profession = models.CharField(max_length=150)
+    motto = models.CharField(max_length=150)
 
     introduction = HTMLField(validators=[validate_not_blank])
-    dream_job = HTMLField(validators=[validate_not_blank])
+    more_details = HTMLField(validators=[validate_not_blank])
 
     created = models.DateTimeField(auto_now_add=True)
     updated = models.DateTimeField(auto_now=True)

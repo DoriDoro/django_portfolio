@@ -15,14 +15,21 @@ class Command(BaseCommand):
 
         try:
             for skill in skill_data:
+                name = skill["name"]
+                content = skill.get("content", {})
                 Skill.objects.create(
-                    **skill,
+                    name_en=name["en"],
+                    name_de=name.get("de", ""),
+                    name_fr=name.get("fr", ""),
+                    category=skill["category"],
+                    sub_category=skill.get("sub_category", ""),
+                    content_en=content.get("en", ""),
+                    content_de=content.get("de", ""),
+                    content_fr=content.get("fr", ""),
                 )
 
                 self.stdout.write(
-                    self.style.SUCCESS(
-                        f"Skill: '{skill['name']}' successfully created!"
-                    )
+                    self.style.SUCCESS(f"Skill: '{name['en']}' successfully created!")
                 )
 
         except IntegrityError:

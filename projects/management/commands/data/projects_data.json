@@ -9,144 +9,274 @@
   ],
   "Skills": [
     {
-      "name": "Python",
-      "category": "PROGRAMMING_SKILLS"
+      "name": {
+        "en": "Python",
+        "de": "",
+        "fr": ""
+      },
+      "category": "PROGRAMMING_SKILLS",
+      "sub_category": "BACKEND"
     },
     {
-      "name": "Django",
-      "category": "PROGRAMMING_SKILLS"
+      "name": {
+        "en": "Django",
+        "de": "",
+        "fr": ""
+      },
+      "category": "PROGRAMMING_SKILLS",
+      "sub_category": "BACKEND"
     },
     {
-      "name": "Django-REST-Framework",
-      "category": "PROGRAMMING_SKILLS"
+      "name": {
+        "en": "Django-REST-Framework",
+        "de": "",
+        "fr": ""
+      },
+      "category": "PROGRAMMING_SKILLS",
+      "sub_category": "BACKEND"
     },
     {
-      "name": "Git",
-      "category": "PROGRAMMING_SKILLS"
+      "name": {
+        "en": "JWT",
+        "de": "",
+        "fr": ""
+      },
+      "category": "PROGRAMMING_SKILLS",
+      "sub_category": "AUTH"
     },
     {
-      "name": "GitHub",
-      "category": "PROGRAMMING_SKILLS"
+      "name": {
+        "en": "MFA",
+        "de": "",
+        "fr": ""
+      },
+      "category": "PROGRAMMING_SKILLS",
+      "sub_category": "AUTH"
     },
     {
-      "name": "GitHub actions",
-      "category": "PROGRAMMING_SKILLS"
+      "name": {
+        "en": "PostgreSQL",
+        "de": "",
+        "fr": ""
+      },
+      "category": "PROGRAMMING_SKILLS",
+      "sub_category": "DATABASE"
     },
     {
-      "name": "Branching",
-      "category": "PROGRAMMING_SKILLS"
+      "name": {
+        "en": "Supabase",
+        "de": "",
+        "fr": ""
+      },
+      "category": "PROGRAMMING_SKILLS",
+      "sub_category": "DATABASE"
     },
     {
-      "name": "Supabase (PostgreSQL)",
-      "category": "PROGRAMMING_SKILLS"
+      "name": {
+        "en": "Database Architecture & Modeling",
+        "de": "Datenbankarchitektur & Modellierung",
+        "fr": "Architecture et modélisation de bases de données"
+      },
+      "category": "PROGRAMMING_SKILLS",
+      "sub_category": "DATABASE"
     },
     {
-      "name": "SQL",
-      "category": "PROGRAMMING_SKILLS"
+      "name": {
+        "en": "Docker",
+        "de": "",
+        "fr": ""
+      },
+      "category": "PROGRAMMING_SKILLS",
+      "sub_category": "DEV_OPS"
     },
     {
-      "name": "Postman",
-      "category": "PROGRAMMING_SKILLS"
+      "name": {
+        "en": "docker-compose",
+        "de": "",
+        "fr": ""
+      },
+      "category": "PROGRAMMING_SKILLS",
+      "sub_category": "DEV_OPS"
     },
     {
-      "name": "Sentry",
-      "category": "PROGRAMMING_SKILLS"
+      "name": {
+        "en": "AWS - S3",
+        "de": "",
+        "fr": ""
+      },
+      "category": "PROGRAMMING_SKILLS",
+      "sub_category": "DEV_OPS"
     },
     {
-      "name": "Docker",
-      "category": "PROGRAMMING_SKILLS"
+      "name": {
+        "en": "Sentry",
+        "de": "",
+        "fr": ""
+      },
+      "category": "PROGRAMMING_SKILLS",
+      "sub_category": "DEV_OPS"
     },
     {
-      "name": "AWS - S3",
-      "category": "PROGRAMMING_SKILLS"
+      "name": {
+        "en": "Git",
+        "de": "",
+        "fr": ""
+      },
+      "category": "PROGRAMMING_SKILLS",
+      "sub_category": "TOOLS"
     },
     {
-      "name": "Render",
-      "category": "PROGRAMMING_SKILLS"
+      "name": {
+        "en": "GitHub",
+        "de": "",
+        "fr": ""
+      },
+      "category": "PROGRAMMING_SKILLS",
+      "sub_category": "TOOLS"
     },
     {
-      "name": "Debugging",
+      "name": {
+        "en": "VS Code",
+        "de": "",
+        "fr": ""
+      },
+      "category": "PROGRAMMING_SKILLS",
+      "sub_category": "TOOLS"
+    },
+    {
+      "name": {
+        "en": "PyCharm",
+        "de": "",
+        "fr": ""
+      },
+      "category": "PROGRAMMING_SKILLS",
+      "sub_category": "TOOLS"
+    },
+    {
+      "name": {
+        "en": "Postman",
+        "de": "",
+        "fr": ""
+      },
+      "category": "PROGRAMMING_SKILLS",
+      "sub_category": "TOOLS"
+    },
+    {
+      "name": {
+        "en": "Self-directed work",
+        "de": "Eigenverantwortliches Arbeiten",
+        "fr": "Autonomie & responsabilité"
+      },
       "category": "SOFT_SKILLS"
     },
     {
-      "name": "Problem-solving",
+      "name": {
+        "en": "Structured & analytical thinking",
+        "de": "Strukturiertes & analytisches Denken",
+        "fr": "Pensée structurée & analytique"
+      },
       "category": "SOFT_SKILLS"
     },
     {
-      "name": "Time management",
+      "name": {
+        "en": "Self-organisation",
+        "de": "Selbstorganisation",
+        "fr": "Organisation personnelle"
+      },
       "category": "SOFT_SKILLS"
     },
     {
-      "name": "Continuous learning",
+      "name": {
+        "en": "Reliability & accountability",
+        "de": "Zuverlässigkeit & Verbindlichkeit",
+        "fr": "Fiabilité & rigueur"
+      },
       "category": "SOFT_SKILLS"
     },
     {
-      "name": "Analytical thinking",
+      "name": {
+        "en": "Clear, direct communication",
+        "de": "Klare, direkte Kommunikation",
+        "fr": "Communication claire et directe"
+      },
       "category": "SOFT_SKILLS"
     },
     {
-      "name": "Structured",
+      "name": {
+        "en": "Proactive initiative",
+        "de": "Proaktives Handeln",
+        "fr": "Sens de l'initiative"
+      },
       "category": "SOFT_SKILLS"
     },
     {
-      "name": "Autonomously",
+      "name": {
+        "en": "Quick grasp of new concepts",
+        "de": "Schnelle Auffassungsgabe",
+        "fr": "Capacité d'apprentissage rapide"
+      },
       "category": "SOFT_SKILLS"
     },
     {
-      "name": "Quick comprehension",
-      "category": "STRENGTH"
+      "name": {
+        "en": "Critical questioning of requirements",
+        "de": "Kritisches Hinterfragen von Anforderungen",
+        "fr": "Remise en question constructive des exigences"
+      },
+      "category": "SOFT_SKILLS"
     },
     {
-      "name": "Prioritising tasks",
-      "category": "STRENGTH"
+      "name": {
+        "en": "Deep understanding over surface knowledge",
+        "de":"Tiefenverständnis statt Oberflächenwissen",
+        "fr": "Compréhension en profondeur plutôt qu'en surface"
+      },
+      "category": "STRENGTH",
+      "content": {
+        "en": "I don't learn to tick boxes — I learn to truly understand. This shows in the quality of my solutions and in the technical journal I have kept since the very beginning of my career.",
+        "de": "Ich lerne nicht, um Aufgaben abzuhaken — ich lerne, um wirklich zu verstehen.",
+        "fr": "Je n'apprends pas pour cocher des cases — j'apprends pour vraiment comprendre. Cela se reflète dans la qualité de mes solutions et dans le journal technique que je tiens depuis le début de ma carrière.\n"
+      }
     },
     {
-      "name": "Autonomy",
-      "category": "STRENGTH"
+      "name": {
+        "en": "Commitment to quality",
+        "de":"Qualitätsbewusstsein",
+        "fr": "Exigence de qualité"
+      },
+      "category": "STRENGTH",
+      "content": {
+        "en": "I don't deliver half-finished solutions. Clean architecture, thoughtful modelling, and maintainable code are not optional extras for me — they are the baseline.",
+        "de": "Ich liefere keine halbfertigen Lösungen. Saubere Architektur, durchdachte Modellierung und wartbarer Code sind für mich keine optionalen Extras.",
+        "fr": "Je ne livre pas de solutions à moitié terminées. Une architecture propre, une modélisation réfléchie et un code maintenable ne sont pas des options pour moi — c'est le minimum."
+      }
     },
     {
-      "name": "Adaptability",
-      "category": "STRENGTH"
+      "name": {
+        "en": "Ability to carry an entire backend system independently",
+        "de":"Fähigkeit, ein ganzes Backend-System alleine zu tragen",
+        "fr": "Capacité à porter un système backend complet de façon autonome"
+      },
+      "category": "STRENGTH",
+      "content": {
+        "en": "At Deep Opinion, I am the sole backend developer. I make all architectural decisions, design the database, implement authentication, and bring projects to production — independently and end-to-end.",
+        "de": "Bei Deep Opinion bin ich die einzige Backend-Entwicklerin. Ich treffe alle Architekturentscheidungen, designe die Datenbank, implementiere Authentifizierung und bringe Projekte in Produktion — eigenständig und end-to-end.",
+        "fr": "Chez Deep Opinion, je suis la seule développeuse backend. Je prends toutes les décisions d'architecture, conçois la base de données, implémente l'authentification et mène les projets jusqu'en production — de façon autonome et de bout en bout."
+      }
     },
     {
-      "name": "Determination",
-      "category": "STRENGTH"
-    },
-    {
-      "name": "Commitment",
-      "category": "STRENGTH"
-    },
-    {
-      "name": "Patience",
-      "category": "STRENGTH"
-    },
-    {
-      "name": "Reliability",
-      "category": "STRENGTH"
-    },
-    {
-      "name": "Persistence",
-      "category": "STRENGTH"
-    },
-    {
-      "name": "Home office experience",
-      "category": "STRENGTH"
-    },
-    {
-      "name": "PyCharm",
-      "category": "OTHER"
-    },
-    {
-      "name": "Visual Studio Code",
-      "category": "OTHER"
-    },
-    {
-      "name": "Linux (Ubuntu)",
-      "category": "OTHER"
-    },
-    {
-      "name": "WSL (Linux)",
-      "category": "OTHER"
+      "name": {
+        "en": "Resilience & reinvention",
+        "de":"Durchhaltevermögen & Neuanfang",
+        "fr": "Résilience & recommencement"
+      },
+      "category": "STRENGTH",
+      "content": {
+        "en": "I deliberately redirected my career from a completely different field. That was not an easy decision, but it demonstrates that I think long-term and am willing to commit fully to something that truly matters to me.",
+        "de": "Ich habe meine Karriere bewusst neu ausgerichtet — aus einem völlig anderen Berufsfeld heraus. Das war keine leichte Entscheidung, aber sie zeigt, dass ich langfristig denke und bereit bin, für etwas, das mir wichtig ist, auch wirklich Einsatz zu bringen.",
+        "fr": "'ai délibérément réorienté ma carrière depuis un domaine complètement différent. Ce n'était pas une décision facile, mais elle montre que je pense sur le long terme et que je suis prête à m'investir pleinement dans ce qui compte vraiment pour moi."
+      }
     }
+
   ]
 }

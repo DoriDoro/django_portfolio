@@ -1,8 +1,8 @@
 import logging
 
+from django.db.models.functions import Lower
 from django.shortcuts import get_object_or_404
 from django.utils.functional import cached_property
-from django.utils.translation import gettext
 from django.views.generic import TemplateView
 
 from accounts.models import Profile
@@ -76,12 +76,14 @@ class SkillsView(TemplateView):
 
     @cached_property
     def skills_qs(self):
-        return Skill.active_skills.only("id", "name", "category").order_by("name", "pk")
+        return Skill.active_skills.only(
+            "id", "name", "category", "sub_category", "content"
+        ).order_by(Lower("name"), "pk")
 
     @cached_property
     def profile(self):
         return get_object_or_404(
-            Profile.objects.only("id", "dream_job"),
+            Profile.objects.only("id", "motto", "more_details"),
             user__username="Doro",
         )
 
@@ -93,22 +95,21 @@ class SkillsView(TemplateView):
 
     def _create_skills_context(self):
         all_skills = list(self.skills_qs)
-        programming_skills, other_skills, soft_skills, strength = [], [], [], []
+        programming_skills, soft_skills, strength = {}, [], []
 
         for skill in all_skills:
-            if skill.category == Skill.SkillChoices.PROGRAMMING_SKILLS:
-                programming_skills.append(skill.name)
-            elif skill.category == Skill.SkillChoices.OTHER:
-                other_skills.append(skill.name)
-            elif skill.category == Skill.SkillChoices.SOFT_SKILLS:
-                soft_skills.append(gettext(skill.name))
-            elif skill.category == Skill.SkillChoices.STRENGTH:
-                strength.append(gettext(skill.name))
+            if skill.category == Skill.CategoryChoices.PROGRAMMING_SKILLS:
+                programming_skills.setdefault(
+                    skill.get_sub_category_display(), []
+                ).append(skill.name)
+            elif skill.category == Skill.CategoryChoices.SOFT_SKILLS:
+                soft_skills.append(skill.name)
+            elif skill.category == Skill.CategoryChoices.STRENGTH:
+                strength.append((skill.name, skill.content))
 
         return {
             "programming_skills": programming_skills,
             "soft_skills": soft_skills,
-            "other_skills": other_skills,
             "strength": strength,
             "languages": self._get_languages_data(),
         }

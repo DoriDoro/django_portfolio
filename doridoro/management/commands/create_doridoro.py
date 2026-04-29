@@ -42,12 +42,15 @@ class Command(BaseCommand):
                     profession_en=data["profession"]["en"],
                     profession_de=data["profession"]["de"],
                     profession_fr=data["profession"]["fr"],
+                    motto_en=data["motto"]["en"],
+                    motto_de=data["motto"]["de"],
+                    motto_fr=data["motto"]["fr"],
                     introduction_en=data["introduction"]["en"],
                     introduction_de=data["introduction"]["de"],
                     introduction_fr=data["introduction"]["fr"],
-                    dream_job_en=data["dream_job"]["en"],
-                    dream_job_de=data["dream_job"]["de"],
-                    dream_job_fr=data["dream_job"]["fr"],
+                    more_details_en=data["more_details"]["en"],
+                    more_details_de=data["more_details"]["de"],
+                    more_details_fr=data["more_details"]["fr"],
                 )
 
             except IntegrityError:

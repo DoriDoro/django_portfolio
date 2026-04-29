@@ -7,23 +7,19 @@
   <div class="skills container">
     <div class="section-title mb-4">
       <h2>{% trans "Skills" %}</h2>
-      <span>{% trans '"Bring organisation talent, programming skills and sometimes biscuits to work."' %}</span>
+      <span>{{ doridoro.motto }}</span>
     </div>
     <div class="section-title">
       <h2>{% trans "Programming Skills" %}</h2>
     </div>
     <div class="row">
-      {% for programming in programming_skills %}
-        <p class="skill">{{ programming }}</p>
-      {% endfor %}
-    </div>
-    <hr>
-    <div class="section-title mt-5">
-      <h2>{% trans "Other Skills" %}</h2>
-    </div>
-    <div class="row">
-      {% for other in other_skills %}
-        <p class="skill">{{ other }}</p>
+      {% for sub_cat, names in programming_skills.items %}
+        <div class="col-12 mt-3 d-flex flex-wrap align-items-center gap-2">
+          <h5 class="mb-0 me-2">{{ sub_cat }}:</h5>
+          {% for name in names %}
+            <p class="skill mb-0">{{ name }}</p>
+          {% endfor %}
+        </div>
       {% endfor %}
     </div>
     <hr>
@@ -41,7 +37,12 @@
     </div>
     <div class="row">
       {% for s in strength %}
-        <p class="skill">{{ s }}</p>
+        {% with name=s.0 content=s.1 %}
+          <div class="col-12 skill mt-2">
+            <strong>{{ name }}</strong>
+            <p class="mb-0">{{ content }}</p>
+          </div>
+        {% endwith %}
       {% endfor %}
     </div>
     <hr>
@@ -62,7 +63,7 @@
     <div class="row mx-4">
       <div class="col pt-4 pt-lg-0 content">
         <p>
-          {{ doridoro.dream_job|safe }}
+          {{ doridoro.more_details|safe }}
         </p>
       </div>
     </div>
