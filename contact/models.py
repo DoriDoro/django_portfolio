@@ -9,7 +9,6 @@ from tinymce.models import HTMLField
 
 from utils.database.managers import ActiveManager
 from utils.database.validators import validate_not_blank
-from utils.database.slug import SlugCreateMixin
 
 
 class ContactRequest(models.Model):
@@ -25,7 +24,7 @@ class ContactRequest(models.Model):
     subject = models.CharField(max_length=200)
     message = HTMLField(validators=[validate_not_blank])
 
-    submitted_at = models.DateTimeField(auto_now_add=True, db_index=True)
+    submitted_at = models.DateTimeField(auto_now_add=True)
 
     category = models.ForeignKey(
         "Category",
@@ -67,22 +66,16 @@ class ContactRequest(models.Model):
     def _normalize_fields(self):
         if self.first_name:
             self.first_name = self.first_name.strip()
-
         if self.last_name:
             self.last_name = self.last_name.strip()
-
         if self.email:
             self.email = self.email.strip().lower()
-
         if self.subject:
             self.subject = self.subject.strip()
 
     def clean(self):
         super().clean()
         errors: dict[str, str] = {}
-
-        # Normalize fields
-        self._normalize_fields()
 
         cutoff = timezone.now() - timedelta(days=14)
         qs = ContactRequest.objects.filter(
@@ -110,19 +103,19 @@ class ContactRequest(models.Model):
             raise ValidationError(errors)
 
     def save(self, *args, **kwargs):
+        clean = kwargs.pop("clean", True)
         self._normalize_fields()
-        self.full_clean()
+        if clean:
+            self.full_clean()
         return super().save(*args, **kwargs)
 
 
-class Category(SlugCreateMixin, models.Model):
+class Category(models.Model):
     """
     To categorize incoming contact requests in Admin.
-    SlugCreateMixin: auto-generate 'slug' from 'name'.
     """
 
     name = models.CharField(max_length=50)
-    slug = models.SlugField(max_length=50, blank=True, unique=True, editable=False)
 
     active = models.BooleanField(default=True, db_index=True)
     created = models.DateTimeField(auto_now_add=True)
@@ -161,20 +154,8 @@ class Category(SlugCreateMixin, models.Model):
             self.name = self.name.strip()
 
     def save(self, *args, **kwargs):
+        clean = kwargs.pop("clean", True)
         self._normalize_fields()
-
-        if self.pk:
-            old_name = (
-                type(self)
-                .objects.filter(pk=self.pk)
-                .values_list("name", flat=True)
-                .first()
-            )
-            if old_name != self.name:
-                self.slug = ""
-
-        if not self.slug and self.name:
-            self.create_unique_slug(Category)
-
-        self.full_clean()
+        if clean:
+            self.full_clean()
         super().save(*args, **kwargs)

@@ -1,6 +1,6 @@
 from django.contrib import admin
 
-from journal.models import Journal, Link, Platform, Category
+from journal.models import Journal, Link, Platform
 
 
 @admin.register(Journal)
@@ -21,21 +21,9 @@ class JournalAdmin(admin.ModelAdmin):
         "content",
         "published",
         "active",
-        "created_by",
         "category",
         "links",
     ]
-
-
-@admin.register(Category)
-class CategoryAdmin(admin.ModelAdmin):
-    list_display = ["name", "active"]
-    search_fields = ["name"]
-    list_per_page = 20
-    show_facets = admin.ShowFacets.ALWAYS
-    readonly_fields = ("slug",)
-
-    fields = ["name", "slug", "active"]
 
 
 @admin.register(Link)
@@ -54,6 +42,3 @@ class PlatformAdmin(admin.ModelAdmin):
     search_fields = ["name"]
     list_per_page = 20
     show_facets = admin.ShowFacets.ALWAYS
-    readonly_fields = ("slug",)
-
-    fields = ["name", "slug"]

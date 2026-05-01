@@ -93,6 +93,8 @@ class Degree(models.Model):
             self.organization = self.organization.strip()
         if self.degree:
             self.degree = self.degree.strip()
+        if self.url:
+            self.url = self.url.strip()
 
     def save(self, *args, **kwargs):
         clean = kwargs.pop("clean", True)
@@ -133,9 +135,6 @@ class Job(models.Model):
     created = models.DateTimeField(auto_now_add=True)
     updated = models.DateTimeField(auto_now=True)
 
-    skill = models.ManyToManyField("projects.Skill", related_name="jobs")
-    links = models.ManyToManyField("projects.Link", related_name="jobs")
-
     objects = models.Manager()
     active_jobs = ActiveManager()
 
@@ -169,7 +168,7 @@ class Job(models.Model):
             ),
             models.CheckConstraint(
                 condition=~Q(job_type__in=SELECTED_JOB_TYPE_CHOICES)
-                | Q(company_name__isnull=False),
+                | ~Q(company_name=""),
                 name="ck_job_selected_type_company",
                 violation_error_code="check",
                 violation_error_message="With this job_type a company_name has to be filled out.",
@@ -230,12 +229,12 @@ class Language(models.Model):
         constraints = [
             models.UniqueConstraint(
                 Lower("name"),
-                name="uix_lang_low_name",
+                name="uq_lang_low_name",
                 violation_error_code="unique",
                 violation_error_message="This language already exists.",
             ),
             models.CheckConstraint(
-                condition=Q(level__in=[l for l in LANGUAGE_CHOICES]),
+                condition=Q(level__in=LANGUAGE_CHOICES),
                 name="ck_lang_level_valid",
                 violation_error_code="check",
                 violation_error_message="This language level does not exist.",
@@ -275,7 +274,7 @@ class SocialMedia(models.Model):
         constraints = [
             models.UniqueConstraint(
                 Lower("name"),
-                name="uix_social_media_low_name",
+                name="uq_social_media_low_name",
                 violation_error_code="unique",
                 violation_error_message="This social media already exists.",
             ),

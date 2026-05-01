@@ -24,6 +24,3 @@ class CategoryAdmin(admin.ModelAdmin):
     show_facets = admin.ShowFacets.ALWAYS
     list_per_page = 20
     actions = [make_active, make_inactive]
-    readonly_fields = ("slug",)
-
-    fields = ("name", "slug", "active")

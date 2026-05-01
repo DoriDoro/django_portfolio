@@ -31,3 +31,24 @@ class Profile(models.Model):
 
     def __str__(self):
         return self.user.username
+
+    def _normalize_fields(self):
+        if self.phone_number:
+            self.phone_number = self.phone_number.strip()
+        if self.address:
+            self.address = self.address.strip()
+        if self.profession:
+            self.profession = self.profession.strip()
+        if self.motto:
+            self.motto = self.motto.strip()
+        if self.introduction:
+            self.introduction = self.introduction.strip()
+        if self.more_details:
+            self.more_details = self.more_details.strip()
+
+    def save(self, *args, **kwargs):
+        clean = kwargs.pop("clean", True)
+        self._normalize_fields()
+        if clean:
+            self.full_clean()
+        super().save(*args, **kwargs)

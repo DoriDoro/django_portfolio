@@ -1,4 +1,3 @@
-from django.conf import settings
 from django.db import models
 from django.db.models import Q
 from django.db.models.functions import Lower
@@ -11,43 +10,52 @@ from utils.database.managers import ActiveManager
 from utils.database.slug import SlugCreateMixin
 from utils.database.validators import validate_not_blank
 
+# -- CONSTANT --
+# -- Link Choices --
+PANEL_CHOICES = ["JOURNAL", "PROJECT"]
 
+
+# -- Custom Manager --
 class JournalActivePublishedManager(models.Manager):
     """Filters queryset by 'status=PUBLISHED'."""
 
     def get_queryset(self):
         return (
-            super().get_queryset().filter(active=True, status=Journal.Status.PUBLISHED)
+            super()
+            .get_queryset()
+            .filter(active=True, status=Journal.StatusChoices.PUBLISHED)
         )
 
 
+# -- Model definition --
 class Journal(SlugCreateMixin, models.Model):
     """The steps of my projects."""
 
-    class Status(models.TextChoices):
+    class StatusChoices(models.TextChoices):
         DRAFT = "DF", _("Draft")
         PUBLISHED = "PB", _("Published")
 
+    class CategoryChoices(models.TextChoices):
+        BLOG = "BLOG", "blog"
+        EPIC_EVENTS = "EPIC_EVENTS", "epic_events"
+        JOURNAL = "JOURNAL", "journal"
+        OC_LETTINGS = "OC_LETTINGS", "oc_lettings"
+        PORTFOLIO = "PORTFOLIO", "portfolio"
+        SOFT_DESK = "SOFT_DESK", "soft_desk"
+
     name = models.CharField(max_length=250)
     slug = models.SlugField(max_length=250, blank=True, unique=True, editable=True)
-    status = models.CharField(max_length=2, choices=Status, default=Status.DRAFT)
+    status = models.CharField(
+        max_length=2, choices=StatusChoices.choices, default=StatusChoices.DRAFT
+    )
     content = HTMLField(validators=[validate_not_blank])
+    category = models.CharField(max_length=11, choices=CategoryChoices.choices)
 
     published = models.DateTimeField(blank=True, null=True)
-
     active = models.BooleanField(default=True, db_index=True)
     created = models.DateTimeField(auto_now_add=True)
     updated = models.DateTimeField(auto_now=True)
 
-    created_by = models.ForeignKey(
-        settings.AUTH_USER_MODEL, on_delete=models.CASCADE, related_name="user_journals"
-    )
-    category = models.ForeignKey(
-        "journal.Category",
-        on_delete=models.SET_NULL,
-        null=True,
-        related_name="category_journals",
-    )
     links = models.ManyToManyField(
         "journal.Link", blank=True, related_name="link_journals"
     )
@@ -62,13 +70,13 @@ class Journal(SlugCreateMixin, models.Model):
                 Lower("name"),
                 name="uq_journal_name",
                 violation_error_code="unique",
-                violation_error_message="An Journal with that name exists already.",
+                violation_error_message="A Journal with that name exists already.",
             ),
             models.CheckConstraint(
                 condition=~Q(status="PB") | Q(published__isnull=False),
                 name="ck_journal_published_has_date",
                 violation_error_code="check",
-                violation_error_message="A published journal must have a publish data.",
+                violation_error_message="A published journal must have a publish date.",
             ),
         ]
         indexes = [
@@ -114,11 +122,11 @@ class Journal(SlugCreateMixin, models.Model):
                 fields_to_update.add("slug")
 
         if fields_to_update is not None:
-            kwargs["update_fields"] = fields_to_update
+            kwargs["update_fields"] = list(fields_to_update)
         super().save(*args, **kwargs)
 
     def mark_published(self, commit: bool = True):
-        self.status = Journal.Status.PUBLISHED
+        self.status = Journal.StatusChoices.PUBLISHED
         self.published = timezone.now()
         if commit:
             self.save(update_fields=["status", "published", "updated"])
@@ -127,81 +135,23 @@ class Journal(SlugCreateMixin, models.Model):
         return reverse("journal:journal-detail", kwargs={"slug": self.slug})
 
 
-class Category(SlugCreateMixin, models.Model):
-    """Category of a Journal."""
-
-    name = models.CharField(max_length=50)
-    slug = models.SlugField(max_length=50, blank=True, unique=True, editable=True)
-
-    active = models.BooleanField(default=True)
-    created = models.DateTimeField(auto_now_add=True)
-    updated = models.DateTimeField(auto_now=True)
-
-    objects = models.Manager()
-    active_categories = ActiveManager()
-
-    class Meta:
-        constraints = [
-            models.UniqueConstraint(
-                Lower("name"),
-                name="uix_cat_low_name",
-                violation_error_code="unique",
-                violation_error_message="This Category exists already.",
-            )
-        ]
-        ordering = [Lower("name"), "pk"]
-        verbose_name_plural = "Categories"
-
-    def __str__(self):
-        return self.name
-
-    def _normalize_fields(self):
-        if self.name:
-            self.name = self.name.strip()
-
-    def save(self, *args, **kwargs):
-        clean = kwargs.pop("clean", True)
-        update_fields = kwargs.get("update_fields")
-        fields_to_update = set(update_fields) if update_fields is not None else None
-
-        self._normalize_fields()
-        if clean:
-            self.full_clean()
-
-        if self.pk:
-            old_name = (
-                type(self)
-                .objects.filter(pk=self.pk)
-                .values_list("name", flat=True)
-                .first()
-            )
-            if old_name != self.name:
-                self.slug = ""
-                if fields_to_update is not None:
-                    fields_to_update.add("slug")
-
-        if not self.slug:
-            self.create_unique_slug(Category)
-            if fields_to_update is not None:
-                fields_to_update.add("slug")
-
-        if fields_to_update is not None:
-            kwargs["update_fields"] = fields_to_update
-        super().save(*args, **kwargs)
-
-
 class Link(models.Model):
     """Link to a Website/Platform."""
 
+    class PanelChoices(models.TextChoices):
+        JOURNAL = "JOURNAL", "Journal"
+        PROJECT = "PROJECT", "Project"
+
     title = models.CharField(max_length=200)
     url = models.URLField()
+    panel = models.CharField(max_length=7, choices=PanelChoices.choices)
 
     active = models.BooleanField(default=True, db_index=True)
     created = models.DateTimeField(auto_now_add=True)
     updated = models.DateTimeField(auto_now=True)
 
     platform = models.ForeignKey(
-        "journal.Platform", on_delete=models.CASCADE, related_name="links"
+        "journal.Platform", on_delete=models.PROTECT, related_name="links"
     )
 
     objects = models.Manager()
@@ -218,9 +168,15 @@ class Link(models.Model):
             models.UniqueConstraint(
                 Lower("title"),
                 "platform",
-                name="uix_link_low_title_platform",
+                name="uix_link_title_platform",
                 violation_error_code="unique",
                 violation_error_message="The title has to be unique per platform.",
+            ),
+            models.CheckConstraint(
+                condition=Q(panel__in=PANEL_CHOICES),
+                name="ck_link_panel",
+                violation_error_code="check",
+                violation_error_message="Panel choice does not exist.",
             ),
         ]
         indexes = [
@@ -234,6 +190,8 @@ class Link(models.Model):
     def _normalize_fields(self):
         if self.title:
             self.title = self.title.strip()
+        if self.url:
+            self.url = self.url.strip()
 
     def save(self, *args, **kwargs):
         clean = kwargs.pop("clean", True)
@@ -243,11 +201,10 @@ class Link(models.Model):
         super().save(*args, **kwargs)
 
 
-class Platform(SlugCreateMixin, models.Model):
+class Platform(models.Model):
     """Details of the Platform."""
 
     name = models.CharField(max_length=250)
-    slug = models.SlugField(max_length=250, blank=True, unique=True, editable=True)
 
     active = models.BooleanField(default=True)
     created = models.DateTimeField(auto_now_add=True)
@@ -257,12 +214,12 @@ class Platform(SlugCreateMixin, models.Model):
         constraints = [
             models.UniqueConstraint(
                 Lower("name"),
-                name="uix_platform_low_name",
+                name="uq_platform_low_name",
                 violation_error_code="unique",
                 violation_error_message="This Platform exists already.",
             ),
         ]
-        ordering = ["name", "pk"]
+        ordering = [Lower("name"), "pk"]
 
     def __str__(self):
         return self.name
@@ -273,30 +230,7 @@ class Platform(SlugCreateMixin, models.Model):
 
     def save(self, *args, **kwargs):
         clean = kwargs.pop("clean", True)
-        update_fields = kwargs.get("update_fields")
-        fields_to_update = set(update_fields) if update_fields is not None else None
-
         self._normalize_fields()
         if clean:
             self.full_clean()
-
-        if self.pk:
-            old_name = (
-                type(self)
-                .objects.filter(pk=self.pk)
-                .values_list("name", flat=True)
-                .first()
-            )
-            if old_name != self.name:
-                self.slug = ""
-                if fields_to_update is not None:
-                    fields_to_update.add("slug")
-
-        if not self.slug and self.name:
-            self.create_unique_slug(Platform)
-            if fields_to_update is not None:
-                fields_to_update.add("slug")
-
-        if fields_to_update is not None:
-            kwargs["update_fields"] = fields_to_update
         super().save(*args, **kwargs)
