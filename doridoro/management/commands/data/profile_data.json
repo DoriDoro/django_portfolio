@@ -129,7 +129,7 @@
         "fr": "Développeuse Python backend | Django et DRF"
       },
       "start_date": "2025-01-20",
-      "until_present": "True",
+      "until_present": true,
       "address": {
         "en": "Paris 18th (FRANCE)",
         "de": "Paris 18th (FRANKREICH)",

@@ -1,5 +1,3 @@
-import logging
-
 from django.contrib.auth import get_user_model
 from django.core.management import call_command
 from django.core.management.base import BaseCommand
@@ -8,7 +6,6 @@ from django.db import IntegrityError
 from accounts.models import Profile
 from utils.management.read_json import read_json_file
 
-logger = logging.getLogger(__name__)
 UserModel = get_user_model()
 
 
