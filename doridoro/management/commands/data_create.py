@@ -13,9 +13,7 @@ class Command(BaseCommand):
     )
 
     def handle(self, *args, **options):
-        call_command(
-            "createsuperuser", username="Doro", email="dorothea.reher@gmail.com"
-        )
+        call_command("createsuperuser")
         self.stdout.write(" -- Start creating Profile --")
         call_command("profile_create")
         self.stdout.write(" -- Starting Profile details --")
