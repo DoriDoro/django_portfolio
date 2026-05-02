@@ -14,9 +14,9 @@
       <div class="col-lg-12 d-flex justify-content-center">
         <ul id="page-filters">
           <li data-filter="*" class="filter-active">{% trans "All" %}</li>
-          {% for entry in filter_categories %}
-            <li data-filter=".filter-{{ entry }}">{{ entry }}</li>
-          {% endfor %}
+            {% for entry in filter_categories %}
+              <li data-filter=".filter-{{ entry }}">{{ entry }}</li>
+            {% endfor %}
         </ul>
       </div>
     </div>
@@ -33,6 +33,4 @@
     </div>
   </div>
 </section><!-- End Journal Section -->
-
-
 {% endblock %}

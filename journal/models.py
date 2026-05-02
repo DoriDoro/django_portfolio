@@ -133,7 +133,9 @@ class Link(models.Model):
 
     title = models.CharField(max_length=200)
     url = models.URLField()
-    panel = models.CharField(max_length=7, choices=PanelChoices.choices)
+    panel = models.CharField(
+        max_length=7, choices=PanelChoices.choices, default=PanelChoices.JOURNAL
+    )
 
     active = models.BooleanField(default=True, db_index=True)
     created = models.DateTimeField(auto_now_add=True)

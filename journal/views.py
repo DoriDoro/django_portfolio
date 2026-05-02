@@ -38,7 +38,6 @@ class JournalListView(ListView):
         ctx = super().get_context_data(**kwargs)
         seen = dict.fromkeys(e.category for e in ctx["entries"])
         ctx["filter_categories"] = [Journal.CategoryChoices(c).label for c in seen]
-        ctx["cat_details"] = CATEGORY_NAMES
         return ctx
 
 
@@ -52,7 +51,6 @@ class JournalDetailView(DetailView):
         prefetch_links = Prefetch(
             "links",
             queryset=Link.active_links.select_related("platform")
-            .filter(panel=Link.PanelChoices.JOURNAL)
             .only("id", "title", "url", "platform__id", "platform__name")
             .order_by(Lower("title"), "pk"),
             to_attr="links_list",
