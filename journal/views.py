@@ -30,7 +30,7 @@ class JournalListView(ListView):
                     output_field=CharField(),
                 )
             )
-            .only("id", "name", "slug", "category")
+            .only("id", "name", "slug", "category", "created")
             .order_by("-created", "-pk")
         )
 

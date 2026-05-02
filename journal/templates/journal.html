@@ -25,12 +25,14 @@
 
       <div class="row page-container">
         {% for entry in entries %}
-        <div class="col-lg-3 col-md-5 mt-4 portfolio-item filter-{{ entry.get_category_display }}">
-          <div class="icon-box">
-            <h4><a href="{{ entry.get_absolute_url }}">{{ entry.name}}</a></h4>
-              <p>{{ entry.category_display }}</p>
+        
+          <div class="col-lg-3 col-md-5 mt-4 portfolio-item filter-{{ entry.get_category_display }}">
+            <div class="icon-box">
+              {{ entry.created|date:"N Y" }}
+              <h4><a href="{{ entry.get_absolute_url }}">{{ entry.name}}</a></h4>
+                <p>{{ entry.category_display }}</p>
+            </div>
           </div>
-        </div>
         {% endfor %}
       </div>
     </div>

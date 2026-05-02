@@ -30,6 +30,7 @@
               <img src="{{ project.picture.url }}" class="img-fluid custom-img" alt="{{ project.picture.legend }}">
               <div class="page-info">
                 <h4>{{ project.name }}</h4>
+                <p>{{ project.create_date|date:"N Y" }}</p>
                 <div class="portfolio-links">
                   <a href="{{ project.get_absolute_url }}"
                     title="{{ project.name }}">

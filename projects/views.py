@@ -23,7 +23,7 @@ class PortfolioListView(ListView):
                     output_field=CharField()
                 )
             )
-            .only("id", "name", "slug", "tag", "picture")
+            .only("id", "name", "slug", "tag", "picture", "create_date")
             .order_by("-create_date")
         )
 
@@ -49,7 +49,7 @@ class PortfolioDetailView(DetailView):
         )
         prefetch_skills = Prefetch(
             "skills",
-            queryset=Skill.display_active_skills.only("id", "name").order_by(Lower("name")),
+            queryset=Skill.active_skills.only("id", "name").order_by(Lower("name")),
         )
 
         return (
