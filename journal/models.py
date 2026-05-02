@@ -20,11 +20,7 @@ class JournalActivePublishedManager(models.Manager):
     """Filters queryset by 'status=PUBLISHED'."""
 
     def get_queryset(self):
-        return (
-            super()
-            .get_queryset()
-            .filter(active=True, status=Journal.StatusChoices.PUBLISHED)
-        )
+        return super().get_queryset().filter(active=True, status=Journal.StatusChoices.PUBLISHED)
 
 
 # -- Model definition --
@@ -37,11 +33,11 @@ class Journal(SlugCreateMixin, models.Model):
 
     class CategoryChoices(models.TextChoices):
         BLOG = "BLOG", "blog"
-        EPIC_EVENTS = "EPIC_EVENTS", "epic_events"
+        EPIC_EVENTS = "EPIC_EVENTS", "epic-events"
         JOURNAL = "JOURNAL", "journal"
-        OC_LETTINGS = "OC_LETTINGS", "oc_lettings"
+        OC_LETTINGS = "OC_LETTINGS", "oc-lettings"
         PORTFOLIO = "PORTFOLIO", "portfolio"
-        SOFT_DESK = "SOFT_DESK", "soft_desk"
+        SOFT_DESK = "SOFT_DESK", "soft-desk"
 
     name = models.CharField(max_length=250)
     slug = models.SlugField(max_length=250, blank=True, unique=True, editable=True)
@@ -56,9 +52,7 @@ class Journal(SlugCreateMixin, models.Model):
     created = models.DateTimeField(auto_now_add=True)
     updated = models.DateTimeField(auto_now=True)
 
-    links = models.ManyToManyField(
-        "journal.Link", blank=True, related_name="link_journals"
-    )
+    links = models.ManyToManyField("journal.Link", blank=True, related_name="link_journals")
 
     objects = models.Manager()
     active_journals = ActiveManager()
@@ -105,12 +99,7 @@ class Journal(SlugCreateMixin, models.Model):
             self.full_clean()
 
         if self.pk:
-            old_name = (
-                type(self)
-                .objects.filter(pk=self.pk)
-                .values_list("name", flat=True)
-                .first()
-            )
+            old_name = type(self).objects.filter(pk=self.pk).values_list("name", flat=True).first()
             if old_name != self.name:
                 self.slug = ""
                 if fields_to_update is not None:
@@ -179,9 +168,7 @@ class Link(models.Model):
                 violation_error_message="Panel choice does not exist.",
             ),
         ]
-        indexes = [
-            models.Index(fields=["active", "platform"], name="idx_link_active_platform")
-        ]
+        indexes = [models.Index(fields=["active", "platform"], name="idx_link_active_platform")]
         ordering = [Lower("title"), "pk"]
 
     def __str__(self):
