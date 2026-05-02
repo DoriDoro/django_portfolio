@@ -11,8 +11,7 @@
         "created": "2024-10-16T15:11:29.041Z",
         "updated": "2024-11-18T15:03:37.593Z",
         "links": [
-          17,
-          85
+          17
         ]
       }
     },
@@ -31,8 +30,7 @@
           13,
           14,
           15,
-          16,
-          85
+          16
         ]
       }
     },
@@ -55,8 +53,7 @@
           8,
           9,
           10,
-          11,
-          85
+          11
         ]
       }
     },
@@ -71,8 +68,7 @@
         "updated": "2024-11-18T15:03:47.460Z",
         "status": "PB",
         "links": [
-          2,
-          85
+          2
         ]
       }
     },
@@ -87,8 +83,7 @@
         "updated": "2024-11-18T15:03:52.593Z",
         "status": "PB",
         "links": [
-          1,
-          85
+          1
         ]
       }
     },
@@ -105,8 +100,7 @@
         "links": [
           19,
           20,
-          21,
-          85
+          21
         ]
       }
     },
@@ -129,8 +123,7 @@
           28,
           29,
           30,
-          18,
-          85
+          18
         ]
       }
     },
@@ -144,9 +137,7 @@
         "created": "2024-11-05T09:30:37.969Z",
         "updated": "2024-11-18T15:04:03.257Z",
         "status": "PB",
-        "links": [
-          85
-        ]
+        "links": []
       }
     },
     {
@@ -161,8 +152,7 @@
         "status": "PB",
         "links": [
           31,
-          32,
-          85
+          32
         ]
       }
     },
@@ -177,8 +167,7 @@
         "updated": "2024-11-18T14:35:53.001Z",
         "status": "PB",
         "links": [
-          33,
-          84
+          33
         ]
       }
     },
@@ -194,8 +183,7 @@
         "status": "PB",
         "links": [
           34,
-          35,
-          84
+          35
         ]
       }
     },
@@ -212,8 +200,7 @@
         "links": [
           36,
           37,
-          38,
-          84
+          38
         ]
       }
     },
@@ -232,8 +219,7 @@
           40,
           41,
           42,
-          43,
-          84
+          43
         ]
       }
     },
@@ -248,8 +234,7 @@
         "updated": "2024-11-18T15:02:27.361Z",
         "status": "PB",
         "links": [
-          44,
-          84
+          44
         ]
       }
     },
@@ -265,8 +250,7 @@
         "status": "PB",
         "links": [
           45,
-          46,
-          84
+          46
         ]
       }
     },
@@ -283,8 +267,7 @@
         "links": [
           29,
           47,
-          48,
-          84
+          48
         ]
       }
     },
@@ -312,8 +295,7 @@
           58,
           59,
           60,
-          61,
-          84
+          61
         ]
       }
     },
@@ -329,8 +311,7 @@
         "status": "PB",
         "links": [
           62,
-          66,
-          84
+          66
         ]
       }
     },
@@ -347,8 +328,7 @@
         "links": [
           63,
           64,
-          66,
-          84
+          66
         ]
       }
     },
@@ -365,8 +345,7 @@
         "links": [
           62,
           65,
-          66,
-          84
+          66
         ]
       }
     },
@@ -382,8 +361,7 @@
         "status": "PB",
         "links": [
           66,
-          67,
-          84
+          67
         ]
       }
     },
@@ -397,9 +375,7 @@
         "created": "2024-11-05T16:39:30.522Z",
         "updated": "2024-11-18T14:40:03.121Z",
         "status": "PB",
-        "links": [
-          83
-        ]
+        "links": []
       }
     },
     {
@@ -415,8 +391,7 @@
         "links": [
           68,
           69,
-          70,
-          83
+          70
         ]
       }
     },
@@ -432,8 +407,7 @@
         "status": "PB",
         "links": [
           71,
-          72,
-          84
+          72
         ]
       }
     },
@@ -448,8 +422,7 @@
         "updated": "2024-11-18T14:59:41.189Z",
         "status": "PB",
         "links": [
-          73,
-          83
+          73
         ]
       }
     },
@@ -466,8 +439,7 @@
         "links": [
           74,
           75,
-          76,
-          83
+          76
         ]
       }
     },
@@ -482,8 +454,7 @@
         "updated": "2024-11-18T15:00:00.534Z",
         "status": "PB",
         "links": [
-          67,
-          83
+          67
         ]
       }
     },
@@ -506,8 +477,7 @@
           67,
           77,
           78,
-          79,
-          83
+          79
         ]
       }
     },
@@ -523,8 +493,7 @@
         "status": "PB",
         "links": [
           80,
-          81,
-          83
+          81
         ]
       }
     },
@@ -538,9 +507,7 @@
         "created": "2024-11-06T12:46:44.479Z",
         "updated": "2025-01-12T22:31:39.192Z",
         "status": "PB",
-        "links": [
-          85
-        ]
+        "links": []
       }
     },
     {
@@ -554,7 +521,7 @@
         "updated": "2024-11-18T15:03:17.501Z",
         "status": "PB",
         "links": [
-          84
+          122
         ]
       }
     },
@@ -568,9 +535,7 @@
         "created": "2024-11-06T12:48:03.725Z",
         "updated": "2024-11-18T16:11:23.903Z",
         "status": "PB",
-        "links": [
-          83
-        ]
+        "links": []
       }
     },
     {
@@ -583,9 +548,7 @@
         "created": "2024-11-06T12:48:30.044Z",
         "updated": "2024-11-18T16:10:53.872Z",
         "status": "PB",
-        "links": [
-          82
-        ]
+        "links": []
       }
     },
     {
@@ -598,10 +561,7 @@
         "created": "2024-11-06T12:54:00.249Z",
         "updated": "2024-11-18T14:39:56.007Z",
         "status": "PB",
-        "links": [
-          82,
-          86
-        ]
+        "links": []
       }
     },
     {
@@ -616,9 +576,7 @@
         "status": "PB",
         "links": [
           34,
-          46,
-          82,
-          87
+          46
         ]
       }
     },
@@ -632,10 +590,7 @@
         "created": "2024-11-06T13:22:37.024Z",
         "updated": "2024-11-18T16:09:48.306Z",
         "status": "PB",
-        "links": [
-          82,
-          87
-        ]
+        "links": []
       }
     },
     {
@@ -648,10 +603,7 @@
         "created": "2024-11-06T14:07:51.740Z",
         "updated": "2024-11-18T16:10:05.631Z",
         "status": "PB",
-        "links": [
-          82,
-          87
-        ]
+        "links": []
       }
     },
     {
@@ -664,12 +616,7 @@
         "created": "2024-11-06T14:11:35.890Z",
         "updated": "2024-11-18T16:10:11.411Z",
         "status": "PB",
-        "links": [
-          82,
-          87,
-          88,
-          89
-        ]
+        "links": []
       }
     },
     {
@@ -682,11 +629,7 @@
         "created": "2024-11-06T14:17:08.889Z",
         "updated": "2024-11-18T16:10:17.593Z",
         "status": "PB",
-        "links": [
-          82,
-          87,
-          90
-        ]
+        "links": []
       }
     },
     {
@@ -699,10 +642,7 @@
         "created": "2024-11-06T14:19:04.184Z",
         "updated": "2024-11-18T16:10:23.886Z",
         "status": "PB",
-        "links": [
-          82,
-          91
-        ]
+        "links": []
       }
     },
     {
@@ -715,10 +655,7 @@
         "created": "2024-11-06T14:27:32.434Z",
         "updated": "2024-11-18T16:10:29.216Z",
         "status": "PB",
-        "links": [
-          82,
-          92
-        ]
+        "links": []
       }
     },
     {
@@ -731,9 +668,7 @@
         "created": "2024-11-06T14:31:19.767Z",
         "updated": "2024-11-18T16:10:34.817Z",
         "status": "PB",
-        "links": [
-          82
-        ]
+        "links": []
       }
     },
     {
@@ -746,10 +681,7 @@
         "created": "2024-11-06T14:33:07.242Z",
         "updated": "2024-11-18T16:10:42.413Z",
         "status": "PB",
-        "links": [
-          82,
-          93
-        ]
+        "links": []
       }
     },
     {
@@ -762,11 +694,7 @@
         "created": "2024-11-06T14:36:10.945Z",
         "updated": "2024-11-18T16:10:48.768Z",
         "status": "PB",
-        "links": [
-          82,
-          94,
-          95
-        ]
+        "links": []
       }
     },
     {
@@ -780,10 +708,9 @@
         "updated": "2024-11-18T15:04:32.364Z",
         "status": "PB",
         "links": [
+          84,
           85,
-          97,
-          98,
-          99
+          86
         ]
       }
     },
@@ -798,11 +725,10 @@
         "updated": "2024-11-18T15:04:22.883Z",
         "status": "PB",
         "links": [
-          85,
-          100,
-          101,
-          102,
-          103
+          87,
+          88,
+          89,
+          90
         ]
       }
     },
@@ -817,8 +743,7 @@
         "updated": "2024-11-18T15:04:27.444Z",
         "status": "PB",
         "links": [
-          85,
-          104
+          91
         ]
       }
     },
@@ -833,8 +758,7 @@
         "updated": "2024-11-18T15:04:37.337Z",
         "status": "PB",
         "links": [
-          85,
-          105
+          92
         ]
       }
     },
@@ -850,11 +774,10 @@
         "status": "PB",
         "links": [
           35,
-          85,
-          96,
-          106,
-          107,
-          108
+          83,
+          93,
+          94,
+          95
         ]
       }
     },
@@ -869,13 +792,12 @@
         "updated": "2024-11-18T15:17:43.781Z",
         "status": "PB",
         "links": [
-          85,
-          109,
-          110,
-          111,
-          112,
-          113,
-          114
+          96,
+          97,
+          98,
+          99,
+          100,
+          101
         ]
       }
     },
@@ -891,8 +813,7 @@
         "status": "PB",
         "links": [
           31,
-          85,
-          104
+          91
         ]
       }
     },
@@ -907,8 +828,7 @@
         "updated": "2024-11-18T16:08:40.845Z",
         "status": "PB",
         "links": [
-          84,
-          97
+          84
         ]
       }
     },
@@ -922,9 +842,7 @@
         "created": "2024-11-25T16:02:19.569Z",
         "updated": "2024-11-25T16:03:48.734Z",
         "status": "PB",
-        "links": [
-          85
-        ]
+        "links": []
       }
     },
     {
@@ -938,8 +856,7 @@
         "updated": "2024-11-26T15:12:40.088Z",
         "status": "PB",
         "links": [
-          85,
-          115
+          102
         ]
       }
     },
@@ -954,10 +871,9 @@
         "updated": "2024-12-28T10:11:00.141Z",
         "status": "PB",
         "links": [
-          116,
-          117,
-          118,
-          126
+          103,
+          104,
+          112
         ]
       }
     },
@@ -972,12 +888,11 @@
         "updated": "2024-12-28T10:10:49.245Z",
         "status": "PB",
         "links": [
-          118,
-          119,
-          120,
-          121,
-          122,
-          125
+          105,
+          106,
+          107,
+          108,
+          111
         ]
       }
     },
@@ -992,8 +907,8 @@
         "updated": "2024-12-28T10:09:07.062Z",
         "status": "PB",
         "links": [
-          123,
-          124
+          109,
+          110
         ]
       }
     },
@@ -1008,11 +923,11 @@
         "updated": "2024-12-28T10:31:00.043Z",
         "status": "PB",
         "links": [
-          127,
-          128,
-          129,
-          130,
-          131
+          113,
+          114,
+          115,
+          116,
+          117
         ]
       }
     },
@@ -1028,8 +943,7 @@
         "status": "PB",
         "links": [
           47,
-          48,
-          85
+          48
         ]
       }
     },
@@ -1044,8 +958,7 @@
         "updated": "2025-02-16T06:20:05.056Z",
         "status": "PB",
         "links": [
-          84,
-          132
+          118
         ]
       }
     },
@@ -1059,9 +972,7 @@
         "created": "2025-01-12T20:35:17.651Z",
         "updated": "2025-01-12T21:02:04.861Z",
         "status": "PB",
-        "links": [
-          85
-        ]
+        "links": []
       }
     },
     {
@@ -1074,9 +985,7 @@
         "created": "2025-01-12T22:02:33.033Z",
         "updated": "2025-02-16T06:27:30.573Z",
         "status": "PB",
-        "links": [
-          85
-        ]
+        "links": []
       }
     },
     {
@@ -1089,9 +998,7 @@
         "created": "2025-01-12T22:27:54.824Z",
         "updated": "2025-01-12T22:54:19.206Z",
         "status": "PB",
-        "links": [
-          85
-        ]
+        "links": []
       }
     },
     {
@@ -1105,8 +1012,7 @@
         "updated": "2025-02-16T06:41:38.658Z",
         "status": "PB",
         "links": [
-          84,
-          104
+          91
         ]
       }
     },
@@ -1121,10 +1027,9 @@
         "updated": "2025-02-16T08:13:03.043Z",
         "status": "PB",
         "links": [
-          84,
-          133,
-          134,
-          135
+          119,
+          120,
+          121
         ]
       }
     }
@@ -2106,150 +2011,6 @@
       "model": "journal.link",
       "pk": 82,
       "fields": {
-        "title": "EpicEvent",
-        "platform": 19,
-        "url": "https://github.com/DoriDoro/EpicEvents",
-        "active": true,
-        "created": "2024-11-06T12:54:35.759Z",
-        "updated": "2024-11-06T12:54:35.759Z"
-      }
-    },
-    {
-      "model": "journal.link",
-      "pk": 83,
-      "fields": {
-        "title": "Orange Country Lettings",
-        "platform": 19,
-        "url": "https://github.com/DoriDoro/OC_lettings",
-        "active": true,
-        "created": "2024-11-06T12:55:09.353Z",
-        "updated": "2024-11-06T12:55:09.353Z"
-      }
-    },
-    {
-      "model": "journal.link",
-      "pk": 84,
-      "fields": {
-        "title": "Django Portfolio",
-        "platform": 19,
-        "url": "https://github.com/DoriDoro/django_portfolio",
-        "active": true,
-        "created": "2024-11-06T12:55:27.685Z",
-        "updated": "2024-11-06T12:55:27.685Z"
-      }
-    },
-    {
-      "model": "journal.link",
-      "pk": 85,
-      "fields": {
-        "title": "Django Blog Application – Doro's Python Life in Words",
-        "platform": 19,
-        "url": "https://github.com/DoriDoro/django-blog",
-        "active": true,
-        "created": "2024-11-06T12:55:54.481Z",
-        "updated": "2025-01-12T17:42:55.971Z"
-      }
-    },
-    {
-      "model": "journal.link",
-      "pk": 86,
-      "fields": {
-        "title": "Interactive Menu Navigation System file",
-        "platform": 19,
-        "url": "https://github.com/DoriDoro/EpicEvents/blob/main/cli/utils_menu.py",
-        "active": true,
-        "created": "2024-11-06T13:16:43.248Z",
-        "updated": "2024-11-06T13:16:43.248Z"
-      }
-    },
-    {
-      "model": "journal.link",
-      "pk": 87,
-      "fields": {
-        "title": "EpicEventsCommand file",
-        "platform": 19,
-        "url": "https://github.com/DoriDoro/EpicEvents/blob/main/cli/utils_custom_command.py",
-        "active": true,
-        "created": "2024-11-06T13:17:36.757Z",
-        "updated": "2024-11-06T13:17:36.757Z"
-      }
-    },
-    {
-      "model": "journal.link",
-      "pk": 88,
-      "fields": {
-        "title": "contract_create.py",
-        "platform": 19,
-        "url": "https://github.com/DoriDoro/EpicEvents/blob/main/contracts/management/commands/contract_create.py",
-        "active": true,
-        "created": "2024-11-06T14:11:50.902Z",
-        "updated": "2024-11-06T14:11:50.902Z"
-      }
-    },
-    {
-      "model": "journal.link",
-      "pk": 89,
-      "fields": {
-        "title": "contract.py",
-        "platform": 19,
-        "url": "https://github.com/DoriDoro/EpicEvents/blob/main/contracts/management/commands/contract.py",
-        "active": true,
-        "created": "2024-11-06T14:12:20.936Z",
-        "updated": "2024-11-06T14:12:20.936Z"
-      }
-    },
-    {
-      "model": "journal.link",
-      "pk": 90,
-      "fields": {
-        "title": "client_list_filter.py",
-        "platform": 19,
-        "url": "https://github.com/DoriDoro/EpicEvents/blob/main/accounts/management/commands/client_list_filter.py",
-        "active": true,
-        "created": "2024-11-06T14:17:22.400Z",
-        "updated": "2024-11-06T14:17:22.400Z"
-      }
-    },
-    {
-      "model": "journal.link",
-      "pk": 91,
-      "fields": {
-        "title": "Messages files",
-        "platform": 19,
-        "url": "https://github.com/DoriDoro/EpicEvents/blob/main/cli/utils_messages.py",
-        "active": true,
-        "created": "2024-11-06T14:19:30.547Z",
-        "updated": "2024-11-06T14:19:30.547Z"
-      }
-    },
-    {
-      "model": "journal.link",
-      "pk": 92,
-      "fields": {
-        "title": "Tables file",
-        "platform": 19,
-        "url": "https://github.com/DoriDoro/EpicEvents/blob/main/cli/utils_tables.py",
-        "active": true,
-        "created": "2024-11-06T14:27:49.819Z",
-        "updated": "2024-11-06T14:27:49.819Z"
-      }
-    },
-    {
-      "model": "journal.link",
-      "pk": 93,
-      "fields": {
-        "title": "JWT Mixin",
-        "platform": 19,
-        "url": "https://github.com/DoriDoro/EpicEvents/blob/main/cli/utils_token_mixin.py",
-        "active": true,
-        "created": "2024-11-06T14:31:40.896Z",
-        "updated": "2024-11-06T14:31:40.896Z"
-      }
-    },
-    {
-      "model": "journal.link",
-      "pk": 94,
-      "fields": {
         "title": "Faker object",
         "platform": 18,
         "url": "https://faker.readthedocs.io/en/master/",
@@ -2260,19 +2021,7 @@
     },
     {
       "model": "journal.link",
-      "pk": 95,
-      "fields": {
-        "title": "DataCustomCommand file",
-        "platform": 19,
-        "url": "https://github.com/DoriDoro/EpicEvents/blob/main/data/utils_data_custom_command.py",
-        "active": true,
-        "created": "2024-11-06T14:34:09.707Z",
-        "updated": "2024-11-06T14:34:09.707Z"
-      }
-    },
-    {
-      "model": "journal.link",
-      "pk": 96,
+      "pk": 83,
       "fields": {
         "title": "loaddata",
         "platform": 1,
@@ -2284,7 +2033,7 @@
     },
     {
       "model": "journal.link",
-      "pk": 97,
+      "pk": 84,
       "fields": {
         "title": "values_list()",
         "platform": 1,
@@ -2296,7 +2045,7 @@
     },
     {
       "model": "journal.link",
-      "pk": 98,
+      "pk": 85,
       "fields": {
         "title": "annotate()",
         "platform": 1,
@@ -2308,7 +2057,7 @@
     },
     {
       "model": "journal.link",
-      "pk": 99,
+      "pk": 86,
       "fields": {
         "title": "Count()",
         "platform": 1,
@@ -2320,7 +2069,7 @@
     },
     {
       "model": "journal.link",
-      "pk": 100,
+      "pk": 87,
       "fields": {
         "title": "Built-in template tags and filters",
         "platform": 1,
@@ -2332,7 +2081,7 @@
     },
     {
       "model": "journal.link",
-      "pk": 101,
+      "pk": 88,
       "fields": {
         "title": "Create custom template tags and filters",
         "platform": 1,
@@ -2344,7 +2093,7 @@
     },
     {
       "model": "journal.link",
-      "pk": 102,
+      "pk": 89,
       "fields": {
         "title": "simple_tag()",
         "platform": 1,
@@ -2356,7 +2105,7 @@
     },
     {
       "model": "journal.link",
-      "pk": 103,
+      "pk": 90,
       "fields": {
         "title": "inclusion_tag()",
         "platform": 1,
@@ -2368,7 +2117,7 @@
     },
     {
       "model": "journal.link",
-      "pk": 104,
+      "pk": 91,
       "fields": {
         "title": "sitemap framework",
         "platform": 1,
@@ -2380,7 +2129,7 @@
     },
     {
       "model": "journal.link",
-      "pk": 105,
+      "pk": 92,
       "fields": {
         "title": "syndication feed framework",
         "platform": 1,
@@ -2392,7 +2141,7 @@
     },
     {
       "model": "journal.link",
-      "pk": 106,
+      "pk": 93,
       "fields": {
         "title": "docker pull",
         "platform": 11,
@@ -2404,7 +2153,7 @@
     },
     {
       "model": "journal.link",
-      "pk": 107,
+      "pk": 94,
       "fields": {
         "title": "Docker Image - PostgreSQL",
         "platform": 11,
@@ -2416,7 +2165,7 @@
     },
     {
       "model": "journal.link",
-      "pk": 108,
+      "pk": 95,
       "fields": {
         "title": "docker run",
         "platform": 11,
@@ -2428,7 +2177,7 @@
     },
     {
       "model": "journal.link",
-      "pk": 109,
+      "pk": 96,
       "fields": {
         "title": "full text search",
         "platform": 1,
@@ -2440,7 +2189,7 @@
     },
     {
       "model": "journal.link",
-      "pk": 110,
+      "pk": 97,
       "fields": {
         "title": "SaerchVector",
         "platform": 1,
@@ -2452,7 +2201,7 @@
     },
     {
       "model": "journal.link",
-      "pk": 111,
+      "pk": 98,
       "fields": {
         "title": "SearchQuery",
         "platform": 1,
@@ -2464,7 +2213,7 @@
     },
     {
       "model": "journal.link",
-      "pk": 112,
+      "pk": 99,
       "fields": {
         "title": "SearchRank",
         "platform": 1,
@@ -2476,7 +2225,7 @@
     },
     {
       "model": "journal.link",
-      "pk": 113,
+      "pk": 100,
       "fields": {
         "title": "config - SearchVector and SearchQuery",
         "platform": 1,
@@ -2488,7 +2237,7 @@
     },
     {
       "model": "journal.link",
-      "pk": 114,
+      "pk": 101,
       "fields": {
         "title": "weight - SearchVector and SearchQuery",
         "platform": 1,
@@ -2500,7 +2249,7 @@
     },
     {
       "model": "journal.link",
-      "pk": 115,
+      "pk": 102,
       "fields": {
         "title": "free HTML-CSS template",
         "platform": 20,
@@ -2512,7 +2261,7 @@
     },
     {
       "model": "journal.link",
-      "pk": 116,
+      "pk": 103,
       "fields": {
         "title": "ModelViewSet",
         "platform": 21,
@@ -2524,7 +2273,7 @@
     },
     {
       "model": "journal.link",
-      "pk": 117,
+      "pk": 104,
       "fields": {
         "title": "GenericViewSet",
         "platform": 21,
@@ -2536,19 +2285,7 @@
     },
     {
       "model": "journal.link",
-      "pk": 118,
-      "fields": {
-        "title": "SoftDesk",
-        "platform": 19,
-        "url": "https://github.com/DoriDoro/SoftDesk_api",
-        "active": true,
-        "created": "2024-12-28T09:57:24.463Z",
-        "updated": "2024-12-28T09:57:24.463Z"
-      }
-    },
-    {
-      "model": "journal.link",
-      "pk": 119,
+      "pk": 105,
       "fields": {
         "title": "Permissions",
         "platform": 21,
@@ -2560,7 +2297,7 @@
     },
     {
       "model": "journal.link",
-      "pk": 120,
+      "pk": 106,
       "fields": {
         "title": "Permission policy",
         "platform": 21,
@@ -2572,7 +2309,7 @@
     },
     {
       "model": "journal.link",
-      "pk": 121,
+      "pk": 107,
       "fields": {
         "title": "Built-in Permissions",
         "platform": 21,
@@ -2584,7 +2321,7 @@
     },
     {
       "model": "journal.link",
-      "pk": 122,
+      "pk": 108,
       "fields": {
         "title": "Custom Permissions",
         "platform": 21,
@@ -2596,7 +2333,7 @@
     },
     {
       "model": "journal.link",
-      "pk": 123,
+      "pk": 109,
       "fields": {
         "title": "Flask",
         "platform": 22,
@@ -2608,7 +2345,7 @@
     },
     {
       "model": "journal.link",
-      "pk": 124,
+      "pk": 110,
       "fields": {
         "title": "Flask Article",
         "platform": 2,
@@ -2620,7 +2357,7 @@
     },
     {
       "model": "journal.link",
-      "pk": 125,
+      "pk": 111,
       "fields": {
         "title": "DRF - permissions Article",
         "platform": 2,
@@ -2632,7 +2369,7 @@
     },
     {
       "model": "journal.link",
-      "pk": 126,
+      "pk": 112,
       "fields": {
         "title": "DRF - ModelViewSet Article",
         "platform": 2,
@@ -2644,7 +2381,7 @@
     },
     {
       "model": "journal.link",
-      "pk": 127,
+      "pk": 113,
       "fields": {
         "title": "Django Authentication Article",
         "platform": 2,
@@ -2656,7 +2393,7 @@
     },
     {
       "model": "journal.link",
-      "pk": 128,
+      "pk": 114,
       "fields": {
         "title": "django.contrib.auth.views",
         "platform": 19,
@@ -2668,7 +2405,7 @@
     },
     {
       "model": "journal.link",
-      "pk": 129,
+      "pk": 115,
       "fields": {
         "title": "django.contrib.auth.urls",
         "platform": 19,
@@ -2680,7 +2417,7 @@
     },
     {
       "model": "journal.link",
-      "pk": 130,
+      "pk": 116,
       "fields": {
         "title": "Authentication Views",
         "platform": 1,
@@ -2692,7 +2429,7 @@
     },
     {
       "model": "journal.link",
-      "pk": 131,
+      "pk": 117,
       "fields": {
         "title": "Django Authentication System",
         "platform": 1,
@@ -2704,7 +2441,7 @@
     },
     {
       "model": "journal.link",
-      "pk": 132,
+      "pk": 118,
       "fields": {
         "title": "Prism.js",
         "platform": 23,
@@ -2716,7 +2453,7 @@
     },
     {
       "model": "journal.link",
-      "pk": 133,
+      "pk": 119,
       "fields": {
         "title": "Pagination",
         "platform": 1,
@@ -2728,7 +2465,7 @@
     },
     {
       "model": "journal.link",
-      "pk": 134,
+      "pk": 120,
       "fields": {
         "title": "Pagination a ListView",
         "platform": 1,
@@ -2740,7 +2477,7 @@
     },
     {
       "model": "journal.link",
-      "pk": 135,
+      "pk": 121,
       "fields": {
         "title": "Pagination Class",
         "platform": 1,
@@ -2748,6 +2485,19 @@
         "active": true,
         "created": "2025-02-16T08:12:33.403Z",
         "updated": "2025-02-16T08:12:33.403Z"
+      }
+    },
+    {
+      "model": "journal.link",
+      "pk": 122,
+      "fields": {
+        "title": "Django Portfolio",
+        "platform": 19,
+        "url": "https://github.com/DoriDoro/django_portfolio",
+        "panel": "PROJECT",
+        "active": true,
+        "created": "2024-11-06T12:55:27.685Z",
+        "updated": "2024-11-06T12:55:27.685Z"
       }
     }
   ],

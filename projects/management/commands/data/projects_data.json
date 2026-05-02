@@ -21,9 +21,9 @@
         "future_de": null,
         "future_fr": null,
         "active": true,
-        "tag": "PERSONAL_PROJECT",
+        "tag": "PERSONAL",
         "links": [
-          85
+          122
         ],
         "skills": [
           1,
@@ -70,7 +70,7 @@
         "future_de": null,
         "future_fr": null,
         "active": true,
-        "tag": "OPENCLASSROOMS_PROJECT",
+        "tag": "OPENCLASSROOMS",
         "links": [],
         "skills": [
           1,
@@ -103,7 +103,7 @@
         "future_de": null,
         "future_fr": null,
         "active": true,
-        "tag": "OPENCLASSROOMS_PROJECT",
+        "tag": "OPENCLASSROOMS",
         "links": [],
         "skills": [
           19,
@@ -133,7 +133,7 @@
         "future_de": null,
         "future_fr": null,
         "active": true,
-        "tag": "OPENCLASSROOMS_PROJECT",
+        "tag": "OPENCLASSROOMS",
         "links": [],
         "skills": [
           1,
@@ -168,7 +168,7 @@
         "future_de": null,
         "future_fr": null,
         "active": true,
-        "tag": "OPENCLASSROOMS_PROJECT",
+        "tag": "OPENCLASSROOMS",
         "links": [],
         "skills": [
           1,
@@ -204,7 +204,7 @@
         "future_de": null,
         "future_fr": null,
         "active": true,
-        "tag": "OPENCLASSROOMS_PROJECT",
+        "tag": "OPENCLASSROOMS",
         "links": [],
         "skills": [
           1,
@@ -237,7 +237,7 @@
         "future_de": null,
         "future_fr": null,
         "active": true,
-        "tag": "OPENCLASSROOMS_PROJECT",
+        "tag": "OPENCLASSROOMS",
         "links": [],
         "skills": [
           1,
@@ -279,7 +279,7 @@
         "future_de": null,
         "future_fr": null,
         "active": true,
-        "tag": "OPENCLASSROOMS_PROJECT",
+        "tag": "OPENCLASSROOMS",
         "links": [],
         "skills": [
           1,
@@ -318,7 +318,7 @@
         "future_de": null,
         "future_fr": null,
         "active": true,
-        "tag": "OPENCLASSROOMS_PROJECT",
+        "tag": "OPENCLASSROOMS",
         "links": [],
         "skills": [
           1,
@@ -354,7 +354,7 @@
         "future_de": null,
         "future_fr": null,
         "active": true,
-        "tag": "OPENCLASSROOMS_PROJECT",
+        "tag": "OPENCLASSROOMS",
         "links": [],
         "skills": [
           1,
@@ -396,7 +396,7 @@
         "future_de": null,
         "future_fr": null,
         "active": true,
-        "tag": "OPENCLASSROOMS_PROJECT",
+        "tag": "OPENCLASSROOMS",
         "links": [],
         "skills": [
           1,
@@ -425,7 +425,7 @@
       "pk": 13,
       "fields": {
         "name": "Django Blog Application – Doro's Python Life in Words",
-        "legend": "Django Blog Application – Doro's Python Life in Words",
+        "legend": "Doro's Python Life in Words",
         "create_date": "2024-10-07",
         "evaluation_date": null,
         "skill_set_en": "<ul>\r\n<li style=\"list-style-type: none;\">\r\n<ul>\r\n<li>Developed custom model managers for advanced query handling.</li>\r\n<li>Gained expertise in using Django&rsquo;s Metadata options for models.</li>\r\n<li>Enhanced the admin panel with advanced functionality for better usability.</li>\r\n<li>Implemented canonical URLs using the <code>get_absolute_url</code> method.</li>\r\n<li>Applied effective SEO techniques to improve site visibility.</li>\r\n<li>Integrated pagination to optimize content navigation.</li>\r\n<li>Utilized class-based views for reusable and modular code design.</li>\r\n<li>Configured and sent emails using Django&rsquo;s email framework.</li>\r\n<li>Used Django forms to enable post sharing via email.</li>\r\n<li>Enabled post commenting by building forms from models.</li>\r\n<li>Implemented tagging functionality with the <code>django-taggit</code> library.</li>\r\n<li>Retrieved similar posts using tagging and custom query logic.</li>\r\n<li>Created custom template tags and filters for displaying dynamic content like latest and most commented posts.</li>\r\n<li>Added a sitemap for better search engine indexing.</li>\r\n<li>Created RSS feeds to syndicate blog content.</li>\r\n<li>Migrated the database from SQLite to PostgreSQL using a Dockerized PostgreSQL image.</li>\r\n<li>Utilized fixtures for efficient data export and import via <code>dumpdata</code> and <code>loaddata</code>.</li>\r\n<li>Built a full-text search engine with Django and PostgreSQL for precise content searching.</li>\r\n</ul>\r\n</li>\r\n</ul>",
@@ -441,7 +441,8 @@
         "future_de": null,
         "future_fr": null,
         "active": true,
-        "tag": "PERSONAL_PROJECT",
+        "tag": "PERSONAL",
+        "links": [],
         "skills": [
           1,
           2,
