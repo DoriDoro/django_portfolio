@@ -1,3 +1,5 @@
+from pathlib import Path
+from django.core.files import File
 from django.core.management.base import BaseCommand
 
 from journal.models import Link
@@ -12,6 +14,8 @@ class Command(BaseCommand):
         path = "projects/management/commands/data/projects_data.json"
         data = read_json_file(json_path=path)
         project_data = data["Projects"]
+
+        IMAGE_DIR = Path("projects/management/commands/data/images")
 
         for entry in project_data:
             fields = entry["fields"]
@@ -51,22 +55,27 @@ class Command(BaseCommand):
                             project.skills.add(Skill.objects.get(pk=pk))
                         except Skill.DoesNotExist:
                             self.stdout.write(
-                                self.style.WARNING(
-                                    f"  Skill pk={pk} not found, skipped"
-                                )
+                                self.style.WARNING(f"  Skill pk={pk} not found, skipped")
                             )
+                    image_path = IMAGE_DIR / f"{project.slug}.jpg"
+                    if image_path.exists():
+                        with open(image_path, "rb") as f:
+                            project.picture.save(image_path.name, File(f), save=True)
+                        self.stdout.write(
+                            self.style.SUCCESS(f"  Picture added: '{image_path.name}'")
+                        )
+                    else:
+                        self.stdout.write(
+                            self.style.WARNING(f"  No image found for '{project.slug}'")
+                        )
 
                     self.stdout.write(
                         self.style.SUCCESS(f"Created: '{project.name} ({project.pk})'")
                     )
                 else:
-                    self.stdout.write(
-                        f"Skipped (exists): '{project.name} ({project.pk})'"
-                    )
+                    self.stdout.write(f"Skipped (exists): '{project.name} ({project.pk})'")
 
             except Exception as exc:
                 self.stdout.write(
-                    self.style.ERROR(
-                        f"[ERROR] - Project - An unexpected error occurred: {exc}"
-                    )
+                    self.style.ERROR(f"[ERROR] - Project - An unexpected error occurred: {exc}")
                 )
