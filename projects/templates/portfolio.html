@@ -13,9 +13,9 @@
       <div class="col-lg-12 d-flex justify-content-center">
         <ul id="page-filters">
           <li data-filter="*" class="filter-active">{% trans "All" %}</li>
-          <li data-filter=".filter-OPENCLASSROOMS_PROJECT">{% trans "OpenClassrooms Project" %}
-          </li>
-          <li data-filter=".filter-PERSONAL_PROJECT">{% trans "Personal Project" %}</li>
+          {% for entry in filter_tags %}
+            <li data-filter=".filter-{{ entry }}">{{ entry }}</li>
+          {% endfor %}
         </ul>
       </div>
     </div>
@@ -23,23 +23,20 @@
     {% if projects %}
     <div class="row page-container">
       {% for project in projects %}
-        {% for picture in project.project_picture.all %}
-        <div class="col-lg-4 col-md-6 portfolio-item filter-{{ project.tags }}">
+        <div class="col-lg-4 col-md-6 portfolio-item filter-{{ project.get_tag_display }}">
           <div class="portfolio-wrap">
-            <img src="{{ picture.photo.url }}" class="img-fluid custom-img" alt="{{ picture.photo.legend }}">
+            <img src="{{ project.picture.url }}" class="img-fluid custom-img" alt="{{ project.picture.legend }}">
             <div class="page-info">
-              <h4>{{ project.title }}</h4>
-              <p>{{ project.tags }}</p>
+              <h4>{{ project.name }}</h4>
               <div class="portfolio-links">
                 <a href="{{ project.get_absolute_url }}"
-                   title="{{ project.title }}">
+                   title="{{ project.name }}">
                   <i class="bx bx-link"></i>
                 </a>
               </div>
             </div>
           </div>
         </div>
-        {% endfor %}
       {% endfor %}
     </div>
     {% endif %}

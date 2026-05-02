@@ -29,12 +29,12 @@ class Project(SlugCreateMixin, models.Model):
     """All Project details."""
 
     class TagChoices(models.TextChoices):
-        OPENCLASSROOMS_PROJECT = "OPENCLASSROOMS_PROJECT", _("OpenClassrooms Project")
-        PERSONAL_PROJECT = "PERSONAL_PROJECT", _("Personal Project")
+        OPENCLASSROOMS = "OPENCLASSROOMS", "openclassrooms"
+        PERSONAL = "PERSONAL", "personal"
 
     name = models.CharField(max_length=250)
     slug = models.SlugField(max_length=250, blank=True, unique=True, editable=True)
-    tag = models.CharField(max_length=22, choices=TagChoices.choices)
+    tag = models.CharField(max_length=16, choices=TagChoices.choices)
     legend = models.CharField(max_length=100)
     create_date = models.DateField()
     evaluation_date = models.DateField(null=True, blank=True)
@@ -83,9 +83,7 @@ class Project(SlugCreateMixin, models.Model):
         if self.picture:
             img = Image.open(self.picture)
             if img.width < 800:
-                raise ValidationError(
-                    {"picture": "Image width must be at least 800 pixels."}
-                )
+                raise ValidationError({"picture": "Image width must be at least 800 pixels."})
             self.picture.seek(0)
 
     def save(self, *args, **kwargs):
@@ -99,12 +97,7 @@ class Project(SlugCreateMixin, models.Model):
             self.full_clean()
 
         if self.pk:
-            old_name = (
-                type(self)
-                .objects.filter(pk=self.pk)
-                .values_list("name", flat=True)
-                .first()
-            )
+            old_name = type(self).objects.filter(pk=self.pk).values_list("name", flat=True).first()
             if old_name != self.name:
                 self.slug = ""
                 if fields_to_update is not None:
@@ -156,6 +149,7 @@ class Skill(models.Model):
 
     objects = models.Manager()
     active_skills = ActiveManager()
+    display_active_skills = SkillDisplayActiveManager()
 
     class Meta:
         constraints = [
@@ -194,9 +188,7 @@ class Skill(models.Model):
             ),
         ]
         indexes = [
-            models.Index(
-                fields=["display_skill", "active"], name="idx_display_skill_active"
-            ),
+            models.Index(fields=["display_skill", "active"], name="idx_display_skill_active"),
         ]
         ordering = [Lower("name"), "pk"]
 

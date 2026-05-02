@@ -5,55 +5,37 @@
   <!-- ======= Portfolio Details ======= -->
   <section class="details-page section-show">
     <div class="container">
-      <div class="section-title" style="display: flex; justify-content: space-between">
-        <h2>{{ project.title }}</h2>
-        <a href="{% url 'projects:portfolio' %}" style="color: #fff"><i class="ri-close-large-fill"></i></a>
+      <div class="section-title section-title-header">
+        <h2>{{ project.tag_display }}</h2>
+        <a href="{% url 'projects:portfolio' %}"><i class="ri-close-large-fill"></i></a>
       </div>
       <div class="row">
+        <div class="page-info">
+          <h3>{{ project.name }}</h3>
+        </div>
+      </div>
+      <hr>
+      <div class="row">
         <div class="col-lg-5">
-          {% for picture in project.project_picture.all %}
-          <div class="portfolio-details-slider swiper">
-            <div class="swiper-wrapper align-items-center">
+          <div class="portfolio-details-slider">
+            <div class="align-items-center">
               <div class="swiper-slide">
-                <img src="{{ picture.photo.url }}" alt="{{ picture.photo.legend }}">
+                <img src="{{ project.picture.url }}" alt="{{ project.picture.legend }}">
               </div>
             </div>
-            <div class="swiper-pagination"></div>
           </div>
-          {% endfor %}
         </div>
 
         <div class="col-lg-7 page-info">
           <h3>{% trans "Project information" %}</h3>
           <ul class="mx-4">
-            {% if github %}
+            {% if project.links_list %}
               <li>
                 <strong>{% trans "GitHub URL" %}:</strong>
-                {% for title, url in github %}
-                  <a href="{{ url }}" target="_blank">{{ title }}</a>
+                {% for link in project.links_list %}
+                  <a href="{{ link.url }}" target="_blank">{{ link.title }}</a>
                 {% endfor %}
               </li>
-            {% endif %}
-            {% if vercel %}
-              <li>
-                <strong>{% trans "Vercel URL" %}:</strong>
-                {% for title, url in vercel %}
-                  <a href="{{ url }}" target="_blank">{{ title }}</a>
-                {% endfor %}
-              </li>
-            {% endif %}
-            {% if render %}
-              <li>
-                <strong>{% trans "Render URL" %}:</strong>
-                {% for title, url in render %}
-                  <a href="{{ url }}" target="_blank">{{ title }}</a>
-                {% endfor %}
-              </li>
-            {% endif %}
-            {% if others %}
-              {% for title, url in others %}
-                <li><strong>URL:</strong> <a href="{{ url }}" target="_blank">{{ title }}</a></li>
-              {% endfor %}
             {% endif %}
             <li><strong>{% trans "create date" %}:</strong> {{ project.create_date }}</li>
             {% if project.evaluation_date %}
@@ -80,7 +62,7 @@
         <div class="section-title">
           <h2>{% trans "Competences" %}</h2>
         </div>
-        <p>{{ project.keywords|safe }}</p>
+        <p>{{ project.skill_set|safe }}</p>
         <hr>
         <div class="section-title">
           <h2>{% trans "Learning Experience" %}</h2>
