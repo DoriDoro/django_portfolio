@@ -87,6 +87,14 @@
     <!-- Navbar - End -->
   </div>
 
+  <div class="container">
+    <!-- Alerts/Messages - Start -->
+    {% if messages %}
+      {% include 'messages.html' %}
+    {% endif %}
+    <!-- Alerts/Messages - End -->
+  </div>
+
   {% block content %}
   {% endblock %}
 
