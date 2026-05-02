@@ -6,6 +6,7 @@ from django.contrib.sitemaps.views import sitemap
 from django.urls import path, include
 from django.views.defaults import permission_denied, page_not_found, server_error
 
+from core.views import health_check, ImpressumView, PrivacyView
 from sitemaps import ProjectSitemap, JournalSitemap, StaticViewSitemap
 
 urlpatterns = [
@@ -13,6 +14,9 @@ urlpatterns = [
     path("i18n/", include("django.conf.urls.i18n")),
     path("tinymce/", include("tinymce.urls")),
     path("journal/", include("journal.urls", namespace="journal")),
+    path("health/", health_check, name="health"),
+    path("impressum/", ImpressumView.as_view(), name="impressum"),
+    path("privacy/", PrivacyView.as_view(), name="privacy"),
 ]
 
 sitemaps = {

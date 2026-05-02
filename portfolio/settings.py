@@ -1,6 +1,7 @@
 import os
 import sentry_sdk
 
+from django.contrib.messages import constants as message_constants
 from django.utils.translation import gettext_lazy as _
 from decouple import config
 from pathlib import Path
@@ -92,12 +93,24 @@ WSGI_APPLICATION = "portfolio.wsgi.application"
 
 # Database
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases
-DATABASES = {
-    "default": {
-        "ENGINE": "django.db.backends.sqlite3",
-        "NAME": BASE_DIR / "django_project.sqlite3",
+if DEBUG:
+    DATABASES = {
+        "default": {
+            "ENGINE": "django.db.backends.sqlite3",
+            "NAME": BASE_DIR / "django_project.sqlite3",
+        }
     }
-}
+else:
+    DATABASES = {
+        "default": {
+            "ENGINE": "django.db.backends.postgresql",
+            "NAME": config("DB_NAME"),
+            "USER": config("DB_USER"),
+            "PASSWORD": config("DB_PASSWORD"),
+            "HOST": config("DB_HOST", default="localhost"),
+            "PORT": config("DB_PORT", default="5432"),
+        }
+    }
 
 
 # Password validation
@@ -147,9 +160,9 @@ MEDIA_URL = "/media/"
 MEDIA_ROOT = BASE_DIR / "core/media"
 
 staticfiles_backend = (
-    "whitenoise.storage.CompressedManifestStaticFilesStorage"
+    "django.contrib.staticfiles.storage.StaticFilesStorage"
     if DEBUG
-    else "django.contrib.staticfiles.storage.StaticFilesStorage"
+    else "whitenoise.storage.CompressedManifestStaticFilesStorage"
 )
 
 STORAGES = {
@@ -233,3 +246,42 @@ EMAIL_HOST_USER = config("EMAIL_HOST_USER")
 EMAIL_HOST_PASSWORD = config("EMAIL_HOST_PASSWORD")
 DEFAULT_FROM_EMAIL = config("DEFAULT_FROM_EMAIL")
 CONTACT_EMAIL = config("CONTACT_EMAIL")
+
+# Configuration for Django Message Framework
+MESSAGE_TAGS = {
+    message_constants.DEBUG: "alert-secondary",
+    message_constants.INFO: "alert-info",
+    message_constants.SUCCESS: "alert-success",
+    message_constants.WARNING: "alert-warning",
+    message_constants.ERROR: "alert-danger",
+}
+
+
+# Logging configurations
+LOG_LEVEL = config("DJANGO_LOG_LEVEL", "INFO").upper()
+LOGGING = {
+    "version": 1,
+    "disable_existing_loggers": False,
+    "handlers": {
+        "console": {
+            "class": "logging.StreamHandler",
+            "stream": "ext://sys.stdout",
+        },
+    },
+    "root": {
+        "handlers": ["console"],
+        "level": LOG_LEVEL,
+    },
+    "loggers": {
+        "django.*": {
+            "handlers": ["console"],
+            "level": "WARNING",
+            "propagate": False,
+        },
+        "*": {
+            "handlers": ["console"],
+            "level": LOG_LEVEL,
+            "propagate": False,
+        },
+    },
+}

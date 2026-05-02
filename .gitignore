@@ -25,6 +25,7 @@ todo.txt
 *.sqlite3
 .env
 *backup.json
+.claude
 
 # Sphinx build directories
 /docs/_build/
