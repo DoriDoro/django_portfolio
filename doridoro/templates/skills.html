@@ -1,5 +1,5 @@
 {% extends 'base.html' %}
-{% load i18n static  %}
+{% load i18n static %}
 
 {% block content %}
 <!-- ======= Skills ======= -->
@@ -14,13 +14,14 @@
     </div>
     <div class="row">
       {% for sub_cat, names in programming_skills.items %}
-        <div class="col-12 mt-3 d-flex flex-wrap align-items-center gap-2">
-          <h5 class="mb-0 me-2">{{ sub_cat }}:</h5>
-          {% for name in names %}
-            <p class="skill mb-0">{{ name }}</p>
-          {% endfor %}
-        </div>
+      <div class="col-12 mt-1 d-flex flex-wrap align-items-baseline">
+        <h6 class="mb-0 me-2 fw-semibold">{{ sub_cat }}:</h6>
+        {% for name in names %}
+        <span class="skill">{{ name }}</span>
+        {% endfor %}
+      </div>
       {% endfor %}
+
     </div>
     <hr>
     <div class="section-title mt-5">
@@ -28,7 +29,7 @@
     </div>
     <div class="row">
       {% for soft in soft_skills %}
-        <p class="skill">{{ soft }}</p>
+      <p class="skill">{{ soft }}</p>
       {% endfor %}
     </div>
     <hr>
@@ -37,12 +38,12 @@
     </div>
     <div class="row">
       {% for s in strength %}
-        {% with name=s.0 content=s.1 %}
-          <div class="col-12 skill mt-2">
-            <strong>{{ name }}</strong>
-            <p class="mb-0">{{ content }}</p>
-          </div>
-        {% endwith %}
+      {% with name=s.0 content=s.1 %}
+      <div class="col-12 skill mt-2">
+        <strong>{{ name }}</strong>
+        <p class="mb-0">{{ content }}</p>
+      </div>
+      {% endwith %}
       {% endfor %}
     </div>
     <hr>
@@ -50,11 +51,11 @@
       <h2>{% trans "Languages" %}</h2>
     </div>
     <div class="row">
-    {% for language in languages %}
+      {% for language in languages %}
       {% with name=language.0 level=language.1 %}
-        <p class="skill">{{ name }}: {{ level }}</p>
+      <p class="skill">{{ name }}: {{ level }}</p>
       {% endwith %}
-    {% endfor %}
+      {% endfor %}
     </div>
     <hr>
     <div class="section-title mt-5">

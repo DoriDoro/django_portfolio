@@ -12,6 +12,10 @@ from projects.models import Project, Skill
 logger = logging.getLogger(__name__)
 
 
+# -- View Constants --
+PORTFOLIO_USERNAME = "Doro"
+
+
 class IndexView(TemplateView):
     template_name = "index.html"
 
@@ -21,15 +25,13 @@ class IndexView(TemplateView):
             Profile.objects.select_related("user").only(
                 "id", "profession", "user__id", "user__first_name", "user__last_name"
             ),
-            user__username="Doro",
+            user__username=PORTFOLIO_USERNAME,
         )
 
     def get_context_data(self, **kwargs):
         ctx = super().get_context_data(**kwargs)
         ctx["doridoro"] = self.profile
-        ctx["social_media"] = SocialMedia.active_social_medias.values_list(
-            "name", "url"
-        )
+        ctx["social_media"] = SocialMedia.active_social_medias.values_list("name", "url")
         return ctx
 
 
@@ -48,26 +50,32 @@ class AboutView(TemplateView):
                 "user__id",
                 "user__email",
             ),
-            user__username="Doro",
+            user__username=PORTFOLIO_USERNAME,
         )
 
     @cached_property
     def jobs(self):
-        return Job.active_jobs.filter(until_present=True).values_list(
-            "position", "company_name"
-        )
+        return Job.active_jobs.filter(until_present=True).values_list("position", "company_name")
+
+    @cached_property
+    def project_count(self):
+        return Project.active_projects.count()
+
+    @cached_property
+    def skill_count(self):
+        return Skill.active_skills.count()
+
+    @cached_property
+    def achievements(self):
+        return Achievement.active_achievements.values_list("title", "content")
 
     def get_context_data(self, **kwargs):
         ctx = super().get_context_data(**kwargs)
-
         ctx["doridoro"] = self.profile
         ctx["current_positions"] = self.jobs
-        ctx["projects_count"] = Project.active_projects.count()
-        ctx["skills_count"] = Skill.active_skills.count()
-        ctx["achievements"] = Achievement.active_achievements.values_list(
-            "title", "content"
-        )
-
+        ctx["projects_count"] = self.project_count
+        ctx["skills_count"] = self.skill_count
+        ctx["achievements"] = self.achievements
         return ctx
 
 
@@ -76,7 +84,7 @@ class SkillsView(TemplateView):
 
     @cached_property
     def skills_qs(self):
-        return Skill.active_skills.only(
+        return Skill.display_active_skills.only(
             "id", "name", "category", "sub_category", "content"
         ).order_by(Lower("name"), "pk")
 
@@ -87,10 +95,9 @@ class SkillsView(TemplateView):
             user__username="Doro",
         )
 
+    # -- Helpers --
     def _get_languages_data(self):
-        languages = Language.active_languages.only("id", "name", "level").order_by(
-            "-level"
-        )
+        languages = Language.active_languages.only("id", "name", "level").order_by("-level")
         return [(lang.name, lang.get_level_display()) for lang in languages]
 
     def _create_skills_context(self):
@@ -99,9 +106,9 @@ class SkillsView(TemplateView):
 
         for skill in all_skills:
             if skill.category == Skill.CategoryChoices.PROGRAMMING_SKILLS:
-                programming_skills.setdefault(
-                    skill.get_sub_category_display(), []
-                ).append(skill.name)
+                programming_skills.setdefault(skill.get_sub_category_display(), []).append(
+                    skill.name
+                )
             elif skill.category == Skill.CategoryChoices.SOFT_SKILLS:
                 soft_skills.append(skill.name)
             elif skill.category == Skill.CategoryChoices.STRENGTH:
@@ -114,10 +121,9 @@ class SkillsView(TemplateView):
             "languages": self._get_languages_data(),
         }
 
+    # -- Methods --
     def get_context_data(self, **kwargs):
-
         ctx = super().get_context_data(**kwargs)
-
         ctx["doridoro"] = self.profile
         ctx.update(self._create_skills_context())
         return ctx
@@ -144,16 +150,20 @@ class ResumeView(TemplateView):
     def _create_jobs_context(self):
         all_jobs = list(self.jobs)
         formation_types = {Job.JobTypeChoices.FORMATION, Job.JobTypeChoices.MENTORING}
+        formation, mentoring, experience = [], [], []
+
+        for job in all_jobs:
+            if job.job_type == Job.JobTypeChoices.FORMATION:
+                formation.append(job)
+            elif job.job_type == Job.JobTypeChoices.MENTORING:
+                mentoring.append(job)
+            elif job.job_type not in formation_types:
+                experience.append(job)
+
         return {
-            "jobs_formation": [
-                j for j in all_jobs if j.job_type == Job.JobTypeChoices.FORMATION
-            ],
-            "jobs_mentoring": [
-                j for j in all_jobs if j.job_type == Job.JobTypeChoices.MENTORING
-            ],
-            "jobs_experience": [
-                j for j in all_jobs if j.job_type not in formation_types
-            ],
+            "jobs_formation": formation,
+            "jobs_mentoring": mentoring,
+            "jobs_experience": experience,
         }
 
     def get_context_data(self, **kwargs):
