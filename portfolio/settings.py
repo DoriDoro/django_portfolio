@@ -2,37 +2,35 @@ import os
 import sentry_sdk
 
 from django.utils.translation import gettext_lazy as _
+from decouple import config
 from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 
-PROJECT_NAME = os.environ.get("PROJECT_NAME")
+PROJECT_NAME = config("PROJECT_NAME")
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/5.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = os.environ.get("SECRET_KEY")
+SECRET_KEY = config("SECRET_KEY")
+if not SECRET_KEY:
+    raise ValueError("'SECRET_KEY' must be set!")
 
 
 # SECURITY WARNING: don't run with debug turned on in production!
 # set default to True and verify if the DEBUG variable is set to false
-DEBUG = os.environ.get("DEBUG", "True").lower() == "false"
+DEBUG = config("DEBUG", default=False, cast=bool)
+ALLOWED_HOSTS = [h.strip() for h in config("ALLOWED_HOSTS", default="").split(",") if h.strip()]
 
 
-# set an empty list as default
-ALLOWED_HOSTS = (
-    os.environ.get("ALLOWED_HOSTS").split(",")
-    if os.environ.get("ALLOWED_HOSTS")
-    else []
-)
-
+# CSRF (Cross-Site Request Forgery) A CSRF cookie that is a random secret value,
+# which other sites will not have access to.
+# SET WHEN MOVING TO PRODUCTION: CSRF_TRUSTED_ORIGINS
 CSRF_TRUSTED_ORIGINS = [
-    origin
-    for origin in os.environ.get("CSRF_TRUSTED_ORIGINS", "").split(",")
-    if origin.startswith("http://") or origin.startswith("https://")
+    o.strip() for o in config("CSRF_TRUSTED_ORIGINS", default="").split(",") if o.strip()
 ]
 
 
@@ -94,7 +92,6 @@ WSGI_APPLICATION = "portfolio.wsgi.application"
 
 # Database
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases
-
 DATABASES = {
     "default": {
         "ENGINE": "django.db.backends.sqlite3",
@@ -182,7 +179,7 @@ DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 AUTH_USER_MODEL = "accounts.User"
 
 # Settings for Sentry
-SENTRY_DSN = os.environ.get("SENTRY_DSN")
+SENTRY_DSN = config("SENTRY_DSN")
 if SENTRY_DSN:
     sentry_sdk.init(
         dsn=SENTRY_DSN,
@@ -232,7 +229,7 @@ SITE_ID = 1
 EMAIL_HOST = "smtp.gmail.com"
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
-EMAIL_HOST_USER = os.environ.get("EMAIL_HOST_USER")
-EMAIL_HOST_PASSWORD = os.environ.get("EMAIL_HOST_PASSWORD")
-DEFAULT_FROM_EMAIL = os.environ.get("DEFAULT_FROM_EMAIL")
-CONTACT_EMAIL = os.environ.get("CONTACT_EMAIL")
+EMAIL_HOST_USER = config("EMAIL_HOST_USER")
+EMAIL_HOST_PASSWORD = config("EMAIL_HOST_PASSWORD")
+DEFAULT_FROM_EMAIL = config("DEFAULT_FROM_EMAIL")
+CONTACT_EMAIL = config("CONTACT_EMAIL")

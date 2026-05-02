@@ -10,6 +10,7 @@ __pycache__/
 
 # virtual environment
 venv
+.*venv
 
 # IDE
 .idea
@@ -21,6 +22,8 @@ core/staticfiles
 settings-local.py
 todo.txt
 *.sqlite3
+.env
+*backup.json
 
 # Sphinx build directories
 /docs/_build/
