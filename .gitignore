@@ -17,6 +17,7 @@ venv
 
 # locale staticfiles
 core/staticfiles
+core/media
 
 # Local configuration
 settings-local.py
