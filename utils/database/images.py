@@ -14,10 +14,7 @@ logger = logging.getLogger(__name__)
 
 
 def upload_to(instance: Model, filename: str):
-    """
-    Generates a unique filename for each uploaded file.
-        'uploads/user/a1b2c3d4e5f6g7h8.jpg'
-    """
+    """Return a unique upload path in the form uploads/<model>/<uuid>.<ext>."""
 
     ext = os.path.splitext(filename)[1].lower()
     model_name = instance.__class__.__name__.lower()
@@ -26,7 +23,7 @@ def upload_to(instance: Model, filename: str):
 
 
 def private_storage():
-    """Retrieve the private file storage backend."""
+    """Return the private storage backend; raises KeyError if it is not configured in STORAGES."""
 
     try:
         return storages["private"]
@@ -39,7 +36,7 @@ def private_storage():
 
 
 def _safe_seek(file_obj, offset: int = 0) -> None:
-    """Reset file stream position safely."""
+    """Seek the file stream to offset, silently ignoring streams that do not support seeking."""
 
     try:
         file_obj.seek(offset)
@@ -48,6 +45,7 @@ def _safe_seek(file_obj, offset: int = 0) -> None:
 
 
 def validate_image_file(uploaded_file: UploadedFile | None) -> UploadedFile | None:
+    """Validate that the file is a JPEG/PNG/GIF/WEBP image under 5 MB with a passing integrity check."""
 
     if uploaded_file is None:
         return uploaded_file

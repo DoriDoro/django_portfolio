@@ -10,6 +10,8 @@ TAG_NAMES = {"OPENCLASSROOMS": "OpenClassrooms Project", "PERSONAL": "Personal P
 
 
 class PortfolioListView(ListView):
+    """Lists all active projects ordered by creation date, with tag filter data."""
+
     model = Project
     template_name = "portfolio.html"
     context_object_name = "projects"
@@ -35,6 +37,8 @@ class PortfolioListView(ListView):
 
 
 class PortfolioDetailView(DetailView):
+    """Shows a single active project with its prefetched skills and links."""
+
     model = Project
     template_name = "portfolio_details.html"
     context_object_name = "project"

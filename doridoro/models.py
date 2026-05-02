@@ -20,7 +20,7 @@ SELECTED_JOB_TYPE_CHOICES = ["EMPLOYED", "APPRENTICESHIP", "FORMATION"]
 
 
 class Achievement(models.Model):
-    """Challenges and Milestones."""
+    """A personal challenge or milestone shown in the about section."""
 
     title = models.CharField(max_length=300)
     content = models.CharField(max_length=500)
@@ -52,6 +52,7 @@ class Achievement(models.Model):
             self.title = self.title.strip()
 
     def save(self, *args, **kwargs):
+        """Pass clean=False to skip full_clean(), e.g. in management commands."""
         clean = kwargs.pop("clean", True)
         self._normalize_fields()
         if clean:
@@ -60,7 +61,7 @@ class Achievement(models.Model):
 
 
 class Degree(models.Model):
-    """Reached degrees."""
+    """An academic or professional qualification shown on the resume."""
 
     organization = models.CharField(max_length=100)
     degree = models.CharField(max_length=100)
@@ -97,6 +98,7 @@ class Degree(models.Model):
             self.url = self.url.strip()
 
     def save(self, *args, **kwargs):
+        """Pass clean=False to skip full_clean(), e.g. in management commands."""
         clean = kwargs.pop("clean", True)
         self._normalize_fields()
         if clean:
@@ -105,6 +107,7 @@ class Degree(models.Model):
 
 
 class Job(models.Model):
+    """A work experience entry for the resume timeline."""
 
     class JobTypeChoices(models.TextChoices):
         FREELANCE = "FREELANCE", _("Freelance")
@@ -194,6 +197,7 @@ class Job(models.Model):
             self.address = self.address.strip()
 
     def save(self, *args, **kwargs):
+        """Pass clean=False to skip full_clean(), e.g. in management commands."""
         clean = kwargs.pop("clean", True)
         self._normalize_fields()
         if clean:
@@ -202,7 +206,7 @@ class Job(models.Model):
 
 
 class Language(models.Model):
-    """Spoken languages."""
+    """A spoken language with a CEFR proficiency level."""
 
     class LevelChoices(models.TextChoices):
         A1 = "A1", _("A1 - Beginner")
@@ -250,6 +254,7 @@ class Language(models.Model):
             self.name = self.name.strip()
 
     def save(self, *args, **kwargs):
+        """Pass clean=False to skip full_clean(), e.g. in management commands."""
         clean = kwargs.pop("clean", True)
         self._normalize_fields()
         if clean:
@@ -258,7 +263,7 @@ class Language(models.Model):
 
 
 class SocialMedia(models.Model):
-    """Links to my SocialMedia."""
+    """A social media profile link displayed on the home page."""
 
     name = models.CharField(max_length=150)
     url = models.URLField(max_length=250)
@@ -290,6 +295,7 @@ class SocialMedia(models.Model):
             self.name = self.name.strip()
 
     def save(self, *args, **kwargs):
+        """Pass clean=False to skip full_clean(), e.g. in management commands."""
         clean = kwargs.pop("clean", True)
         self._normalize_fields()
         if clean:

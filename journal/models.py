@@ -17,7 +17,7 @@ PANEL_CHOICES = ["JOURNAL", "PROJECT"]
 
 # -- Custom Manager --
 class JournalActivePublishedManager(models.Manager):
-    """Filters queryset by 'status=PUBLISHED'."""
+    """Filters to active=True and status=PUBLISHED entries."""
 
     def get_queryset(self):
         return super().get_queryset().filter(active=True, status=Journal.StatusChoices.PUBLISHED)
@@ -90,6 +90,7 @@ class Journal(SlugCreateMixin, models.Model):
             self.name = self.name.strip()
 
     def save(self, *args, **kwargs):
+        """Pass clean=False to skip full_clean(); also regenerates slug when name changes."""
         clean = kwargs.pop("clean", True)
         update_fields = kwargs.get("update_fields")
         fields_to_update = set(update_fields) if update_fields is not None else None
@@ -115,6 +116,7 @@ class Journal(SlugCreateMixin, models.Model):
         super().save(*args, **kwargs)
 
     def mark_published(self, commit: bool = True):
+        """Set status to PUBLISHED and stamp the published timestamp; skips DB write if commit=False."""
         self.status = Journal.StatusChoices.PUBLISHED
         self.published = timezone.now()
         if commit:
@@ -125,7 +127,7 @@ class Journal(SlugCreateMixin, models.Model):
 
 
 class Link(models.Model):
-    """Link to a Website/Platform."""
+    """An external URL attached to a journal entry or project, scoped to a panel."""
 
     class PanelChoices(models.TextChoices):
         JOURNAL = "JOURNAL", "Journal"
@@ -183,6 +185,7 @@ class Link(models.Model):
             self.url = self.url.strip()
 
     def save(self, *args, **kwargs):
+        """Pass clean=False to skip full_clean(), e.g. in management commands."""
         clean = kwargs.pop("clean", True)
         self._normalize_fields()
         if clean:
@@ -191,7 +194,7 @@ class Link(models.Model):
 
 
 class Platform(models.Model):
-    """Details of the Platform."""
+    """The origin platform of a link (e.g. GitHub, YouTube, LinkedIn)."""
 
     name = models.CharField(max_length=250)
 
@@ -218,6 +221,7 @@ class Platform(models.Model):
             self.name = self.name.strip()
 
     def save(self, *args, **kwargs):
+        """Pass clean=False to skip full_clean(), e.g. in management commands."""
         clean = kwargs.pop("clean", True)
         self._normalize_fields()
         if clean:

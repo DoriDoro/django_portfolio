@@ -12,11 +12,7 @@ logger = logging.getLogger(__name__)
 
 
 class ContactRequestView(SuccessMessageMixin, CreateView):
-    """
-    Handles public contact form submissions:
-    - Saves a ContactRequest
-    - Sends a notification email after successful DB commit
-    """
+    """Handles public contact form submissions; saves a ContactRequest and sends an email after commit."""
 
     form_class = ContactRequestForm
     model = ContactRequest
@@ -25,10 +21,7 @@ class ContactRequestView(SuccessMessageMixin, CreateView):
     success_url = reverse_lazy("doridoro:index")
 
     def form_valid(self, form: ContactRequestForm):
-        """
-        Save the object inside an atomic transaction,
-        and send the email *after* the DB commit succeeds.
-        """
+        """Save inside an atomic transaction; email is dispatched via on_commit after the DB write succeeds."""
         try:
             with transaction.atomic():
                 self.object = form.save()

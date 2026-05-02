@@ -14,10 +14,7 @@ logger = logging.getLogger(__name__)
 
 
 class ContactRequestForm(forms.ModelForm):
-    """
-    Public contact form used on the website to create ContactRequest objects
-    and notify the team by email.
-    """
+    """Public contact form; creates a ContactRequest and sends a notification email."""
 
     class Meta:
         model = ContactRequest
@@ -101,11 +98,7 @@ class ContactRequestForm(forms.ModelForm):
 
     # --- Email sending ---
     def send_email(self):
-        """
-        Sends an email notification based on the validated form data.
-
-        Assumes `is_valid()` has already been called.
-        """
+        """Send a notification email using validated form data; assumes is_valid() was called."""
         first_name = self.cleaned_data["first_name"]
         last_name = self.cleaned_data.get("last_name") or ""
         name = f"{first_name} {last_name}".strip()

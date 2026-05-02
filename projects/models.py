@@ -20,6 +20,8 @@ SUBCATEGORY_CHOICES = ["BACKEND", "AUTH", "DATABASE", "DEV_OPS", "TOOLS"]
 
 # -- Custom Manager --
 class SkillDisplayActiveManager(models.Manager):
+    """Returns only skills that are active and flagged for public display."""
+
     def get_queryset(self):
         return super().get_queryset().filter(active=True, display_skill=True)
 
@@ -87,6 +89,7 @@ class Project(SlugCreateMixin, models.Model):
             self.picture.seek(0)
 
     def save(self, *args, **kwargs):
+        """Pass clean=False to skip full_clean(); also regenerates slug when name changes."""
         clean = kwargs.pop("clean", True)
         update_fields = kwargs.get("update_fields")
         fields_to_update = set(update_fields) if update_fields is not None else None
@@ -117,7 +120,7 @@ class Project(SlugCreateMixin, models.Model):
 
 
 class Skill(models.Model):
-    """Used stack."""
+    """A named technical or soft skill with category, optional sub-category, and display flag."""
 
     class CategoryChoices(models.TextChoices):
         PROGRAMMING_SKILLS = "PROGRAMMING_SKILLS", _("Programming Skills")
@@ -202,6 +205,7 @@ class Skill(models.Model):
             self.content = self.content.strip()
 
     def save(self, *args, **kwargs):
+        """Pass clean=False to skip full_clean(), e.g. in management commands."""
         clean = kwargs.pop("clean", True)
         self._normalize_fields()
         if clean:

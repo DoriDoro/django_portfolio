@@ -8,9 +8,10 @@ logger = logging.getLogger(__name__)
 
 
 class SlugCreateMixin:
-    """Generates slug from specific field_name automatically."""
+    """Mixin that auto-generates a unique slug from a model field, appending a counter on collision."""
 
     def create_unique_slug(self, model_class, field_name="name", slug_field="slug"):
+        """Populate slug_field with a slugified, collision-free value derived from field_name."""
         try:
             name = getattr(self, field_name)
             if not name:

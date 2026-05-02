@@ -17,6 +17,8 @@ PORTFOLIO_USERNAME = "Doro"
 
 
 class IndexView(TemplateView):
+    """Home page; shows the owner's profession and social media links."""
+
     template_name = "index.html"
 
     @cached_property
@@ -36,6 +38,8 @@ class IndexView(TemplateView):
 
 
 class AboutView(TemplateView):
+    """About page; shows profile details, current positions, and summary stats."""
+
     template_name = "about.html"
 
     @cached_property
@@ -80,6 +84,8 @@ class AboutView(TemplateView):
 
 
 class SkillsView(TemplateView):
+    """Skills page; groups skills by category and lists spoken languages."""
+
     template_name = "skills.html"
 
     @cached_property
@@ -130,6 +136,8 @@ class SkillsView(TemplateView):
 
 
 class ResumeView(TemplateView):
+    """Resume page; splits jobs into formation, mentoring, and experience groups."""
+
     template_name = "resume.html"
 
     @cached_property

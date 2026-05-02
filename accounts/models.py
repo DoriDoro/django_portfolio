@@ -7,12 +7,13 @@ from utils.database.validators import validate_not_blank
 
 
 class User(AbstractUser):
-    """Inherit AbstractUser from Django."""
+    """Custom user model; currently a direct passthrough for AbstractUser."""
 
     pass
 
 
 class Profile(models.Model):
+    """Personal profile data linked one-to-one with the site owner's User account."""
 
     phone_number = models.CharField(max_length=14)
     address = models.CharField(max_length=150)
@@ -47,6 +48,7 @@ class Profile(models.Model):
             self.more_details = self.more_details.strip()
 
     def save(self, *args, **kwargs):
+        """Pass clean=False to skip full_clean(), e.g. in management commands."""
         clean = kwargs.pop("clean", True)
         self._normalize_fields()
         if clean:

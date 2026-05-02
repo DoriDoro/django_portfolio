@@ -6,6 +6,8 @@ from projects.models import Project
 
 
 class ProjectSitemap(Sitemap):
+    """Sitemap entries for all active projects."""
+
     priority = 0.8
     changefreq = "monthly"
 
@@ -14,6 +16,8 @@ class ProjectSitemap(Sitemap):
 
 
 class JournalSitemap(Sitemap):
+    """Sitemap entries for all active published journal entries, with lastmod from updated."""
+
     priority = 0.8
     changefreq = "weekly"
 
@@ -25,6 +29,8 @@ class JournalSitemap(Sitemap):
 
 
 class StaticViewSitemap(Sitemap):
+    """Sitemap entries for static pages: about, skills, and resume."""
+
     priority = 1.0
     changefreq = "yearly"
 

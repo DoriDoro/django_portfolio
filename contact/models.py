@@ -12,10 +12,7 @@ from utils.database.validators import validate_not_blank
 
 
 class ContactRequest(models.Model):
-    """
-    For any contact requests on the website.
-    HTMLField(): enables specific non-HTML elements.
-    """
+    """An inbound contact form submission from a site visitor."""
 
     first_name = models.CharField(max_length=200)
     last_name = models.CharField(max_length=200, blank=True, default="")
@@ -103,6 +100,7 @@ class ContactRequest(models.Model):
             raise ValidationError(errors)
 
     def save(self, *args, **kwargs):
+        """Pass clean=False to skip full_clean(), including the duplicate-submission check."""
         clean = kwargs.pop("clean", True)
         self._normalize_fields()
         if clean:
@@ -111,9 +109,7 @@ class ContactRequest(models.Model):
 
 
 class Category(models.Model):
-    """
-    To categorize incoming contact requests in Admin.
-    """
+    """A label for grouping incoming contact requests in the admin."""
 
     name = models.CharField(max_length=50)
 
@@ -154,6 +150,7 @@ class Category(models.Model):
             self.name = self.name.strip()
 
     def save(self, *args, **kwargs):
+        """Pass clean=False to skip full_clean(), e.g. in management commands."""
         clean = kwargs.pop("clean", True)
         self._normalize_fields()
         if clean:

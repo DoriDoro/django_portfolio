@@ -16,6 +16,8 @@ CATEGORY_NAMES = {
 
 
 class JournalListView(ListView):
+    """Lists all active published journal entries with category filter data."""
+
     model = Journal
     template_name = "journal.html"
     context_object_name = "entries"
@@ -42,6 +44,8 @@ class JournalListView(ListView):
 
 
 class JournalDetailView(DetailView):
+    """Shows a single active published journal entry with its prefetched links."""
+
     model = Journal
     template_name = "journal_details.html"
     context_object_name = "entry"
