@@ -15,7 +15,7 @@
         <ul id="page-filters">
           <li data-filter="*" class="filter-active">{% trans "All" %}</li>
           {% for entry in filter_categories %}
-          <li data-filter=".filter-{{ entry }}">{{ entry }}</li>
+            <li data-filter=".filter-{{ entry }}">{{ entry }}</li>
           {% endfor %}
         </ul>
       </div>
