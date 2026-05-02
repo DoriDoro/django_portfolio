@@ -1,39 +1,41 @@
 {% extends 'base.html' %}
 {% load i18n static %}
 
+{% block title %} - Journal Detail {% endblock %}
+
 {% block content %}
 <!-- ======= Journal Details ======= -->
-<section class="details-page section-show">
-  <div class="container">
-    <div class="section-title section-title-header">
-      <h2>{{ entry.category_display }}</h2>
-      <a href="{% url 'journal:journal' %}"><i class="ri-close-large-fill"></i></a>
-    </div>
-    <div class="row">
-      <div class="page-info">
-        <h3>{{ entry.name }}</h3>
+  <section class="details-page section-show">
+    <div class="container">
+      <div class="section-title section-title-header">
+        <h2>{{ entry.category_display }}</h2>
+        <a href="{% url 'journal:journal' %}"><i class="ri-close-large-fill"></i></a>
       </div>
-    </div>
+      <div class="row">
+        <div class="page-info">
+          <h3>{{ entry.name }}</h3>
+        </div>
+      </div>
 
-    <hr>
-    <div class="row">
-      <p>{{ entry.content|safe }}</p>
-    </div>
-
-    <div class="page-info">
-      {% if entry.links_list %}
       <hr>
-      <div>
-        <ul>
-          {% for link in entry.links_list %}
-          <li><strong>{{ link.platform.name }}: </strong>
-            <a href="{{ link.url }}" target="_blank">{{ link.title }}</a>
-          </li>
-          {% endfor %}
-        </ul>
+      <div class="row">
+        <p>{{ entry.content|safe }}</p>
       </div>
-      {% endif %}
+
+      <div class="page-info">
+        {% if entry.links_list %}
+        <hr>
+        <div>
+          <ul>
+            {% for link in entry.links_list %}
+            <li><strong>{{ link.platform.name }}: </strong>
+              <a href="{{ link.url }}" target="_blank">{{ link.title }}</a>
+            </li>
+            {% endfor %}
+          </ul>
+        </div>
+        {% endif %}
+      </div>
     </div>
-  </div>
-</section><!-- End Journal Details -->
+  </section><!-- End Journal Details -->
 {% endblock %}

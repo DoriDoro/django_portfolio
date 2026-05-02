@@ -1,16 +1,17 @@
 {% extends 'base.html' %}
 {% load i18n static %}
 
+{% block title %} - Resume {% endblock %}
+
 {% block content %}
 <!-- ======= Resume Section ======= -->
-<section id="resume" class="resume section-show">
-  <div class="container">
+  <section id="resume" class="resume section-show">
+    <div class="container">
+      <div class="section-title">
+        <h2>{% trans "Resume" %}</h2>
+      </div>
 
-    <div class="section-title">
-      <h2>{% trans "Resume" %}</h2>
-    </div>
-
-    <div class="row">
+      <div class="row">
         <div class="col-lg-6">
           {% if jobs_formation %}
             <h3 class="resume-title">{% trans "Education" %}</h3>
@@ -27,8 +28,7 @@
             {% include "partials/_resume_job.html" with jobs=jobs_experience %}
           </div>
         {% endif %}
-
-
-  </div>
-</section><!-- End Resume Section -->
+      </div>
+    </div>
+  </section><!-- End Resume Section -->
 {% endblock %}

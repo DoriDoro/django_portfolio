@@ -1,45 +1,47 @@
 {% extends 'base.html' %}
 {% load i18n %}
 
+{% block title %} - Portfolio {% endblock %}
+
 {% block content %}
 <!-- ======= Portfolio Section ======= -->
-<section class="portfolio section-show">
-  <div class="container">
-    <div class="section-title">
-      <h2>{% trans "Portfolio" %}</h2>
-    </div>
-
-    <div class="row">
-      <div class="col-lg-12 d-flex justify-content-center">
-        <ul id="page-filters">
-          <li data-filter="*" class="filter-active">{% trans "All" %}</li>
-          {% for entry in filter_tags %}
-            <li data-filter=".filter-{{ entry }}">{{ entry }}</li>
-          {% endfor %}
-        </ul>
+  <section class="portfolio section-show">
+    <div class="container">
+      <div class="section-title">
+        <h2>{% trans "Portfolio" %}</h2>
       </div>
-    </div>
 
-    {% if projects %}
-    <div class="row page-container">
-      {% for project in projects %}
-        <div class="col-lg-4 col-md-6 portfolio-item filter-{{ project.get_tag_display }}">
-          <div class="portfolio-wrap">
-            <img src="{{ project.picture.url }}" class="img-fluid custom-img" alt="{{ project.picture.legend }}">
-            <div class="page-info">
-              <h4>{{ project.name }}</h4>
-              <div class="portfolio-links">
-                <a href="{{ project.get_absolute_url }}"
-                   title="{{ project.name }}">
-                  <i class="bx bx-link"></i>
-                </a>
+      <div class="row">
+        <div class="col-lg-12 d-flex justify-content-center">
+          <ul id="page-filters">
+            <li data-filter="*" class="filter-active">{% trans "All" %}</li>
+            {% for entry in filter_tags %}
+              <li data-filter=".filter-{{ entry }}">{{ entry }}</li>
+            {% endfor %}
+          </ul>
+        </div>
+      </div>
+
+      {% if projects %}
+      <div class="row page-container">
+        {% for project in projects %}
+          <div class="col-lg-4 col-md-6 portfolio-item filter-{{ project.get_tag_display }}">
+            <div class="portfolio-wrap">
+              <img src="{{ project.picture.url }}" class="img-fluid custom-img" alt="{{ project.picture.legend }}">
+              <div class="page-info">
+                <h4>{{ project.name }}</h4>
+                <div class="portfolio-links">
+                  <a href="{{ project.get_absolute_url }}"
+                    title="{{ project.name }}">
+                    <i class="bx bx-link"></i>
+                  </a>
+                </div>
               </div>
             </div>
           </div>
-        </div>
-      {% endfor %}
+        {% endfor %}
+      </div>
+      {% endif %}
     </div>
-    {% endif %}
-  </div>
-</section><!-- End Portfolio Section -->
+  </section><!-- End Portfolio Section -->
 {% endblock %}

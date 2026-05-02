@@ -1,5 +1,6 @@
-{% load i18n %}                                                                                                                                                                                                                
-  {% for job in jobs %}
+{% load i18n %}         
+
+{% for job in jobs %}
   <div class="resume-item">                                                                                                                                                                                                        
     <h4>{{ job.position }}{% if job.company_name %} {% trans "at" %} {{ job.company_name }}{% endif %}</h4>
     <h5>                                                                                                                                                                                                                           
@@ -12,4 +13,4 @@
       {% endfor %}                                                                                                                                                                                                                 
     </ul>         
   </div>                                                                                                                                                                                                                           
-  {% endfor %}   
+{% endfor %}   
