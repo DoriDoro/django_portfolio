@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-11-07 17:38+0100\n"
+"POT-Creation-Date: 2026-05-02 18:02+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,483 +18,602 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: core/templates/base.html:49 doridoro/templates/about.html:12
+#: contact/forms.py:36
+msgid "Your first name"
+msgstr "Ihr Vorname"
+
+#: contact/forms.py:43
+msgid "Your last name"
+msgstr "Ihr Nachname"
+
+#: contact/forms.py:50
+msgid "Your email address"
+msgstr "Ihre Emailadresse"
+
+#: contact/forms.py:57
+msgid "What is your request about?"
+msgstr "Worum geht es in Ihrer Anfrage?"
+
+#: contact/forms.py:64
+msgid "Your message"
+msgstr "Ihre Nachricht"
+
+#: contact/forms.py:76
+msgid "Please provide a first name."
+msgstr "Bitte geben Sie einen Vornamen an."
+
+#: contact/forms.py:86
+msgid "Please provide an email address."
+msgstr "Bitte geben Sie eine Emailadresse an."
+
+#: contact/forms.py:92
+msgid "Please provide a subject."
+msgstr "Bitte geben Sie einen Betreff ein."
+
+#: contact/forms.py:99
+msgid "Please provide a more detailed message."
+msgstr "Bitte geben Sie eine ausführlichere Nachricht an."
+
+#: contact/models.py:44
+msgid "Your first name, the email address and the subject are required."
+msgstr "Vorname, E-Mail-Adresse und Betreff sind Pflichtfelder."
+
+#: contact/models.py:92
+msgid ""
+"This request was already submitted recently. Please wait 14 days before "
+"resubmitting."
+msgstr ""
+"Diese Anfrage wurde kürzlich bereits gesendet. Bitte warten Sie 14 Tage, "
+"bevor Sie erneut senden."
+
+#: contact/models.py:135
+msgid "The category name already exists."
+msgstr "Dieser Kategoriename existiert bereits."
+
+#: contact/templates/contact.html:10 core/templates/base.html:82
+msgid "Contact"
+msgstr "Kontakt"
+
+#: core/templates/404.html:4 core/templates/404.html:12
+msgid "Page Not Found"
+msgstr "Seite nicht gefunden"
+
+#: core/templates/404.html:19
+msgid "Oops! We lost this page."
+msgstr "Hoppla! Diese Seite haben wir verloren."
+
+#: core/templates/404.html:21
+#, python-format
+msgid ""
+"\n"
+"            The page <code>%(path)s</code> could not be found.\n"
+"            It may have been moved, deleted, or the URL might be incorrect.\n"
+"          "
+msgstr ""
+"\n"
+"            Die Seite <code>%(path)s</code> konnte nicht gefunden werden.\n"
+"            Sie wurde möglicherweise verschoben, gelöscht oder die URL ist "
+"falsch.\n"
+"          "
+
+#: core/templates/404.html:27 core/templates/500.html:24
+msgid "Back to Portfolio"
+msgstr "Zurück zum Portfolio"
+
+#: core/templates/500.html:4 core/templates/500.html:12
+msgid "Server Error"
+msgstr "Serverfehler"
+
+#: core/templates/500.html:19
+msgid "Something went wrong on our end."
+msgstr "Bei uns ist etwas schiefgelaufen."
+
+#: core/templates/500.html:21
+msgid ""
+"We're working on it. Please try again in a moment or head back to the "
+"portfolio."
+msgstr ""
+"Wir arbeiten daran. Bitte versuchen Sie es gleich erneut oder kehren Sie zum "
+"Portfolio zurück."
+
+#: core/templates/base.html:77 doridoro/templates/about.html:14
 msgid "About"
 msgstr "Info"
 
-#: core/templates/base.html:50 projects/templates/portfolio_details.html:62
+#: core/templates/base.html:78 doridoro/templates/skills.html:11
+#: projects/templates/portfolio_details.html:46
 msgid "Skills"
 msgstr "Kenntnisse"
 
-#: core/templates/base.html:51 doridoro/templates/resume.html:10
+#: core/templates/base.html:79 doridoro/templates/resume.html:11
 msgid "Resume"
 msgstr "Lebenslauf"
 
-#: core/templates/base.html:52 projects/templates/portfolio.html:9
+#: core/templates/base.html:80 projects/templates/portfolio.html:11
 msgid "Portfolio"
 msgstr "Projekte"
 
-#: core/templates/base.html:53 journal/templates/journal.html:10
+#: core/templates/base.html:81 journal/templates/journal.html:12
 msgid "Journal"
 msgstr "Tagebuch"
 
-#: doridoro/models.py:13
-msgid "user instance"
-msgstr "Benutzerinstanz"
-
-#: doridoro/models.py:19
-msgid "dream job description"
-msgstr "Traumjobbeschreibung"
-
-#: doridoro/models.py:20
-msgid "after work description"
-msgstr "Freizeitbeschreibung"
-
-#: doridoro/models.py:37
-msgid "achievement visible on website"
-msgstr "Errungenschaft auf der Webseite sichtbar"
-
-#: doridoro/models.py:49
-msgid "degree visible on website"
-msgstr "Abschluss auf der Webseite sichtbar"
-
-#: doridoro/models.py:60
-msgid "fact visible on website"
-msgstr "Tatsache auf der Webseite sichtbar"
-
-#: doridoro/models.py:70
-msgid "hobby visible on website"
-msgstr "Hobby auf der Webseite sichtbar"
-
-#: doridoro/models.py:82
+#: doridoro/models.py:110
 msgid "Freelance"
 msgstr "Freiberufliche Tätigkeit"
 
-#: doridoro/models.py:83
+#: doridoro/models.py:111
 msgid "Employed"
 msgstr "Angestellt"
 
-#: doridoro/models.py:84
+#: doridoro/models.py:112
 msgid "Apprenticeship"
 msgstr "Berufsausbildung"
 
-#: doridoro/models.py:85
+#: doridoro/models.py:113
 msgid "Formation"
 msgstr "Weiterbildung"
 
-#: doridoro/models.py:86 doridoro/templates/resume.html:28
+#: doridoro/models.py:114 doridoro/templates/resume.html:21
 msgid "Mentoring"
 msgstr "Berufsbegleitende Person"
 
-#: doridoro/models.py:87
-msgid "Parental_Leave"
+#: doridoro/models.py:115
+#, fuzzy
+#| msgid "Parental_Leave"
+msgid "Parental Leave"
 msgstr "Elternzeit"
 
-#: doridoro/models.py:88
+#: doridoro/models.py:116
 msgid "Sabbatical"
 msgstr "Sabbatjahr"
 
-#: doridoro/models.py:96
+#: doridoro/models.py:119
+msgid "On site"
+msgstr "Vor Ort"
+
+#: doridoro/models.py:120
+msgid "Hybrid"
+msgstr "Hybrid"
+
+#: doridoro/models.py:121
+msgid "Remote"
+msgstr "Remote"
+
+#: doridoro/models.py:130
 msgid "start date"
 msgstr "Startdatum"
 
-#: doridoro/models.py:97
+#: doridoro/models.py:131
 msgid "end date"
 msgstr "Enddatum"
 
-#: doridoro/models.py:98 doridoro/templates/resume.html:20
-#: doridoro/templates/resume.html:32 doridoro/templates/resume.html:46
+#: doridoro/models.py:132 doridoro/templates/partials/_resume_job.html:7
 msgid "present"
 msgstr "bis heute"
 
-#: doridoro/models.py:101
-msgid "job type"
-msgstr "Berufsbeyeichnung"
-
-#: doridoro/models.py:105
-msgid "job visible on website"
-msgstr "Beruf auf der Webseite sichtbar"
-
-#: doridoro/models.py:118
-msgid "If the job is ongoing, the end date should be empty."
-msgstr ""
-"Wenn es sich um einen laufenden Auftrag handelt, sollte das Enddatum leer "
-"sein."
-
-#: doridoro/models.py:122
-msgid "End date must be provided if the job is not ongoing."
-msgstr ""
-"Das Enddatum muss angegeben werden, wenn es sich nicht um einen laufenden "
-"Auftrag handelt."
-
-#: doridoro/models.py:125
-msgid "End date should be after start date."
-msgstr "Das Enddatum sollte nach dem Startdatum liegen."
-
-#: doridoro/models.py:130
+#: doridoro/models.py:208
 msgid "A1 - Beginner"
 msgstr "A1 - Anfänger"
 
-#: doridoro/models.py:131
+#: doridoro/models.py:209
 msgid "A2 - Elementary"
 msgstr "A2 - Grundkenntnisse"
 
-#: doridoro/models.py:132
+#: doridoro/models.py:210
 msgid "B1 - Intermediate"
 msgstr "B1 - Mittelstufe"
 
-#: doridoro/models.py:133
+#: doridoro/models.py:211
 msgid "B2 - Upper Intermediate"
 msgstr "B2 - Fortgeschritten"
 
-#: doridoro/models.py:134
+#: doridoro/models.py:212
 msgid "C1 - Advanced"
 msgstr "C1 - Fortgeschrittenes Niveau"
 
-#: doridoro/models.py:135
+#: doridoro/models.py:213
 msgid "C2 - Proficient"
 msgstr "C2 - Kompetent"
 
-#: doridoro/models.py:136
+#: doridoro/models.py:214
 msgid "Native Speaker"
 msgstr "Muttersprache"
 
-#: doridoro/models.py:145
-msgid "language visible on website"
-msgstr "Sprache auf der Webseite sichtbar"
-
-#: doridoro/models.py:156
-msgid "email address"
-msgstr "Emailadresse"
-
-#: doridoro/models.py:159
-msgid "spoken language"
-msgstr "gesprochene Sprache"
-
-#: doridoro/models.py:161
-msgid "reference visible on website"
-msgstr "Referenz auf der Website sichtbar"
-
-#: doridoro/models.py:170
-msgid "url of social media"
-msgstr "Url der sozialen Medien"
-
-#: doridoro/models.py:172
-msgid "social media visible on website"
-msgstr "Social Media auf der Website sichtbar"
-
-#: doridoro/templates/about.html:19
+#: doridoro/templates/about.html:21
 msgid "Contact Details"
 msgstr "Kontaktinformationen"
 
-#: doridoro/templates/about.html:22
+#: doridoro/templates/about.html:24
 msgid "PHONE"
 msgstr "TELEFON"
 
-#: doridoro/templates/about.html:25
+#: doridoro/templates/about.html:27
 msgid "CITY"
 msgstr "STADT"
 
-#: doridoro/templates/about.html:28
+#: doridoro/templates/about.html:30
 msgid "EMAIL"
 msgstr "EMAIL"
 
-#: doridoro/templates/about.html:38
+#: doridoro/templates/about.html:40
 msgid "Current Positions"
 msgstr "Derzeitige Positionen"
 
-#: doridoro/templates/about.html:53
-msgid "Who is DoriDoro"
-msgstr "Wer ist DoriDoro"
+#: doridoro/templates/about.html:56
+msgid "Who am I"
+msgstr "Wer bin ich"
 
-#: doridoro/templates/about.html:64
-msgid "Free time"
-msgstr "Freizeit"
-
-#: doridoro/templates/about.html:83
+#: doridoro/templates/about.html:75
 msgid "Projects"
 msgstr "Projekte"
 
-#: doridoro/templates/about.html:93
+#: doridoro/templates/about.html:85
 msgid "Amount of skills"
 msgstr "Anzahl der Fähigkeiten"
 
-#: doridoro/templates/about.html:103
+#: doridoro/templates/about.html:95
 msgid "Achievements"
 msgstr "Errungenschaften"
 
-#: doridoro/templates/about.html:123
-msgid "Interests"
-msgstr "Interessen"
-
-#: doridoro/templates/index.html:11
+#: doridoro/templates/index.html:16
 #, python-format
 msgid ""
 "\n"
-"          I'm a <span>%(profession)s</span> from Germany, living in France.\n"
+"          I'm a <span>%(profession)s</span> with 2+ years building "
+"production APIs. <br>\n"
+"          Looking for remote-first roles in tech teams across France, "
+"Germany, or Switzerland.\n"
 "        "
 msgstr ""
 "\n"
-"          Ich bin eine <span>%(profession)s</span> aus Deutschland und wohne "
-"in Frankreich.\n"
+"          Ich bin eine <span>%(profession)s</span> mit über 2 Jahren "
+"Erfahrung in der Entwicklung produktiver APIs. <br>\n"
+"          Ich suche Remote-Stellen in Tech-Teams in Frankreich, Deutschland "
+"oder der Schweiz.\n"
 "        "
 
-#: doridoro/templates/resume.html:16
-msgid "Education"
-msgstr "Ausbildung"
-
-#: doridoro/templates/resume.html:19 doridoro/templates/resume.html:31
-#: doridoro/templates/resume.html:45
+#: doridoro/templates/partials/_resume_job.html:5
 msgid "at"
 msgstr "bei"
 
-#: doridoro/templates/resume.html:20 doridoro/templates/resume.html:32
-#: doridoro/templates/resume.html:46
+#: doridoro/templates/partials/_resume_job.html:7
 msgid "to"
 msgstr "bis"
 
-#: doridoro/templates/resume.html:42
+#: doridoro/templates/resume.html:17
+msgid "Education"
+msgstr "Ausbildung"
+
+#: doridoro/templates/resume.html:27
 msgid "Professional Experience"
 msgstr "Berufliche Erfahrung"
 
-#: doridoro/templates/skills.html:9
-msgid "Motto"
-msgstr "Motto"
-
-#: doridoro/templates/skills.html:10
-msgid ""
-"\"Bring organisation talent, programming skills and sometimes biscuits to "
-"work.\""
-msgstr ""
-"\"Bringe Organisationstalent, Programmierkenntnisse und manchmal auch Kekse "
-"mit zur Arbeit.\""
-
-#: doridoro/templates/skills.html:13 projects/models.py:170
+#: doridoro/templates/skills.html:15 projects/models.py:123
 msgid "Programming Skills"
 msgstr "Programmierfähigkeiten"
 
-#: doridoro/templates/skills.html:22
-msgid "Other Skills"
-msgstr "Andere Fähigkeiten"
-
-#: doridoro/templates/skills.html:31 projects/models.py:171
+#: doridoro/templates/skills.html:30 projects/models.py:124
 msgid "Soft Skills"
 msgstr "Sozale Fähigkeiten"
 
-#: doridoro/templates/skills.html:40 projects/models.py:173
+#: doridoro/templates/skills.html:39 projects/models.py:125
 msgid "Strength"
 msgstr "Stärken"
 
-#: doridoro/templates/skills.html:49
+#: doridoro/templates/skills.html:53
 msgid "Languages"
 msgstr "Sprachen"
 
-#: doridoro/templates/skills.html:58
+#: doridoro/templates/skills.html:64
 msgid "My dream job"
 msgstr "Mein Traumjob"
 
-#: journal/models.py:15
+#: journal/models.py:31
 msgid "Draft"
 msgstr "Entwurf"
 
-#: journal/models.py:16
+#: journal/models.py:32
 msgid "Published"
 msgstr "Veröffentlicht"
 
-#: journal/models.py:57
-msgid "journal link visible on website"
-msgstr "Tagebuch auf der Webseite sichtbar"
-
-#: journal/templates/journal.html:16 projects/templates/portfolio.html:15
+#: journal/templates/journal.html:18 projects/templates/portfolio.html:17
 msgid "All"
 msgstr "Alle"
 
-#: portfolio/settings.py:142
+#: portfolio/settings.py:131
 msgid "English"
 msgstr "Englisch"
 
-#: portfolio/settings.py:143
+#: portfolio/settings.py:132
 msgid "German"
 msgstr "Deutsch"
 
-#: portfolio/settings.py:144
+#: portfolio/settings.py:133
 msgid "French"
 msgstr "Französisch"
 
-#: projects/models.py:21
-msgid "skill set of project"
-msgstr "Kompetenzen des Projekts"
+#: projects/models.py:128
+msgid "Backend"
+msgstr "Backend"
 
-#: projects/models.py:24
-msgid "future plans of project"
-msgstr "Zukunftspläne des Projekts"
+#: projects/models.py:129
+msgid "Authentication"
+msgstr "Authentifizierung"
 
-#: projects/models.py:26
-msgid "project visible on website"
-msgstr "Projekt auf der Website sichtbar"
+#: projects/models.py:130
+msgid "Database"
+msgstr "Datenbank"
 
-#: projects/models.py:63 projects/models.py:172
-msgid "Other"
-msgstr "Andere"
+#: projects/models.py:131
+msgid "DevOps"
+msgstr "DevOps"
 
-#: projects/models.py:67 projects/models.py:189
-#: projects/templates/portfolio.html:17
-msgid "Personal Project"
-msgstr "Persönliches Projekt"
+#: projects/models.py:132
+msgid "Tools"
+msgstr "Tools"
 
-#: projects/models.py:75
-msgid "link visible on website"
-msgstr "Link auf der Webseite sichtbar"
-
-#: projects/models.py:88
-msgid "picture"
-msgstr "Bild"
-
-#: projects/models.py:93
-msgid "picture visible on website"
-msgstr "Bild auf der Website sichtbar"
-
-#: projects/models.py:112
-#, python-format
-msgid "The uploaded file is not a valid image. -- %s"
-msgstr "Die hochgeladene Datei ist kein gültiges Bild. -- %s"
-
-#: projects/models.py:121
-#, python-format
-msgid "The uploaded file could not be reopened as an image. -- %s"
-msgstr ""
-"Die hochgeladene Datei konnte nicht erneut als Bild geöffnet werden. -- %s"
-
-#: projects/models.py:155
-#, python-format
-msgid "An error occurred while processing the image. -- %s"
-msgstr "Bei der Verarbeitung des Bildes ist ein Fehler aufgetreten. -- %s"
-
-#: projects/models.py:162
-msgid "The image width is smaller than 800 pixels."
-msgstr "Die Bildbreite ist kleiner als 800 Pixel."
-
-#: projects/models.py:174
-msgid "Weakness"
-msgstr "Schwäche"
-
-#: projects/models.py:179
-msgid "skill visible on website"
-msgstr "Fähigkeit auf der Webseite sichtbar"
-
-#: projects/models.py:188 projects/templates/portfolio.html:16
-msgid "OpenClassrooms Project"
-msgstr "OpenClassrooms Projekt"
-
-#: projects/models.py:193
-msgid "tag visible on website"
-msgstr "Tag auf der Webseite sichtbar"
-
-#: projects/templates/portfolio_details.html:27
+#: projects/templates/portfolio_details.html:32
 msgid "Project information"
 msgstr "Projektinformationen"
 
-#: projects/templates/portfolio_details.html:31
+#: projects/templates/portfolio_details.html:36
 msgid "GitHub URL"
 msgstr "GitHub URL"
 
-#: projects/templates/portfolio_details.html:39
-msgid "Vercel URL"
-msgstr "Vercel URL"
-
-#: projects/templates/portfolio_details.html:47
-msgid "Render URL"
-msgstr "Render URL"
-
-#: projects/templates/portfolio_details.html:58
+#: projects/templates/portfolio_details.html:42
 msgid "create date"
 msgstr "Erstelldatum"
 
-#: projects/templates/portfolio_details.html:60
+#: projects/templates/portfolio_details.html:44
 msgid "evaluation date"
-msgstr "Erstelldatum"
+msgstr "Bewertungsdatum"
 
-#: projects/templates/portfolio_details.html:76
+#: projects/templates/portfolio_details.html:60
 msgid "Introduction"
 msgstr "Einleitung"
 
-#: projects/templates/portfolio_details.html:81
+#: projects/templates/portfolio_details.html:65
 msgid "Competences"
 msgstr "Kompetenzen"
 
-#: projects/templates/portfolio_details.html:86
+#: projects/templates/portfolio_details.html:70
 msgid "Learning Experience"
 msgstr "Lernerfahrung"
 
-#: projects/templates/portfolio_details.html:92
+#: projects/templates/portfolio_details.html:76
 msgid "Implementations in the future"
 msgstr "Umsetzung in der Zukunft"
 
-msgid "url of degree"
-msgstr "Url des Abschlusses"
+#: utils/admin/actions.py:5
+msgid "Mark selected as active"
+msgstr "Ausgewählte als aktiv markieren"
 
-msgid "until present"
-msgstr "bis heute"
+#: utils/admin/actions.py:8
+#, python-format
+msgid "%d item(s) marked as active."
+msgstr "%d Element(e) als aktiv markiert."
 
-msgid "cover picture"
-msgstr "Titelbild"
+#: utils/admin/actions.py:11
+msgid "Mark selected as inactive"
+msgstr "Ausgewählte als inaktiv markieren"
 
-msgid "Project date"
-msgstr "Erstelldatum"
+#: utils/admin/actions.py:14
+#, python-format
+msgid "%d item(s) marked as inactive."
+msgstr "%d Element(e) als inaktiv markiert."
 
-msgid "Communication"
-msgstr "Kommunikation"
+#~ msgid "user instance"
+#~ msgstr "Benutzerinstanz"
 
-msgid "Problem-solving"
-msgstr "Probleme lösen"
+#~ msgid "dream job description"
+#~ msgstr "Traumjobbeschreibung"
 
-msgid "Time management"
-msgstr "Zeitmanagement"
+#~ msgid "after work description"
+#~ msgstr "Freizeitbeschreibung"
 
-msgid "Empathy"
-msgstr "Einfühlungsvermögen"
+#~ msgid "achievement visible on website"
+#~ msgstr "Errungenschaft auf der Webseite sichtbar"
 
-msgid "Positive attitude"
-msgstr "Positive Einstellung"
+#~ msgid "degree visible on website"
+#~ msgstr "Abschluss auf der Webseite sichtbar"
 
-msgid "Conflict resolution"
-msgstr "Konfliktbewältigung"
+#~ msgid "fact visible on website"
+#~ msgstr "Tatsache auf der Webseite sichtbar"
 
-msgid "Quick comprehension"
-msgstr "Schnelle Auffassungsgabe"
+#~ msgid "hobby visible on website"
+#~ msgstr "Hobby auf der Webseite sichtbar"
 
-msgid "Prioritising tasks"
-msgstr "Priorisierung von Aufgaben"
+#~ msgid "job type"
+#~ msgstr "Berufsbeyeichnung"
 
-msgid "Autonomy"
-msgstr "Eigenständigkeit"
+#~ msgid "job visible on website"
+#~ msgstr "Beruf auf der Webseite sichtbar"
 
-msgid "Adaptability"
-msgstr "Anpassungsfähigkeit"
+#~ msgid "If the job is ongoing, the end date should be empty."
+#~ msgstr ""
+#~ "Wenn es sich um einen laufenden Auftrag handelt, sollte das Enddatum leer "
+#~ "sein."
 
-msgid "Determination"
-msgstr "Entschlossenheit"
+#~ msgid "End date must be provided if the job is not ongoing."
+#~ msgstr ""
+#~ "Das Enddatum muss angegeben werden, wenn es sich nicht um einen laufenden "
+#~ "Auftrag handelt."
 
-msgid "Commitment"
-msgstr "Verbindlichkeit"
+#~ msgid "End date should be after start date."
+#~ msgstr "Das Enddatum sollte nach dem Startdatum liegen."
 
-msgid "Patience"
-msgstr "Geduld"
+#~ msgid "language visible on website"
+#~ msgstr "Sprache auf der Webseite sichtbar"
 
-msgid "Continuous learning"
-msgstr "Kontinuierliches Lernen"
+#~ msgid "spoken language"
+#~ msgstr "gesprochene Sprache"
 
-msgid "Reliability"
-msgstr "Verlässlichkeit"
+#~ msgid "reference visible on website"
+#~ msgstr "Referenz auf der Website sichtbar"
 
-msgid "Persistence"
-msgstr "Beharrlichkeit"
+#~ msgid "url of social media"
+#~ msgstr "Url der sozialen Medien"
 
-msgid "Professionalism"
-msgstr "Professionalität"
+#~ msgid "social media visible on website"
+#~ msgstr "Social Media auf der Website sichtbar"
 
-msgid "Home office experience"
-msgstr "Home Office Erfahrung"
+#~ msgid "Who is DoriDoro"
+#~ msgstr "Wer ist DoriDoro"
 
-msgid "Perfectionism"
-msgstr "Perfektionismus"
+#~ msgid "Free time"
+#~ msgstr "Freizeit"
+
+#~ msgid "Interests"
+#~ msgstr "Interessen"
+
+#, python-format
+#~ msgid ""
+#~ "\n"
+#~ "          I'm a <span>%(profession)s</span> from Germany, living in "
+#~ "France.\n"
+#~ "        "
+#~ msgstr ""
+#~ "\n"
+#~ "          Ich bin eine <span>%(profession)s</span> aus Deutschland und "
+#~ "wohne in Frankreich.\n"
+#~ "        "
+
+#~ msgid "Motto"
+#~ msgstr "Motto"
+
+#~ msgid ""
+#~ "\"Bring organisation talent, programming skills and sometimes biscuits to "
+#~ "work.\""
+#~ msgstr ""
+#~ "\"Bringe Organisationstalent, Programmierkenntnisse und manchmal auch "
+#~ "Kekse mit zur Arbeit.\""
+
+#~ msgid "Other Skills"
+#~ msgstr "Andere Fähigkeiten"
+
+#~ msgid "journal link visible on website"
+#~ msgstr "Tagebuch auf der Webseite sichtbar"
+
+#~ msgid "skill set of project"
+#~ msgstr "Kompetenzen des Projekts"
+
+#~ msgid "future plans of project"
+#~ msgstr "Zukunftspläne des Projekts"
+
+#~ msgid "project visible on website"
+#~ msgstr "Projekt auf der Website sichtbar"
+
+#~ msgid "Other"
+#~ msgstr "Andere"
+
+#~ msgid "Personal Project"
+#~ msgstr "Persönliches Projekt"
+
+#~ msgid "link visible on website"
+#~ msgstr "Link auf der Webseite sichtbar"
+
+#~ msgid "picture"
+#~ msgstr "Bild"
+
+#~ msgid "picture visible on website"
+#~ msgstr "Bild auf der Website sichtbar"
+
+#, python-format
+#~ msgid "The uploaded file is not a valid image. -- %s"
+#~ msgstr "Die hochgeladene Datei ist kein gültiges Bild. -- %s"
+
+#, python-format
+#~ msgid "The uploaded file could not be reopened as an image. -- %s"
+#~ msgstr ""
+#~ "Die hochgeladene Datei konnte nicht erneut als Bild geöffnet werden. -- %s"
+
+#, python-format
+#~ msgid "An error occurred while processing the image. -- %s"
+#~ msgstr "Bei der Verarbeitung des Bildes ist ein Fehler aufgetreten. -- %s"
+
+#~ msgid "The image width is smaller than 800 pixels."
+#~ msgstr "Die Bildbreite ist kleiner als 800 Pixel."
+
+#~ msgid "Weakness"
+#~ msgstr "Schwäche"
+
+#~ msgid "skill visible on website"
+#~ msgstr "Fähigkeit auf der Webseite sichtbar"
+
+#~ msgid "OpenClassrooms Project"
+#~ msgstr "OpenClassrooms Projekt"
+
+#~ msgid "tag visible on website"
+#~ msgstr "Tag auf der Webseite sichtbar"
+
+#~ msgid "Vercel URL"
+#~ msgstr "Vercel URL"
+
+#~ msgid "Render URL"
+#~ msgstr "Render URL"
+
+#~ msgid "url of degree"
+#~ msgstr "Url des Abschlusses"
+
+#~ msgid "until present"
+#~ msgstr "bis heute"
+
+#~ msgid "cover picture"
+#~ msgstr "Titelbild"
+
+#~ msgid "Project date"
+#~ msgstr "Erstelldatum"
+
+#~ msgid "Problem-solving"
+#~ msgstr "Probleme lösen"
+
+#~ msgid "Time management"
+#~ msgstr "Zeitmanagement"
+
+#~ msgid "Empathy"
+#~ msgstr "Einfühlungsvermögen"
+
+#~ msgid "Positive attitude"
+#~ msgstr "Positive Einstellung"
+
+#~ msgid "Conflict resolution"
+#~ msgstr "Konfliktbewältigung"
+
+#~ msgid "Quick comprehension"
+#~ msgstr "Schnelle Auffassungsgabe"
+
+#~ msgid "Prioritising tasks"
+#~ msgstr "Priorisierung von Aufgaben"
+
+#~ msgid "Autonomy"
+#~ msgstr "Eigenständigkeit"
+
+#~ msgid "Adaptability"
+#~ msgstr "Anpassungsfähigkeit"
+
+#~ msgid "Determination"
+#~ msgstr "Entschlossenheit"
+
+#~ msgid "Commitment"
+#~ msgstr "Verbindlichkeit"
+
+#~ msgid "Patience"
+#~ msgstr "Geduld"
+
+#~ msgid "Continuous learning"
+#~ msgstr "Kontinuierliches Lernen"
+
+#~ msgid "Reliability"
+#~ msgstr "Verlässlichkeit"
+
+#~ msgid "Persistence"
+#~ msgstr "Beharrlichkeit"
+
+#~ msgid "Professionalism"
+#~ msgstr "Professionalität"
+
+#~ msgid "Home office experience"
+#~ msgstr "Home Office Erfahrung"
+
+#~ msgid "Perfectionism"
+#~ msgstr "Perfektionismus"

@@ -5,6 +5,7 @@ from django import forms
 from django.core.exceptions import ValidationError
 from django.core.mail import send_mail
 from django.utils.html import strip_tags
+from django.utils.translation import gettext_lazy as _
 from textwrap import dedent
 
 from contact.models import ContactRequest
@@ -32,35 +33,35 @@ class ContactRequestForm(forms.ModelForm):
             "first_name": forms.TextInput(
                 attrs={
                     "class": "form-control",
-                    "placeholder": "Your first name",
+                    "placeholder": _("Your first name"),
                     "aria-label": "Your first name",
                 }
             ),
             "last_name": forms.TextInput(
                 attrs={
                     "class": "form-control",
-                    "placeholder": "Your last name",
+                    "placeholder": _("Your last name"),
                     "aria-label": "Your last name",
                 }
             ),
             "email": forms.EmailInput(
                 attrs={
                     "class": "form-control",
-                    "placeholder": "Your email address",
+                    "placeholder": _("Your email address"),
                     "aria-label": "Your email address",
                 }
             ),
             "subject": forms.TextInput(
                 attrs={
                     "class": "form-control",
-                    "placeholder": "What is your request about?",
+                    "placeholder": _("What is your request about?"),
                     "aria-label": "What is your request about?",
                 }
             ),
             "message": forms.Textarea(
                 attrs={
                     "class": "form-control",
-                    "placeholder": "Your message",
+                    "placeholder": _("Your message"),
                     "aria-label": "Your message",
                     "rows": 6,
                 }
@@ -72,7 +73,7 @@ class ContactRequestForm(forms.ModelForm):
     def clean_first_name(self):
         first_name = (self.cleaned_data.get("first_name") or "").strip()
         if not first_name:
-            raise ValidationError("Please provide a first name.")
+            raise ValidationError(_("Please provide a first name."))
         return first_name
 
     def clean_last_name(self):
@@ -82,20 +83,20 @@ class ContactRequestForm(forms.ModelForm):
     def clean_email(self):
         email = (self.cleaned_data.get("email") or "").strip().lower()
         if not email:
-            raise ValidationError("Please provide an email address.")
+            raise ValidationError(_("Please provide an email address."))
         return email
 
     def clean_subject(self):
         subject = (self.cleaned_data.get("subject") or "").strip()
         if not subject:
-            raise ValidationError("Please provide a subject.")
+            raise ValidationError(_("Please provide a subject."))
         return subject
 
     def clean_message(self):
         message = (self.cleaned_data.get("message") or "").strip()
         # Enforce a minimum length / anti-spam check
         if len(strip_tags(message)) < 10:
-            raise forms.ValidationError("Please provide a more detailed message.")
+            raise forms.ValidationError(_("Please provide a more detailed message."))
         return message
 
     # --- Email sending ---
