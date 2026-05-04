@@ -116,7 +116,9 @@ class Journal(SlugCreateMixin, models.Model):
         super().save(*args, **kwargs)
 
     def mark_published(self, commit: bool = True):
-        """Set status to PUBLISHED and stamp the published timestamp; skips DB write if commit=False."""
+        """
+        Set status to PUBLISHED and stamp the published timestamp; skips DB write if commit=False.
+        """
         self.status = Journal.StatusChoices.PUBLISHED
         self.published = timezone.now()
         if commit:

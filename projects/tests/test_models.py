@@ -46,6 +46,7 @@ class SkillTestCase(TestCase):
 
     def test_programming_skill_requires_sub_category(self):
         from django.core.exceptions import ValidationError
+
         skill = Skill(
             name_en="NoSub",
             category=Skill.CategoryChoices.PROGRAMMING_SKILLS,
@@ -56,6 +57,7 @@ class SkillTestCase(TestCase):
 
     def test_strength_requires_content(self):
         from django.core.exceptions import ValidationError
+
         skill = Skill(
             name_en="Strong",
             category=Skill.CategoryChoices.STRENGTH,
@@ -114,7 +116,8 @@ class ProjectTestCase(TestCase):
         self.assertEqual(self.project.slug, "my-portfolio")
 
     def test_slug_unique_counter_on_collision(self):
-        # "My Portfolio!" slugifies to the same "my-portfolio" but passes the unique name constraint
+        # "My Portfolio!" slugifies to the same "my-portfolio"
+        # but passes the unique name constraint
         second = Project(**{**self.BASE, "name": "My Portfolio!"})
         second.save(clean=False)
         self.assertEqual(second.slug, "my-portfolio-1")

@@ -93,7 +93,8 @@ class JournalTestCase(TestCase):
         self.assertEqual(self.journal.slug, "my-first-post")
 
     def test_slug_unique_counter_on_collision(self):
-        # "My First Post!" slugifies to the same "my-first-post" but passes the unique name constraint
+        # "My First Post!" slugifies to the same "my-first-post"
+        # but passes the unique name constraint
         second = Journal(
             name="My First Post!",
             content="<p>Hello again</p>",

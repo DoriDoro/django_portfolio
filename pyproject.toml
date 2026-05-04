@@ -10,30 +10,30 @@ readme = "README.md"
 requires-python = ">=3.11"
 dependencies = [
     # Django core
-    "dj-database-url==3.1.2",
-    "Django==6.0.4",
+    "dj-database-url>=3.1.2",
+    "Django>=6.0.4",
     # Database
-    "boto3==1.43.2",
-    "django-storages==1.14.6",
-    "psycopg2-binary==2.9.12",
+    "boto3>=1.43.2",
+    "django-storages>=1.14.6",
+    "psycopg2-binary>=2.9.12",
     # Utils
-    "django-modeltranslation==0.20.3",
-    "django-sitemaps==2.0.2",
-    "django-tinymce==5.0.0",
-    "pillow==12.2.0",
-    "python-decouple==3.8",
+    "django-modeltranslation>=0.20.3",
+    "django-sitemaps>=2.0.2",
+    "django-tinymce>=5.0.0",
+    "pillow>=12.2.0",
+    "python-decouple>=3.8",
     # Server (WSGI)
-    "gunicorn==25.3.0",
-    "whitenoise==6.12.0",
+    "gunicorn>=25.3.0",
+    "whitenoise>=6.12.0",
     # Monitoring
-    "sentry-sdk==2.58.0",
+    "sentry-sdk>=2.58.0",
 ]
 
 [project.optional-dependencies]
 dev = [
-    "black==26.3.1",
+    "black",
     "flake8-pyproject",
-    "ipython==9.13.0",
+    "ipython",
 ]
 
 [project.urls]
@@ -52,6 +52,6 @@ exclude = [
     "__pycache__",
     "manage.py",
     "settings.py",
-    "venv",
-    ".venv",
+    ".*_venv",
+    "locale",
 ]

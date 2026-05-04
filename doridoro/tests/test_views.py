@@ -64,7 +64,13 @@ class AboutViewTestCase(DoridoroViewsBase):
 
     def test_context_keys(self):
         response = self.client.get(reverse("doridoro:about"))
-        for key in ("doridoro", "current_positions", "projects_count", "skills_count", "achievements"):
+        for key in (
+            "doridoro",
+            "current_positions",
+            "projects_count",
+            "skills_count",
+            "achievements",
+        ):
             self.assertIn(key, response.context)
 
     def test_achievements_in_context(self):

@@ -8,7 +8,9 @@ logger = logging.getLogger(__name__)
 
 
 class SlugCreateMixin:
-    """Mixin that auto-generates a unique slug from a model field, appending a counter on collision."""
+    """
+    Mixin that auto-generates a unique slug from a model field, appending a counter on collision.
+    """
 
     def create_unique_slug(self, model_class, field_name="name", slug_field="slug"):
         """Populate slug_field with a slugified, collision-free value derived from field_name."""
@@ -34,16 +36,10 @@ class SlugCreateMixin:
             ) from e
         except FieldError as e:
             logger.exception(f"Invalid filed used in query: '{e}'.")
-            raise ValueError(
-                f"Invalid slug field: '{slug_field}' in model query."
-            ) from e
+            raise ValueError(f"Invalid slug field: '{slug_field}' in model query.") from e
         except DatabaseError as e:
             logger.exception(f"Database error during slug generation: '{e}'.")
-            raise RuntimeError(
-                "Database error while checking for existing slugs."
-            ) from e
+            raise RuntimeError("Database error while checking for existing slugs.") from e
         except Exception as e:
-            logger.exception(
-                f"Unexpected error occurred during slug generation: '{e}'."
-            )
+            logger.exception(f"Unexpected error occurred during slug generation: '{e}'.")
             raise RuntimeError("Unexpected error occurred during slug creation.") from e

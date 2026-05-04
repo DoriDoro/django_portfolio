@@ -12,7 +12,10 @@ logger = logging.getLogger(__name__)
 
 
 class ContactRequestView(SuccessMessageMixin, CreateView):
-    """Handles public contact form submissions; saves a ContactRequest and sends an email after commit."""
+    """
+    Handles public contact form submissions; saves a ContactRequest and
+    sends an email after commit.
+    """
 
     form_class = ContactRequestForm
     model = ContactRequest
@@ -21,7 +24,10 @@ class ContactRequestView(SuccessMessageMixin, CreateView):
     success_url = reverse_lazy("doridoro:index")
 
     def form_valid(self, form: ContactRequestForm):
-        """Save inside an atomic transaction; email is dispatched via on_commit after the DB write succeeds."""
+        """
+        Save inside an atomic transaction; email is dispatched via on_commit
+        after the DB write succeeds.
+        """
         try:
             with transaction.atomic():
                 self.object = form.save()
@@ -30,9 +36,7 @@ class ContactRequestView(SuccessMessageMixin, CreateView):
                 transaction.on_commit(lambda: form.send_email())
         except Exception:
             logger.exception("Unexpected error while handling contact form.")
-            form.add_error(
-                None, "An unexpected error occurred. Please try again later."
-            )
+            form.add_error(None, "An unexpected error occurred. Please try again later.")
             return self.form_invalid(form)
 
         return super().form_valid(form)
