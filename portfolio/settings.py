@@ -1,3 +1,4 @@
+import dj_database_url
 import os
 import sentry_sdk
 
@@ -93,24 +94,18 @@ WSGI_APPLICATION = "portfolio.wsgi.application"
 
 # Database
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases
-if DEBUG:
-    DATABASES = {
-        "default": {
-            "ENGINE": "django.db.backends.sqlite3",
-            "NAME": BASE_DIR / "django_project.sqlite3",
-        }
-    }
-else:
-    DATABASES = {
-        "default": {
-            "ENGINE": "django.db.backends.postgresql",
-            "NAME": config("DB_NAME"),
-            "USER": config("DB_USER"),
-            "PASSWORD": config("DB_PASSWORD"),
-            "HOST": config("DB_HOST", default="localhost"),
-            "PORT": config("DB_PORT", default="5432"),
-        }
-    }
+DATABASE_URL = config("DATABASE_URL", default="").strip()
+
+if not DEBUG and not DATABASE_URL:
+    raise ValueError("Production DB not configured. Set 'DATABASE_URL'.")
+
+DATABASES = {
+    "default": dj_database_url.config(
+        default=DATABASE_URL or f"sqlite:///{BASE_DIR / 'django_project.sqlite3'}",
+        conn_max_age=config("DB_CONN_MAX_AGE", default=600, cast=int),
+        ssl_require=config("DB_SSL_REQUIRE", default=not DEBUG, cast=bool),
+    )
+}
 
 
 # Password validation
@@ -165,11 +160,31 @@ staticfiles_backend = (
     else "whitenoise.storage.CompressedManifestStaticFilesStorage"
 )
 
-STORAGES = {
-    "default": {
+if DEBUG:
+    default_storage_backend = {
         "BACKEND": "django.core.files.storage.FileSystemStorage",
         "OPTIONS": {"location": MEDIA_ROOT},
-    },
+    }
+else:
+    default_storage_backend = {
+        "BACKEND": "storages.backends.s3boto3.S3Boto3Storage",
+        "OPTIONS": {
+            "access_key": config("SUPABASE_S3_ACCESS_KEY_ID"),
+            "secret_key": config("SUPABASE_S3_SECRET_ACCESS_KEY"),
+            "bucket_name": config("SUPABASE_S3_BUCKET_NAME"),
+            "endpoint_url": config("SUPABASE_S3_ENDPOINT_URL"),
+            "region_name": config("SUPABASE_S3_REGION_NAME"),
+            "addressing_style": "path",  # required for non-AWS S3
+            "querystring_auth": False,  # public bucket, no signed URLs
+            "signature_version": "s3v4",
+            "custom_domain": config(
+                "SUPABASE_S3_CUSTOM_DOMAIN"
+            ),  # custom domain for public bucket
+        },
+    }
+
+STORAGES = {
+    "default": default_storage_backend,
     "private": {
         "BACKEND": "django.core.files.storage.FileSystemStorage",
         "OPTIONS": {
@@ -181,6 +196,7 @@ STORAGES = {
         "BACKEND": staticfiles_backend,
     },
 }
+
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field

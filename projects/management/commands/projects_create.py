@@ -1,6 +1,7 @@
 from pathlib import Path
 from django.core.files import File
 from django.core.management.base import BaseCommand
+from django.db import transaction
 
 from journal.models import Link
 from projects.models import Project, Skill
@@ -10,6 +11,7 @@ from utils.management.read_json import read_json_file
 class Command(BaseCommand):
     help = "This command creates all Project instances."
 
+    @transaction.atomic
     def handle(self, *args, **options):
         path = "projects/management/commands/data/projects_data.json"
         data = read_json_file(json_path=path)

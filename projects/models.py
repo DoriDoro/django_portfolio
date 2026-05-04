@@ -45,18 +45,14 @@ class Project(SlugCreateMixin, models.Model):
     experience = HTMLField(validators=[validate_not_blank])
     future = HTMLField(blank=True, null=True)
     picture = models.ImageField(
-        upload_to=upload_to,
-        storage=private_storage,
-        validators=[validate_image_file],
-        blank=True,
-        null=True,
+        upload_to=upload_to, validators=[validate_image_file], blank=True, null=True
     )
 
     active = models.BooleanField(default=True)
     created = models.DateTimeField(auto_now_add=True)
     updated = models.DateTimeField(auto_now=True)
 
-    links = models.ManyToManyField("journal.Link", related_name="projects")
+    links = models.ManyToManyField("journal.Link", blank=True, related_name="projects")
     skills = models.ManyToManyField("projects.Skill", related_name="projects")
 
     objects = models.Manager()
