@@ -13,12 +13,10 @@ jobs:
     name: Django Project
     runs-on: ubuntu-latest
     env:
-      PROJECT_NAME: ${{ secrets.PROJECT_NAME }}
       SECRET_KEY: ${{ secrets.SECRET_KEY }}
       ALLOWED_HOSTS: ${{ secrets.ALLOWED_HOSTS }}
       CSRF_TRUSTED_ORIGINS: ${{ secrets.CSRF_TRUSTED_ORIGINS }}
       DEBUG: ${{ secrets.DEBUG }}
-      SENTRY_DSN: ${{ secrets.SENTRY_DSN }}
       DATABASE_URL: ${{ secrets.DATABASE_URL }}
       SUPABASE_S3_BUCKET_NAME: ${{ secrets.SUPABASE_S3_BUCKET_NAME }}
       SUPABASE_S3_ACCESS_KEY_ID: ${{ secrets.SUPABASE_S3_ACCESS_KEY_ID }}
