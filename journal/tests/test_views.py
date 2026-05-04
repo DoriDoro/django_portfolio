@@ -112,4 +112,4 @@ class JournalDetailViewTestCase(JournalViewsBase):
 
         url = reverse("journal:journal-detail", kwargs={"slug": self.published.slug})
         response = self.client.get(url)
-        self.assertIn("A Link", [l.title for l in response.context["entry"].links_list])
+        self.assertIn("A Link", [link.title for link in response.context["entry"].links_list])

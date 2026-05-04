@@ -25,27 +25,19 @@ class Command(BaseCommand):
             ]
 
             if Degree.objects.exists():
-                self.stdout.write(
-                    self.style.WARNING("These instances of Degree exists already!")
-                )
+                self.stdout.write(self.style.WARNING("These instances of Degree exists already!"))
                 return
 
             for degree in degrees:
                 Degree.objects.create(**degree)
 
                 self.stdout.write(
-                    self.style.SUCCESS(
-                        f"Degree: '{degree["organization"]}' successfully created!"
-                    )
+                    self.style.SUCCESS(f"Degree: '{degree['organization']}' successfully created!")
                 )
 
         except IntegrityError:
             self.stdout.write(
-                self.style.WARNING(
-                    "[IntegrityError] - These Degree instances exists already!"
-                )
+                self.style.WARNING("[IntegrityError] - These Degree instances exists already!")
             )
         except Exception as e:
-            self.stdout.write(
-                self.style.ERROR(f"[ERROR] - An unexpected error occurred: {e}")
-            )
+            self.stdout.write(self.style.ERROR(f"[ERROR] - An unexpected error occurred: {e}"))

@@ -1,6 +1,5 @@
 from django.contrib.auth import get_user_model
 from django.core.management.base import BaseCommand
-from django.db import IntegrityError
 
 from doridoro.models import Achievement
 from utils.management.read_json import read_json_file
@@ -41,6 +40,4 @@ class Command(BaseCommand):
                         f"Skipped (exists): '{achievement.title} ({achievement.pk})'"
                     )
         except Exception as e:
-            self.stdout.write(
-                self.style.ERROR(f"[ERROR] - An unexpected error occurred: {e}")
-            )
+            self.stdout.write(self.style.ERROR(f"[ERROR] - An unexpected error occurred: {e}"))

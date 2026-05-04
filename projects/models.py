@@ -7,7 +7,7 @@ from django.utils.translation import gettext_lazy as _
 from tinymce.models import HTMLField
 from PIL import Image
 
-from utils.database.images import upload_to, private_storage, validate_image_file
+from utils.database.images import upload_to, validate_image_file
 from utils.database.managers import ActiveManager
 from utils.database.slug import SlugCreateMixin
 from utils.database.validators import validate_not_blank
