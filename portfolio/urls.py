@@ -43,13 +43,6 @@ if settings.DEBUG:
     urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
     urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
     urlpatterns += [
-        path(
-            "__preview__/403/",
-            permission_denied,
-            {"exception": Exception("Preview 403")},
-        ),
-        path(
-            "__preview__/404/", page_not_found, {"exception": Exception("Preview 404")}
-        ),
+        path("__preview__/404/", page_not_found, {"exception": Exception("Preview 404")}),
         path("__preview__/500/", server_error),
     ]
