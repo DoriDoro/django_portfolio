@@ -22,7 +22,7 @@
             <div class="portfolio-details-slider">
               <div class="align-items-center">
                 <div class="swiper-slide">
-                  <img src="{{ project.picture.url }}" alt="{{ project.picture.legend }}">
+                  {% if project.picture %}<img src="{{ project.picture.url }}" alt="{{ project.picture.legend }}">{% endif %}
                 </div>
               </div>
             </div>

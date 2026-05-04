@@ -27,7 +27,7 @@
         {% for project in projects %}
           <div class="col-lg-4 col-md-6 portfolio-item filter-{{ project.get_tag_display }}">
             <div class="portfolio-wrap">
-              <img src="{{ project.picture.url }}" class="img-fluid custom-img" alt="{{ project.picture.legend }}">
+              {% if project.picture %}<img src="{{ project.picture.url }}" class="img-fluid custom-img" alt="{{ project.picture.legend }}">{% endif %}
               <div class="page-info">
                 <h4>{{ project.name }}</h4>
                 <p>{{ project.create_date|date:"N Y" }}</p>
