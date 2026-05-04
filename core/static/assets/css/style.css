@@ -937,6 +937,21 @@ section .container {
   background-color: #18d26e;
 }
 
+.section-title-header {
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.section-title-header a {
+  color: #fff;
+}
+
+.messages-wrapper {
+  width: 95%;
+}
+
 /*--------------------------------------------------------------
 # Contact
 --------------------------------------------------------------*/

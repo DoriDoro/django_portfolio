@@ -1,0 +1,552 @@
+{
+  "Profile": [
+    {
+      "phone_number": {
+        "en": "0033 768132147",
+        "de": "+33 768 132147",
+        "fr": "07 68 13 21 47"
+      },
+      "address": {
+        "en": "Greater Paris Metropolitan Region in France",
+        "de": "Großraum Paris in Frankreich",
+        "fr": "Région métropolitaine du Grand Paris en France"
+      },
+      "profession": {
+        "en": "Backend Python/Django Developer",
+        "de": "Backend-Python/Django-Entwicklerin",
+        "fr": "Développeuse Python/Django backend"
+      },
+      "motto": {
+        "en": "\"Curious enough to understand it. Structured enough to build it right.\"",
+        "de": "„Neugierig genug, um es wirklich zu verstehen. Strukturiert genug, um es richtig zu bauen.\"",
+        "fr": "« Assez curieuse pour vraiment comprendre. Assez structurée pour bien construire. »"
+      },
+      "introduction": {
+        "en": "<p>I am a calm, structured person who draws energy from continuous learning and purposeful work. My strength lies in grasping new concepts quickly and translating them into reliable, well-considered solutions — an approach that defines my work as a backend developer focused on Python and Django.</p>\r\n<p>My path into software development was not a straight line — it led through chemistry, customer service, and ultimately a deliberate career change. Those experiences gave me something that can't be taught in a classroom: perseverance, adaptability, and a genuine understanding of what it means to take ownership.</p>\r\n<p>I hold myself to high standards, particularly in software development. Clean architecture and careful implementation are not ends in themselves — they are the difference between code that works and code that lasts. That same commitment to quality shapes how I communicate: I value clarity, directness, and transparency, especially when requirements are shifting.</p>\r\n<p>I enjoy working both in teams and independently. What matters to me in either context is reliability — that people know where they stand, and that agreements are kept.</p>\r\n<p>As a German native who works in English and lives in French, I bring not only technical skills but also cultural flexibility — something I experience as a genuine asset in international teams every day.</p>",
+        "de": "<p>Ich bin ein ruhiger, strukturierter Mensch, der Energie aus kontinuierlichem Lernen und zielgerichteter Arbeit schöpft. Meine Stärke liegt darin, neue Konzepte schnell zu durchdringen und sie in zuverlässige, gut durchdachte Lösungen zu überführen — eine Haltung, die meine Arbeit als Backend-Entwicklerin mit Fokus auf Python und Django prägt.</p>\r\n<p>Mein Weg in die Softwareentwicklung war nicht geradlinig — er führte über die Chemie, den Kundenservice und schließlich eine bewusste Neuorientierung. Diese Erfahrungen haben mir etwas mitgegeben, das sich nicht im Studium lernen lässt: Ausdauer, Anpassungsfähigkeit und ein echtes Verständnis dafür, was es bedeutet, Verantwortung zu übernehmen.</p>\r\n<p>Ich halte mich an hohe eigene Maßstäbe, besonders in der Softwareentwicklung. Saubere Architektur und sorgfältige Umsetzung sind für mich kein Selbstzweck, sondern der Unterschied zwischen Code, der funktioniert, und Code, der trägt. Dieser Qualitätsanspruch spiegelt sich auch in meiner Kommunikation: Ich schätze Klarheit, Direktheit und Transparenz — gerade wenn sich Anforderungen verändern.\nIch arbeite gerne sowohl im Team als auch eigenständig. Was mir in beiden Kontexten wichtig ist: Verlässlichkeit — dass man weiß, woran man ist, und dass Vereinbarungen eingehalten werden.</p>\r\n<p>Als Deutsche, die auf Englisch arbeitet und auf Französisch lebt, bringe ich nicht nur technische, sondern auch kulturelle Flexibilität mit — etwas, das ich in internationalen Teams täglich als Vorteil erlebe.</p>",
+        "fr": "<p>Je suis une personne calme et structurée, qui puise son énergie dans l'apprentissage continu et le travail orienté vers des objectifs concrets. Ma force réside dans ma capacité à m'approprier rapidement de nouveaux concepts et à les transformer en solutions fiables et bien pensées — une approche qui guide mon travail en tant que développeuse backend spécialisée en Python et Django.</p>\r\n<p>Mon parcours vers le développement logiciel n'a pas été linéaire — il m'a menée par la chimie, le service client, et finalement une reconversion professionnelle assumée. Ces expériences m'ont transmis quelque chose qu'on n'apprend pas en formation : la persévérance, l'adaptabilité, et une vraie compréhension de ce que signifie prendre ses responsabilités.</p>\r\n<p>J'ai des exigences élevées envers moi-même, notamment en développement logiciel. Une architecture propre et une mise en œuvre soignée ne sont pas des fins en soi — elles font la différence entre un code qui fonctionne et un code qui dure. Cette exigence se reflète également dans ma communication : j'apprécie la clarté, la franchise et la transparence, surtout lorsque les exigences évoluent.</p>\r\n<p>J'aime travailler aussi bien en équipe qu'en autonomie. Ce qui compte pour moi dans les deux cas : la fiabilité — savoir à quoi s'en tenir, et que les engagements sont tenus.</p>\r\n<p>Allemande de naissance, je travaille en anglais et vis en français au quotidien. Cette flexibilité culturelle et linguistique est pour moi un véritable atout dans les équipes internationales.</p>"
+      },
+      "more_details": {
+        "en": "<p>I want to genuinely understand things — the why, the how, the what. Only once I have grasped the full picture can I prioritise meaningfully and work with real ownership. Memorising doesn't interest me; understanding does.</p>\r\n<p>Feedback and open communication are not nice-to-haves for me — they are a basic requirement for good collaboration. I value teams where difficult things can be said out loud, where trust matters more than performance metrics, and where you feel like you belong even when you don't share an office. Remote work suits me well: I am organised, self-directed, and don't need to be managed. But I do need genuine human contact — conversations that go beyond tickets and task lists.</p>\r\n<p>I use AI tools deliberately. I want to work out my own plan first, develop my own approach — and then use AI as a sparring partner, reviewer, or mentor. Not as a replacement for thinking, but as a companion to it.</p>\r\n<p>I am introverted, and small talk doesn't come naturally to me. But when it comes to real challenges — technical or interpersonal — I communicate clearly and directly. I channel my perfectionism as a driver: not toward flawlessness, but toward genuine progress.</p>\r\n<p>On the technical side, I bring solid experience — and a good instinct for knowing which tool fits which problem.</p>",
+        "de": "<p>Ich möchte Dinge wirklich verstehen — das Warum, das Wie, das Was. Erst wenn ich das Gesamtbild erfasst habe, kann ich sinnvoll priorisieren und eigenverantwortlich arbeiten. Auswendiglernen interessiert mich nicht; Durchdringen schon.</p>\r\n<p>Feedback und offene Kommunikation sind für mich keine Nice-to-haves, sondern Grundvoraussetzung für gute Zusammenarbeit. Ich schätze Teams, in denen man auch unbequeme Dinge ansprechen kann — in denen Vertrauen mehr zählt als reine Performance, und in denen man sich zugehörig fühlt, auch wenn man sich nicht täglich sieht. Remote-Arbeit liegt mir: Ich bin organisiert, eigenverantwortlich und brauche keine Kontrolle. Aber ich brauche echten menschlichen Kontakt — Gespräche, die über Tickets hinausgehen.</p>\r\n<p>Mit KI-Tools gehe ich bewusst um. Ich möchte mir zuerst selbst einen Plan erarbeiten, eigene Lösungsansätze entwickeln — und KI dann als Sparringspartner, Reviewer oder Mentor einsetzen. Nicht als Ersatz für eigenes Denken, sondern als Begleitung davon.</p>\r\n<p>Ich bin introvertiert, und Smalltalk liegt mir nicht besonders. Wenn es aber um echte Herausforderungen geht — technisch oder zwischenmenschlich — kommuniziere ich klar und direkt. Meinen Perfektionismus nutze ich als Antrieb: nicht für Makellosigkeit, sondern für echten Fortschritt.</p>\r\n<p>Technisch bringe ich solide Erfahrung mit — und ein gutes Gespür dafür, wann welches Werkzeug passt.</p>",
+        "fr": "<p>Je veux vraiment comprendre les choses — le pourquoi, le comment, le quoi. Ce n'est qu'une fois que j'ai saisi la vue d'ensemble que je peux prioriser avec pertinence et travailler en toute autonomie. Apprendre par cœur ne m'intéresse pas ; comprendre en profondeur, oui.</p>\r\n<p>Le feedback et la communication ouverte ne sont pas des options pour moi — ils sont une condition de base pour bien collaborer. J'apprécie les équipes où l'on peut dire les choses difficiles, où la confiance compte plus que la performance, et où l'on se sent appartenir au groupe même sans se voir tous les jours. Le travail à distance me convient : je suis organisée, autonome, et je n'ai pas besoin d'être encadrée de près. Mais j'ai besoin d'un vrai contact humain — des échanges qui vont au-delà des tickets et des tâches.</p>\r\n<p>J'utilise les outils d'IA de façon réfléchie. Je préfère d'abord élaborer mon propre plan, développer mes propres pistes — puis utiliser l'IA comme partenaire de réflexion, relecteur ou mentor. Non pas comme substitut à la pensée, mais comme accompagnement.</p>\r\n<p>Je suis introvertie, et les conversations légères ne me viennent pas naturellement. Mais face à de vrais défis — techniques ou humains — je communique clairement et directement. Je canalise mon perfectionnisme comme moteur : non pas vers l'absence de défauts, mais vers un progrès authentique.</p>\r\n<p>Sur le plan technique, j'apporte une expérience solide — et un bon instinct pour savoir quel outil convient à quel problème.</p>"
+      }
+    }
+  ],
+  "Achievements": [
+    {
+      "title": {
+        "en": "Sole Backend Developer at Deep Opinion (since Jan 2025)",
+        "de": "Einzige Backend-Entwicklerin bei Deep Opinion (seit Januar 2025)",
+        "fr": "Seule développeuse backend chez Deep Opinion (depuis janvier 2025)"
+      },
+      "content": {
+        "en": "Responsible for the entire backend architecture of a consultancy serving major clients — as the only backend developer, independently owning all technical decisions from database design to deployment.",
+        "de": "Verantwortlich für die gesamte Backend-Architektur einer Unternehmensberatung mit namhaften Kunden — als alleinige Backend-Entwicklerin treffe ich alle technischen Entscheidungen eigenständig, von der Datenbankstruktur bis zum Deployment.",
+        "fr": "Responsable de l'ensemble de l'architecture backend d'un cabinet de conseil travaillant avec des clients de premier plan — en tant qu'unique développeuse backend, je prends toutes les décisions techniques en autonomie, de la conception de la base de données jusqu'au déploiement."
+      }
+    },
+    {
+      "title": {
+        "en": "Migrated and rebuilt 2 production applications from Flask to Django",
+        "de": "2 Produktionsanwendungen von Flask zu Django migriert und neu aufgebaut",
+        "fr": "Migration et refonte de 2 applications de production de Flask vers Django"
+      },
+      "content": {
+        "en": "Took over Flask projects, and redesigned the full application structure, and models from scratch.",
+        "de": "Übernahm Flask-Projekte und anschließend wurde die gesamte Anwendungsstruktur, alle Modell von Grund auf neu entwickelt.",
+        "fr": "Nous avons repris les projets Flask, puis l'ensemble de l'architecture de l'application et tous les modèles ont été entièrement repensés."
+      }
+    },
+    {
+      "title": {
+        "en": "Designed the complete database architecture for all company projects",
+        "de": "Vollständige Datenbankarchitektur für alle Unternehmensprojekte entworfen",
+        "fr": "Conception complète de l'architecture de base de données pour tous les projets de l'entreprise"
+      },
+      "content": {
+        "en": "Defined every model, relationship, and schema across multiple Django applications, with no existing blueprint to follow.",
+        "de": "Alle Modelle, Beziehungen und Schemata über mehrere Django-Anwendungen hinweg selbstständig definiert — ohne bestehende Vorlage oder Vorgaben.",
+        "fr": "Définition autonome de l'ensemble des modèles, relations et schémas sur plusieurs applications Django, sans référence ni cadre préexistant."
+      }
+    },
+    {
+      "title": {
+        "en": "Implemented a custom MFA authentication system independently",
+        "de": "Eigenes MFA-Authentifizierungssystem eigenständig implementiert",
+        "fr": "Implémentation autonome d'un système d'authentification MFA sur mesure"
+      },
+      "content": {
+        "en": "Researched, chose the approach, and built a custom multi-factor authentication system — without prior experience with MFA and without external guidance.",
+        "de": "Ansatz eigenständig recherchiert, ausgewählt und ein maßgeschneidertes Multi-Faktor-Authentifizierungssystem entwickelt — ohne Vorerfahrung mit MFA und ohne externe Unterstützung.",
+        "fr": "Recherche, choix de l'approche et développement complet d'un système d'authentification multi-facteurs personnalisé — sans expérience préalable en MFA et sans accompagnement externe.."
+      }
+    },
+    {
+      "title": {
+        "en": "Introduced Sentry as the team's error monitoring tool",
+        "de": "Sentry als Fehlerüberwachungstool im Team eingeführt",
+        "fr": "Introduction de Sentry comme outil de surveillance des erreurs"
+      },
+      "content": {
+        "en": "Identified the need, proposed the integration, and implemented Sentry across projects — a tool the team had not used before.",
+        "de": "Bedarf erkannt, Integration vorgeschlagen und Sentry projektübergreifend implementiert — ein Tool, das im Team bislang nicht eingesetzt wurde.",
+        "fr": "Identification du besoin, proposition de l'intégration et déploiement de Sentry sur l'ensemble des projets — un outil jusqu'alors absent des pratiques de l'équipe.."
+      }
+    },
+    {
+      "title": {
+        "en": "Delivered working production code within the four month",
+        "de": "Produktionsreifer Code innerhalb der ersten Monate geliefert",
+        "fr": "Code de production livré dès les premiers mois"
+      },
+      "content": {
+        "en": "Onboarded at Deep Opinion with minimal guidance and was contributing functional, production-ready code within four month.",
+        "de": "Mit minimaler Einarbeitung bei Deep Opinion gestartet und bereits innerhalb den ersten vier Monated funktionsfähigen, produktionsreifen Code beigetragen.",
+        "fr": "Intégrée chez Deep Opinion avec un accompagnement minimal, j'ai contribué du code fonctionnel et prêt pour la production dès les quatre premières mois."
+      }
+    },
+    {
+      "title": {
+        "en": "Completed OpenClassrooms Bachelor-level program 5 months ahead of schedule",
+        "de": "OpenClassrooms-Bachelorprogramm fünf Monate vor dem Zeitplan abgeschlossen",
+        "fr": "Programme bachelor OpenClassrooms terminé cinq mois avant l'échéance"
+      },
+      "content": {
+        "en": "Finished a 24-month developer training program in 19 months, conducted entirely in French — a non-native language.",
+        "de": "Ein auf 24 Monate ausgelegtes Entwicklerprogramm in 19 Monaten abgeschlossen — vollständig auf Französisch, obwohl es nicht meine Muttersprache ist.",
+        "fr": "Formation de développeuse prévue sur 24 mois achevée en 19 mois — entièrement suivie en français, qui n'est pas ma langue maternelle."
+      }
+    }
+  ],
+  "Jobs": [
+    {
+      "company_name": "Deep Opinion - Groupe Ifop",
+      "position": {
+        "en": "Backend Python Developer | Django and DRF",
+        "de": "Backend-Python-Entwickler | Django und DRF",
+        "fr": "Développeuse Python backend | Django et DRF"
+      },
+      "start_date": "2025-01-20",
+      "until_present": true,
+      "address": {
+        "en": "Paris 18th (FRANCE)",
+        "de": "Paris 18th (FRANKREICH)",
+        "fr": "Paris 18th (FRANCE)"
+      },
+      "description": {
+        "en": [
+          "Design and develop scalable RESTful APIs using Django and Django REST Framework.",
+          "Implement robust security solutions, including JWT-based authentication, MFA, and Microsoft SSO.",
+          "Translate business requirements into efficient and scalable database schemas.",
+          "Improve application performance through query optimization and backend tuning.",
+          "Deploy, host, and maintain applications on PythonAnywhere and AWS, leveraging AWS S3 for image and asset storage.",
+          "Implement observability best practices with centralized logging, monitoring, and error tracking via Sentry.",
+          "Collaborate closely with frontend developers (Vue.js) by delivering clean, well-documented APIs",
+          "Independently develop internal frontend tools using Bootstrap to support operational needs"
+        ],
+        "de": [
+          "Entwurf und Entwicklung skalierbarer RESTful APIs mit Django und Django REST Framework.",
+          "Implementierung robuster Sicherheitslösungen, darunter JWT-basierte Authentifizierung, MFA und Microsoft SSO.",
+          "Übersetzung von Geschäftsanforderungen in effiziente und skalierbare Datenbankstrukturen.",
+          "Verbesserung der Anwendungsperformance durch Query-Optimierung und Backend-Tuning.",
+          "Deployment, Hosting und Wartung von Anwendungen auf PythonAnywhere und AWS, einschließlich AWS S3 für Bild- und Asset-Speicherung.",
+          "Umsetzung von Observability-Best-Practices mit zentralisiertem Logging, Monitoring und Fehler-Tracking via Sentry.",
+          "Enge Zusammenarbeit mit Frontend-Entwicklern (Vue.js) durch die Bereitstellung sauberer, gut dokumentierter APIs.",
+          "Eigenständige Entwicklung interner Frontend-Tools mit Bootstrap zur Unterstützung operativer Anforderungen."
+        ],
+        "fr": [
+          "Conception et développement d'APIs RESTful évolutives avec Django et Django REST Framework.",
+          "Mise en place de solutions de sécurité robustes, notamment l'authentification JWT, la MFA et le SSO Microsoft.",
+          "Traduction des besoins métier en schémas de base de données efficaces et évolutifs.",
+          "Amélioration des performances applicatives par l'optimisation des requêtes et le réglage du backend.",
+          "Déploiement, hébergement et maintenance d'applications sur PythonAnywhere et AWS, avec utilisation d'AWS S3 pour le stockage d'images et d'assets.",
+          "Application des bonnes pratiques d'observabilité avec journalisation centralisée, monitoring et suivi des erreurs via Sentry.",
+          "Collaboration étroite avec les développeurs frontend (Vue.js) en fournissant des APIs propres et bien documentées.",
+          "Développement autonome d'outils frontend internes avec Bootstrap pour répondre aux besoins opérationnels."
+        ]
+      },
+      "job_type": "EMPLOYED",
+      "work_type": "HYBRID"
+    },
+    {
+      "company_name": "Cocoonr Hosting Power and Book&Pay",
+      "position": {
+        "en": "Apprenticeship as Python Developer",
+        "de": "Berufsausbildung zur Python-Entwicklerin",
+        "fr": "Apprentissage de développeuse Python"
+      },
+      "start_date": "2022-11-21",
+      "end_date": "2024-11-21",
+      "address": {
+        "en": "Rennes (FRANCE)",
+        "de": "Rennes (FRANKREICH)",
+        "fr": "Rennes (FRANCE)"
+      },
+      "description": {
+        "en": [
+          "Scale-up specialising in furnished tourist accommodation, 14 agencies in France, over 3.500 accommodations, 80 employees, Turnover > 9.38M € in 2023 and Sales growth rate 61.9% in 2023.",
+          "Usage of Notion as an integral tool for managing project workflows.",
+          "Working on tasks, where I have seamlessly created, tracked, and completed independently various project assignments, ensuring timely delivery and adherence to project goals.",
+          "Responsible for managing the internal Slack chat 'Assistance Technique' where colleagues report bugs, problems, and server errors.",
+          "Analysis of error reports and corrections.",
+          "Developed new functionalities that enhanced the user experience for over 3,500 accommodations, contributing to a 61.9% growth in sales."
+        ],
+        "de": [
+          "Scale-up, spezialisiert auf möblierte Unterkünfte, 14 Agenturen in Frankreich, über 3.500 Unterkünfte, 80 Mitarbeiter, Umsatz > 9,38 Mio. € im Jahr 2023 und Umsatzwachstum von 61,9% im Jahr 2023.",
+          "Nutzung von Notion als integrales Werkzeug für die Verwaltung von Projektabläufen eingesetzt.",
+          "Arbeit an Aufgaben, bei denen ich nahtlos verschiedene Projektaufträge erstellt, verfolgt und selbstständig abgeschlossen habe, wobei ich die rechtzeitige Lieferung und Einhaltung der Projektziele sichergestellt habe.",
+          "Verantwortlich für die Verwaltung des internen Slack-Chats „Assistance Technique“, in dem Kollegen Bugs, Probleme und Serverfehler melden.",
+          "Analyse von Fehlermeldungen und Korrekturen.",
+          "Entwicklung neuer Funktionen, die die Benutzerfreundlichkeit für über 3.500 Unterkünfte verbesserten und zu einem Umsatzwachstum von 61,9 % beitrugen."
+        ],
+        "fr": [
+          "Scale-up spécialisée dans la location meublée de tourisme, 14 agences en France, plus de 3500 logements disponibles, 80 collaborateurs, Chiffre d’affaires > 9,38M € en 2023 et Taux de croissance du CA 61,9% en 2023.",
+          "J'ai utilisé Notion de manière efficace en tant qu'outil intégral de gestion des flux de travail des projets.",
+          "Travailler sur des tâches pour lesquelles j'ai créé, suivi et mené à bien de manière indépendante divers projets, en veillant à ce qu'ils soient livrés dans les délais et à ce que les objectifs fixés soient atteints.",
+          "Responsable de la gestion du chat interne Slack « Technique d'assistance » où les collègues signalent les bogues, les problèmes et les erreurs de serveur.",
+          "Analyse des rapports d'erreurs et corrections.",
+          "Développé de nouvelles fonctionnalités qui ont amélioré l'expérience des utilisateurs pour plus de 3 500 hébergements, contribuant ainsi à une croissance des ventes de 61,9 %."
+        ]
+      },
+      "job_type": "APPRENTICESHIP",
+      "work_type": "HYBRID"
+    },
+    {
+      "company_name": "",
+      "position": {
+        "en": "Parental Leave",
+        "de": "Elternzeit",
+        "fr": "Congé parental"
+      },
+      "start_date": "2020-09-01",
+      "end_date": "2022-11-21",
+      "address": {
+        "en": "Villeneuve-la-Garenne (FRANCE)",
+        "de": "Villeneuve-la-Garenne (FRANKREICH)",
+        "fr": "Villeneuve-la-Garenne (FRANCE)"
+      },
+      "description": {
+        "en": [
+          "Dedication to my family's needs and being present during key developmental stages of my child's life. Grow personally and develop important skills such as patience, time management, and multitasking.",
+          "Maintain a healthy work-life balance by taking time off to prioritize family while also recognizing the significance of personal and professional development.",
+          "Preparing my career transition project: choosing a school and finding a partner company."
+        ],
+        "de": [
+          "Sich den Bedürfnissen meiner Familie zu widmen und in den wichtigsten Entwicklungsphasen meines Kindes präsent zu sein. Persönlich zu wachsen und wichtige Fähigkeiten wie Geduld, Zeitmanagement und Multitasking zu entwickeln.",
+          "Halten Sie ein gesundes Gleichgewicht zwischen Arbeit und Privatleben aufrecht, indem Sie sich Zeit für die Familie nehmen, aber auch die Bedeutung der persönlichen und beruflichen Entwicklung anerkennen.",
+          "Vorbereitung meines Umschulungsprojekts: Wahl der Schule und Suche nach einem Partnerunternehmen."
+        ],
+        "fr": [
+          "Se consacrer aux besoins de ma famille et être présent lors des étapes clés du développement de la vie de mon enfant. M'épanouir personnellement et développer des compétences importantes telles que la patience, la gestion du temps et la capacité à effectuer plusieurs tâches à la fois.",
+          "Maintenir un bon équilibre entre vie professionnelle et vie privée en prenant des congés pour donner la priorité à la famille, tout en reconnaissant l'importance du développement personnel et professionnel.",
+          "Préparation de mon project de reconversion professionnelle : choix de l’école et recherche de l’entreprise partenaires."
+        ]
+      },
+      "job_type": "PARENTAL_LEAVE",
+      "work_type": "REMOTE"
+    },
+    {
+      "company_name": "Comdata (Nissan)",
+      "position": {
+        "en": "Customer Support Agent (Helpdesk)",
+        "de": "Kundensupport-Agent (Helpdesk)",
+        "fr": "Agent de support client (Helpdesk)"
+      },
+      "start_date": "2016-06-01",
+      "end_date": "2020-09-01",
+      "address": {
+        "en": "Gennevilliers (FRANCE)",
+        "de": "Gennevilliers (FRANKREICH)",
+        "fr": "Gennevilliers (FRANCE)"
+      },
+      "description": {
+        "en": [
+          "Proficiently managed multilingual communication channels in both German and English, handling calls, chats, and emails with customers.",
+          "Demonstrated efficiency in problem resolution by escalating technical issues to relevant third-party providers, ensuring timely and effective solutions.",
+          "Specialized expertise as a Telematics Agent (Helpdesk Agent), tasked with resolving inquiries and addressing issues pertaining to the onboard infotainment system and associated services within automotive environments.",
+          "Utilized Salesforce CRM proficiently as a comprehensive recording and management system, facilitating streamlined documentation and tracking of customer interactions and resolutions."
+        ],
+        "de": [
+          "Beherrschte die mehrsprachigen Kommunikationskanäle in Deutsch und Englisch und bearbeitete Anrufe, Chats und E-Mails mit Kunden.",
+          "Nachgewiesene Effizienz bei der Problemlösung durch Weiterleitung von technischen Problemen an die entsprechenden Drittanbieter, um zeitnahe und effektive Lösungen zu gewährleisten.",
+          "Spezialisiertes Fachwissen als Telematik-Agent (Helpdesk-Agent), der mit der Lösung von Anfragen und Problemen im Zusammenhang mit dem bordeigenen Infotainment-System und den damit verbundenen Diensten in Automobilumgebungen betraut ist.",
+          "Nutzte Salesforce CRM als umfassendes Aufzeichnungs- und Managementsystem, das eine optimierte Dokumentation und Verfolgung von Kundeninteraktionen und -lösungen ermöglichte."
+        ],
+        "fr": [
+          "Gestion efficace des canaux de communication multilingues en allemand et en anglais, traitement des appels, des chats et des courriels avec les clients.",
+          "Faire preuve d'efficacité dans la résolution des problèmes en faisant remonter les problèmes techniques aux fournisseurs tiers concernés, en veillant à ce que les solutions soient rapides et efficaces.",
+          "Expertise spécialisée en tant qu'agent télématique (agent du service d'assistance), chargé de répondre aux demandes de renseignements et de résoudre les problèmes liés au système d'infodivertissement embarqué et aux services associés dans les environnements automobiles.",
+          "Utilisation efficace de Salesforce CRM en tant que système d'enregistrement et de gestion complet, facilitant la documentation rationalisée et le suivi des interactions avec les clients et des résolutions."
+        ]
+      },
+      "job_type": "EMPLOYED",
+      "work_type": "ON_SITE"
+    },
+    {
+      "company_name": "",
+      "position": {
+        "en": "Time of integration in France",
+        "de": "Zeit der Integration in Frankreich",
+        "fr": "Temps d'intégration en France"
+      },
+      "start_date": "2015-05-01",
+      "end_date": "2016-06-01",
+      "address": {
+        "en": "Paris (FRANCE)",
+        "de": "Paris (FRANKREICH)",
+        "fr": "Paris (FRANCE)"
+      },
+      "description": {
+        "en": [
+          "Proactively relocated to France, demonstrating adaptability and a readiness to embrace new experiences.",
+          "Engaged in the vibrant community of Paris as a dog walker, providing attentive care and companionship to pets while exploring the city's diverse neighborhoods."
+        ],
+        "de": [
+          "Freiwilliger Umzug nach Frankreich und dabei die Anpassungsfähigkeit und die Bereitschaft bewiesen, sich auf neue Erfahrungen einzulassen.",
+          "Engagiert sich in der pulsierenden Gemeinschaft von Paris als Hundeausführerin, die sich aufmerksam um ihre Haustiere kümmert und sie begleitet, während sie die verschiedenen Viertel der Stadt erkundet."
+        ],
+        "fr": [
+          "A déménagé en France de manière proactive, en faisant preuve d'adaptabilité et d'une volonté d'accepter de nouvelles expériences.",
+          "Engagé dans la communauté dynamique de Paris en tant que promeneur de chiens, fournissant des soins attentifs et de la compagnie aux animaux de compagnie tout en explorant les divers quartiers de la ville."
+        ]
+      },
+      "job_type": "SABBATICAL",
+      "work_type": "REMOTE"
+    },
+    {
+      "company_name": "Zentrale Klinische Forschung in Freiburg im Breisgau",
+      "position": {
+        "en": "Chemical Technical Assistant",
+        "de": "Chemisch Technische Assistentin",
+        "fr": "Assistant technique en chimie"
+      },
+      "start_date": "2008-06-01",
+      "end_date": "2015-02-01",
+      "address": {
+        "en": "Freiburg im Breisgau (GERMANY)",
+        "de": "Freiburg im Breisgau (DEUTSCHLAND)",
+        "fr": "Fribourg-en-Brisgau (ALLEMAGNE)"
+      },
+      "description": {
+        "en": [
+          "Autonomously managed projects under the supervision of senior leadership, demonstrating initiative and self-reliance in project execution.",
+          "Proficiently analyzed project-generated data, translating findings into visually informative graphs and reports to facilitate data-driven decision-making processes. Collaborated effectively with post-doctoral researchers, fostering teamwork and knowledge exchange to achieve project objectives efficiently."
+        ],
+        "de": [
+          "Selbstständige Leitung von Projekten unter der Aufsicht von Führungskräften, wobei er bei der Projektdurchführung Eigeninitiative und Selbstständigkeit bewiesen hat.",
+          "Analysierte die im Rahmen des Projekts gewonnenen Daten und erstellte aussagekräftige Diagramme und Berichte, um datengestützte Entscheidungsprozesse zu erleichtern. Effektive Zusammenarbeit mit Post-Docs, Förderung der Teamarbeit und des Wissensaustauschs, um die Projektziele effizient zu erreichen."
+        ],
+        "fr": [
+          "Gérer de manière autonome des projets sous la supervision de la direction générale, en faisant preuve d'initiative et d'autonomie dans l'exécution des projets.",
+          "A analysé avec compétence les données générées par le projet, traduisant les résultats en graphiques et rapports visuellement informatifs afin de faciliter les processus de prise de décision fondés sur des données. Collaborer efficacement avec des chercheurs post-doctoraux, en favorisant le travail d'équipe et l'échange de connaissances afin d'atteindre efficacement les objectifs du projet."
+        ]
+      },
+      "job_type": "EMPLOYED",
+      "work_type": "ON_SITE"
+    },
+    {
+      "company_name": "OpenClassrooms",
+      "position": {
+        "en": "Online Formation as Developer Python",
+        "de": "Online-Ausbildung zur Python Entwicklerin",
+        "fr": "Formation en ligne de développeuse Python"
+      },
+      "start_date": "2022-11-21",
+      "end_date": "2024-11-21",
+      "address": {
+        "en": "Rennes (FRANCE)",
+        "de": "Rennes (FRANKREICH)",
+        "fr": "Rennes (FRANCE)"
+      },
+      "description": {
+        "en": [
+          "Online training with OpenClassrooms.",
+          "Successfully completed coursework and assignments from a home office environment, showcasing adaptability and self-discipline in remote work settings.",
+          "Bachelor's-level diploma program, underscoring academic achievement and commitment to continuous learning and skill enhancement.",
+          "Data management via ETL, Git/GitHub version control, Python basics.",
+          "UML use case diagram, user stories, functional models, macro project breakdown with Kanban.",
+          "Python code structuring with design patterns, PEP 8 adherence, object-oriented programming.",
+          "Interacting with REST APIs, front-end development with HTML/CSS/JS.",
+          "Problem deconstruction, algorithm development.",
+          "Agile project management, functional requirement definition, prototyping with domain models/mock-ups.",
+          "API security (OWASP/RGPD), Django REST API creation, Postman.",
+          "Python test suite implementation, error handling, environment configuration, debugging.",
+          "Secure database implementation with Python/SQL.",
+          "Application documentation, technical error reduction, Sentry code control, deployment, CI/CD methodology, modular Python architecture."
+        ],
+        "de": [
+          "Online-Ausbildung mit OpenClassrooms.",
+          "Erfolgreiche Erledigung von Kursen und Aufgaben im Home-Office, was die Anpassungsfähigkeit und Selbstdisziplin in einer entfernten Arbeitsumgebung unterstreicht.",
+          "Bachelor-Diplom-Ausbildung, der die akademischen Leistungen und das Engagement für kontinuierliches Lernen und die Verbesserung der Fähigkeiten unterstreicht.,",
+          "Datenmanagement über ETL, Git/GitHub Versionskontrolle, Python-Grundlagen.",
+          "UML-Use-Case-Diagramm, Benutzergeschichten, Funktionsmodelle, Makro-Projektgliederung mit Kanban.",
+          "Python-Code-Strukturierung mit Entwurfsmustern, Einhaltung von PEP 8, objektorientierte Programmierung.",
+          "Interaktion mit REST-APIs, Front-End-Entwicklung mit HTML/CSS/JS.",
+          "Problemzerlegung, Algorithmenentwicklung.",
+          "Agiles Projektmanagement, Definition funktionaler Anforderungen, Prototyping mit Domänenmodellen/Mock-ups.",
+          "API-Sicherheit (OWASP/RGPD), Erstellung von Django REST API, Postman.",
+          "Implementierung einer Python- Testumgebung, Fehlerbehandlung, Umgebungskonfiguration, Debugging.",
+          "Sichere Datenbankimplementierung mit Python/SQL.",
+          "Anwendungsdokumentation, Reduzierung der technischen Fehler, Sentry-Codekontrolle, Bereitstellung, CI/CD-Methodik, modulare Python-Architektur."
+        ],
+        "fr": [
+          "Formation en ligne avec OpenClassrooms.",
+          "A terminé avec succès les cours et les travaux à partir d'un bureau à domicile, faisant preuve d'adaptabilité et d'autodiscipline dans les environnements de travail à distance.",
+          "Programme diplômant de niveau licence, soulignant la réussite académique et l'engagement en faveur de l'apprentissage continu et de l'amélioration des compétences.",
+          "Gestion des données via ETL, contrôle de version Git/GitHub, bases de Python.",
+          "Diagramme de cas d'utilisation UML, récits d'utilisateurs, modèles fonctionnels, macro-découpage de projet avec Kanban.",
+          "Structuration du code Python avec des modèles de conception, adhésion au PEP 8, programmation orientée objet.",
+          "Interaction avec les API REST, développement frontal avec HTML/CSS/JS.",
+          "Déconstruction de problèmes, développement d'algorithmes.",
+          "Gestion de projet agile, définition des exigences fonctionnelles, prototypage avec des modèles/maquettes de domaine.",
+          "Sécurité des API (OWASP/RGPD), création d'API REST en Django, Postman.",
+          "Mise en œuvre d'une suite de tests Python, gestion des erreurs, configuration de l'environnement, débogage.",
+          "Mise en œuvre de bases de données sécurisées avec Python/SQL.",
+          "Documentation des applications, réduction des erreurs techniques, contrôle du code Sentry, déploiement, méthodologie CI/CD, architecture modulaire Python."
+        ]
+      },
+      "job_type": "FORMATION",
+      "work_type": "REMOTE"
+    },
+    {
+      "company_name": "",
+      "position": {
+        "en": "weekly mentor sessions with Django and OpenClassrooms Mentor",
+        "de": "wöchentliche Mentorensitzungen mit Django und OpenClassrooms Mentor",
+        "fr": "sessions hebdomadaires de mentorat avec Django et OpenClassrooms Mentor"
+      },
+      "start_date": "2022-11-21",
+      "end_date": "2024-11-21",
+      "address": {
+        "en": "Rennes (FRANCE)",
+        "de": "Rennes (FRANKREICH)",
+        "fr": "Rennes (FRANCE)"
+      },
+      "description": {
+        "en": [
+          "Distance learning mentor sessions with an OpenClassrooms mentor.",
+          "Utilizing the sessions to seek guidance and clarification on OpenClassrooms projects, ensuring comprehension and successful completion of assignments.",
+          "Received personalized support and mentorship to navigate through the projects, benefiting from expert guidance and practical insights to enhance project understanding and execution."
+        ],
+        "de": [
+          "Teilnahme an Fernunterrichtssitzungen mit einem OpenClassrooms-Mentor.",
+          "Ich nutzte die Sitzungen, um mich bei OpenClassrooms-Projekten beraten zu lassen und um sicherzustellen, dass ich die Aufgaben verstehe und erfolgreich abschließen kann.",
+          "Erhielt persönliche Unterstützung und Betreuung bei der Durchführung der Projekte und profitierten von fachkundiger Anleitung und praktischen Einblicken, um das Verständnis und die Durchführung der Projekte zu verbessern."
+        ],
+        "fr": [
+          "J'ai participé à des sessions d'apprentissage à distance avec un mentor OpenClassrooms.",
+          "J'ai utilisé ces sessions pour demander des conseils et des éclaircissements sur les projets OpenClassrooms, en m'assurant de la compréhension et de la réussite des travaux.",
+          "Bénéficié d'un soutien personnalisé et d'un mentorat pour mener à bien les projets, en profitant de conseils d'experts et d'idées pratiques pour améliorer la compréhension et l'exécution des projets."
+        ]
+      },
+      "job_type": "MENTORING",
+      "work_type": "REMOTE"
+    },
+    {
+      "company_name": "",
+      "position": {
+        "en": "weekly mentor sessions with Django Mentor",
+        "de": "wöchentliche Mentorensitzungen mit Django Mentor",
+        "fr": "sessions hebdomadaires de mentorat avec Django Mentor"
+      },
+      "start_date": "2023-09-01",
+      "end_date": "2024-07-01",
+      "address": {
+        "en": "Rennes (FRANCE)",
+        "de": "Rennes (FRANKREICH)",
+        "fr": "Rennes (FRANCE)"
+      },
+      "description": {
+        "en": [
+          "Comprehensive understanding of Django's core principles, including its processes, functionalities, and best practices.",
+          "Received personalized guidance and support in effectively utilizing Django for project development, including practical insights into implementation strategies and optimization techniques.",
+          "Additionally, received assistance with OpenClassrooms projects to deepen comprehension and refine project execution, enhancing overall learning outcomes and skill proficiency."
+        ],
+        "de": [
+          "Umfassendes Verständnis der Kernprinzipien von Django, einschließlich seiner Prozesse, Funktionalitäten und Best Practices.",
+          "Erhielt persönliche Anleitung und Unterstützung bei der effektiven Nutzung von Django für die Projektentwicklung, einschließlich praktischer Einblicke in Implementierungsstrategien und Optimierungstechniken.",
+          "Darüber hinaus erhielt ich Unterstützung bei OpenClassrooms-Projekten, um das Verständnis zu vertiefen und die Projektdurchführung zu verfeinern, was die allgemeinen Lernergebnisse und Fähigkeiten verbesserte."
+        ],
+        "fr": [
+          "Compréhension globale des principes fondamentaux de Django, y compris ses processus, ses fonctionnalités et ses meilleures pratiques.",
+          "Conseils personnalisés et soutien dans l'utilisation efficace de Django pour le développement de projets, y compris des aperçus pratiques sur les stratégies de mise en œuvre et les techniques d'optimisation.",
+          "En outre, j'ai bénéficié d'une assistance pour les projets OpenClassrooms afin d'approfondir la compréhension et d'affiner l'exécution du projet, ce qui a permis d'améliorer les résultats globaux de l'apprentissage et la maîtrise des compétences."
+        ]
+      },
+      "job_type": "MENTORING",
+      "work_type": "REMOTE"
+    },
+    {
+      "company_name": "Ironhack Paris",
+      "position": {
+        "en": "Web development bootcamp",
+        "de": "Bootcamp für Webentwicklung",
+        "fr": "Développement web bootcamp"
+      },
+      "start_date": "2019-08-01",
+      "end_date": "2019-10-01",
+      "address": {
+        "en": "Paris (FRANCE)",
+        "de": "Paris (FRANKREICH)",
+        "fr": "Paris (FRANCE)"
+      },
+      "description": {
+        "en": [
+          "Completed a rigorous 3-month intensive bootcamp focused on becoming a proficient Full Stack Web Developer.",
+          "Comprehensive instruction covering fundamental concepts and tools essential for full stack web  development.",
+          "Actively engaged in hands-on learning, culminating in the creation of personalized projects to solidify understanding and apply newly acquired skills."
+        ],
+        "de": [
+          "Abschluss einer anspruchsvollen 3-monatigen Intensiv-Bootcamps mit dem Ziel, ein kompetenter Full Stack Web Developer zu werden.",
+          "Umfassender Unterricht zu grundlegenden Konzepten und Tools, die für die Full-Stack-Webentwicklung unerlässlich sind.",
+          "Aktives praktisches Lernen, das in der Erstellung individueller Projekte endet, um das Verständnis zu festigen und neu erworbene Fähigkeiten anzuwenden."
+        ],
+        "fr": [
+          "J'ai suivi un rigoureux bootcamp intensif de 3 mois visant à devenir un développeur Web Full Stack compétent.",
+          "Une formation complète couvrant les concepts fondamentaux et les outils essentiels pour le développement web complet.",
+          "S'engager activement dans un apprentissage pratique, culminant avec la création de projets personnalisés pour consolider la compréhension et appliquer les compétences nouvellement acquises."
+        ]
+      },
+      "job_type": "FORMATION",
+      "work_type": "ON_SITE"
+    },
+    {
+      "company_name": "Walther-Rathenau-Gewerbeschule",
+      "position": {
+        "en": "Chemicals Technical Assistant",
+        "de": "Chemisch Technische Assistentin",
+        "fr": "Assistant Technique en Chimie"
+      },
+      "start_date": "2006-09-01",
+      "end_date": "2008-06-01",
+      "address": {
+        "en": "Freiburg im Breisgau (GERMANY)",
+        "de": "Freiburg im Breisgau (FRANKREICH)",
+        "fr": "Fribourg-en-Brisgau (ALLEMANGE)"
+      },
+      "description": {
+        "en": [
+          "School education.",
+          "Planning and carrying out chemical analyses and tests.",
+          "Analysis of measurement results.",
+          "Biological and chemical analyses."
+        ],
+        "de": [
+          "Schulische Ausbildung.",
+          "Planung und Durchführung von chemischen Analysen und Tests.",
+          "Analyse der Messergebnisse.",
+          "Biologische und chemische Analysen"
+        ],
+        "fr": [
+          "Formation scolaire.",
+          "Planification et réalisation d'analyses et d'essais chimiques.",
+          "Planning and carrying out chemical analyses and tests.",
+          "Analyses biologiques et chimiques."
+        ]
+      },
+      "job_type": "FORMATION",
+      "work_type": "ON_SITE"
+    }
+  ]
+}

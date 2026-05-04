@@ -1,131 +1,213 @@
-from django.core.exceptions import ValidationError
 from django.db import models
+from django.db.models import F, Q
+from django.db.models.functions import Lower
 from django.utils.translation import gettext_lazy as _
-from tinymce.models import HTMLField
 
+from utils.database.managers import ActiveManager
 
-class DoriDoro(models.Model):
-    user = models.ForeignKey(
-        "accounts.User",
-        null=True,
-        on_delete=models.SET_NULL,
-        related_name="doro_user",
-        verbose_name=_("user instance"),
-    )
-    phone = models.CharField(max_length=14)
-    address = models.CharField(max_length=150)
-    profession = models.CharField(max_length=150)
-    introduction = HTMLField()
-    dream_job = HTMLField(verbose_name=_("dream job description"))
-    free_time = HTMLField(verbose_name=_("after work description"))
-
-    class Meta:
-        verbose_name_plural = "DoriDoro"
-
-    def __str__(self):
-        return self.get_full_name
-
-    @property
-    def get_full_name(self):
-        return f"{self.user.first_name} {self.user.last_name}"
+# --- CONSTANTS: Language model ---
+LANGUAGE_CHOICES = ["A1", "A2", "B1", "B2", "C1", "C2", "Native"]
+ALL_JOB_TYPE_CHOICES = [
+    "FREELANCE",
+    "EMPLOYED",
+    "APPRENTICESHIP",
+    "FORMATION",
+    "MENTORING",
+    "PARENTAL_LEAVE",
+    "SABBATICAL",
+]
+SELECTED_JOB_TYPE_CHOICES = ["EMPLOYED", "APPRENTICESHIP", "FORMATION"]
 
 
 class Achievement(models.Model):
-    title = models.CharField(max_length=100)
-    content = models.TextField()
-    published = models.BooleanField(
-        default=True, verbose_name=_("achievement visible on website")
-    )
+    """A personal challenge or milestone shown in the about section."""
+
+    title = models.CharField(max_length=300)
+    content = models.CharField(max_length=500)
+
+    active = models.BooleanField(default=True)
+    created = models.DateTimeField(auto_now_add=True)
+    updated = models.DateTimeField(auto_now=True)
+
+    # --- Managers ---
+    objects = models.Manager()
+    active_achievements = ActiveManager()
+
+    class Meta:
+        constraints = [
+            models.UniqueConstraint(
+                Lower("title"),
+                name="uq_achieve_low_title",
+                violation_error_code="unique",
+                violation_error_message="An achievement already exists.",
+            )
+        ]
+        ordering = [Lower("title"), "pk"]
 
     def __str__(self):
-        return f"{self.title} ({self.published})"
+        return f"{self.title} ({self.active})"
+
+    def _normalize_fields(self):
+        if self.title:
+            self.title = self.title.strip()
+
+    def save(self, *args, **kwargs):
+        """Pass clean=False to skip full_clean(), e.g. in management commands."""
+        clean = kwargs.pop("clean", True)
+        self._normalize_fields()
+        if clean:
+            self.full_clean()
+        super().save(*args, **kwargs)
 
 
 class Degree(models.Model):
+    """An academic or professional qualification shown on the resume."""
+
     organization = models.CharField(max_length=100)
     degree = models.CharField(max_length=100)
-    url = models.URLField(max_length=250, null=True, blank=True)
-    published = models.BooleanField(
-        default=True, verbose_name=_("degree visible on website")
-    )
+    url = models.URLField(max_length=250, blank=True, default="")
 
-    def __str__(self):
-        return f"{self.organization} ({self.published})"
+    active = models.BooleanField(default=True)
+    created = models.DateTimeField(auto_now_add=True)
+    updated = models.DateTimeField(auto_now=True)
 
-
-class Fact(models.Model):
-    title = models.CharField(max_length=100)
-    content = models.TextField()
-    published = models.BooleanField(
-        default=True, verbose_name=_("fact visible on website")
-    )
-
-    def __str__(self):
-        return f"{self.title} ({self.published})"
-
-
-class Hobby(models.Model):
-    name = models.CharField(max_length=100)
-    published = models.BooleanField(
-        default=True, verbose_name=_("hobby visible on website")
-    )
+    objects = models.Manager()
+    active_degrees = ActiveManager()
 
     class Meta:
-        verbose_name_plural = "hobbies"
+        constraints = [
+            models.UniqueConstraint(
+                Lower("organization"),
+                Lower("degree"),
+                name="uq_degree_low_orga_degree",
+                violation_error_code="unique",
+                violation_error_message="This organization-degree combination exists already.",
+            ),
+        ]
+        ordering = [Lower("organization"), "pk"]
 
     def __str__(self):
-        return f"{self.name} ({self.published})"
+        return f"{self.organization} ({self.active})"
+
+    def _normalize_fields(self):
+        if self.organization:
+            self.organization = self.organization.strip()
+        if self.degree:
+            self.degree = self.degree.strip()
+        if self.url:
+            self.url = self.url.strip()
+
+    def save(self, *args, **kwargs):
+        """Pass clean=False to skip full_clean(), e.g. in management commands."""
+        clean = kwargs.pop("clean", True)
+        self._normalize_fields()
+        if clean:
+            self.full_clean()
+        super().save(*args, **kwargs)
 
 
 class Job(models.Model):
-    class JobType(models.TextChoices):
+    """A work experience entry for the resume timeline."""
+
+    class JobTypeChoices(models.TextChoices):
         FREELANCE = "FREELANCE", _("Freelance")
         EMPLOYED = "EMPLOYED", _("Employed")
         APPRENTICESHIP = "APPRENTICESHIP", _("Apprenticeship")
         FORMATION = "FORMATION", _("Formation")
         MENTORING = "MENTORING", _("Mentoring")
-        PARENTAL_LEAVE = "PARENTAL_LEAVE", _("Parental_Leave")
+        PARENTAL_LEAVE = "PARENTAL_LEAVE", _("Parental Leave")
         SABBATICAL = "SABBATICAL", _("Sabbatical")
 
-    company_name = models.CharField(
-        max_length=200,
-        blank=True,
-        null=True,
-    )
+    class WorkTypeChoices(models.TextChoices):
+        ON_SITE = "ON_SITE", _("On site")
+        HYBRID = "HYBRID", _("Hybrid")
+        REMOTE = "REMOTE", _("Remote")
+
+    company_name = models.CharField(max_length=200, blank=True, default="")
+    address = models.CharField(max_length=100, blank=True, default="")
     position = models.CharField(max_length=200)
+    description = models.JSONField(default=list)
+    job_type = models.CharField(max_length=14, choices=JobTypeChoices.choices)
+    work_type = models.CharField(max_length=7, choices=WorkTypeChoices.choices)
+
     start_date = models.DateField(verbose_name=_("start date"))
     end_date = models.DateField(blank=True, null=True, verbose_name=_("end date"))
     until_present = models.BooleanField(default=False, verbose_name=_("present"))
-    address = models.CharField(max_length=100, blank=True, null=True)
-    job_type = models.CharField(
-        max_length=14, choices=JobType, verbose_name=_("job type")
-    )
-    description = models.TextField()
-    published = models.BooleanField(
-        default=True, verbose_name=_("job visible on website")
-    )
-    skill = models.ManyToManyField("projects.Skill", related_name="job_skills")
-    links = models.ManyToManyField("projects.Link", related_name="job_links")
+
+    active = models.BooleanField(default=True)
+    created = models.DateTimeField(auto_now_add=True)
+    updated = models.DateTimeField(auto_now=True)
+
+    objects = models.Manager()
+    active_jobs = ActiveManager()
+
+    class Meta:
+        constraints = [
+            models.UniqueConstraint(
+                Lower("position"),
+                Lower("company_name"),
+                "start_date",
+                name="uq_job_position_company_start",
+                violation_error_code="unique",
+                violation_error_message="This position-company-start combination exists already.",
+            ),
+            models.CheckConstraint(
+                condition=Q(until_present=True) | Q(end_date__isnull=False),
+                name="ck_job_present_end",
+                violation_error_code="check",
+                violation_error_message="End date must be provided if the job is not ongoing.",
+            ),
+            models.CheckConstraint(
+                condition=~Q(until_present=True) | Q(end_date__isnull=True),
+                name="ck_job_present_no_end",
+                violation_error_code="check",
+                violation_error_message="If the job is ongoing, the end date should be empty.",
+            ),
+            models.CheckConstraint(
+                condition=Q(job_type__in=ALL_JOB_TYPE_CHOICES),
+                name="ck_job_type",
+                violation_error_code="check",
+                violation_error_message="This job type does not exist.",
+            ),
+            models.CheckConstraint(
+                condition=~Q(job_type__in=SELECTED_JOB_TYPE_CHOICES)
+                | ~Q(company_name=""),
+                name="ck_job_selected_type_company",
+                violation_error_code="check",
+                violation_error_message="With this job_type a company_name has to be filled out.",
+            ),
+            models.CheckConstraint(
+                condition=Q(end_date__gte=F("start_date")) | Q(end_date__isnull=True),
+                name="ck_job_start_before_end",
+                violation_error_code="check",
+                violation_error_message="End date should be after start date.",
+            ),
+        ]
+        ordering = ["start_date", "pk"]
 
     def __str__(self):
-        return f"{self.job_type} ({self.company_name} - {self.published})"
+        return f"{self.job_type} ({self.company_name} - {self.active})"
 
-    def clean(self):
-        super().clean()
+    def _normalize_fields(self):
+        if self.position:
+            self.position = self.position.strip()
+        if self.company_name:
+            self.company_name = self.company_name.strip()
+        if self.address:
+            self.address = self.address.strip()
 
-        if self.until_present and self.end_date is not None:
-            raise ValidationError(
-                _("If the job is ongoing, the end date should be empty.")
-            )
-        if not self.until_present and self.end_date is None:
-            raise ValidationError(
-                _("End date must be provided if the job is not ongoing.")
-            )
-        if self.end_date and self.start_date and self.end_date < self.start_date:
-            raise ValidationError(_("End date should be after start date."))
+    def save(self, *args, **kwargs):
+        """Pass clean=False to skip full_clean(), e.g. in management commands."""
+        clean = kwargs.pop("clean", True)
+        self._normalize_fields()
+        if clean:
+            self.full_clean()
+        super().save(*args, **kwargs)
 
 
 class Language(models.Model):
+    """A spoken language with a CEFR proficiency level."""
+
     class LevelChoices(models.TextChoices):
         A1 = "A1", _("A1 - Beginner")
         A2 = "A2", _("A2 - Elementary")
@@ -137,43 +219,85 @@ class Language(models.Model):
 
     name = models.CharField(max_length=50)
     level = models.CharField(
-        max_length=6,
-        choices=LevelChoices,
-        default=LevelChoices.A1,
+        max_length=6, choices=LevelChoices.choices, default=LevelChoices.A1
     )
-    published = models.BooleanField(
-        default=True, verbose_name=_("language visible on website")
-    )
+
+    active = models.BooleanField(default=True)
+    created = models.DateTimeField(auto_now_add=True)
+    updated = models.DateTimeField(auto_now=True)
+
+    objects = models.Manager()
+    active_languages = ActiveManager()
+
+    class Meta:
+        constraints = [
+            models.UniqueConstraint(
+                Lower("name"),
+                name="uq_lang_low_name",
+                violation_error_code="unique",
+                violation_error_message="This language already exists.",
+            ),
+            models.CheckConstraint(
+                condition=Q(level__in=LANGUAGE_CHOICES),
+                name="ck_lang_level_valid",
+                violation_error_code="check",
+                violation_error_message="This language level does not exist.",
+            ),
+        ]
+        ordering = [Lower("name"), "pk"]
 
     def __str__(self):
-        return f"{self.name} ({self.level} - {self.published})"
+        return f"{self.name} ({self.level} - {self.active})"
 
+    def _normalize_fields(self):
+        if self.name:
+            self.name = self.name.strip()
 
-class Reference(models.Model):
-    name = models.CharField(max_length=150)
-    profession = models.CharField(max_length=250)
-    email = models.EmailField(
-        blank=True, null=True, max_length=250, verbose_name=_("email address")
-    )
-    phone = models.CharField(blank=True, null=True, max_length=14)
-    language = models.CharField(max_length=100, verbose_name=_("spoken language"))
-    published = models.BooleanField(
-        default=True, verbose_name=_("reference visible on website")
-    )
-
-    def __str__(self):
-        return f"{self.name} ({self.published})"
+    def save(self, *args, **kwargs):
+        """Pass clean=False to skip full_clean(), e.g. in management commands."""
+        clean = kwargs.pop("clean", True)
+        self._normalize_fields()
+        if clean:
+            self.full_clean()
+        super().save(*args, **kwargs)
 
 
 class SocialMedia(models.Model):
+    """A social media profile link displayed on the home page."""
+
     name = models.CharField(max_length=150)
-    url = models.URLField(max_length=250, verbose_name=_("url of social media"))
-    published = models.BooleanField(
-        default=True, verbose_name=_("social media visible on website")
-    )
+    url = models.URLField(max_length=250)
+
+    active = models.BooleanField(default=True)
+    created = models.DateTimeField(auto_now_add=True)
+    updated = models.DateTimeField(auto_now=True)
+
+    objects = models.Manager()
+    active_social_medias = ActiveManager()
 
     class Meta:
-        verbose_name_plural = "SocialMedia"
+        constraints = [
+            models.UniqueConstraint(
+                Lower("name"),
+                name="uq_social_media_low_name",
+                violation_error_code="unique",
+                violation_error_message="This social media already exists.",
+            ),
+        ]
+        ordering = [Lower("name"), "pk"]
+        verbose_name_plural = "Social Media"
 
     def __str__(self):
-        return f"{self.name} ({self.published})"
+        return f"{self.name} ({self.active})"
+
+    def _normalize_fields(self):
+        if self.name:
+            self.name = self.name.strip()
+
+    def save(self, *args, **kwargs):
+        """Pass clean=False to skip full_clean(), e.g. in management commands."""
+        clean = kwargs.pop("clean", True)
+        self._normalize_fields()
+        if clean:
+            self.full_clean()
+        super().save(*args, **kwargs)

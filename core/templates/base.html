@@ -87,6 +87,14 @@
     <!-- Navbar - End -->
   </div>
 
+  <div class="container">
+    <!-- Alerts/Messages - Start -->
+    {% if messages %}
+      {% include 'messages.html' %}
+    {% endif %}
+    <!-- Alerts/Messages - End -->
+  </div>
+
   {% block content %}
   {% endblock %}
 
@@ -112,7 +120,11 @@
       <input type="submit" value="Go">
     </form>
     <!-- End of Language switch form -->
-    Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a> and modified by DoriDoro
+    &copy; {% now "Y" %} Dorothea Reher &nbsp;&middot;&nbsp;
+    <a href="{% url 'impressum' %}">Impressum</a> &nbsp;&middot;&nbsp;
+    <a href="{% url 'privacy' %}">Privacy Policy</a>
+    <br>
+    Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a> and modified by Dorothea Reher
   </div>
 
   <!-- Vendor JS Files -->

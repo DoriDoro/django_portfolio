@@ -10,20 +10,22 @@ __pycache__/
 
 # virtual environment
 venv
+.*venv
 
 # IDE
 .idea
 
 # locale staticfiles
 core/staticfiles
+core/media
 
 # Local configuration
 settings-local.py
 todo.txt
-
-htmlcov/
-.coverage
-.coverage.*
+*.sqlite3
+.env
+*backup.json
+.claude
 
 # Sphinx build directories
 /docs/_build/

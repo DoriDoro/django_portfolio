@@ -1,11 +1,6 @@
 from django.urls import path
 
-from doridoro.views import (
-    IndexView,
-    AboutView,
-    SkillsView,
-    ResumeView,
-)
+from doridoro.views import IndexView, AboutView, SkillsView, ResumeView
 
 app_name = "doridoro"
 

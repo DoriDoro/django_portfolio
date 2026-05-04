@@ -1,5 +1,8 @@
+secret_key:
+	python manage.py shell -c 'from django.core.management import utils; print(utils.get_random_secret_key())'
+
 data:
-	python manage.py create_data
+	python manage.py data_create
 
 shell:
 	python manage.py shell

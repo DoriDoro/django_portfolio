@@ -1,140 +1,119 @@
 {% extends 'base.html' %}
 {% load i18n static  %}
 
+{% block title %} - About Me {% endblock %}
+
 {% block content %}
 <!-- ======= About Me Section======= -->
-<section class="about section-show">
-  <div class="about-me container">
+  <section class="about section-show">
+    <div class="about-me container">
 
-    <div class="row">
-      <div class="col pt-4 pt-lg-0 content">
-        <div class="section-title">
-          <h2>{% trans "About" %}</h2>
-        </div>
-        <h3 class="mb-4 ms-5">{{ doridoro.profession }}</h3>
-        <hr>
-        <div class="row">
-          <div class="col">
-            <div class="section-title">
-              <h2>{% trans "Contact Details" %}</h2>
-            </div>
-            <ul>
-              <li><i class="bi bi-chevron-right"></i> <strong>{% trans "PHONE" %}:</strong>
-                <span>{{ doridoro.phone }}</span>
-              </li>
-              <li><i class="bi bi-chevron-right"></i> <strong>{% trans "CITY" %}:</strong>
-                <span>{{ doridoro.address }}</span>
-              </li>
-              <li><i class="bi bi-chevron-right"></i> <strong>{% trans "EMAIL" %}:</strong>
-                <span>{{ doridoro.user.email }}</span>
-              </li>
-            </ul>
+      <div class="row">
+        <div class="col pt-4 pt-lg-0 content">
+          <div class="section-title">
+            <h2>{% trans "About" %}</h2>
           </div>
-
-          {% if current_positions %}
+          <h3 class="mb-4 ms-5">{{ doridoro.profession }}</h3>
           <hr>
+          <div class="row">
             <div class="col">
               <div class="section-title">
-                <h2>{% trans "Current Positions" %}</h2>
+                <h2>{% trans "Contact Details" %}</h2>
               </div>
               <ul>
-                {% for job in current_positions %}
-                <li><i class="bi bi-chevron-right"></i>
-                  <span>{{ job.0 }}{% if job.1 %} at <strong>{{ job.1 }}</strong>{% endif %}</span>
+                <li><i class="bi bi-chevron-right"></i> <strong>{% trans "PHONE" %}:</strong>
+                  <span>{{ doridoro.phone_number }}</span>
                 </li>
-                {% endfor %}
+                <li><i class="bi bi-chevron-right"></i> <strong>{% trans "CITY" %}:</strong>
+                  <span>{{ doridoro.address }}</span>
+                </li>
+                <li><i class="bi bi-chevron-right"></i> <strong>{% trans "EMAIL" %}:</strong>
+                  <span>{{ doridoro.user.email }}</span>
+                </li>
               </ul>
             </div>
-          {% endif %}
 
-          <hr>
+            {% if current_positions %}
+            <hr>
+              <div class="col">
+                <div class="section-title">
+                  <h2>{% trans "Current Positions" %}</h2>
+                </div>
+                <ul>
+                  {% for job in current_positions %}
+                  <li><i class="bi bi-chevron-right"></i>
+                    <span>{{ job.0 }}{% if job.1 %} at <strong>{{ job.1 }}</strong>{% endif %}</span>
+                  </li>
+                  {% endfor %}
+                </ul>
+              </div>
+            {% endif %}
 
-          <div class="col">
-            <div class="section-title">
-              <h2>{% trans "Who is DoriDoro" %}?</h2>
+            <hr>
+
+            <div class="col">
+              <div class="section-title">
+                <h2>{% trans "Who am I" %}?</h2>
+              </div>
+              <p>
+                {{ doridoro.introduction|safe }}
+              </p>
             </div>
-            <p>
-              {{ doridoro.introduction|safe }}
-            </p>
-          </div>
-
-          <hr>
-
-          <div class="col">
-            <div class="section-title">
-              <h2>{% trans "Free time" %}</h2>
-            </div>
-            <p>
-              {{ doridoro.free_time|safe }}
-            </p>
           </div>
         </div>
       </div>
-    </div>
-  </div><!-- End About Me -->
+    </div><!-- End About Me -->
 
-  <!-- ======= Counts ======= -->
-  <div class="counts container">
-    <div class="row">
-      <div class="col-lg-6 col-md-9 mt-5 mt-md-0">
-        <a href="{% url 'projects:portfolio' %}">
-          <div class="count-box">
-            <span data-purecounter-start="0" data-purecounter-end="{{ projects_count }}"
-                  data-purecounter-duration="1" class="purecounter"></span>
-            <p>{% trans "Projects" %}</p>
-          </div>
-        </a>
-      </div>
+    <!-- ======= Counts ======= -->
+    <div class="counts container">
+      <div class="row">
+        <div class="col-lg-6 col-md-9 mt-5 mt-md-0">
+          <a href="{% url 'projects:portfolio' %}">
+            <div class="count-box">
+              <span data-purecounter-start="0" data-purecounter-end="{{ projects_count }}"
+                    data-purecounter-duration="1" class="purecounter"></span>
+              <p>{% trans "Projects" %}</p>
+            </div>
+          </a>
+        </div>
 
-      <div class="col-lg-6 col-md-9 mt-5 mt-lg-0">
-        <a href="{% url 'doridoro:skills' %}">
-          <div class="count-box">
-            <span data-purecounter-start="0" data-purecounter-end="{{ skills_count }}"
-                  data-purecounter-duration="1" class="purecounter"></span>
-            <p>{% trans "Amount of skills" %}</p>
-          </div>
-        </a>
-      </div>
-    </div>
-  </div><!-- End Counts -->
-
-  <!-- ======= Achievements ======= -->
-  <div class="about-me container">
-    <div class="section-title">
-      <h2>{% trans "Achievements" %}</h2>
-    </div>
-
-    {% if achievements %}
-    <div class="row">
-      <div class="col content">
-        {% for achievement in achievements %}
-        <ul>
-          <li><i class="bi bi-chevron-right"></i>{{ achievement }}</li>
-        </ul>
-        {% endfor %}
-      </div>
-    </div>
-    {% endif %}
-  </div><!-- End Achievements -->
-
-  <!-- ======= Hobbies ======= -->
-  <div class="interests container">
-
-    <div class="section-title">
-      <h2>{% trans "Interests" %}</h2>
-    </div>
-    {% if hobbies %}
-    <div class="row">
-      {% for hobby in hobbies %}
-      <div class="col-lg-3 col-md-4 mt-4">
-        <div class="icon-box">
-          <h3>{{ hobby }}</h3>
+        <div class="col-lg-6 col-md-9 mt-5 mt-lg-0">
+          <a href="{% url 'doridoro:skills' %}">
+            <div class="count-box">
+              <span data-purecounter-start="0" data-purecounter-end="{{ skills_count }}"
+                    data-purecounter-duration="1" class="purecounter"></span>
+              <p>{% trans "Amount of skills" %}</p>
+            </div>
+          </a>
         </div>
       </div>
-      {% endfor %}
-    </div>
-    {% endif %}
-  </div><!-- End Hobbies -->
+    </div><!-- End Counts -->
 
-</section><!-- End About Section -->
+    <!-- ======= Achievements ======= -->
+    <div class="about-me container">
+      <div class="section-title">
+        <h2>{% trans "Achievements" %}</h2>
+      </div>
+
+      {% if achievements %}
+      <div class="row">
+        <div class="col content">
+          {% for achievement in achievements %}
+            {% with title=achievement.0 content=achievement.1 %}
+            <ul>
+              <li>
+                <i class="bi bi-chevron-right"></i>
+                <div>
+                  <strong>{{ title }}</strong>
+                  <p>{{ content }}</p>
+                </div>
+              </li>
+            </ul>
+            {% endwith %}
+          {% endfor %}
+        </div>
+      </div>
+      {% endif %}
+    </div><!-- End Achievements -->
+  </section><!-- End About Section -->
 {% endblock %}

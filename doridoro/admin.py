@@ -1,66 +1,53 @@
 from django.contrib import admin
 from modeltranslation.admin import TranslationAdmin
 
-from doridoro.models import (
-    DoriDoro,
-    Achievement,
-    Degree,
-    Fact,
-    Hobby,
-    Job,
-    Language,
-    Reference,
-    SocialMedia,
-)
-
-
-@admin.register(DoriDoro)
-class DoriDoroAdmin(TranslationAdmin):
-    list_display = ["phone", "address", "profession"]
+from doridoro.models import Achievement, Degree, Job, Language, SocialMedia
+from utils.admin.actions import make_active, make_inactive
 
 
 @admin.register(Achievement)
 class AchievementAdmin(TranslationAdmin):
-    list_display = ["title", "content", "published"]
+    list_display = ["title", "content", "active"]
+    list_filter = ["active"]
+    date_hierarchy = "created"
+    show_facets = admin.ShowFacets.ALWAYS
+    list_per_page = 20
+    actions = [make_active, make_inactive]
 
 
 @admin.register(Degree)
 class DegreeAdmin(admin.ModelAdmin):
-    list_display = ["organization", "degree", "url", "published"]
-
-
-@admin.register(Fact)
-class FactAdmin(TranslationAdmin):
-    list_display = ["title", "content", "published"]
-
-
-@admin.register(Hobby)
-class HobbyAdmin(TranslationAdmin):
-    list_display = ["name", "published"]
+    list_display = ["organization", "degree", "url", "active"]
+    date_hierarchy = "created"
+    show_facets = admin.ShowFacets.ALWAYS
+    list_per_page = 20
+    actions = [make_active, make_inactive]
 
 
 @admin.register(Job)
 class JobAdmin(TranslationAdmin):
-    list_display = [
-        "position",
-        "company_name",
-        "start_date",
-        "until_present",
-        "job_type",
-        "published",
-    ]
+    list_display = ["position", "company_name", "until_present", "job_type", "active"]
+    list_filter = ["active", "job_type"]
+    ordering = ["start_date"]
+    date_hierarchy = "created"
+    show_facets = admin.ShowFacets.ALWAYS
+    list_per_page = 20
+    actions = [make_active, make_inactive]
 
 
 @admin.register(Language)
 class LanguageAdmin(TranslationAdmin):
-    list_display = ["name", "level", "published"]
-
-
-@admin.register(Reference)
-class ReferenceAdmin(TranslationAdmin):
-    list_display = ["name", "email", "published"]
+    list_display = ["name", "level", "active"]
+    date_hierarchy = "created"
+    show_facets = admin.ShowFacets.ALWAYS
+    list_per_page = 20
+    actions = [make_active, make_inactive]
 
 
 @admin.register(SocialMedia)
 class SocialMediaAdmin(admin.ModelAdmin):
-    list_display = ["name", "url", "published"]
+    list_display = ["name", "url", "active"]
+    date_hierarchy = "created"
+    show_facets = admin.ShowFacets.ALWAYS
+    list_per_page = 20
+    actions = [make_active, make_inactive]

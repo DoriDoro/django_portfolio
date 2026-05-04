@@ -1,69 +1,75 @@
 {% extends 'base.html' %}
-{% load i18n static  %}
+{% load i18n static %}
+
+{% block title %} - My Skills {% endblock %}
 
 {% block content %}
 <!-- ======= Skills ======= -->
-<section id="about" class="about section-show">
-  <div class="skills container">
-    <div class="section-title mb-4">
-      <h2>{% trans "Skills" %}</h2>
-      <span>{% trans '"Bring organisation talent, programming skills and sometimes biscuits to work."' %}</span>
-    </div>
-    <div class="section-title">
-      <h2>{% trans "Programming Skills" %}</h2>
-    </div>
-    <div class="row">
-      {% for programming_skill in programming_skills_published %}
-        <p class="skill">{{ programming_skill }}</p>
-      {% endfor %}
-    </div>
-    <hr>
-    <div class="section-title mt-5">
-      <h2>{% trans "Other Skills" %}</h2>
-    </div>
-    <div class="row">
-      {% for other_skill in other_skills_published %}
-        <p class="skill">{{ other_skill }}</p>
-      {% endfor %}
-    </div>
-    <hr>
-    <div class="section-title mt-5">
-      <h2>{% trans "Soft Skills" %}</h2>
-    </div>
-    <div class="row">
-      {% for soft_skill in soft_skills %}
-        <p class="skill">{{ soft_skill.0 }}</p>
-      {% endfor %}
-    </div>
-    <hr>
-    <div class="section-title mt-5">
-      <h2>{% trans "Strength" %}</h2>
-    </div>
-    <div class="row">
-      {% for s in strength %}
-        <p class="skill">{{ s.0 }}</p>
-      {% endfor %}
-    </div>
-    <hr>
-    <div class="section-title mt-5">
-      <h2>{% trans "Languages" %}</h2>
-    </div>
-    <div class="row">
-    {% for language in languages %}
-      <p class="skill">{{ language.0 }}: {{ language.1 }}</p>
-    {% endfor %}
-    </div>
-    <hr>
-    <div class="section-title mt-5">
-      <h2>{% trans "My dream job" %}</h2>
-    </div>
-    <div class="row mx-4">
-      <div class="col pt-4 pt-lg-0 content">
-        <p>
-          {{ doridoro|safe }}
-        </p>
+  <section id="about" class="about section-show">
+    <div class="skills container">
+      <div class="section-title mb-4">
+        <h2>{% trans "Skills" %}</h2>
+        <span>{{ doridoro.motto }}</span>
+      </div>
+      <div class="section-title">
+        <h2>{% trans "Programming Skills" %}</h2>
+      </div>
+      <div class="row">
+        {% for sub_cat, names in programming_skills.items %}
+        <div class="col-12 mt-1 d-flex flex-wrap align-items-baseline">
+          <h6 class="mb-0 me-2 fw-semibold">{{ sub_cat }}:</h6>
+          {% for name in names %}
+            <span class="skill">{{ name }}</span>
+          {% endfor %}
+        </div>
+        {% endfor %}
+
+      </div>
+      <hr>
+      <div class="section-title mt-5">
+        <h2>{% trans "Soft Skills" %}</h2>
+      </div>
+      <div class="row">
+        {% for soft in soft_skills %}
+          <p class="skill">{{ soft }}</p>
+        {% endfor %}
+      </div>
+      <hr>
+      <div class="section-title mt-5">
+        <h2>{% trans "Strength" %}</h2>
+      </div>
+      <div class="row">
+        {% for s in strength %}
+          {% with name=s.0 content=s.1 %}
+            <div class="col-12 skill mt-2">
+              <strong>{{ name }}</strong>
+              <p class="mb-0">{{ content }}</p>
+            </div>
+          {% endwith %}
+        {% endfor %}
+      </div>
+      <hr>
+      <div class="section-title mt-5">
+        <h2>{% trans "Languages" %}</h2>
+      </div>
+      <div class="row">
+        {% for language in languages %}
+          {% with name=language.0 level=language.1 %}
+            <p class="skill">{{ name }}: {{ level }}</p>
+          {% endwith %}
+        {% endfor %}
+      </div>
+      <hr>
+      <div class="section-title mt-5">
+        <h2>{% trans "My dream job" %}</h2>
+      </div>
+      <div class="row mx-4">
+        <div class="col pt-4 pt-lg-0 content">
+          <p>
+            {{ doridoro.more_details|safe }}
+          </p>
+        </div>
       </div>
     </div>
-  </div>
-</section><!-- End Skills Section -->
+  </section><!-- End Skills Section -->
 {% endblock %}

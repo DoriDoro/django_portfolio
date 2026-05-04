@@ -1,18 +1,13 @@
 from modeltranslation.translator import register, TranslationOptions
 
-from projects.models import Project, Link, Skill
+from projects.models import Project, Skill
 
 
 @register(Project)
 class ProjectTranslationOptions(TranslationOptions):
-    fields = ("title", "legend", "keywords", "introduction", "experience", "future")
-
-
-@register(Link)
-class LinkTranslationOptions(TranslationOptions):
-    fields = ("legend",)
+    fields = ("skill_set", "introduction", "experience", "future")
 
 
 @register(Skill)
 class SkillTranslationOptions(TranslationOptions):
-    fields = ("name",)
+    fields = ("name", "content")

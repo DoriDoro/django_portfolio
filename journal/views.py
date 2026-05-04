@@ -1,42 +1,72 @@
+from django.db.models import Case, CharField, Prefetch, Value, When
+from django.db.models.functions import Lower
 from django.views.generic import ListView, DetailView
 
-from journal.models import Journal
+from journal.models import Journal, Link
+
+# -- View Constants --
+CATEGORY_NAMES = {
+    "BLOG": "Doro's Python Life in Words Journal",
+    "EPIC_EVENTS": "EpicEvents Journal",
+    "JOURNAL": "Journal",
+    "OC_LETTINGS": "Orange Country Lettings Journal",
+    "PORTFOLIO": "Django Portfolio Journal",
+    "SOFT_DESK": "SoftDesk Journal",
+}
 
 
 class JournalListView(ListView):
+    """Lists all active published journal entries with category filter data."""
+
     model = Journal
     template_name = "journal.html"
     context_object_name = "entries"
-    queryset = Journal.journal_published.all()
+
+    # -- Methods --
+    def get_queryset(self):
+        return (
+            Journal.active_published_journals.annotate(
+                category_display=Case(
+                    *[When(category=k, then=Value(v)) for k, v in CATEGORY_NAMES.items()],
+                    default=Value(""),
+                    output_field=CharField(),
+                )
+            )
+            .only("id", "name", "slug", "category", "created")
+            .order_by("-created", "-pk")
+        )
 
     def get_context_data(self, **kwargs):
-        context = super().get_context_data(**kwargs)
-        context["filter_entries"] = self.get_filter_entries()
-        return context
-
-    def get_filter_entries(self):
-        filter_entries = set()
-        for entry in self.queryset.filter(category__name__isnull=False).values_list(
-            "category__name", "category__slug"
-        ):
-            filter_entries.add(entry)
-        return filter_entries
+        ctx = super().get_context_data(**kwargs)
+        seen = dict.fromkeys(e.category for e in ctx["entries"])
+        ctx["filter_categories"] = [Journal.CategoryChoices(c).label for c in seen]
+        return ctx
 
 
 class JournalDetailView(DetailView):
+    """Shows a single active published journal entry with its prefetched links."""
+
     model = Journal
     template_name = "journal_details.html"
+    context_object_name = "entry"
 
-    def get_context_data(self, **kwargs):
-        context = super().get_context_data(**kwargs)
-        context["platform_links"] = self.get_links()
-        return context
-
-    def get_links(self):
-        dictionary_links = {}
-        for link in self.object.links.all():
-            platform_name = link.platform.name
-            if platform_name not in dictionary_links:
-                dictionary_links[platform_name] = []
-            dictionary_links[platform_name].append((link.title, link.url))
-        return dictionary_links
+    # -- Methods --
+    def get_queryset(self):
+        prefetch_links = Prefetch(
+            "links",
+            queryset=Link.active_links.select_related("platform")
+            .only("id", "title", "url", "platform__id", "platform__name")
+            .order_by(Lower("title"), "pk"),
+            to_attr="links_list",
+        )
+        return (
+            Journal.active_published_journals.prefetch_related(prefetch_links)
+            .annotate(
+                category_display=Case(
+                    *[When(category=k, then=Value(v)) for k, v in CATEGORY_NAMES.items()],
+                    default=Value(""),
+                    output_field=CharField(),
+                )
+            )
+            .only("id", "name", "category", "content")
+        )
