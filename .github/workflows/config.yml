@@ -13,6 +13,7 @@ jobs:
     name: Django Project
     runs-on: ubuntu-latest
     env:
+      PROJECT_NAME: ${{ secrets.PROJECT_NAME }}
       SECRET_KEY: ${{ secrets.SECRET_KEY }}
       ALLOWED_HOSTS: ${{ secrets.ALLOWED_HOSTS }}
       CSRF_TRUSTED_ORIGINS: ${{ secrets.CSRF_TRUSTED_ORIGINS }}
@@ -45,7 +46,7 @@ jobs:
 
     - name: Run Django migrations
       run: |
-        python manage.py migrate
+        python manage.py migrate --noinput
 
     - name: Collect static files
       run: |
