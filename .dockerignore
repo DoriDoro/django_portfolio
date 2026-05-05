@@ -6,12 +6,32 @@
 .docker
 
 # Python
-app/__pycache__/
-app/*/__pycache__/
-app/*/*/__pycache__/
-app/*/*/*/__pycache__/
-venv/
+**/__pycache__/
+*.pyc
+*.pyo
+*.pyd
 
-# local
+# Virtual environments
+venv/
+.folio_venv/
+
+# Secrets
+.env
+
+# Local dev
 core/staticfiles
+core/media
 settings-local.py
+*.sqlite3
+project_backup.json
+todo.txt
+
+# CI / tooling
+.github/
+.ruff_cache/
+.claude/
+Makefile
+
+# OS
+.DS_Store
+Thumbs.db
