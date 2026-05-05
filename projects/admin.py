@@ -15,9 +15,10 @@ class ProjectAdmin(TranslationAdmin):
 
 
 @admin.register(Skill)
-class SkillAdmin(admin.ModelAdmin):
+class SkillAdmin(TranslationAdmin):
     list_display = ["name", "category", "active"]
     list_filter = ["category", "active"]
+    search_fields = ["name"]
     date_hierarchy = "created"
     show_facets = admin.ShowFacets.ALWAYS
     list_per_page = 20

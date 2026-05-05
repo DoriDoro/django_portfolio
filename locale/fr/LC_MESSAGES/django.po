@@ -305,8 +305,8 @@ msgid "Languages"
 msgstr "Langues"
 
 #: doridoro/templates/skills.html:64
-msgid "My dream job"
-msgstr "Le métier de mes rêves"
+msgid "How I work"
+msgstr "Ma façon de travailler"
 
 #: journal/models.py:31
 msgid "Draft"
