@@ -30,9 +30,6 @@ class Command(BaseCommand):
             try:
                 Profile.objects.create(
                     user=user,
-                    phone_number_en=data["phone_number"]["en"],
-                    phone_number_de=data["phone_number"]["de"],
-                    phone_number_fr=data["phone_number"]["fr"],
                     address_en=data["address"]["en"],
                     address_de=data["address"]["de"],
                     address_fr=data["address"]["fr"],
@@ -57,10 +54,6 @@ class Command(BaseCommand):
                     )
                 )
             except Exception as e:
-                self.stdout.write(
-                    self.style.ERROR(f"[ERROR] - An unexpected error occurred: {e}")
-                )
+                self.stdout.write(self.style.ERROR(f"[ERROR] - An unexpected error occurred: {e}"))
             else:
-                self.stdout.write(
-                    self.style.SUCCESS("DoriDoro instance successfully created!")
-                )
+                self.stdout.write(self.style.SUCCESS("DoriDoro instance successfully created!"))
